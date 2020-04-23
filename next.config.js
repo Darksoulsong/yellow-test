@@ -1,7 +1,14 @@
-const webpack = require('webpack')
+const aliases = require('./alias-config');
+const webpack = require('webpack');
 
 module.exports = {
   webpack: (config, { dev }) => {
+    const { alias } = config.resolve;
+    config.resolve.alias = {
+      ...alias,
+      ...aliases,
+    };
+
     if (dev) {
       config.module.rules.push({
         test: /\.js$/,
@@ -12,8 +19,8 @@ module.exports = {
           emitWarning: true,
           fix: true,
         },
-      })
+      });
     }
-    return config
-  }
-}
+    return config;
+  },
+};
