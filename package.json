@@ -6,12 +6,15 @@
     "dev": "next dev",
     "lint": "eslint ./components/** ./pages/** -c .eslintrc.json --fix --ext js,jsx",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export",
+    "deploy": "npm run build && npm run export"
   },
   "dependencies": {
     "next": "9.1.1",
     "react": "16.10.2",
     "react-dom": "16.10.2",
+    "react-uid": "^2.2.0",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {

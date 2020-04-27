@@ -41,7 +41,7 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  /* width: 100%; */
 
   .hover-icon {
     transition: opacity 0.3s ease-in-out;
