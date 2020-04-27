@@ -36,7 +36,7 @@ export default function Slider({ children }) {
         <SVG onClick={() => setSlide({ stepIndex: -1 })} name="arrow-icon" />
       </ControlLeft>
       {items}
-      <ControlRight show={activeBoxIndex <= items.length}>
+      <ControlRight show={activeBoxIndex + 1 < items.length}>
         <SVG onClick={() => setSlide({ stepIndex: 1 })} name="arrow-icon" />
       </ControlRight>
 

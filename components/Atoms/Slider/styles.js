@@ -26,7 +26,7 @@ export const ControlLeft = styled.button`
   cursor: pointer;
   top: calc(50% - 44px);
 
-  ${({ theme, show }) =>
+  ${({ show }) =>
     show
       ? `
         opacity: 1;        
@@ -34,6 +34,7 @@ export const ControlLeft = styled.button`
       : `
         opacity: 0;        
         top: calc(50% - 2px);
+        pointer-events: none;
     `}
 
   svg {
