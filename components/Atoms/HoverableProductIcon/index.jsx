@@ -5,7 +5,6 @@ import { Root } from './styles';
 export default function HoverableProductIcon({ iconName }) {
   return (
     <Root className={iconName}>
-      {/* <SVG className="product-icon" name={iconName} /> */}
       <img
         className="product-icon"
         src={`images/${iconName}.svg`}
