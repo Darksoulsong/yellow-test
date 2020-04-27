@@ -1,6 +1,12 @@
 {
   "plugins": [
     [
+      "inline-react-svg",
+      {
+        "name": "[name]-[hash].svg"
+      }
+    ],
+    [
       "styled-components",
       {
         "ssr": true,

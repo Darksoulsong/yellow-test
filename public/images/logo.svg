@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="22.64172mm"
+   height="10.4775mm"
+   viewBox="0 0 22.64172 10.4775"
+   version="1.1"
+   id="svg5024">
+  <defs
+     id="defs5018">
+    <clipPath
+       id="clipPath903"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path901"
+         d="M 0,5947.362 H 1440 V 0 H 0 Z" />
+    </clipPath>
+  </defs>
+  <metadata
+     id="metadata5021">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(88.470087,-107.65156)">
+    <path
+       id="path3605"
+       d="m -80.268004,107.65156 h 0.449792 l -0.185208,0.42333 -4.101042,10.05417 h -0.211667 -2.116666 l 1.217083,-3.06917 -3.095625,-6.985 -0.15875,-0.42333 h 0.449792 1.905 l 2.090208,4.70958 1.878542,-4.70958 h 0.211666 z"
+       class="st1"
+       style="fill:#fbd502;stroke-width:0.26458332" />
+    <path
+       id="path3607"
+       d="m -68.044254,107.65156 h 0.423334 l -0.132292,0.39687 -2.434167,7.54063 h -0.211666 -2.116667 l -1.031875,-3.70417 -1.005417,3.70417 h -0.238125 -2.090208 l -0.07937,-0.21167 -2.487083,-7.72583 h 0.423333 1.931458 l 1.27,4.02166 1.164167,-4.02166 h 0.238125 1.984375 l 1.137708,4.02166 1.296459,-4.02166 h 0.211666 z"
+       class="st1"
+       style="fill:#fbd502;stroke-width:0.26458332" />
+    <path
+       id="path3609"
+       d="m -67.54816,114.83358 c 0,-0.52917 0.370417,-0.89959 0.873125,-0.89959 0.502708,0 0.846667,0.37042 0.846667,0.89959 0,0.52916 -0.3175,0.89958 -0.873125,0.89958 -0.502709,0.0265 -0.846667,-0.37042 -0.846667,-0.89958 z"
+       class="st1"
+       style="fill:#fbd502;stroke-width:0.26458332" />
+  </g>
+  <style
+     id="style3599"
+     type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#FBD502;}
+	.st2{fill:#BBBBBB;}
+	.st3{fill:#4D4E4E;}
+	.st4{fill:#2CBFD1;}
+	.st5{fill:#F9D405;}
+</style>
+</svg>

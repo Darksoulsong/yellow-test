@@ -1,17 +1,14 @@
 import React from 'react';
 import NextApp from 'next/app';
-import { ThemeProvider } from 'styled-components';
-const theme = {
-  primary: 'green',
-};
+import { Theme } from '@components';
 
 export default class App extends NextApp {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <ThemeProvider theme={theme}>
+      <Theme>
         <Component {...pageProps} />
-      </ThemeProvider>
+      </Theme>
     );
   }
 }
