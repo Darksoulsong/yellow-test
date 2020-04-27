@@ -50,10 +50,10 @@ export const Root = styled.div`
       /* width: 90%; */
       /* width: 100%; */
 
-      img {
+      /* img {
         max-width: 100%;
         height: auto;
-      }
+      } */
     }
   }
 
