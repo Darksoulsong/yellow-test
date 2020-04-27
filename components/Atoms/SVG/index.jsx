@@ -7,7 +7,7 @@ import HanddrawnScratches from '../../../public/images/handdrawn-scratches.svg';
 import HanddrawnCircle from '../../../public/images/handdrawn-circle.svg';
 import ExecIcon from '../../../public/images/exec-icon.svg';
 import ExpressIcon from '../../../public/images/express-icon.svg';
-import RPOIcon from '../../../public/images/rpoo-icon.svg';
+import RPOIcon from '../../../public/images/rpo-icon.svg';
 import TechIcon from '../../../public/images/tech-icon.svg';
 import BubblesIcon from '../../../public/images/bubbles-icon.svg';
 import ArrowIcon from '../../../public/images/arrow-icon.svg';
