@@ -31,7 +31,7 @@ export const Item = styled.div`
 
 export const Root = styled.div`
   display: grid;
-  grid-template-columns: 2fr 0.45fr 2fr;
+  grid-template-columns: 2fr 150px 2fr;
 `;
 
 export const Label = styled.div`
