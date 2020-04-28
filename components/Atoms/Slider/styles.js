@@ -19,14 +19,14 @@ export const ControlLeft = styled.button`
   transition: 0.3s ease-in-out;
   transition-property: opacity, top;
   position: absolute;
-  width: 20px;
-  left: -75px;
+  width: 29px;
+  left: -87px;
   background-color: transparent;
   border: 0 none;
   cursor: pointer;
   top: calc(50% - 44px);
 
-  ${({ theme, show }) =>
+  ${({ show }) =>
     show
       ? `
         opacity: 1;        
@@ -34,11 +34,12 @@ export const ControlLeft = styled.button`
       : `
         opacity: 0;        
         top: calc(50% - 2px);
+        pointer-events: none;
     `}
 
   svg {
     fill: ${({ theme }) => theme.colors.black};
-    width: 90%;
+    width: 100%;
   }
 
   &:hover {
@@ -48,7 +49,7 @@ export const ControlLeft = styled.button`
 
 export const ControlRight = styled(ControlLeft)`
   left: unset;
-  right: -75px;
+  right: -87px;
   transform: rotate(180deg);
 `;
 
@@ -73,8 +74,8 @@ export const Content = styled.div`
 
 export const Dot = styled.span`
   display: flex;
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background-color: ${({ theme, active }) =>
     active ? theme.colors.grayDark : theme.colors.white};
@@ -83,12 +84,12 @@ export const Dot = styled.span`
 export const Dots = styled.div`
   position: absolute;
   display: flex;
-  width: 50px;
-  bottom: -20px;
-  right: -8px;
+  /* width: 50px; */
+  bottom: -69px;
+  right: -16px;
   z-index: 2;
 
   ${Dot} {
-    margin: 0 4px;
+    margin: 0 3px;
   }
 `;

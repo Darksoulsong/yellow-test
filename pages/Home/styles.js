@@ -7,28 +7,30 @@ export const Root = styled.div`
 export const Intro = styled.section`
   padding: 0 128px;
   position: relative;
+  margin-bottom: 126px;
 `;
 
 export const IntroHolder = styled.div`
-  width: 450px;
-  padding-top: 60px;
+  width: 465px;
+  padding-top: 100px;
 `;
 
 export const MainHeading = styled.h1`
   em {
-    font-size: 7rem;
+    font-size: 9rem;
     font-style: normal;
     font-weight: 700;
     font-variant: bold;
   }
 
-  font-size: 3.5rem;
+  font-size: 3.9rem;
   font-weight: 300;
+  letter-spacing: 0.97px;
 `;
 
 export const SecondaryHeading = styled.h2`
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 3.9rem;
 `;
 
 export const Video = styled.div`
@@ -36,24 +38,24 @@ export const Video = styled.div`
   top: 0;
   right: 0;
   z-index: -1;
-  width: 70vw;
-  height: 40vw;
   background-color: ${({ theme }) => theme.colors.grayLight};
-  font-size: 6vw;
+  font-size: 6.3rem;
   font-weight: 900;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 77vw;
+  height: 38vw;
 
-  max-width: 800px;
+  /* max-width: 800px;
   max-height: 600px;
   min-width: 790px;
-  min-height: 590px;
+  min-height: 590px; */
 `;
 
 export const IntroFooter = styled.div`
   display: flex;
-  margin-top: 80px;
+  margin-top: 170px;
 `;
 
 export const IntroFooterImage = styled.div`
@@ -61,17 +63,16 @@ export const IntroFooterImage = styled.div`
 `;
 
 export const IntroFooterActions = styled.div`
-  padding-top: 60px;
-  padding-left: 32px;
+  padding-top: 100px;
+  padding-left: 40px;
 
   button {
-    width: 250px;
     margin-bottom: 28px;
   }
 `;
 
 export const SubHeading1 = styled.h2`
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 300;
   text-align: center;
 
@@ -82,8 +83,7 @@ export const SubHeading1 = styled.h2`
 `;
 
 export const Section = styled.section`
-  padding: 60px;
-  margin: 60px;
+  padding: 110px;
 `;
 
 export const Section1 = styled(Section)`
@@ -98,19 +98,24 @@ export const Section1 = styled(Section)`
 export const TransparentLogoHolder = styled.div`
   display: flex;
   align-items: flex-end;
+  position: absolute;
+  bottom: 98px;
+  left: -28px;
+
   svg {
     transform: rotate(-90deg);
   }
 `;
 
 export const HighlightsSection = styled(Section)`
+  padding: 58px 110px 117px;
   position: relative;
   display: flex;
 
   ${SubHeading1} {
     white-space: nowrap;
     width: 560px;
-    font-size: 4.5rem;
+    font-size: 5rem;
     margin-left: 0;
 
     svg {
@@ -138,11 +143,11 @@ export const Circle = styled.div`
 `;
 
 export const List = styled.ul`
-  margin-bottom: 60px;
+  margin-bottom: 63px;
 
   li {
     padding: 8px 0;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 300;
 
     &:not(:last-of-type) {
@@ -152,18 +157,18 @@ export const List = styled.ul`
 `;
 
 export const ListHolder = styled.div`
-  width: 220px;
+  width: 260px;
 `;
 
 export const Circles = styled.div`
   margin-top: 70px;
-  margin-left: 40px;
+  margin-left: 90px;
   margin-bottom: 32px;
   display: grid;
   grid-template-columns: repeat(7, 96px);
 
   ${Circle} {
-    margin: 0 16px;
+    margin: 0 18px;
 
     ${ListHolder} {
       position: relative;
@@ -177,18 +182,22 @@ export const Highlights = styled.div`
 `;
 
 export const TimelineWrapper = styled.div`
-  margin: 60px 0;
+  margin: 60px 0 35px;
 `;
 
 export const ProductsSection = styled(Section)`
   background-color: ${({ theme }) => theme.colors.black};
 
   ${SubHeading1} {
+    font-size: 5rem;
     color: ${({ theme }) => theme.colors.white};
-    margin-bottom: 64px;
+    margin-bottom: 87px;
 
     svg {
-      width: 2.5rem;
+      position: relative;
+      width: 3.5rem;
+      top: -16px;
+      left: -5px;
     }
   }
 `;
@@ -207,7 +216,7 @@ export const ProductsFloatingButton = styled.button`
   height: 64px;
   position: absolute;
   padding: 0 24px;
-  right: -60px;
+  right: -110px;
   top: 0;
   color: ${({ theme }) => theme.colors.white};
   font-size: 1.6rem;
@@ -217,26 +226,31 @@ export const ProductsFloatingButton = styled.button`
   border-bottom-left-radius: 16px;
 `;
 
-export const ExperienceSection = styled.div`
+export const ExperienceSection = styled(Section)`
+  padding-bottom: 75px;
+
   ${SubHeading1} {
-    font-size: 10rem;
+    font-size: 10.5rem;
+    letter-spacing: 0.26rem;
   }
 `;
 
 export const ExperienceContent = styled.div`
   display: flex;
   justify-content: center;
-  padding: 60px 0 30px;
+  padding: 98px 0 30px;
 `;
 
 export const ExperienceFooter = styled.div`
   position: relative;
   padding: 0 0 60px 0;
-  width: 300px;
+  width: 410px;
   margin: 0 auto;
+  margin-top: 25px;
 
   img {
     width: 100%;
+    min-width: 240px;
     height: auto;
     max-width: 200px;
   }
@@ -244,15 +258,15 @@ export const ExperienceFooter = styled.div`
   svg {
     position: absolute;
     right: -150px;
-    bottom: -60px;
-    width: 150px;
+    bottom: -21px;
+    width: 163px;
   }
 `;
 
 export const BubbleContent = styled.div`
   color: ${({ theme }) => theme.colors.grayDark};
-  font-size: 1.8rem;
-  line-height: 2.2rem;
+  font-size: 2.5rem;
+  line-height: 3rem;
   font-weight: 300;
 `;
 
@@ -269,14 +283,14 @@ export const FooterBlockSocial = styled(FooterBlock)`
   text-align: center;
 
   svg {
-    width: 24px !important;
+    width: 29px !important;
     height: auto;
   }
 `;
 
 export const FooterItem = styled.div`
-  margin-bottom: 16px;
-  font-size: 1.6rem;
+  margin-bottom: 28px;
+  font-size: 2rem;
   font-weight: 300;
 
   a {
@@ -285,6 +299,10 @@ export const FooterItem = styled.div`
 `;
 
 export const Footer = styled.div`
+  .footer-logo svg {
+    width: 140px;
+  }
+
   ${Section} {
     padding-top: 0;
     padding-bottom: 16px;
@@ -294,7 +312,7 @@ export const Footer = styled.div`
   ${Section1} {
     display: flex;
     margin-top: 0;
-    padding-top: 60px;
+    padding-top: 40px;
     justify-content: space-between;
     margin-left: 0;
     margin-right: 0;

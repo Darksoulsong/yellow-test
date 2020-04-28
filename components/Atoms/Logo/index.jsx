@@ -15,13 +15,13 @@ const getVariant = variant => {
 };
 
 /**
- * @param {{variant: 'yellow' | 'transparent' | 'alt', width: string, height: string}} props
+ * @param {{variant: 'yellow' | 'transparent' | 'alt', width: string, height: string, className: string}} props
  */
-export default function Logo({ variant, width, height }) {
+export default function Logo({ variant, width, height, className }) {
   const name = getVariant(variant);
 
   return (
-    <Root width={width} height={height}>
+    <Root className={className} width={width} height={height}>
       <SVG name={name} />
     </Root>
   );
