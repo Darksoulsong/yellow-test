@@ -8,5 +8,11 @@ export { default as HoverableProductIcon } from './HoverableProductIcon';
 export { default as SpeechBubble } from './SpeechBubble';
 export { default as Slider } from './Slider';
 export { default as AnimatedUnderline } from './AnimatedUnderline';
+export {
+  default as Backdrop,
+  BackdropProvider,
+  withBackdrop,
+  useBackdrop,
+} from './Backdrop';
 
 export { experimentBrushScriptFontFace } from './FontFaces';

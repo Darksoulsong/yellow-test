@@ -14,6 +14,10 @@ import ArrowIcon from '../../../public/images/arrow-icon.svg';
 import LinkedinIcon from '../../../public/images/linkedin-icon.svg';
 import YoutubeIcon from '../../../public/images/youtube-icon.svg';
 import InstagramIcon from '../../../public/images/instagram-icon.svg';
+import BoxIcon from '../../../public/images/box-icon.svg';
+import IdeasIcon from '../../../public/images/ideas-icon.svg';
+import MagnifierUserIcon from '../../../public/images/magnifier-user-icon.svg';
+import PhoneEmailIcon from '../../../public/images/phone-email-icon.svg';
 
 const getImage = name => {
   switch (name) {
@@ -45,6 +49,14 @@ const getImage = name => {
       return LinkedinIcon;
     case 'logo-alt':
       return LogoAlt;
+    case 'box-icon':
+      return BoxIcon;
+    case 'ideas-icon':
+      return IdeasIcon;
+    case 'magnifier-user-icon':
+      return MagnifierUserIcon;
+    case 'phone-email-icon':
+      return PhoneEmailIcon;
     case 'logo':
     default:
       return Logo;

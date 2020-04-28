@@ -56,7 +56,7 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <Container padding="0" paddingOnLarge="0">
+    <Container fluid padding="0" paddingOnLarge="0">
       <Root>
         <Header />
 
@@ -94,9 +94,11 @@ const IndexPage = () => {
         </Intro>
 
         <Section1>
-          {/* <SubHeading1 data-aos="fade-up"> */}
-          <SubHeading1>
-            Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
+          <SubHeading1 data-aos="fade-up">
+            {/* <SubHeading1> */}
+            Encontrar o <AnimatedUnderline>
+              candidato ideal
+            </AnimatedUnderline>{' '}
             não é fácil e contratações erradas <strong>geram prejuízos</strong>
           </SubHeading1>
 
