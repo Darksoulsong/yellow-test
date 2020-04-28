@@ -1,7 +1,8 @@
 const aliases = require('./alias-config');
+const withCSS = require('@zeit/next-css');
 const webpack = require('webpack');
 
-module.exports = {
+module.exports = withCSS({
   webpack: (config, { dev }) => {
     const { alias } = config.resolve;
     config.resolve.alias = {
@@ -23,4 +24,4 @@ module.exports = {
     }
     return config;
   },
-};
+});

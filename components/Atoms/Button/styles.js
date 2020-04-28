@@ -7,26 +7,44 @@ const unstyled = css`
   border: 0 none;
 `;
 
+const getButtonVariant = (variant, colors) => {
+  switch (variant) {
+    case 'primary':
+      return `
+        color: ${colors.black};
+        background-color: ${colors.yellow};
+      `;
+    default:
+      return `
+        color: ${colors.white};
+        background-color: ${colors.gray};
+      `;
+  }
+};
+
 const main = css`
   transition: transform 0.1s ease-in-out;
-  height: 72px;
-  padding: 0 40px;
+  height: ${({ height = '87px' }) => height};
+  padding: 0 46px;
   color: ${({ theme }) => theme.colors.black};
-  font-size: 2rem;
+  font-size: ${({ fontSize = '2.5rem' }) => fontSize};
   border: 0 none;
   background: ${({ theme }) => theme.colors.yellow};
   text-indent: -0.1rem;
   font-family: Roboto, sans-serif;
-  font-weight: 700;
+  font-weight: ${({ fontWeight = '700' }) => fontWeight};
   border-radius: 16px;
   transform: scale(1);
+  white-space: nowrap;
+
+  ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) !important;
   }
 
   &:active {
-    transform: scale(1.01);
+    transform: scale(1.01) !important;
   }
 `;
 
