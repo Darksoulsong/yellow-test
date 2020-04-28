@@ -158,7 +158,7 @@ const IndexPage = () => {
                     fontSize="2.2rem"
                     fontWeight="300"
                   >
-                    Conheça mais a Yellow
+                    Conheça melhor a Yellow
                   </Button>
                 </ListHolder>
               </Circle>

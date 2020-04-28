@@ -162,7 +162,7 @@ export const ListHolder = styled.div`
 
 export const Circles = styled.div`
   margin-top: 70px;
-  margin-left: 40px;
+  margin-left: 90px;
   margin-bottom: 32px;
   display: grid;
   grid-template-columns: repeat(7, 96px);
@@ -182,7 +182,7 @@ export const Highlights = styled.div`
 `;
 
 export const TimelineWrapper = styled.div`
-  margin: 60px 0;
+  margin: 60px 0 35px;
 `;
 
 export const ProductsSection = styled(Section)`

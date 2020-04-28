@@ -31,13 +31,13 @@ export const Item = styled.div`
 
 export const Root = styled.div`
   display: grid;
-  grid-template-columns: 2fr 0.7fr 2fr;
+  grid-template-columns: 2fr 0.45fr 2fr;
 `;
 
 export const Label = styled.div`
   font-size: 2.2rem;
   font-weight: 300;
-  width: 25rem;
+  width: 287px;
 
   ${({ alignRight }) =>
     alignRight
