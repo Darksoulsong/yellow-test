@@ -5,8 +5,7 @@ export const Item = styled.div`
   text-align: center;
   display: flex;
   align-items: center;
-  height: 200px;
-  padding: 30px 0;
+  height: 292px;
 
   &.has-line {
     &:before {
@@ -36,7 +35,7 @@ export const Root = styled.div`
 `;
 
 export const Label = styled.div`
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 300;
   width: 25rem;
 
@@ -54,19 +53,20 @@ export const Label = styled.div`
 
 export const Circle = styled.div`
   position: relative;
-  width: 92px;
-  height: 92px;
+  width: 112px;
+  height: 112px;
   border-radius: 50%;
   background-color: ${({ theme }) => theme.colors.yellow};
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
+  font-size: 4.1rem;
   margin: 0 auto;
   z-index: 1;
+  letter-spacing: -0.3rem;
 
   span {
-    margin-top: 0.6rem;
-    font-size: 2rem;
+    margin-top: 0.9rem;
+    font-size: 3rem;
   }
 `;

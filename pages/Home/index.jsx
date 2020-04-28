@@ -63,8 +63,9 @@ const IndexPage = () => {
         <Intro>
           <IntroHolder>
             <MainHeading data-aos="fade-down">
-              <em>Olá,</em> Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit. Fuga quis facere ut odio ducimus ab nihil.
+              <em>Olá,</em> Lorem ipsum dolor sit amet, adipiscing elit, sed
+              diam nonummy nibh eusmod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat.
             </MainHeading>
             <SecondaryHeading
               data-aos="fade-right"
@@ -87,8 +88,12 @@ const IndexPage = () => {
               />
             </IntroFooterImage>
             <IntroFooterActions data-aos="fade-right" data-aos-delay="1500">
-              <Button type="button">Quero contratar</Button>
-              <Button type="button">Busco uma vaga</Button>
+              <Button variant="primary" type="button">
+                Quero contratar
+              </Button>
+              <Button variant="primary" type="button">
+                Busco uma vaga
+              </Button>
             </IntroFooterActions>
           </IntroFooter>
         </Intro>
@@ -116,7 +121,7 @@ const IndexPage = () => {
 
         <HighlightsSection>
           <TransparentLogoHolder>
-            <Logo variant="transparent" width="145px" />
+            <Logo variant="transparent" width="180px" />
           </TransparentLogoHolder>
 
           <HighlightBox>
@@ -146,7 +151,15 @@ const IndexPage = () => {
                     <li>+ 50k pessoas conectadas</li>
                   </List>
 
-                  <Button>Conheça mais a Yellow</Button>
+                  <Button
+                    type="button"
+                    variant="default"
+                    height="72px"
+                    fontSize="2.2rem"
+                    fontWeight="300"
+                  >
+                    Conheça mais a Yellow
+                  </Button>
                 </ListHolder>
               </Circle>
               <Circle data-aos="fade-right" data-aos-delay="700" />
@@ -163,7 +176,9 @@ const IndexPage = () => {
           <Products />
 
           <ProductsFooter>
-            <Button type="button">Simule sua vaga</Button>
+            <Button variant="primary" type="button">
+              Simule sua vaga
+            </Button>
             <ProductsFloatingButton>Entenda mais</ProductsFloatingButton>
           </ProductsFooter>
         </ProductsSection>
@@ -207,7 +222,7 @@ const IndexPage = () => {
 
         <Footer>
           <Section>
-            <Logo variant="alt" />
+            <Logo className="footer-logo" variant="alt" />
           </Section>
           <Section1>
             <FooterBlock>
