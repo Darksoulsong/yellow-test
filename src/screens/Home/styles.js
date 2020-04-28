@@ -261,7 +261,7 @@ export const ExperienceFooter = styled.div`
 
   svg {
     position: absolute;
-    right: -150px;
+    right: -175px;
     bottom: -21px;
     width: 163px;
   }

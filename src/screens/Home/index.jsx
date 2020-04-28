@@ -67,11 +67,7 @@ const HomeScreen = () => {
               diam nonummy nibh eusmod tincidunt ut laoreet dolore magna aliquam
               erat volutpat.
             </MainHeading>
-            <SecondaryHeading
-              data-aos="fade-right"
-              data-aos-offset="300"
-              data-aos-delay="500"
-            >
+            <SecondaryHeading data-aos="fade-right" data-aos-delay="500">
               Yellow.
             </SecondaryHeading>
           </IntroHolder>
@@ -81,13 +77,13 @@ const HomeScreen = () => {
           </Video>
 
           <IntroFooter>
-            <IntroFooterImage data-aos="fade-in" data-aos-delay="1000">
+            <IntroFooterImage data-aos="fade-right" data-aos-delay="1000">
               <img
                 alt="Busca de vagas e contratação"
                 src="/images/intro-image.jpg"
               />
             </IntroFooterImage>
-            <IntroFooterActions data-aos="fade-right" data-aos-delay="1500">
+            <IntroFooterActions data-aos="fade-left" data-aos-delay="1500">
               <Button variant="primary" type="button">
                 Quero contratar
               </Button>
@@ -120,7 +116,7 @@ const HomeScreen = () => {
         </Section1>
 
         <HighlightsSection>
-          <TransparentLogoHolder>
+          <TransparentLogoHolder data-aos="fade-down" data-aos-delay="2000">
             <Logo variant="transparent" width="180px" />
           </TransparentLogoHolder>
 
@@ -144,22 +140,34 @@ const HomeScreen = () => {
               <Circle highlighted data-aos="fade-right" data-aos-delay="600">
                 <ListHolder data-aos="fade-up" data-aos-delay="2000">
                   <List>
-                    <li>Processos simples e ágeis</li>
-                    <li>Precisão nas entregas</li>
-                    <li>Equipe de especialistas</li>
-                    <li>Tecnologia própria</li>
-                    <li>+ 50k pessoas conectadas</li>
+                    <li data-aos="fade-right" data-aos-delay="2100">
+                      Processos simples e ágeis
+                    </li>
+                    <li data-aos="fade-right" data-aos-delay="2200">
+                      Precisão nas entregas
+                    </li>
+                    <li data-aos="fade-right" data-aos-delay="2300">
+                      Equipe de especialistas
+                    </li>
+                    <li data-aos="fade-right" data-aos-delay="2400">
+                      Tecnologia própria
+                    </li>
+                    <li data-aos="fade-right" data-aos-delay="2500">
+                      + 50k pessoas conectadas
+                    </li>
                   </List>
 
-                  <Button
-                    type="button"
-                    variant="default"
-                    height="72px"
-                    fontSize="2.2rem"
-                    fontWeight="300"
-                  >
-                    Conheça melhor a Yellow
-                  </Button>
+                  <div data-aos="fade-right" data-aos-delay="3000">
+                    <Button
+                      type="button"
+                      variant="default"
+                      height="72px"
+                      fontSize="2.2rem"
+                      fontWeight="300"
+                    >
+                      Conheça melhor a Yellow
+                    </Button>
+                  </div>
                 </ListHolder>
               </Circle>
               <Circle data-aos="fade-right" data-aos-delay="700" />
