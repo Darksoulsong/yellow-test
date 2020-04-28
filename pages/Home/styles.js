@@ -8,6 +8,7 @@ export const Intro = styled.section`
   padding: 0 128px;
   position: relative;
   margin-bottom: 126px;
+  overflow: hidden;
 `;
 
 export const IntroHolder = styled.div`
@@ -46,6 +47,9 @@ export const Video = styled.div`
   justify-content: center;
   width: 77vw;
   height: 38vw;
+  min-height: 700px;
+  /* max-width: 955px; */
+  left: 441px;
 
   /* max-width: 800px;
   max-height: 600px;
@@ -55,7 +59,7 @@ export const Video = styled.div`
 
 export const IntroFooter = styled.div`
   display: flex;
-  margin-top: 170px;
+  margin-top: 156px;
 `;
 
 export const IntroFooterImage = styled.div`
