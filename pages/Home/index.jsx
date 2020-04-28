@@ -221,11 +221,11 @@ const IndexPage = () => {
           <ExperienceFooter>
             <img
               data-aos="fade-up"
-              data-aos-delay="100"
+              data-aos-delay="500"
               src="/images/testimony-image.png"
               alt="#Depoimentos"
             />
-            <SVG data-aos="fade-up" data-aos-delay="600" name="bubbles-icon" />
+            <SVG data-aos="fade-up" data-aos-delay="1000" name="bubbles-icon" />
           </ExperienceFooter>
         </ExperienceSection>
 
