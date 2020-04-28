@@ -48,7 +48,7 @@ import {
   FooterBlockSocial,
 } from './styles';
 
-const IndexPage = () => {
+const HomeScreen = () => {
   React.useEffect(() => {
     AOS.init({
       duration: 500,
@@ -300,4 +300,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export { HomeScreen };
