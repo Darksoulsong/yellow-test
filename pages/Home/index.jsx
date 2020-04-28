@@ -168,9 +168,13 @@ const IndexPage = () => {
         </HighlightsSection>
 
         <ProductsSection>
-          <SubHeading1>
+          <SubHeading1 data-aos="fade-up" data-aos-delay="100">
             YELLOW <strong>PRODUTOS</strong>
-            <SVG name="handdrawn-scratches" />
+            <SVG
+              data-aos="fade-in"
+              data-aos-delay="600"
+              name="handdrawn-scratches"
+            />
           </SubHeading1>
 
           <Products />
@@ -184,11 +188,11 @@ const IndexPage = () => {
         </ProductsSection>
 
         <ExperienceSection>
-          <SubHeading1>
+          <SubHeading1 data-aos="fade-up" data-aos-delay="100">
             YELLOW <strong>EXPERIÊNCIA</strong>
           </SubHeading1>
 
-          <ExperienceContent>
+          <ExperienceContent data-aos="fade-up" data-aos-delay="600">
             <SpeechBubble>
               <Slider>
                 <BubbleContent>
@@ -215,12 +219,17 @@ const IndexPage = () => {
             </SpeechBubble>
           </ExperienceContent>
           <ExperienceFooter>
-            <img src="/images/testimony-image.png" alt="#Depoimentos" />
-            <SVG name="bubbles-icon" />
+            <img
+              data-aos="fade-up"
+              data-aos-delay="100"
+              src="/images/testimony-image.png"
+              alt="#Depoimentos"
+            />
+            <SVG data-aos="fade-up" data-aos-delay="600" name="bubbles-icon" />
           </ExperienceFooter>
         </ExperienceSection>
 
-        <Footer>
+        <Footer data-aos="fade-up" data-aos-delay="100">
           <Section>
             <Logo className="footer-logo" variant="alt" />
           </Section>
