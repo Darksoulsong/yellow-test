@@ -75,7 +75,7 @@ export const HeaderIconHolder = styled.div`
 
   svg {
     width: auto;
-    height: 35px;
+    height: 40px;
   }
 
   path {
