@@ -45,7 +45,7 @@ export const HeaderDropdown = styled.div`
 export const HeaderDropdownBlock = styled.div`
   transition: all 0.3s ease-in-out;
   flex: 1;
-  padding: 48px 60px 45px 60px;
+  padding: 48px 60px 50px 60px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -67,9 +67,8 @@ export const HeaderHeading = styled.h2`
 `;
 
 export const HeaderIconHolder = styled.div`
-  height: 110px;
   display: flex;
-
+  margin-bottom: 65px;
   > div {
     width: 100%;
   }
@@ -170,8 +169,9 @@ export const NavItem = styled.span`
   cursor: pointer;
 
   ${HeaderDropdown} {
-    opacity: 0;
-    pointer-events: none;
+    /* opacity: 0;
+    pointer-events: none; */
+    opacity: 1;
   }
 
   &:hover {

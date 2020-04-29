@@ -25,9 +25,7 @@ export default function DropdownContent1() {
         <HeaderDropdownBlock>
           <HeaderHeading>Produtos</HeaderHeading>
           <HeaderIconHolder className="products">
-            <div>
-              <SVG name="box-icon" />
-            </div>
+            <SVG name="box-icon" />
           </HeaderIconHolder>
           <HeaderText>
             Entenda melhor nossos produtos e como podemos te atender da melhor
@@ -37,9 +35,7 @@ export default function DropdownContent1() {
         <HeaderDropdownBlock>
           <HeaderHeading>Simule sua Vaga</HeaderHeading>
           <HeaderIconHolder className="simulate">
-            <div>
-              <SVG name="magnifier-user-icon" />
-            </div>
+            <SVG name="magnifier-user-icon" />
           </HeaderIconHolder>
           <HeaderText>
             Você está precisando recrutar com precisão e velocidade? Clique e
@@ -49,9 +45,7 @@ export default function DropdownContent1() {
         <HeaderDropdownBlock>
           <HeaderHeading>Contato</HeaderHeading>
           <HeaderIconHolder className="contact">
-            <div>
-              <SVG name="phone-email-icon" />
-            </div>
+            <SVG name="phone-email-icon" />
           </HeaderIconHolder>
           <HeaderText>
             Clique e deixe o seu nome com a gente! Nosso time comercial entrará
@@ -61,9 +55,7 @@ export default function DropdownContent1() {
         <HeaderDropdownBlock>
           <HeaderHeading>Dicas para você</HeaderHeading>
           <HeaderIconHolder className="ideas ">
-            <div>
-              <SVG name="ideas-icon" />
-            </div>
+            <SVG name="ideas-icon" />
           </HeaderIconHolder>
           <HeaderText>
             Acesse nosso blog para encontrar conteúdos relevantes para você
