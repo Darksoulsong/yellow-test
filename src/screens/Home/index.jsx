@@ -237,11 +237,7 @@ const HomeScreen = () => {
               src="/images/testimony-image.png"
               alt="#Depoimentos"
             />
-            <div
-              data-aos="zoom-in-up"
-              data-aos-offset="300"
-              data-aos-delay="800"
-            >
+            <div data-aos="zoom-in-up" data-aos-delay="800">
               <SVG name="bubbles-icon" />
             </div>
           </ExperienceFooter>
