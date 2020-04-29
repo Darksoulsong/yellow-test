@@ -77,21 +77,13 @@ const HomeScreen = () => {
           </Video>
 
           <IntroFooter>
-            <IntroFooterImage
-              data-aos="fade-right"
-              data-aos-delay="1000"
-              // data-aos-offset="200"
-            >
+            <IntroFooterImage data-aos="fade-right" data-aos-offset="150">
               <img
                 alt="Busca de vagas e contratação"
                 src="/images/intro-image.jpg"
               />
             </IntroFooterImage>
-            <IntroFooterActions
-              data-aos="fade-left"
-              data-aos-delay="1500"
-              // data-aos-offset="200"
-            >
+            <IntroFooterActions data-aos="fade-left" data-aos-offset="150">
               <Button variant="primary" type="button">
                 Quero contratar
               </Button>
@@ -103,7 +95,7 @@ const HomeScreen = () => {
         </Intro>
 
         <Section1>
-          <SubHeading1 data-aos="fade-up" data-aos-offset="300">
+          <SubHeading1>
             Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
             não é fácil e contratações erradas <strong>geram prejuízos</strong>
           </SubHeading1>
@@ -112,7 +104,7 @@ const HomeScreen = () => {
             <Timeline />
           </TimelineWrapper>
 
-          <SubHeading1 data-aos="fade-up" data-aos-offset="300">
+          <SubHeading1>
             Continue{' '}
             <AnimatedUnderline>focado em seu negócio</AnimatedUnderline>{' '}
             enquanto nós buscamos as <strong>pessoas certas</strong> para o seu

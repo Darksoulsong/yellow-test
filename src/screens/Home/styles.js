@@ -88,6 +88,7 @@ export const SubHeading1 = styled.h2`
 
 export const Section = styled.section`
   padding: 110px;
+  margin: 0 35px;
 `;
 
 export const Section1 = styled(Section)`
