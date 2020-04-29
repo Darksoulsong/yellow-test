@@ -95,7 +95,7 @@ const HomeScreen = () => {
         </Intro>
 
         <Section1>
-          <SubHeading1 data-aos="fade-up">
+          <SubHeading1 data-aos="fade-up" data-aos-offset="300">
             {/* <SubHeading1> */}
             Encontrar o <AnimatedUnderline>
               candidato ideal
@@ -107,7 +107,7 @@ const HomeScreen = () => {
             <Timeline />
           </TimelineWrapper>
 
-          <SubHeading1 data-aos="fade-up">
+          <SubHeading1 data-aos="fade-up" data-aos-offset="300">
             Continue{' '}
             <AnimatedUnderline>focado em seu negócio</AnimatedUnderline>{' '}
             enquanto nós buscamos as <strong>pessoas certas</strong> para o seu
@@ -176,7 +176,11 @@ const HomeScreen = () => {
         </HighlightsSection>
 
         <ProductsSection>
-          <SubHeading1 data-aos="fade-up" data-aos-delay="100">
+          <SubHeading1
+            data-aos="fade-up"
+            data-aos-offset="300"
+            data-aos-delay="100"
+          >
             YELLOW <strong>PRODUTOS</strong>
             <SVG
               data-aos="fade-in"
@@ -187,7 +191,7 @@ const HomeScreen = () => {
 
           <Products />
 
-          <ProductsFooter>
+          <ProductsFooter data-aos="fade-up" data-aos-offset="300">
             <Button variant="primary" type="button">
               Simule sua vaga
             </Button>
@@ -196,7 +200,7 @@ const HomeScreen = () => {
         </ProductsSection>
 
         <ExperienceSection>
-          <SubHeading1 data-aos="fade-up" data-aos-delay="100">
+          <SubHeading1 data-aos="fade-up" data-aos-offset="300">
             YELLOW <strong>EXPERIÊNCIA</strong>
           </SubHeading1>
 
@@ -233,11 +237,17 @@ const HomeScreen = () => {
               src="/images/testimony-image.png"
               alt="#Depoimentos"
             />
-            <SVG data-aos="fade-up" data-aos-delay="1000" name="bubbles-icon" />
+            <div
+              data-aos="zoom-in-up"
+              data-aos-offset="300"
+              data-aos-delay="800"
+            >
+              <SVG name="bubbles-icon" />
+            </div>
           </ExperienceFooter>
         </ExperienceSection>
 
-        <Footer data-aos="fade-up" data-aos-delay="100">
+        <Footer data-aos="fade-up" data-aos-delay="100" data-aos-offset="300">
           <Section>
             <Logo className="footer-logo" variant="alt" />
           </Section>
