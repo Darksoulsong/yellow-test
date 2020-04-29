@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Root = styled.div`
-  /* padding-bottom: 60px; */
+  position: relative;
 `;
 
 export const Intro = styled.section`

@@ -1,6 +1,6 @@
 import React from 'react';
-import AOS from 'aos';
 import { SVG, Backdrop } from '@components';
+import { useScrollPosition } from '@hooks';
 import DropdownContent1 from './DropdownContent1';
 import {
   HeaderRoot,
@@ -13,6 +13,8 @@ import {
 } from './styles';
 
 export default function Header() {
+  const ref = React.useRef(null);
+  const [isSticky, setIsSticky] = React.useState(false);
   const navElementRef = React.useRef(null);
   const [showBackdrop, setShowBackdrop] = React.useState(false);
 
@@ -58,16 +60,34 @@ export default function Header() {
     }
   }, []);
 
+  useScrollPosition(
+    {
+      effect: ({ currPos }) => {
+        setIsSticky(currPos.y < 0);
+      },
+    },
+    [isSticky]
+  );
+
+  React.useEffect(() => {
+    if (window) {
+      setIsSticky(window.scrollY > 0);
+    }
+  }, []);
+
   return (
-    <HeaderRoot onMouseOut={handleMouseOut}>
+    <HeaderRoot
+      ref={ref}
+      stickyPositioned={isSticky}
+      onMouseOut={handleMouseOut}
+    >
       <Backdrop active={showBackdrop} />
 
       <HeaderMain>
+        <Logo>
+          <SVG />
+        </Logo>
         <HeaderBody>
-          <Logo>
-            <SVG />
-          </Logo>
-
           <Nav ref={navElementRef}>
             <NavItem
               data-item-label="businesses"

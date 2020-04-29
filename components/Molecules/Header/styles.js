@@ -1,12 +1,4 @@
-import styled from 'styled-components';
-
-export const HeaderRoot = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-`;
+import styled, { css } from 'styled-components';
 
 export const HeaderBody = styled.div`
   display: flex;
@@ -17,10 +9,16 @@ export const HeaderBody = styled.div`
 export const Logo = styled.div`
   padding-left: 32px;
   padding-right: 128px;
-  width: 102px;
+  padding-top: 8px;
+
+  svg {
+    width: 75px;
+  }
 `;
 
 export const HeaderMain = styled.div`
+  transition: 0.3s ease-in-out;
+  transition-property: background-color, opacity;
   position: relative;
   display: flex;
   align-items: center;
@@ -184,4 +182,40 @@ export const NavItem = styled.span`
 
   ${({ active = false, theme }) =>
     active ? `background-color: ${theme.colors.navBackgroundItemActive}` : ''}
+`;
+
+export const HeaderRoot = styled.div`
+  position: sticky;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  left: 0;
+  top: 0;
+
+  ${({ stickyPositioned }) =>
+    stickyPositioned &&
+    css`
+      ${HeaderMain} {
+        background-color: transparent;
+      }
+
+      ${HeaderBody} {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      &:hover {
+        ${HeaderMain} {
+          background-color: ${({ theme }) =>
+            theme.colors.headerBackground} !important;
+        }
+
+        ${HeaderBody} {
+          opacity: 1;
+          pointer-events: unset;
+        }
+      }
+    `};
 `;
