@@ -81,14 +81,7 @@ export const HeaderIconHolder = styled.div`
   path {
     transition: fill 0.3s ease-in-out;
     fill: ${({ theme }) => theme.colors.white};
-  }
-
-  &.culture,
-  &.blog,
-  &.team {
-    path {
-      stroke: transparent;
-    }
+    stroke: transparent;
   }
 
   &.logo {
