@@ -2,6 +2,8 @@ import React from 'react';
 import { SVG, Backdrop } from '@components';
 import { useScrollPosition } from '@hooks';
 import DropdownContent1 from './DropdownContent1';
+import DropdownContent2 from './DropdownContent2';
+import DropdownContent3 from './DropdownContent3';
 import {
   HeaderRoot,
   HeaderBody,
@@ -99,9 +101,11 @@ export default function Header() {
             </NavItem>
             <NavItem data-item-label="people" onMouseOver={handleMouseOver}>
               <NavItemLabel>Para Pessoas</NavItemLabel>
+              <DropdownContent2 />
             </NavItem>
             <NavItem data-item-label="yellow-way" onMouseOver={handleMouseOver}>
               <NavItemLabel>Yellow way</NavItemLabel>
+              {/* <DropdownContent3 /> */}
             </NavItem>
           </Nav>
         </HeaderBody>
