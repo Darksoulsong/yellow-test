@@ -188,7 +188,7 @@ const HomeScreen = () => {
 
           <Products />
 
-          <ProductsFooter data-aos="fade-up" data-aos-offset="300">
+          <ProductsFooter data-aos="fade-up">
             <Button variant="primary" type="button">
               Simule sua vaga
             </Button>
