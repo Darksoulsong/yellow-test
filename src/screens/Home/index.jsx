@@ -240,7 +240,7 @@ const HomeScreen = () => {
           </ExperienceFooter>
         </ExperienceSection>
 
-        <Footer data-aos="fade-up" data-aos-delay="100" data-aos-offset="300">
+        <Footer>
           <Section>
             <Logo className="footer-logo" variant="alt" />
           </Section>

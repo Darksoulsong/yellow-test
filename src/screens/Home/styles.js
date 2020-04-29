@@ -311,7 +311,7 @@ export const Footer = styled.div`
   ${Section} {
     padding-top: 0;
     padding-bottom: 16px;
-    margin-bottom: 0;
+    margin: 0;
   }
 
   ${Section1} {
