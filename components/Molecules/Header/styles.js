@@ -4,6 +4,8 @@ export const HeaderBody = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
+
+  ${({ right }) => right && `margin-left: auto;`}
 `;
 
 export const Logo = styled.div`
@@ -22,7 +24,6 @@ export const HeaderMain = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: 83px;
   width: 100%;
   z-index: 2;
@@ -47,7 +48,7 @@ export const HeaderDropdownBlock = styled.div`
   padding: 48px 60px 45px 60px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   color: ${({ theme }) => theme.colors.white};
 
   &:hover {
@@ -62,17 +63,20 @@ export const HeaderDropdownBlock = styled.div`
 
 export const HeaderHeading = styled.h2`
   font-size: 1.6rem;
+  margin-bottom: 32px;
 `;
 
 export const HeaderIconHolder = styled.div`
-  height: 127px;
+  height: 110px;
   display: flex;
-  align-items: center;
+
+  > div {
+    width: 100%;
+  }
 
   svg {
-    /* margin-bottom: 65px; */
-    width: 60px;
-    /* height: auto; */
+    width: auto;
+    height: 35px;
   }
 
   path {

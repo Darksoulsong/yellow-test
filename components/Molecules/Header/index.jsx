@@ -106,7 +106,7 @@ export default function Header() {
           </Nav>
         </HeaderBody>
 
-        <HeaderBody>
+        <HeaderBody right>
           <Nav>
             <NavItem>
               <NavItemLabel>Quero contratar</NavItemLabel>
