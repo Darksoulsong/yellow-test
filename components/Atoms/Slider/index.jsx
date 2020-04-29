@@ -1,6 +1,5 @@
 import React from 'react';
-import { uid } from 'react-uid';
-import { SVG, Button } from '@components';
+import { SVG } from '@components';
 import { Root, Content, ControlLeft, ControlRight, Dots, Dot } from './styles';
 
 export default function Slider({ children }) {
@@ -41,7 +40,10 @@ export default function Slider({ children }) {
       </ControlRight>
 
       <Dots>
-        {items.map((item, index) => (
+        <Dot />
+        <Dot />
+        <Dot />
+        {/* {items.map((item, index) => (
           <Button
             onClick={() => setSlide({ jumpToIndex: index })}
             key={uid(item, index)}
@@ -50,7 +52,7 @@ export default function Slider({ children }) {
           >
             <Dot active={index === activeBoxIndex} />
           </Button>
-        ))}
+        ))} */}
       </Dots>
     </Root>
   );

@@ -13,7 +13,7 @@ export default function DropdownContent1() {
     <>
       <HeaderDropdown>
         <HeaderDropdownBlock>
-          <HeaderHeading>Conheça melhor a Yellow</HeaderHeading>
+          <HeaderHeading>Quem somos</HeaderHeading>
           <HeaderIconHolder className="logo">
             <Logo variant="transparent" />
           </HeaderIconHolder>

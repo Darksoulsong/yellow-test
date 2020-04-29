@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Root = styled.div`
-  /* padding-bottom: 60px; */
+  position: relative;
 `;
 
 export const Intro = styled.section`
@@ -88,6 +88,7 @@ export const SubHeading1 = styled.h2`
 
 export const Section = styled.section`
   padding: 110px;
+  margin: 0 35px;
 `;
 
 export const Section1 = styled(Section)`
@@ -234,8 +235,8 @@ export const ExperienceSection = styled(Section)`
   padding-bottom: 75px;
 
   ${SubHeading1} {
-    font-size: 10.5rem;
-    letter-spacing: 0.26rem;
+    font-size: 9.5rem;
+    letter-spacing: 0.16rem;
   }
 `;
 
@@ -261,7 +262,7 @@ export const ExperienceFooter = styled.div`
 
   svg {
     position: absolute;
-    right: -150px;
+    right: -175px;
     bottom: -21px;
     width: 163px;
   }
@@ -310,7 +311,7 @@ export const Footer = styled.div`
   ${Section} {
     padding-top: 0;
     padding-bottom: 16px;
-    margin-bottom: 0;
+    margin: 0;
   }
 
   ${Section1} {

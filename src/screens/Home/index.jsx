@@ -67,11 +67,7 @@ const HomeScreen = () => {
               diam nonummy nibh eusmod tincidunt ut laoreet dolore magna aliquam
               erat volutpat.
             </MainHeading>
-            <SecondaryHeading
-              data-aos="fade-right"
-              data-aos-offset="300"
-              data-aos-delay="500"
-            >
+            <SecondaryHeading data-aos="fade-right" data-aos-delay="500">
               Yellow.
             </SecondaryHeading>
           </IntroHolder>
@@ -81,13 +77,13 @@ const HomeScreen = () => {
           </Video>
 
           <IntroFooter>
-            <IntroFooterImage data-aos="fade-in" data-aos-delay="1000">
+            <IntroFooterImage data-aos="fade-right" data-aos-offset="150">
               <img
                 alt="Busca de vagas e contratação"
                 src="/images/intro-image.jpg"
               />
             </IntroFooterImage>
-            <IntroFooterActions data-aos="fade-right" data-aos-delay="1500">
+            <IntroFooterActions data-aos="fade-left" data-aos-offset="150">
               <Button variant="primary" type="button">
                 Quero contratar
               </Button>
@@ -99,11 +95,8 @@ const HomeScreen = () => {
         </Intro>
 
         <Section1>
-          <SubHeading1 data-aos="fade-up">
-            {/* <SubHeading1> */}
-            Encontrar o <AnimatedUnderline>
-              candidato ideal
-            </AnimatedUnderline>{' '}
+          <SubHeading1>
+            Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
             não é fácil e contratações erradas <strong>geram prejuízos</strong>
           </SubHeading1>
 
@@ -111,7 +104,7 @@ const HomeScreen = () => {
             <Timeline />
           </TimelineWrapper>
 
-          <SubHeading1 data-aos="fade-up">
+          <SubHeading1>
             Continue{' '}
             <AnimatedUnderline>focado em seu negócio</AnimatedUnderline>{' '}
             enquanto nós buscamos as <strong>pessoas certas</strong> para o seu
@@ -120,20 +113,16 @@ const HomeScreen = () => {
         </Section1>
 
         <HighlightsSection>
-          <TransparentLogoHolder>
+          <TransparentLogoHolder data-aos="fade-down" data-aos-delay="2000">
             <Logo variant="transparent" width="180px" />
           </TransparentLogoHolder>
 
           <HighlightBox>
             <SubHeading1>
-              <span data-aos="fade-up" data-aos-delay="100">
-                YELLOW <strong>DIFERENCIAL</strong>
+              YELLOW <strong>DIFERENCIAL</strong>
+              <span data-aos="fade-down" data-aos-delay="2000">
+                <SVG name="handdrawn-arrow" />
               </span>
-              <SVG
-                data-aos="fade-down"
-                data-aos-delay="1500"
-                name="handdrawn-arrow"
-              />
             </SubHeading1>
             <Circles>
               <Circle data-aos="fade-right" data-aos-delay="100" />
@@ -142,24 +131,40 @@ const HomeScreen = () => {
               <Circle data-aos="fade-right" data-aos-delay="400" />
               <Circle data-aos="fade-right" data-aos-delay="500" />
               <Circle highlighted data-aos="fade-right" data-aos-delay="600">
-                <ListHolder data-aos="fade-up" data-aos-delay="2000">
+                <ListHolder data-aos="fade-up" data-aos-delay="1000">
                   <List>
-                    <li>Processos simples e ágeis</li>
-                    <li>Precisão nas entregas</li>
-                    <li>Equipe de especialistas</li>
-                    <li>Tecnologia própria</li>
-                    <li>+ 50k pessoas conectadas</li>
+                    <li data-aos="fade-right" data-aos-delay="1100">
+                      Processos simples e ágeis
+                    </li>
+                    <li data-aos="fade-right" data-aos-delay="1200">
+                      Precisão nas entregas
+                    </li>
+                    <li data-aos="fade-right" data-aos-delay="1300">
+                      Equipe de especialistas
+                    </li>
+                    <li data-aos="fade-right" data-aos-delay="1400">
+                      Tecnologia própria
+                    </li>
+                    <li data-aos="fade-right" data-aos-delay="1500">
+                      + 50k pessoas conectadas
+                    </li>
                   </List>
 
-                  <Button
-                    type="button"
-                    variant="default"
-                    height="72px"
-                    fontSize="2.2rem"
-                    fontWeight="300"
-                  >
-                    Conheça melhor a Yellow
-                  </Button>
+                  <div data-aos="fade-right" data-aos-delay="2700">
+                    <Button
+                      type="button"
+                      variant="default"
+                      height="41px"
+                      fontSize="2.2rem"
+                      fontWeight="300"
+                      style={{
+                        padding: '0 16px',
+                        width: '275px',
+                      }}
+                    >
+                      Conheça melhor a Yellow
+                    </Button>
+                  </div>
                 </ListHolder>
               </Circle>
               <Circle data-aos="fade-right" data-aos-delay="700" />
@@ -168,7 +173,11 @@ const HomeScreen = () => {
         </HighlightsSection>
 
         <ProductsSection>
-          <SubHeading1 data-aos="fade-up" data-aos-delay="100">
+          <SubHeading1
+            data-aos="fade-up"
+            data-aos-offset="300"
+            data-aos-delay="100"
+          >
             YELLOW <strong>PRODUTOS</strong>
             <SVG
               data-aos="fade-in"
@@ -179,7 +188,7 @@ const HomeScreen = () => {
 
           <Products />
 
-          <ProductsFooter>
+          <ProductsFooter data-aos="fade-up" data-aos-offset="300">
             <Button variant="primary" type="button">
               Simule sua vaga
             </Button>
@@ -188,7 +197,7 @@ const HomeScreen = () => {
         </ProductsSection>
 
         <ExperienceSection>
-          <SubHeading1 data-aos="fade-up" data-aos-delay="100">
+          <SubHeading1 data-aos="fade-up" data-aos-offset="300">
             YELLOW <strong>EXPERIÊNCIA</strong>
           </SubHeading1>
 
@@ -225,11 +234,13 @@ const HomeScreen = () => {
               src="/images/testimony-image.png"
               alt="#Depoimentos"
             />
-            <SVG data-aos="fade-up" data-aos-delay="1000" name="bubbles-icon" />
+            <div data-aos="zoom-in-up" data-aos-delay="800">
+              <SVG name="bubbles-icon" />
+            </div>
           </ExperienceFooter>
         </ExperienceSection>
 
-        <Footer data-aos="fade-up" data-aos-delay="100">
+        <Footer>
           <Section>
             <Logo className="footer-logo" variant="alt" />
           </Section>

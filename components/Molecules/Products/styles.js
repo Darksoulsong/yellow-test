@@ -1,16 +1,11 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const DrawLine = keyframes`
+  to { stroke-dashOffset: 0; }
+`;
 
 export const Root = styled.div`
-  /* align-items: flex-end;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 0 16px;
-
-  @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
-    grid-template-columns: repeat(4, 1fr);
-  } */
   display: flex;
-  
 `;
 
 export const Description = styled.div`
@@ -41,11 +36,21 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* width: 100%; */
 
-  .hover-icon {
-    transition: opacity 0.3s ease-in-out;
-    opacity: 0;
+  &:hover {
+    .hover-icon {
+      path {
+        stroke: transparent;
+        stroke: white;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-name: ${DrawLine};
+        animation-duration: 1s;
+        animation-delay: 0s;
+        stroke-dasharray: 205;
+        stroke-dashoffset: 205;
+      }
+    }
   }
 
   ${Description} {
@@ -54,10 +59,6 @@ export const Item = styled.div`
 
   &:hover {
     ${Description} {
-      opacity: 1;
-    }
-
-    .hover-icon {
       opacity: 1;
     }
   }
