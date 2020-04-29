@@ -119,14 +119,10 @@ const HomeScreen = () => {
 
           <HighlightBox>
             <SubHeading1>
-              <span data-aos="fade-up" data-aos-delay="100">
-                YELLOW <strong>DIFERENCIAL</strong>
+              YELLOW <strong>DIFERENCIAL</strong>
+              <span data-aos="fade-down" data-aos-delay="2000">
+                <SVG name="handdrawn-arrow" />
               </span>
-              <SVG
-                data-aos="fade-down"
-                data-aos-delay="1500"
-                name="handdrawn-arrow"
-              />
             </SubHeading1>
             <Circles>
               <Circle data-aos="fade-right" data-aos-delay="100" />
@@ -135,32 +131,36 @@ const HomeScreen = () => {
               <Circle data-aos="fade-right" data-aos-delay="400" />
               <Circle data-aos="fade-right" data-aos-delay="500" />
               <Circle highlighted data-aos="fade-right" data-aos-delay="600">
-                <ListHolder data-aos="fade-up" data-aos-delay="2000">
+                <ListHolder data-aos="fade-up" data-aos-delay="1000">
                   <List>
-                    <li data-aos="fade-right" data-aos-delay="2100">
+                    <li data-aos="fade-right" data-aos-delay="1100">
                       Processos simples e ágeis
                     </li>
-                    <li data-aos="fade-right" data-aos-delay="2200">
+                    <li data-aos="fade-right" data-aos-delay="1200">
                       Precisão nas entregas
                     </li>
-                    <li data-aos="fade-right" data-aos-delay="2300">
+                    <li data-aos="fade-right" data-aos-delay="1300">
                       Equipe de especialistas
                     </li>
-                    <li data-aos="fade-right" data-aos-delay="2400">
+                    <li data-aos="fade-right" data-aos-delay="1400">
                       Tecnologia própria
                     </li>
-                    <li data-aos="fade-right" data-aos-delay="2500">
+                    <li data-aos="fade-right" data-aos-delay="1500">
                       + 50k pessoas conectadas
                     </li>
                   </List>
 
-                  <div data-aos="fade-right" data-aos-delay="3000">
+                  <div data-aos="fade-right" data-aos-delay="2700">
                     <Button
                       type="button"
                       variant="default"
-                      height="72px"
+                      height="41px"
                       fontSize="2.2rem"
                       fontWeight="300"
+                      style={{
+                        padding: '0 16px',
+                        width: '275px',
+                      }}
                     >
                       Conheça melhor a Yellow
                     </Button>
