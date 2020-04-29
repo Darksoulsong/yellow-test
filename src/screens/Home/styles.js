@@ -235,8 +235,8 @@ export const ExperienceSection = styled(Section)`
   padding-bottom: 75px;
 
   ${SubHeading1} {
-    font-size: 10.5rem;
-    letter-spacing: 0.26rem;
+    font-size: 9.5rem;
+    letter-spacing: 0.16rem;
   }
 `;
 
