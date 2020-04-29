@@ -151,6 +151,7 @@ export const Nav = styled.nav`
 
 export const NavItemLabel = styled.span`
   color: ${({ theme }) => theme.colors.white};
+  font-size: 1.6rem;
 `;
 
 export const NavItem = styled.span`

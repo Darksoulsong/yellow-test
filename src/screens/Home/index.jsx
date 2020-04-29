@@ -80,7 +80,7 @@ const HomeScreen = () => {
             <IntroFooterImage
               data-aos="fade-right"
               data-aos-delay="1000"
-              data-aos-offset="200"
+              // data-aos-offset="200"
             >
               <img
                 alt="Busca de vagas e contratação"
@@ -90,7 +90,7 @@ const HomeScreen = () => {
             <IntroFooterActions
               data-aos="fade-left"
               data-aos-delay="1500"
-              data-aos-offset="200"
+              // data-aos-offset="200"
             >
               <Button variant="primary" type="button">
                 Quero contratar

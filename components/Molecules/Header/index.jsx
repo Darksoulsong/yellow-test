@@ -108,8 +108,12 @@ export default function Header() {
 
         <HeaderBody>
           <Nav>
-            <NavItem>Quero contratar</NavItem>
-            <NavItem active>Acesse sua conta</NavItem>
+            <NavItem>
+              <NavItemLabel>Quero contratar</NavItemLabel>
+            </NavItem>
+            <NavItem active>
+              <NavItemLabel>Acesse sua conta</NavItemLabel>
+            </NavItem>
           </Nav>
         </HeaderBody>
       </HeaderMain>
