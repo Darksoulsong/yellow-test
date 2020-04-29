@@ -169,9 +169,9 @@ export const NavItem = styled.span`
   cursor: pointer;
 
   ${HeaderDropdown} {
-    /* opacity: 0;
-    pointer-events: none; */
-    opacity: 1;
+    opacity: 0;
+    pointer-events: none;
+    /* opacity: 1; */
   }
 
   &:hover {
