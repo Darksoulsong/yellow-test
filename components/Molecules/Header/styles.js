@@ -1,30 +1,29 @@
-import styled from 'styled-components';
-
-export const HeaderRoot = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-`;
+import styled, { css } from 'styled-components';
 
 export const HeaderBody = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
+
+  ${({ right }) => right && `margin-left: auto;`}
 `;
 
 export const Logo = styled.div`
-  padding-left: 32px;
+  padding-left: 50px;
   padding-right: 128px;
-  width: 102px;
+  padding-top: 8px;
+
+  svg {
+    width: 75px;
+  }
 `;
 
 export const HeaderMain = styled.div`
+  transition: 0.3s ease-in-out;
+  transition-property: background-color, opacity;
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: 83px;
   width: 100%;
   z-index: 2;
@@ -46,10 +45,10 @@ export const HeaderDropdown = styled.div`
 export const HeaderDropdownBlock = styled.div`
   transition: all 0.3s ease-in-out;
   flex: 1;
-  padding: 48px 60px 45px 60px;
+  padding: 48px 60px 50px 60px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   color: ${({ theme }) => theme.colors.white};
 
   &:hover {
@@ -63,18 +62,20 @@ export const HeaderDropdownBlock = styled.div`
 `;
 
 export const HeaderHeading = styled.h2`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  margin-bottom: 32px;
 `;
 
 export const HeaderIconHolder = styled.div`
-  height: 127px;
   display: flex;
-  align-items: center;
+  margin-bottom: 65px;
+  > div {
+    width: 100%;
+  }
 
   svg {
-    /* margin-bottom: 65px; */
-    width: 60px;
-    /* height: auto; */
+    width: auto;
+    height: 40px;
   }
 
   path {
@@ -153,6 +154,7 @@ export const Nav = styled.nav`
 
 export const NavItemLabel = styled.span`
   color: ${({ theme }) => theme.colors.white};
+  font-size: 1.6rem;
 `;
 
 export const NavItem = styled.span`
@@ -169,6 +171,7 @@ export const NavItem = styled.span`
   ${HeaderDropdown} {
     opacity: 0;
     pointer-events: none;
+    /* opacity: 1; */
   }
 
   &:hover {
@@ -184,4 +187,40 @@ export const NavItem = styled.span`
 
   ${({ active = false, theme }) =>
     active ? `background-color: ${theme.colors.navBackgroundItemActive}` : ''}
+`;
+
+export const HeaderRoot = styled.div`
+  position: sticky;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  left: 0;
+  top: 0;
+
+  ${({ stickyPositioned }) =>
+    stickyPositioned &&
+    css`
+      ${HeaderMain} {
+        background-color: transparent;
+      }
+
+      ${HeaderBody} {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      &:hover {
+        ${HeaderMain} {
+          background-color: ${({ theme }) =>
+            theme.colors.headerBackground} !important;
+        }
+
+        ${HeaderBody} {
+          opacity: 1;
+          pointer-events: unset;
+        }
+      }
+    `};
 `;

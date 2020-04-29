@@ -9,13 +9,8 @@ export const BubbleElement = styled.div`
   width: 446px;
   height: 468px;
   background-color: ${({ theme }) => theme.colors.yellowDark};
-  /* color: ${({ theme }) => theme.colors.black}; */
-  /* font-size: 1.4rem; */
-  /* line-height: 1.8rem; */
-  /* font-weight: 100; */
-
   padding: 59px 43px 94px;
-  border-radius: 16px;
+  border-radius: 28px;
 
   &:before {
     position: absolute;
