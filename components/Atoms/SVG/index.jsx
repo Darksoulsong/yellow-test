@@ -18,6 +18,11 @@ import BoxIcon from '../../../public/images/box-icon.svg';
 import IdeasIcon from '../../../public/images/ideas-icon.svg';
 import MagnifierUserIcon from '../../../public/images/magnifier-user-icon.svg';
 import PhoneEmailIcon from '../../../public/images/phone-email-icon.svg';
+import AddUserIcon from '../../../public/images/add-user-icon.svg';
+import BubbleEditIcon from '../../../public/images/bubble-edit-icon.svg';
+import OpenIcon from '../../../public/images/open-icon.svg';
+import TeamIcon from '../../../public/images/team-icon.svg';
+import UmbrellaIcon from '../../../public/images/umbrella-icon.svg';
 
 const getImage = name => {
   switch (name) {
@@ -57,6 +62,16 @@ const getImage = name => {
       return MagnifierUserIcon;
     case 'phone-email-icon':
       return PhoneEmailIcon;
+    case 'add-user-icon':
+      return AddUserIcon;
+    case 'bubble-edit-icon':
+      return BubbleEditIcon;
+    case 'team-icon':
+      return TeamIcon;
+    case 'open-icon':
+      return OpenIcon;
+    case 'umbrella-icon':
+      return UmbrellaIcon;
     case 'logo':
     default:
       return Logo;

@@ -44,12 +44,12 @@ export const HeaderDropdown = styled.div`
 
 export const HeaderDropdownBlock = styled.div`
   transition: all 0.3s ease-in-out;
-  flex: 1;
   padding: 48px 60px 50px 60px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   color: ${({ theme }) => theme.colors.white};
+  width: 288px;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.yellow};
@@ -83,6 +83,14 @@ export const HeaderIconHolder = styled.div`
     fill: ${({ theme }) => theme.colors.white};
   }
 
+  &.culture,
+  &.blog,
+  &.team {
+    path {
+      stroke: transparent;
+    }
+  }
+
   &.logo {
     svg {
       width: 61px;
@@ -94,9 +102,37 @@ export const HeaderIconHolder = styled.div`
     }
   }
 
-  &.products {
+  &.create-account {
     svg {
-      width: 35px;
+      width: 42px;
+      height: 42px;
+    }
+  }
+
+  &.culture {
+    svg {
+      width: 36px;
+      height: 38px;
+    }
+  }
+
+  &.blog {
+    svg {
+      width: 43px;
+      height: 43px;
+    }
+  }
+
+  &.team {
+    svg {
+      width: 51px;
+      height: 44px;
+    }
+  }
+
+  &.open-positions {
+    svg {
+      width: 39px;
     }
   }
 
