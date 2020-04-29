@@ -1,4 +1,5 @@
 import React from 'react';
+import AOS from 'aos';
 import { SVG, Backdrop } from '@components';
 import DropdownContent1 from './DropdownContent1';
 import {

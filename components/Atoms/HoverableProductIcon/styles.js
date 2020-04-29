@@ -18,12 +18,26 @@ export const Root = styled.div`
   justify-content: center;
   align-items: flex-end;
   max-width: 200px;
-  height: 240px;
+  height: 220px;
+  background: green;
+
+  .product-icon {
+    /* width: 112px; */
+    /* height: 180px; */
+  }
+
+  &:hover {
+    .hover-icon {
+      opacity: 1;
+    }
+  }
 
   .hover-icon {
     position: absolute;
-    width: 120%;
-    /* height: auto; */
+    width: 100%;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    top: -30px;
 
     path {
       fill: ${({ theme }) => theme.colors.white};
@@ -45,16 +59,6 @@ export const Root = styled.div`
   &.rpo-icon {
     position: relative;
     width: 100%;
-
-    .product-icon {
-      /* width: 90%; */
-      /* width: 100%; */
-
-      /* img {
-        max-width: 100%;
-        height: auto;
-      } */
-    }
   }
 
   &.product-icon {
@@ -62,30 +66,26 @@ export const Root = styled.div`
   }
 
   &.exec-icon {
-    .hover-icon {
-      top: -50px;
-      /* width: 175%; */
+    .product-icon {
+      height: 170px;
     }
   }
 
   &.express-icon {
-    .hover-icon {
-      top: -30px;
-      /* width: 120%; */
+    .product-icon {
+      height: 190px;
     }
   }
 
   &.tech-icon {
-    .hover-icon {
-      top: -45px;
-      /* width: 130%; */
+    .product-icon {
+      height: 190px;
     }
   }
 
   &.rpo-icon {
-    .hover-icon {
-      top: -40px;
-      /* width: 110%; */
+    .product-icon {
+      height: 160px;
     }
   }
 `;

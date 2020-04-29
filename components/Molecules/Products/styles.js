@@ -41,12 +41,6 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* width: 100%; */
-
-  .hover-icon {
-    transition: opacity 0.3s ease-in-out;
-    opacity: 0;
-  }
 
   ${Description} {
     opacity: 0;
@@ -54,10 +48,6 @@ export const Item = styled.div`
 
   &:hover {
     ${Description} {
-      opacity: 1;
-    }
-
-    .hover-icon {
       opacity: 1;
     }
   }
