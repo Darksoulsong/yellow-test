@@ -61,7 +61,7 @@ export const HeaderDropdownBlock = styled.div`
 `;
 
 export const HeaderHeading = styled.h2`
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 `;
 
 export const HeaderIconHolder = styled.div`
