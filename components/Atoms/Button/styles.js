@@ -25,7 +25,7 @@ const getButtonVariant = (variant, colors) => {
 const main = css`
   transition: transform 0.1s ease-in-out;
   height: ${({ height = '87px' }) => height};
-  padding: 0 46px;
+  padding: ${({ padding = '0 46px' }) => padding};
   color: ${({ theme }) => theme.colors.black};
   font-size: ${({ fontSize = '2.5rem' }) => fontSize};
   border: 0 none;
@@ -33,7 +33,7 @@ const main = css`
   text-indent: -0.1rem;
   font-family: Roboto, sans-serif;
   font-weight: ${({ fontWeight = '700' }) => fontWeight};
-  border-radius: 16px;
+  border-radius: 18px;
   transform: scale(1);
   white-space: nowrap;
 

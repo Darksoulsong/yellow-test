@@ -62,14 +62,12 @@ const HomeScreen = () => {
 
         <Intro>
           <IntroHolder>
-            <MainHeading data-aos="fade-down">
+            <MainHeading>
               <em>Olá,</em> Lorem ipsum dolor sit amet, adipiscing elit, sed
               diam nonummy nibh eusmod tincidunt ut laoreet dolore magna aliquam
               erat volutpat.
             </MainHeading>
-            <SecondaryHeading data-aos="fade-right" data-aos-delay="500">
-              Yellow.
-            </SecondaryHeading>
+            <SecondaryHeading>Yellow.</SecondaryHeading>
           </IntroHolder>
 
           <Video data-aos="fade-left" data-aos-delay="800">
@@ -77,13 +75,13 @@ const HomeScreen = () => {
           </Video>
 
           <IntroFooter>
-            <IntroFooterImage data-aos="fade-right" data-aos-offset="150">
+            <IntroFooterImage>
               <img
                 alt="Busca de vagas e contratação"
                 src="/images/intro-image.jpg"
               />
             </IntroFooterImage>
-            <IntroFooterActions data-aos="fade-left" data-aos-offset="150">
+            <IntroFooterActions>
               <Button variant="primary" type="button">
                 Quero contratar
               </Button>
@@ -113,8 +111,8 @@ const HomeScreen = () => {
         </Section1>
 
         <HighlightsSection>
-          <TransparentLogoHolder data-aos="fade-down" data-aos-delay="2000">
-            <Logo variant="transparent" width="180px" />
+          <TransparentLogoHolder>
+            <Logo variant="transparent" width="150px" />
           </TransparentLogoHolder>
 
           <HighlightBox>
@@ -125,12 +123,12 @@ const HomeScreen = () => {
               </span>
             </SubHeading1>
             <Circles>
-              <Circle data-aos="fade-right" data-aos-delay="100" />
-              <Circle data-aos="fade-right" data-aos-delay="200" />
-              <Circle data-aos="fade-right" data-aos-delay="300" />
-              <Circle data-aos="fade-right" data-aos-delay="400" />
-              <Circle data-aos="fade-right" data-aos-delay="500" />
-              <Circle highlighted data-aos="fade-right" data-aos-delay="600">
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle highlighted>
                 <ListHolder data-aos="fade-up" data-aos-delay="1000">
                   <List>
                     <li data-aos="fade-right" data-aos-delay="1100">
@@ -154,20 +152,17 @@ const HomeScreen = () => {
                     <Button
                       type="button"
                       variant="default"
-                      height="41px"
                       fontSize="2.2rem"
                       fontWeight="300"
-                      style={{
-                        padding: '0 16px',
-                        width: '275px',
-                      }}
+                      padding="0px 23px"
+                      height="72px"
                     >
                       Conheça melhor a Yellow
                     </Button>
                   </div>
                 </ListHolder>
               </Circle>
-              <Circle data-aos="fade-right" data-aos-delay="700" />
+              <Circle />
             </Circles>
           </HighlightBox>
         </HighlightsSection>

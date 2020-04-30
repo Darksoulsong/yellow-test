@@ -39,7 +39,7 @@ export const Video = styled.div`
   top: 0;
   right: 0;
   z-index: -1;
-  background-color: ${({ theme }) => theme.colors.grayLight};
+  background-color: ${({ theme }) => theme.colors.grayLighter};
   font-size: 6.3rem;
   font-weight: 900;
   display: flex;
@@ -92,7 +92,7 @@ export const Section = styled.section`
 `;
 
 export const Section1 = styled(Section)`
-  background-color: ${({ theme }) => theme.colors.grayLight};
+  background-color: ${({ theme }) => theme.colors.grayLighter};
 
   ${SubHeading1} {
     width: 80%;
