@@ -10,7 +10,7 @@ export const HeaderBody = styled.div`
 
 export const Logo = styled.div`
   padding-left: 50px;
-  padding-right: 128px;
+  padding-right: 95px;
   padding-top: 8px;
 
   svg {
