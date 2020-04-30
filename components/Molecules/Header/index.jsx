@@ -81,7 +81,7 @@ export default function Header() {
     <HeaderRoot
       ref={ref}
       stickyPositioned={isSticky}
-      onMouseOut={handleMouseOut}
+      onMouseLeave={handleMouseOut}
     >
       <Backdrop active={showBackdrop} />
 
@@ -93,17 +93,20 @@ export default function Header() {
           <Nav ref={navElementRef}>
             <NavItem
               data-item-label="businesses"
-              onMouseOver={handleMouseOver}
-              onMouseOut={handleMouseOut}
+              onMouseEnter={handleMouseOver}
+              onMouseLeave={handleMouseOut}
             >
               <NavItemLabel>Para Empresas</NavItemLabel>
               <DropdownContent1 />
             </NavItem>
-            <NavItem data-item-label="people" onMouseOver={handleMouseOver}>
+            <NavItem data-item-label="people" onMouseEnter={handleMouseOver}>
               <NavItemLabel>Para Pessoas</NavItemLabel>
               <DropdownContent2 />
             </NavItem>
-            <NavItem data-item-label="yellow-way" onMouseOver={handleMouseOver}>
+            <NavItem
+              data-item-label="yellow-way"
+              onMouseEnter={handleMouseOver}
+            >
               <NavItemLabel>Yellow way</NavItemLabel>
               <DropdownContent3 />
             </NavItem>
