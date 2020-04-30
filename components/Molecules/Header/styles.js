@@ -201,9 +201,11 @@ export const NavItemLabel = styled.span`
 `;
 
 export const NavItem = styled.span`
+  transition: padding 0.3s ease-in-out;
   color: ${({ theme }) => theme.colors.textColorAlt};
   font-weight: 700;
-  padding: 0 32px;
+
+  padding: 0px 16px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -229,7 +231,15 @@ export const NavItem = styled.span`
   }
 
   ${({ active = false, theme }) =>
-    active ? `background-color: ${theme.colors.navBackgroundItemActive}` : ''}
+    active ? `background-color: ${theme.colors.navBackgroundItemActive}` : ''};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: 0 18px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    padding: 0 32px;
+  }
 `;
 
 export const HeaderRoot = styled.div`
