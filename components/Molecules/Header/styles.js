@@ -36,7 +36,7 @@ export const HeaderDropdown = styled.div`
   top: 100%;
   left: 0;
   display: flex;
-  height: 302px;
+  min-height: 302px;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.headerDropdownBackground};
   z-index: 1;
@@ -44,12 +44,13 @@ export const HeaderDropdown = styled.div`
 
 export const HeaderDropdownBlock = styled.div`
   transition: all 0.3s ease-in-out;
-  padding: 48px 60px 50px 60px;
+  padding: 48px 30px 50px 30px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   color: ${({ theme }) => theme.colors.white};
-  width: 288px;
+  /* width: 288px; */
+  flex: 1;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.yellow};
@@ -58,6 +59,10 @@ export const HeaderDropdownBlock = styled.div`
     path {
       fill: ${({ theme }) => theme.colors.black};
     }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    padding: 48px 60px 50px 60px;
   }
 `;
 
@@ -68,7 +73,8 @@ export const HeaderHeading = styled.h2`
 
 export const HeaderIconHolder = styled.div`
   display: flex;
-  margin-bottom: 65px;
+  margin-bottom: 40px;
+
   > div {
     width: 100%;
   }
@@ -145,6 +151,14 @@ export const HeaderIconHolder = styled.div`
     svg {
       width: 43px;
     }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin-bottom: 50px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    margin-bottom: 60px;
   }
 `;
 
