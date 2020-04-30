@@ -2,6 +2,9 @@ import styled, { keyframes } from 'styled-components';
 
 const DrawLine = keyframes`
   to { stroke-dashOffset: 0; }
+  /* 0% {
+    stroke-dasharray: 0 250;
+  } */
 `;
 
 export const Root = styled.div`
@@ -39,6 +42,8 @@ export const Item = styled.div`
 
   &:hover {
     .hover-icon {
+      transform: scaleX(-1);
+
       path {
         stroke: transparent;
         stroke: white;
