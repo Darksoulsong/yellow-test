@@ -123,12 +123,12 @@ const HomeScreen = () => {
               </span>
             </SubHeading1>
             <Circles>
-              <Circle data-aos="fade-right" data-aos-delay="100" />
-              <Circle data-aos="fade-right" data-aos-delay="200" />
-              <Circle data-aos="fade-right" data-aos-delay="300" />
-              <Circle data-aos="fade-right" data-aos-delay="400" />
-              <Circle data-aos="fade-right" data-aos-delay="500" />
-              <Circle highlighted data-aos="fade-right" data-aos-delay="600">
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle />
+              <Circle highlighted>
                 <ListHolder data-aos="fade-up" data-aos-delay="1000">
                   <List>
                     <li data-aos="fade-right" data-aos-delay="1100">
@@ -165,7 +165,7 @@ const HomeScreen = () => {
                   </div>
                 </ListHolder>
               </Circle>
-              <Circle data-aos="fade-right" data-aos-delay="700" />
+              <Circle />
             </Circles>
           </HighlightBox>
         </HighlightsSection>
