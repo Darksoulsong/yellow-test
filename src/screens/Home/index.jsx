@@ -111,8 +111,8 @@ const HomeScreen = () => {
         </Section1>
 
         <HighlightsSection>
-          <TransparentLogoHolder data-aos="fade-down" data-aos-delay="2000">
-            <Logo variant="transparent" width="180px" />
+          <TransparentLogoHolder>
+            <Logo variant="transparent" width="150px" />
           </TransparentLogoHolder>
 
           <HighlightBox>
@@ -152,13 +152,10 @@ const HomeScreen = () => {
                     <Button
                       type="button"
                       variant="default"
-                      height="41px"
                       fontSize="2.2rem"
                       fontWeight="300"
-                      style={{
-                        padding: '0 16px',
-                        width: '275px',
-                      }}
+                      padding="0px 23px"
+                      height="72px"
                     >
                       Conheça melhor a Yellow
                     </Button>
