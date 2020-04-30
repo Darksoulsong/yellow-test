@@ -62,14 +62,12 @@ const HomeScreen = () => {
 
         <Intro>
           <IntroHolder>
-            <MainHeading data-aos="fade-down">
+            <MainHeading>
               <em>Olá,</em> Lorem ipsum dolor sit amet, adipiscing elit, sed
               diam nonummy nibh eusmod tincidunt ut laoreet dolore magna aliquam
               erat volutpat.
             </MainHeading>
-            <SecondaryHeading data-aos="fade-right" data-aos-delay="500">
-              Yellow.
-            </SecondaryHeading>
+            <SecondaryHeading>Yellow.</SecondaryHeading>
           </IntroHolder>
 
           <Video data-aos="fade-left" data-aos-delay="800">
@@ -77,13 +75,13 @@ const HomeScreen = () => {
           </Video>
 
           <IntroFooter>
-            <IntroFooterImage data-aos="fade-right" data-aos-offset="150">
+            <IntroFooterImage>
               <img
                 alt="Busca de vagas e contratação"
                 src="/images/intro-image.jpg"
               />
             </IntroFooterImage>
-            <IntroFooterActions data-aos="fade-left" data-aos-offset="150">
+            <IntroFooterActions>
               <Button variant="primary" type="button">
                 Quero contratar
               </Button>
