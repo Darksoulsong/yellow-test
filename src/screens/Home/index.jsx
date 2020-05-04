@@ -56,7 +56,7 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <Container fluid padding="0" paddingOnLarge="0">
+    <Container id="page-top" fluid padding="0" paddingOnLarge="0">
       <Root>
         <Header />
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SVG, Backdrop } from '@components';
+import { SVG, Backdrop, Button } from '@components';
 import { useScrollPosition } from '@hooks';
 import DropdownContent1 from './DropdownContent1';
 import DropdownContent2 from './DropdownContent2';
@@ -71,6 +71,12 @@ export default function Header() {
     [isSticky]
   );
 
+  const handleLogoClick = React.useCallback(() => {
+    document
+      .getElementById('page-top')
+      ?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  }, []);
+
   React.useEffect(() => {
     if (window) {
       setIsSticky(window.scrollY > 0);
@@ -86,9 +92,16 @@ export default function Header() {
       <Backdrop active={showBackdrop} />
 
       <HeaderMain>
-        <Logo>
-          <SVG />
-        </Logo>
+        <Button
+          type="button"
+          variant="unstyled"
+          onClick={e => handleLogoClick(e)}
+        >
+          <Logo>
+            <SVG />
+          </Logo>
+        </Button>
+
         <HeaderBody>
           <Nav ref={navElementRef}>
             <NavItem
