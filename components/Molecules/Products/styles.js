@@ -7,10 +7,6 @@ const DrawLine = keyframes`
   } */
 `;
 
-export const Root = styled.div`
-  display: flex;
-`;
-
 export const Description = styled.div`
   transition: opacity 0.3s ease-in-out;
   position: relative;
@@ -19,18 +15,24 @@ export const Description = styled.div`
   font-size: 2rem;
   font-weight: 300;
   width: 100%;
-  padding: 0 50px;
-  padding-top: 160px;
+  /* padding: 0 50px; */
+  padding: 0 8px;
+  padding-top: 140px;
   opacity: 1;
+  white-space: pre-wrap;
 
   &:before {
     content: '';
     position: absolute;
-    top: 35px;
+    top: 44px;
     left: calc(50% - 2px);
-    height: 100px;
+    height: 72px;
     width: 2px;
     background-color: ${({ theme }) => theme.colors.white};
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    /* padding: 0 50px; */
   }
 `;
 
@@ -39,6 +41,7 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 0 32px;
 
   &:hover {
     .hover-icon {
@@ -65,6 +68,18 @@ export const Item = styled.div`
   &:hover {
     ${Description} {
       opacity: 1;
+    }
+  }
+`;
+
+export const Root = styled.div`
+  display: flex;
+  justify-content: center;
+
+  ${Item} {
+    &:first-child,
+    &:last-child {
+      padding: 0;
     }
   }
 `;

@@ -8,22 +8,22 @@ export default function Products() {
       {
         iconName: 'exec-icon',
         description:
-          'Recrutamento especializado para a busca de profissionais de alta gerência e diretorias.',
+          'Recrutamento \n especializado para a \n busca de profissionais \n de alta gerência e \n diretorias.',
       },
       {
         iconName: 'express-icon',
         description:
-          'Recrutamento especializado para a busca de profissionais de alta gerência e diretorias.',
+          'Recrutamento \n especializado para a \n busca de profissionais \n de alta gerência e \n diretorias.',
       },
       {
         iconName: 'tech-icon',
         description:
-          'Recrutamento especializado para a busca de profissionais de alta gerência e diretorias.',
+          'Recrutamento \n especializado para a \n busca de profissionais \n de alta gerência e \n diretorias.',
       },
       {
         iconName: 'rpo-icon',
         description:
-          'Recrutamento especializado para a busca de profissionais de alta gerência e diretorias.',
+          'Recrutamento \n especializado para a \n busca de profissionais \n de alta gerência e \n diretorias.',
       },
     ];
   }, []);

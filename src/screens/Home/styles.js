@@ -192,6 +192,8 @@ export const TimelineWrapper = styled.div`
 
 export const ProductsSection = styled(Section)`
   background-color: ${({ theme }) => theme.colors.black};
+  padding-left: 32px;
+  padding-right: 32px;
 
   ${SubHeading1} {
     font-size: 5rem;
@@ -204,6 +206,11 @@ export const ProductsSection = styled(Section)`
       top: -16px;
       left: -5px;
     }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding-left: inherit;
+    padding-right: inherit;
   }
 `;
 
