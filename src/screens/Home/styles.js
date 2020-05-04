@@ -87,8 +87,14 @@ export const SubHeading1 = styled.h2`
 `;
 
 export const Section = styled.section`
+  transition: 0.3s ease-in-out;
+  transition-property: margin, padding;
   padding: 110px;
-  margin: 0 35px;
+  margin: 0 8px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: 0 35px;
+  }
 `;
 
 export const Section1 = styled(Section)`
@@ -228,7 +234,7 @@ export const ProductsFloatingButton = styled.button`
   height: 64px;
   position: absolute;
   padding: 0 24px;
-  right: -110px;
+  right: -32px;
   top: 0;
   color: ${({ theme }) => theme.colors.white};
   font-size: 1.6rem;
@@ -236,6 +242,10 @@ export const ProductsFloatingButton = styled.button`
   font-weight: 300;
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    right: 0;
+  }
 `;
 
 export const ExperienceSection = styled(Section)`

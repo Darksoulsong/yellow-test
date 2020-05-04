@@ -41,7 +41,7 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 0 32px;
+  padding: 0 16px;
 
   &:hover {
     .hover-icon {
@@ -77,9 +77,12 @@ export const Root = styled.div`
   justify-content: center;
 
   ${Item} {
-    &:first-child,
+    &:first-child {
+      padding-left: 0;
+    }
+
     &:last-child {
-      padding: 0;
+      padding-right: 0;
     }
   }
 `;
