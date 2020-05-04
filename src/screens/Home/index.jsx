@@ -198,7 +198,7 @@ const HomeScreen = () => {
             YELLOW <strong>EXPERIÊNCIA</strong>
           </SubHeading1>
 
-          <ExperienceContent data-aos="fade-up" data-aos-delay="600">
+          <ExperienceContent>
             <SpeechBubble>
               <Slider>
                 <BubbleContent>
@@ -225,15 +225,8 @@ const HomeScreen = () => {
             </SpeechBubble>
           </ExperienceContent>
           <ExperienceFooter>
-            <img
-              data-aos="fade-up"
-              data-aos-delay="500"
-              src="/images/testimony-image.png"
-              alt="#Depoimentos"
-            />
-            <div data-aos="zoom-in-up" data-aos-delay="800">
-              <SVG name="bubbles-icon" />
-            </div>
+            <img src="/images/testimony-image.png" alt="#Depoimentos" />
+            <SVG name="bubbles-icon" />
           </ExperienceFooter>
         </ExperienceSection>
 

@@ -365,11 +365,24 @@ export const FooterBlockSocial = styled(FooterBlock)`
 
 export const FooterItem = styled.div`
   margin-bottom: 28px;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 300;
 
+  svg path {
+    transition: fill 0.3s ease-in-out;
+  }
+
   a {
+    transition: color 0.3s ease-in-out;
     color: ${({ theme }) => theme.colors.black};
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.highlightColor};
+
+      svg path {
+        fill: ${({ theme }) => theme.colors.highlightColor};
+      }
+    }
   }
 `;
 
