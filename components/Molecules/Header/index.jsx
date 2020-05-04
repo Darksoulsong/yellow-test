@@ -69,8 +69,8 @@ export default function Header() {
 
   useScrollPosition(
     {
-      effect: ({ currPos }) => {
-        setIsSticky(currPos.y < 0);
+      effect: ({ prevPos, currPos }) => {
+        setIsSticky(currPos.y < 0 && prevPos.y > currPos.y);
       },
     },
     [isSticky]

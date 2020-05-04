@@ -245,7 +245,7 @@ export const NavItem = styled.span`
 
 export const HeaderRoot = styled.div`
   position: sticky;
-  z-index: 2;
+  z-index: 99;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
