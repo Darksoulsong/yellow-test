@@ -49,7 +49,6 @@ export const HeaderDropdownBlock = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   color: ${({ theme }) => theme.colors.white};
-  /* width: 288px; */
   flex: 1;
 
   &:hover {
@@ -60,6 +59,9 @@ export const HeaderDropdownBlock = styled.div`
       fill: ${({ theme }) => theme.colors.black};
     }
   }
+
+  ${({ noHover }) =>
+    noHover && `pointer-events: none; cursor: auto !important;`};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     padding: 48px 60px 50px 60px;

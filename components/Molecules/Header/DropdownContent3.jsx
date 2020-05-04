@@ -51,6 +51,7 @@ export default function DropdownContent1() {
             Se quiser trabalhar com a gente, clique e deixe seus dados.
           </HeaderText>
         </HeaderDropdownBlock>
+        <HeaderDropdownBlock noHover></HeaderDropdownBlock>
       </HeaderDropdown>
     </>
   );
