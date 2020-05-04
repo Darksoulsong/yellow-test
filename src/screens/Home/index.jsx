@@ -95,7 +95,8 @@ const HomeScreen = () => {
         <Section1>
           <SubHeading1>
             Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
-            não é fácil e contratações erradas <strong>geram prejuízos</strong>
+            não é fácil e <br />
+            contratações erradas <strong>geram prejuízos</strong>
           </SubHeading1>
 
           <TimelineWrapper>
@@ -104,9 +105,9 @@ const HomeScreen = () => {
 
           <SubHeading1>
             Continue{' '}
-            <AnimatedUnderline>focado em seu negócio</AnimatedUnderline>{' '}
-            enquanto nós buscamos as <strong>pessoas certas</strong> para o seu
-            time
+            <AnimatedUnderline>focado em seu negócio</AnimatedUnderline>, <br />
+            enquanto nós buscamos as <br /> <strong>pessoas certas</strong> para
+            o seu time
           </SubHeading1>
         </Section1>
 
