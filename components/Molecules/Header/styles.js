@@ -31,7 +31,6 @@ export const HeaderMain = styled.div`
 `;
 
 export const HeaderDropdown = styled.div`
-  transition: opacity 0.3s ease-in-out;
   position: absolute;
   top: 100%;
   left: 0;

@@ -20,15 +20,6 @@ export default function Header() {
   const navElementRef = React.useRef(null);
   const [showBackdrop, setShowBackdrop] = React.useState(false);
 
-  const handleMouseOver = React.useCallback(event => {
-    const label = event.currentTarget.getAttribute('data-item-label');
-
-    if (label) {
-      navElementRef.current.classList.add(label);
-      setShowBackdrop(true);
-    }
-  }, []);
-
   const elementIsChildOfMainElement = (parentLabel, child) => {
     if (!child || typeof child !== 'string') return true;
     const parent = navElementRef.current.querySelector(
@@ -47,16 +38,30 @@ export default function Header() {
     }
   };
 
+  const handleMouseOver = React.useCallback(event => {
+    const label = event.currentTarget.getAttribute('data-item-label');
+
+    if (label) {
+      navElementRef.current.classList.remove(
+        'businesses',
+        'people',
+        'yellow-way'
+      );
+      navElementRef.current.classList.add(label);
+      setShowBackdrop(true);
+    }
+  }, []);
+
   const handleMouseOut = React.useCallback(e => {
     const label = e.currentTarget.getAttribute('data-item-label');
     const result = elementIsChildOfMainElement(label, e.target.className);
 
     if (!result) {
-      navElementRef.current.classList.remove([
+      navElementRef.current.classList.remove(
         'businesses',
         'people',
-        'yellow-way',
-      ]);
+        'yellow-way'
+      );
 
       setShowBackdrop(false);
     }
