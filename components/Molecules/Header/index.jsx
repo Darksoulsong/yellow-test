@@ -1,5 +1,5 @@
 import React from 'react';
-import { SVG, Backdrop } from '@components';
+import { SVG, Backdrop, Button } from '@components';
 import { useScrollPosition } from '@hooks';
 import DropdownContent1 from './DropdownContent1';
 import DropdownContent2 from './DropdownContent2';
@@ -20,15 +20,6 @@ export default function Header() {
   const navElementRef = React.useRef(null);
   const [showBackdrop, setShowBackdrop] = React.useState(false);
 
-  const handleMouseOver = React.useCallback(event => {
-    const label = event.currentTarget.getAttribute('data-item-label');
-
-    if (label) {
-      navElementRef.current.classList.add(label);
-      setShowBackdrop(true);
-    }
-  }, []);
-
   const elementIsChildOfMainElement = (parentLabel, child) => {
     if (!child || typeof child !== 'string') return true;
     const parent = navElementRef.current.querySelector(
@@ -47,16 +38,30 @@ export default function Header() {
     }
   };
 
+  const handleMouseOver = React.useCallback(event => {
+    const label = event.currentTarget.getAttribute('data-item-label');
+
+    if (label) {
+      navElementRef.current.classList.remove(
+        'businesses',
+        'people',
+        'yellow-way'
+      );
+      navElementRef.current.classList.add(label);
+      setShowBackdrop(true);
+    }
+  }, []);
+
   const handleMouseOut = React.useCallback(e => {
     const label = e.currentTarget.getAttribute('data-item-label');
     const result = elementIsChildOfMainElement(label, e.target.className);
 
     if (!result) {
-      navElementRef.current.classList.remove([
+      navElementRef.current.classList.remove(
         'businesses',
         'people',
-        'yellow-way',
-      ]);
+        'yellow-way'
+      );
 
       setShowBackdrop(false);
     }
@@ -64,12 +69,18 @@ export default function Header() {
 
   useScrollPosition(
     {
-      effect: ({ currPos }) => {
-        setIsSticky(currPos.y < 0);
+      effect: ({ prevPos, currPos }) => {
+        setIsSticky(currPos.y < 0 && prevPos.y > currPos.y);
       },
     },
     [isSticky]
   );
+
+  const handleLogoClick = React.useCallback(() => {
+    document
+      .getElementById('page-top')
+      ?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  }, []);
 
   React.useEffect(() => {
     if (window) {
@@ -86,9 +97,16 @@ export default function Header() {
       <Backdrop active={showBackdrop} />
 
       <HeaderMain>
-        <Logo>
-          <SVG />
-        </Logo>
+        <Button
+          type="button"
+          variant="unstyled"
+          onClick={e => handleLogoClick(e)}
+        >
+          <Logo>
+            <SVG />
+          </Logo>
+        </Button>
+
         <HeaderBody>
           <Nav ref={navElementRef}>
             <NavItem

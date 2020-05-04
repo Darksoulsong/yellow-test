@@ -52,6 +52,7 @@ export default function DropdownContent1() {
             chegar bem preparado nos processos seletivos.
           </HeaderText>
         </HeaderDropdownBlock>
+        <HeaderDropdownBlock noHover></HeaderDropdownBlock>
       </HeaderDropdown>
     </>
   );

@@ -31,7 +31,6 @@ export const HeaderMain = styled.div`
 `;
 
 export const HeaderDropdown = styled.div`
-  transition: opacity 0.3s ease-in-out;
   position: absolute;
   top: 100%;
   left: 0;
@@ -49,7 +48,6 @@ export const HeaderDropdownBlock = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   color: ${({ theme }) => theme.colors.white};
-  /* width: 288px; */
   flex: 1;
 
   &:hover {
@@ -60,6 +58,9 @@ export const HeaderDropdownBlock = styled.div`
       fill: ${({ theme }) => theme.colors.black};
     }
   }
+
+  ${({ noHover }) =>
+    noHover && `pointer-events: none; cursor: auto !important;`};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     padding: 48px 60px 50px 60px;
@@ -244,7 +245,7 @@ export const NavItem = styled.span`
 
 export const HeaderRoot = styled.div`
   position: sticky;
-  z-index: 2;
+  z-index: 99;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

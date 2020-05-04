@@ -21,7 +21,8 @@ import {
   Circle,
   Circles,
   Section,
-  Section1,
+  GrayedSection,
+  TimelineSection,
   ListHolder,
   SubHeading1,
   MainHeading,
@@ -56,7 +57,7 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <Container fluid padding="0" paddingOnLarge="0">
+    <Container id="page-top" fluid padding="0" paddingOnLarge="0">
       <Root>
         <Header />
 
@@ -92,10 +93,11 @@ const HomeScreen = () => {
           </IntroFooter>
         </Intro>
 
-        <Section1>
+        <TimelineSection>
           <SubHeading1>
             Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
-            não é fácil e contratações erradas <strong>geram prejuízos</strong>
+            não é fácil e <br />
+            contratações erradas <strong>geram prejuízos</strong>
           </SubHeading1>
 
           <TimelineWrapper>
@@ -104,11 +106,11 @@ const HomeScreen = () => {
 
           <SubHeading1>
             Continue{' '}
-            <AnimatedUnderline>focado em seu negócio</AnimatedUnderline>{' '}
-            enquanto nós buscamos as <strong>pessoas certas</strong> para o seu
-            time
+            <AnimatedUnderline>focado em seu negócio</AnimatedUnderline>, <br />
+            enquanto nós buscamos as <br /> <strong>pessoas certas</strong> para
+            o seu time
           </SubHeading1>
-        </Section1>
+        </TimelineSection>
 
         <HighlightsSection>
           <TransparentLogoHolder>
@@ -148,7 +150,7 @@ const HomeScreen = () => {
                     </li>
                   </List>
 
-                  <div data-aos="fade-right" data-aos-delay="2700">
+                  <div data-aos="fade-right" data-aos-delay="1700">
                     <Button
                       type="button"
                       variant="default"
@@ -239,7 +241,7 @@ const HomeScreen = () => {
           <Section>
             <Logo className="footer-logo" variant="alt" />
           </Section>
-          <Section1>
+          <GrayedSection>
             <FooterBlock>
               <FooterItem>
                 <FooterHeading>Para empresas</FooterHeading>
@@ -299,7 +301,7 @@ const HomeScreen = () => {
                 </a>
               </FooterItem>
             </FooterBlockSocial>
-          </Section1>
+          </GrayedSection>
         </Footer>
       </Root>
     </Container>
