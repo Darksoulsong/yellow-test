@@ -294,10 +294,19 @@ export const ProductsFloatingButton = styled.button`
 
 export const ExperienceSection = styled(Section)`
   padding-bottom: 75px;
+  padding-left: 0;
+  padding-right: 0;
 
   ${SubHeading1} {
-    font-size: 9.5rem;
+    font-size: 8.5rem;
     letter-spacing: 0.16rem;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    ${SubHeading1} {
+      font-size: 9.5rem;
+      letter-spacing: 0.16rem;
+    }
   }
 `;
 
