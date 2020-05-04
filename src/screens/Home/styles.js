@@ -262,6 +262,7 @@ export const ProductsFooter = styled.div`
 `;
 
 export const ProductsFloatingButton = styled.button`
+  transition: transform 0.3s ease-in-out;
   cursor: pointer;
   border: 0 none;
   background-color: ${({ theme }) => theme.colors.grayDark};
@@ -276,6 +277,15 @@ export const ProductsFloatingButton = styled.button`
   font-weight: 300;
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
+  transform: scale(1);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(1.01);
+  }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     right: 0;
