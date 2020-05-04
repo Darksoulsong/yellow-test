@@ -21,7 +21,8 @@ import {
   Circle,
   Circles,
   Section,
-  Section1,
+  GrayedSection,
+  TimelineSection,
   ListHolder,
   SubHeading1,
   MainHeading,
@@ -92,7 +93,7 @@ const HomeScreen = () => {
           </IntroFooter>
         </Intro>
 
-        <Section1>
+        <TimelineSection>
           <SubHeading1>
             Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
             não é fácil e <br />
@@ -109,7 +110,7 @@ const HomeScreen = () => {
             enquanto nós buscamos as <br /> <strong>pessoas certas</strong> para
             o seu time
           </SubHeading1>
-        </Section1>
+        </TimelineSection>
 
         <HighlightsSection>
           <TransparentLogoHolder>
@@ -240,7 +241,7 @@ const HomeScreen = () => {
           <Section>
             <Logo className="footer-logo" variant="alt" />
           </Section>
-          <Section1>
+          <GrayedSection>
             <FooterBlock>
               <FooterItem>
                 <FooterHeading>Para empresas</FooterHeading>
@@ -300,7 +301,7 @@ const HomeScreen = () => {
                 </a>
               </FooterItem>
             </FooterBlockSocial>
-          </Section1>
+          </GrayedSection>
         </Footer>
       </Root>
     </Container>

@@ -97,12 +97,37 @@ export const Section = styled.section`
   }
 `;
 
-export const Section1 = styled(Section)`
+export const GrayedSection = styled(Section)`
   background-color: ${({ theme }) => theme.colors.grayLighter};
 
   ${SubHeading1} {
     width: 80%;
     margin: 0 auto;
+  }
+`;
+
+export const TimelineSection = styled(GrayedSection)`
+  padding-left: 0;
+  padding-right: 0;
+
+  ${SubHeading1} {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 3.2rem;
+    /* font-size: 2.8rem; */
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    ${SubHeading1} {
+      width: 90%;
+      font-size: 3.6rem;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.largest}) {
+    ${SubHeading1} {
+      font-size: 4rem;
+    }
   }
 `;
 
@@ -119,7 +144,7 @@ export const TransparentLogoHolder = styled.div`
 `;
 
 export const HighlightsSection = styled(Section)`
-  padding: 58px 110px 117px;
+  padding: 58px 32px 117px;
   position: relative;
   display: flex;
 
@@ -137,12 +162,21 @@ export const HighlightsSection = styled(Section)`
       top: 66px;
     }
   }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    padding-left: 110px;
+    padding-right: 110px;
+  }
 `;
 
 export const HighlightBox = styled.div`
-  width: 60vw;
+  width: 80vw;
   margin: 0 auto;
   height: 610px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    width: 60vw;
+  }
 `;
 
 export const Circle = styled.div`
@@ -331,7 +365,7 @@ export const Footer = styled.div`
     margin: 0;
   }
 
-  ${Section1} {
+  ${GrayedSection} {
     display: flex;
     margin-top: 0;
     padding-top: 40px;

@@ -32,7 +32,6 @@ export const Description = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    /* padding: 0 50px; */
   }
 `;
 
