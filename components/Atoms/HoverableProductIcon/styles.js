@@ -11,6 +11,10 @@ export const Root = styled.div`
     position: absolute;
     width: 100%;
     top: -30px;
+
+    path {
+      stroke: transparent;
+    }
   }
 
   &.product-icon,

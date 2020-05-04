@@ -87,16 +87,47 @@ export const SubHeading1 = styled.h2`
 `;
 
 export const Section = styled.section`
+  transition: 0.3s ease-in-out;
+  transition-property: margin, padding;
   padding: 110px;
-  margin: 0 35px;
+  margin: 0 8px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: 0 35px;
+  }
 `;
 
-export const Section1 = styled(Section)`
+export const GrayedSection = styled(Section)`
   background-color: ${({ theme }) => theme.colors.grayLighter};
 
   ${SubHeading1} {
     width: 80%;
     margin: 0 auto;
+  }
+`;
+
+export const TimelineSection = styled(GrayedSection)`
+  padding-left: 0;
+  padding-right: 0;
+
+  ${SubHeading1} {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 3.2rem;
+    /* font-size: 2.8rem; */
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    ${SubHeading1} {
+      width: 90%;
+      font-size: 3.6rem;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.largest}) {
+    ${SubHeading1} {
+      font-size: 4rem;
+    }
   }
 `;
 
@@ -113,7 +144,7 @@ export const TransparentLogoHolder = styled.div`
 `;
 
 export const HighlightsSection = styled(Section)`
-  padding: 58px 110px 117px;
+  padding: 58px 32px 117px;
   position: relative;
   display: flex;
 
@@ -131,12 +162,21 @@ export const HighlightsSection = styled(Section)`
       top: 66px;
     }
   }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    padding-left: 110px;
+    padding-right: 110px;
+  }
 `;
 
 export const HighlightBox = styled.div`
-  width: 60vw;
+  width: 80vw;
   margin: 0 auto;
   height: 610px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    width: 60vw;
+  }
 `;
 
 export const Circle = styled.div`
@@ -192,6 +232,8 @@ export const TimelineWrapper = styled.div`
 
 export const ProductsSection = styled(Section)`
   background-color: ${({ theme }) => theme.colors.black};
+  padding-left: 32px;
+  padding-right: 32px;
 
   ${SubHeading1} {
     font-size: 5rem;
@@ -205,6 +247,11 @@ export const ProductsSection = styled(Section)`
       left: -5px;
     }
   }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding-left: inherit;
+    padding-right: inherit;
+  }
 `;
 
 export const ProductsFooter = styled.div`
@@ -215,13 +262,14 @@ export const ProductsFooter = styled.div`
 `;
 
 export const ProductsFloatingButton = styled.button`
+  transition: transform 0.3s ease-in-out;
   cursor: pointer;
   border: 0 none;
   background-color: ${({ theme }) => theme.colors.grayDark};
   height: 64px;
   position: absolute;
   padding: 0 24px;
-  right: -110px;
+  right: -32px;
   top: 0;
   color: ${({ theme }) => theme.colors.white};
   font-size: 1.6rem;
@@ -229,6 +277,19 @@ export const ProductsFloatingButton = styled.button`
   font-weight: 300;
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
+  transform: scale(1);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(1.01);
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    right: 0;
+  }
 `;
 
 export const ExperienceSection = styled(Section)`
@@ -314,7 +375,7 @@ export const Footer = styled.div`
     margin: 0;
   }
 
-  ${Section1} {
+  ${GrayedSection} {
     display: flex;
     margin-top: 0;
     padding-top: 40px;
