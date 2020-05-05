@@ -12,6 +12,7 @@ import {
   SpeechBubble,
   Slider,
   AnimatedUnderline,
+  AnimatedScratches,
 } from '@components';
 import {
   Root,
@@ -170,17 +171,9 @@ const HomeScreen = () => {
         </HighlightsSection>
 
         <ProductsSection>
-          <SubHeading1
-            data-aos="fade-up"
-            data-aos-offset="300"
-            data-aos-delay="100"
-          >
+          <SubHeading1>
             YELLOW <strong>PRODUTOS</strong>
-            <SVG
-              data-aos="fade-in"
-              data-aos-delay="600"
-              name="handdrawn-scratches"
-            />
+            <AnimatedScratches />
           </SubHeading1>
 
           <Products />

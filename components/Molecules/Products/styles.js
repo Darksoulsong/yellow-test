@@ -2,9 +2,6 @@ import styled, { keyframes } from 'styled-components';
 
 const DrawLine = keyframes`
   to { stroke-dashOffset: 0; }
-  /* 0% {
-    stroke-dasharray: 0 250;
-  } */
 `;
 
 export const Description = styled.div`
