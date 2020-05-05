@@ -72,6 +72,7 @@ export const IntroFooterActions = styled.div`
 
   button {
     margin-bottom: 28px;
+    width: 276px;
   }
 `;
 
