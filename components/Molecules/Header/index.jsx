@@ -78,7 +78,7 @@ export default function Header() {
 
   const handleLogoClick = React.useCallback(() => {
     document
-      .getElementById('why-yellow')
+      .getElementById('page-top')
       ?.scrollIntoView({ block: 'start', behavior: 'smooth' });
   }, []);
 
