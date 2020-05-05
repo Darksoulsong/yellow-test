@@ -6,12 +6,10 @@ const DrawLine = keyframes`
 
 export const CirclePathAnimation = css`
   path {
+    transition: 2s ease-in-out;
+    transition-delay: 4s;
+    transition-property: stroke-dashoffset;
     stroke: ${({ theme }) => theme.colors.white};
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-    animation-name: ${DrawLine};
-    animation-delay: 4s;
-    animation-duration: 2s;
   }
 `;
 
@@ -53,6 +51,10 @@ export const AnimatedScratchedCircleRoot = styled.div`
     transform: scaleX(-1);
 
     path {
+      transition: 2s ease-in-out;
+      transition-delay: 4s;
+      transition-property: stroke-dashoffset;
+      stroke: ${({ theme }) => theme.colors.white};
       stroke-dasharray: 205;
       stroke-dashoffset: 205;
     }
@@ -81,7 +83,9 @@ export const AnimatedScratchedCircleRoot = styled.div`
 
   [data-aos='animate-circle'] {
     &.aos-animate {
-      ${CirclePathAnimation};
+      path {
+        stroke-dashoffset: 0;
+      }
     }
   }
 `;

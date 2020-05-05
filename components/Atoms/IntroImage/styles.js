@@ -22,7 +22,7 @@ export const IntroImageRoot = styled.div`
   &::after {
     transition: 2s ease-in-out;
     transition-property: top, bottom, opacity;
-    transition-delay: 5s;
+    transition-delay: 0;
     content: '';
     position: absolute;
     height: 100%;
@@ -49,12 +49,10 @@ export const IntroImageRoot = styled.div`
       }
 
       &:before {
-        /* transition-delay: 0s; */
         top: 0%;
       }
 
       &:after {
-        /* transition-delay: 2s; */
         bottom: 0%;
       }
     }
