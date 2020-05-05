@@ -14,6 +14,7 @@ import {
   AnimatedUnderline,
   AnimatedScratches,
   AnimatedArrow,
+  IntroImage,
 } from '@components';
 import {
   Root,
@@ -79,10 +80,7 @@ const HomeScreen = () => {
 
           <IntroFooter>
             <IntroFooterImage>
-              <img
-                alt="Busca de vagas e contratação"
-                src="/images/intro-image.jpg"
-              />
+              <IntroImage />
             </IntroFooterImage>
             <IntroFooterActions>
               <Button variant="primary" type="button">

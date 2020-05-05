@@ -1,7 +1,21 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const DrawLine = keyframes`
   to { stroke-dashOffset: 0; }
+`;
+
+export const CirclePathAnimation = css`
+  path {
+    stroke: transparent;
+    stroke: ${({ theme }) => theme.colors.white};
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-name: ${DrawLine};
+    animation-duration: 1s;
+    animation-delay: 0s;
+    stroke-dasharray: 205;
+    stroke-dashoffset: 205;
+  }
 `;
 
 export const Description = styled.div`
@@ -12,7 +26,6 @@ export const Description = styled.div`
   font-size: 2rem;
   font-weight: 300;
   width: 100%;
-  /* padding: 0 50px; */
   padding: 0 8px;
   padding-top: 140px;
   opacity: 1;
@@ -43,17 +56,7 @@ export const Item = styled.div`
     .hover-icon {
       transform: scaleX(-1);
 
-      path {
-        stroke: transparent;
-        stroke: white;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: forwards;
-        animation-name: ${DrawLine};
-        animation-duration: 1s;
-        animation-delay: 0s;
-        stroke-dasharray: 205;
-        stroke-dashoffset: 205;
-      }
+      ${CirclePathAnimation};
     }
   }
 
