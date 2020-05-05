@@ -3,9 +3,9 @@ import styled from 'styled-components';
 function groups() {
   let styles = '';
 
-  for (let i = 1; i < 10; i += 1) {
+  for (let i = 1; i < 3; i += 1) {
     styles += `
-        g:nth-child(${i}) path {
+        path:nth-child(${i}) {
           transition-delay: ${(i - 1) * 500}ms;
         }
      `;
@@ -15,17 +15,17 @@ function groups() {
 }
 
 export const Root = styled.span`
-  &[data-aos='animate-scratches'] {
+  &[data-aos='animate-arrow'] {
     path {
-      transition: stroke-dashoffset 0.3s ease-in-out;
-      stroke: white;
+      transition: stroke-dashoffset 1s ease-in-out;
+      stroke: ${({ theme }) => theme.colors.black};
       stroke-dasharray: 57;
       stroke-dashoffset: 57;
     }
 
     &.aos-animate {
       path {
-        stroke-dashoffset: 49;
+        stroke-dashoffset: 119;
       }
 
       ${groups()};

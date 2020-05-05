@@ -13,6 +13,7 @@ import {
   Slider,
   AnimatedUnderline,
   AnimatedScratches,
+  AnimatedArrow,
 } from '@components';
 import {
   Root,
@@ -121,9 +122,7 @@ const HomeScreen = () => {
           <HighlightBox>
             <SubHeading1>
               YELLOW <strong>DIFERENCIAL</strong>
-              <span data-aos="fade-down" data-aos-delay="2000">
-                <SVG name="handdrawn-arrow" />
-              </span>
+              <AnimatedArrow />
             </SubHeading1>
             <Circles>
               <Circle />
