@@ -35,7 +35,7 @@ export const HeaderDropdown = styled.div`
   top: 100%;
   left: 0;
   display: flex;
-  min-height: 302px;
+  min-height: 303px;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.headerDropdownBackground};
   z-index: 1;
