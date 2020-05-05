@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const IntroImageRoot = styled.div`
   position: relative;
+  overflow: hidden;
 
   img {
     max-width: 100%;
@@ -17,12 +18,45 @@ export const IntroImageRoot = styled.div`
     height: 74%;
   }
 
-  [data-aos='animate-width'] {
-    width: 0;
-    transition-property: width;
+  &::before,
+  &::after {
+    transition: 2s ease-in-out;
+    transition-property: top, bottom, opacity;
+    transition-delay: 5s;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 6px;
+    background-color: ${({ theme }) => theme.colors.white};
+    opacity: 0;
+  }
 
+  &:before {
+    left: 14%;
+    top: -100%;
+  }
+
+  &:after {
+    right: 32%;
+    bottom: -100%;
+  }
+
+  &[data-aos='animate-intro'] {
     &.aos-animate {
-      width: 100%;
+      &:before,
+      &:after {
+        opacity: 1;
+      }
+
+      &:before {
+        /* transition-delay: 0s; */
+        top: 0%;
+      }
+
+      &:after {
+        /* transition-delay: 2s; */
+        bottom: 0%;
+      }
     }
   }
 `;

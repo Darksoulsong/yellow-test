@@ -29,7 +29,7 @@ function scratches() {
   return styles;
 }
 
-export const AnimatedScratchedCircleRoot = styled.span`
+export const AnimatedScratchedCircleRoot = styled.div`
   position: relative;
   width: 275px;
   height: 294px;
