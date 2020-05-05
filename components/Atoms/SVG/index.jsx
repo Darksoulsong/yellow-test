@@ -4,7 +4,8 @@ import LogoAlt from '../../../public/images/logo-alt.svg';
 import LogoTransparentStroked from '../../../public/images/logo-transparent-stroked.svg';
 import HanddrawnArrow from '../../../public/images/handdrawn-arrow.svg';
 import HanddrawnScratches from '../../../public/images/handdrawn-scratches.svg';
-import HanddrawnCircle from '../../../public/images/handdrawn-circle2.svg';
+import HanddrawnScratchedCircle from '../../../public/images/handdrawn-scratched-circle5.svg';
+import HanddrawnCircle from '../../../public/images/handdrawn-circle.svg';
 import ExecIcon from '../../../public/images/exec-icon.svg';
 import ExpressIcon from '../../../public/images/express-icon.svg';
 import RPOIcon from '../../../public/images/rpo-icon.svg';
@@ -147,6 +148,8 @@ const getImage = name => {
       return CameraIcon;
     case 'bag-icon':
       return BagIcon;
+    case 'handdrawn-scratched-circle':
+      return HanddrawnScratchedCircle;
     case 'logo':
     default:
       return Logo;
