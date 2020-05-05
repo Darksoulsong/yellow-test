@@ -12,6 +12,9 @@ import {
   SpeechBubble,
   Slider,
   AnimatedUnderline,
+  AnimatedScratches,
+  AnimatedArrow,
+  IntroImage,
 } from '@components';
 import {
   Root,
@@ -77,10 +80,7 @@ const HomeScreen = () => {
 
           <IntroFooter>
             <IntroFooterImage>
-              <img
-                alt="Busca de vagas e contratação"
-                src="/images/intro-image.jpg"
-              />
+              <IntroImage />
             </IntroFooterImage>
             <IntroFooterActions>
               <Button variant="primary" type="button">
@@ -120,9 +120,7 @@ const HomeScreen = () => {
           <HighlightBox>
             <SubHeading1>
               YELLOW <strong>DIFERENCIAL</strong>
-              <span data-aos="fade-down" data-aos-delay="2000">
-                <SVG name="handdrawn-arrow" />
-              </span>
+              <AnimatedArrow />
             </SubHeading1>
             <Circles>
               <Circle />
@@ -170,17 +168,9 @@ const HomeScreen = () => {
         </HighlightsSection>
 
         <ProductsSection>
-          <SubHeading1
-            data-aos="fade-up"
-            data-aos-offset="300"
-            data-aos-delay="100"
-          >
+          <SubHeading1>
             YELLOW <strong>PRODUTOS</strong>
-            <SVG
-              data-aos="fade-in"
-              data-aos-delay="600"
-              name="handdrawn-scratches"
-            />
+            <AnimatedScratches />
           </SubHeading1>
 
           <Products />
