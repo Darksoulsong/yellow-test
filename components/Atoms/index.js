@@ -8,6 +8,11 @@ export { default as HoverableProductIcon } from './HoverableProductIcon';
 export { default as SpeechBubble } from './SpeechBubble';
 export { default as Slider } from './Slider';
 export { default as AnimatedUnderline } from './AnimatedUnderline';
+export { default as AnimatedScratches } from './AnimatedScratches';
+export { default as AnimatedArrow } from './AnimatedArrow';
+export { default as AnimatedScratchedCircle } from './AnimatedScratchedCircle';
+export { default as IntroImage } from './IntroImage';
+export { default as CircledScratchesIcon } from './CircledScratchesIcon';
 export {
   default as Backdrop,
   BackdropProvider,
