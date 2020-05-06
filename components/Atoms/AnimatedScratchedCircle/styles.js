@@ -1,8 +1,4 @@
-import styled, { keyframes, css } from 'styled-components';
-
-const DrawLine = keyframes`
-  to { stroke-dashOffset: 0; }
-`;
+import styled, { css } from 'styled-components';
 
 export const CirclePathAnimation = css`
   path {
@@ -19,7 +15,7 @@ function scratches() {
   for (let i = 1; i < 12; i += 1) {
     styles += `
         path:nth-child(${i}) {
-          transition-delay: ${(i - 1) * 350}ms;
+          transition-delay: ${(i - 1) * 150}ms;
         }
      `;
   }
@@ -51,8 +47,8 @@ export const AnimatedScratchedCircleRoot = styled.div`
     transform: scaleX(-1);
 
     path {
-      transition: 2s ease-in-out;
-      transition-delay: 4s;
+      transition: 1s ease-in-out;
+      transition-delay: 1s;
       transition-property: stroke-dashoffset;
       stroke: ${({ theme }) => theme.colors.white};
       stroke-dasharray: 205;

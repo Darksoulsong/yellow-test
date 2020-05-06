@@ -22,8 +22,39 @@ import PhoneEmailIcon from '../../../public/images/phone-email-icon.svg';
 import AddUserIcon from '../../../public/images/add-user-icon.svg';
 import BubbleEditIcon from '../../../public/images/bubble-edit-icon.svg';
 import OpenIcon from '../../../public/images/open-icon.svg';
+import OpenKey from '../../../public/images/open-key.svg';
 import TeamIcon from '../../../public/images/team-icon.svg';
 import UmbrellaIcon from '../../../public/images/umbrella-icon.svg';
+import BulletListIcon from '../../../public/images/bulletlist-icon.svg';
+import HeartIcon from '../../../public/images/heart-icon.svg';
+import CloudIcon from '../../../public/images/cloud-icon.svg';
+import PlanetIcon from '../../../public/images/planet-icon.svg';
+import PlaneIcon from '../../../public/images/plane-icon.svg';
+import SuitcaseIcon from '../../../public/images/suitcase-icon.svg';
+import LightbulbIcon from '../../../public/images/lightbulb-icon.svg';
+import CoffeeIcon from '../../../public/images/coffee-icon.svg';
+import TargetIcon from '../../../public/images/target-icon.svg';
+import ClockIcon from '../../../public/images/clock-icon.svg';
+import ChartIcon from '../../../public/images/chart-icon.svg';
+import LetterIcon from '../../../public/images/letter-icon.svg';
+import HouseIcon from '../../../public/images/house-icon.svg';
+import BikeIcon from '../../../public/images/bike-icon.svg';
+import DarkUmbrellaIcon from '../../../public/images/darkumbrella-icon.svg';
+import CalculatorIcon from '../../../public/images/calculator-icon.svg';
+import StarIcon from '../../../public/images/star-icon.svg';
+import PigIcon from '../../../public/images/pig-icon.svg';
+import HeadphonesIcon from '../../../public/images/headphones-icon.svg';
+import TelephoneIcon from '../../../public/images/telephone-icon.svg';
+import MonitorIcon from '../../../public/images/monitor-icon.svg';
+import LensIcon from '../../../public/images/lens-icon.svg';
+import CameraIcon from '../../../public/images/camera-icon.svg';
+import BagIcon from '../../../public/images/bag-icon.svg';
+
+import StaggeredLine1 from '../../../public/images/staggered-line1-icon.svg';
+import StaggeredLine2 from '../../../public/images/staggered-line2-icon.svg';
+import StaggeredLine3 from '../../../public/images/staggered-line3-icon.svg';
+import StaggeredLine4 from '../../../public/images/staggered-line4-icon.svg';
+import StaggeredLine5 from '../../../public/images/staggered-line5-icon.svg';
 
 const getImage = name => {
   switch (name) {
@@ -71,10 +102,70 @@ const getImage = name => {
       return TeamIcon;
     case 'open-icon':
       return OpenIcon;
+    case 'open-key':
+      return OpenKey;
     case 'umbrella-icon':
       return UmbrellaIcon;
+    case 'bulletlist-icon':
+      return BulletListIcon;
+    case 'heart-icon':
+      return HeartIcon;
+    case 'cloud-icon':
+      return CloudIcon;
+    case 'planet-icon':
+      return PlanetIcon;
+    case 'plane-icon':
+      return PlaneIcon;
+    case 'suitcase-icon':
+      return SuitcaseIcon;
+    case 'lightbulb-icon':
+      return LightbulbIcon;
+    case 'coffee-icon':
+      return CoffeeIcon;
+    case 'target-icon':
+      return TargetIcon;
+    case 'clock-icon':
+      return ClockIcon;
+    case 'chart-icon':
+      return ChartIcon;
+    case 'letter-icon':
+      return LetterIcon;
+    case 'house-icon':
+      return HouseIcon;
+    case 'bike-icon':
+      return BikeIcon;
+    case 'darkumbrella-icon':
+      return DarkUmbrellaIcon;
+    case 'calculator-icon':
+      return CalculatorIcon;
+    case 'star-icon':
+      return StarIcon;
+    case 'pig-icon':
+      return PigIcon;
+    case 'headphones-icon':
+      return HeadphonesIcon;
+    case 'telephone-icon':
+      return TelephoneIcon;
+    case 'monitor-icon':
+      return MonitorIcon;
+    case 'lens-icon':
+      return LensIcon;
+    case 'camera-icon':
+      return CameraIcon;
+    case 'bag-icon':
+      return BagIcon;
     case 'handdrawn-scratched-circle':
       return HanddrawnScratchedCircle;
+    case 'staggered-line1-icon':
+      return StaggeredLine1;
+    case 'staggered-line2-icon':
+      return StaggeredLine2;
+    case 'staggered-line3-icon':
+      return StaggeredLine3;
+    case 'staggered-line4-icon':
+      return StaggeredLine4;
+    case 'staggered-line5-icon':
+      return StaggeredLine5;
     case 'logo':
     default:
       return Logo;

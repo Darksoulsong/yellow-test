@@ -6,7 +6,7 @@ const config = {
   duration: 3000,
 };
 
-export default function Slider({ children }) {
+export default function Slider({ children, hideArrowsOnLoopStartAndEnd }) {
   const [activeBoxIndex, setActiveBoxIndex] = React.useState(0);
   const [items, setItems] = React.useState([]);
   const timeout = React.useRef(null);
@@ -15,13 +15,19 @@ export default function Slider({ children }) {
 
   const setSlide = React.useCallback(
     ({ stepIndex, jumpToIndex }) => {
-      const nextIndex =
+      let nextIndex =
         jumpToIndex !== undefined ? jumpToIndex : activeBoxIndex + stepIndex;
 
-      if (children[nextIndex]) {
-        clearTimeout(timeout.current);
-        setActiveBoxIndex(nextIndex);
+      if (nextIndex === children.length) {
+        nextIndex = 0;
       }
+
+      if (nextIndex < 0) {
+        nextIndex = children.length - 1;
+      }
+
+      clearTimeout(timeout.current);
+      setActiveBoxIndex(nextIndex);
     },
     [activeBoxIndex]
   );
@@ -61,12 +67,24 @@ export default function Slider({ children }) {
 
   return (
     <Root>
-      <ControlLeft show={activeBoxIndex !== 0 && minimumChildrenLength}>
+      <ControlLeft
+        show={
+          hideArrowsOnLoopStartAndEnd
+            ? activeBoxIndex !== 0 && minimumChildrenLength
+            : true
+        }
+      >
         <SVG onClick={() => setSlide({ stepIndex: -1 })} name="arrow-icon" />
       </ControlLeft>
+
       {items}
+
       <ControlRight
-        show={activeBoxIndex + 1 < items.length && minimumChildrenLength}
+        show={
+          hideArrowsOnLoopStartAndEnd
+            ? activeBoxIndex + 1 < items.length && minimumChildrenLength
+            : true
+        }
       >
         <SVG onClick={() => setSlide({ stepIndex: 1 })} name="arrow-icon" />
       </ControlRight>
@@ -89,3 +107,7 @@ export default function Slider({ children }) {
     </Root>
   );
 }
+
+Slider.defaultProps = {
+  hideArrowsOnLoopStartAndEnd: false,
+};
