@@ -6,7 +6,11 @@ const config = {
   duration: 3000,
 };
 
-export default function Slider({ children, hideArrowsOnLoopStartAndEnd }) {
+export default function Slider({
+  children,
+  hideArrowsOnLoopStartAndEnd,
+  autoLoop,
+}) {
   const [activeBoxIndex, setActiveBoxIndex] = React.useState(0);
   const [items, setItems] = React.useState([]);
   const timeout = React.useRef(null);
@@ -51,7 +55,7 @@ export default function Slider({ children, hideArrowsOnLoopStartAndEnd }) {
 
     setItems(list);
 
-    if (minimumChildrenLength) {
+    if (minimumChildrenLength && autoLoop) {
       loop();
     }
     // eslint-disable-next-line
@@ -110,4 +114,5 @@ export default function Slider({ children, hideArrowsOnLoopStartAndEnd }) {
 
 Slider.defaultProps = {
   hideArrowsOnLoopStartAndEnd: false,
+  autoLoop: false,
 };
