@@ -148,7 +148,7 @@ const HomeScreen = () => {
                     </li>
                   </List>
 
-                  <div data-aos="fade-right" data-aos-delay="1700">
+                  <div data-aos="fade-right">
                     <Button
                       type="button"
                       variant="default"
