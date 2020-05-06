@@ -125,12 +125,35 @@ export const WhySectionColumn = styled.div`
 
 export const HowSection = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 0px 32px 130px 32px;
   margin: 75px 0px;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     padding: 0px 128px 130px 128px;
     margin: 75px 35px;
+  }
+`;
+
+export const HowItems = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const HowCircleContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 0px;
+`;
+
+export const HowSectionText = styled.div`
+  font-weight: 300;
+  font-size: 2rem;
+  margin-left: ${({ marginLeft = '0' }) => marginLeft};
+  margin-top: 5%;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    font-size: 4rem;
   }
 `;
 
@@ -149,13 +172,11 @@ export const PurposeSection = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
-  background-color: ${({ theme }) => theme.colors.white};
   font-size: 3rem;
   font-weight: 300;
   display: inline-block;
   text-align: center;
-  margin-top: 50px;
-  position: absolute;
+  margin-bottom: 75px;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     font-size: 5rem;
   }

@@ -31,6 +31,9 @@ import {
   HashtagIcons,
   HashtagIcon,
   HowSection,
+  HowItems,
+  HowSectionText,
+  HowCircleContainer,
   CasesSection,
   GrayedSection,
   SubHeading1,
@@ -43,6 +46,7 @@ import {
   FooterBlockSocial,
   Section,
   SectionTitle,
+  Circle,
 } from './styles';
 
 const WhoWeAreScreen = () => {
@@ -100,6 +104,19 @@ const WhoWeAreScreen = () => {
           <SectionTitle>
             COMO <strong>TRABALHAMOS</strong>
           </SectionTitle>
+          <HowItems>
+            <HowSectionText marginLeft="55%">Processo simples</HowSectionText>
+            <HowSectionText marginLeft="5%">
+              Experiência do candidato
+            </HowSectionText>
+            <HowSectionText marginLeft="75%">Agilidade</HowSectionText>
+            <HowCircleContainer>
+              <Circle highlighted />
+            </HowCircleContainer>
+            <HowSectionText>Tecnologia própria</HowSectionText>
+            <HowSectionText marginLeft="5%">Precisão</HowSectionText>
+            <HowSectionText marginLeft="70%">Foco no sucesso</HowSectionText>
+          </HowItems>
         </HowSection>
 
         <CasesSection>
