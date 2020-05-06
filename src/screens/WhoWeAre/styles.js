@@ -4,74 +4,233 @@ export const Root = styled.div`
   position: relative;
 `;
 
-export const Intro = styled.section`
-  padding: 0 128px;
-  position: relative;
-  margin-bottom: 126px;
-  overflow: hidden;
+export const Section = styled.section`
+  transition: 0.3s ease-in-out;
+  transition-property: margin, padding;
+  padding: 110px;
+  margin: 0 8px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: 0 35px;
+  }
 `;
 
-export const IntroHolder = styled.div`
-  width: 465px;
-  padding-top: 100px;
+export const Name = styled.li`
+  color: ${({ bold, theme }) =>
+    bold ? theme.colors.yellow : theme.colors.gray};
+  letter-spacing: 3.14px;
+  line-height: 26px;
+  font-size: 1.5rem;
+  user-select: none;
 `;
 
-export const MainHeading = styled.h1`
-  em {
-    font-size: 9rem;
-    font-style: normal;
-    font-weight: 700;
-    font-variant: bold;
+export const NameListColumn = styled.ul`
+  width: 50%;
+  padding: 15px;
+  text-align: center;
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 33%;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    text-align: left;
+    width: 20%;
+  }
+  &:nth-child(4) {
+    @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+      width: 50%;
+    }
+    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+      width: 20%;
+    }
+  }
+  &:nth-child(5) {
+    @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+      width: 50%;
+    }
+    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+      width: 20%;
+    }
   }
 
-  font-size: 3.9rem;
-  font-weight: 300;
-  letter-spacing: 0.97px;
+  &:last-child {
+    width: 100%;
+    @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+      width: 33%;
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+      width: 20%;
+    }
+  }
 `;
 
-export const SecondaryHeading = styled.h2`
-  font-weight: 700;
-  font-size: 3.9rem;
-`;
-
-export const Video = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  background-color: ${({ theme }) => theme.colors.grayLighter};
-  font-size: 6.3rem;
-  font-weight: 900;
+export const NameListSection = styled.div`
   display: flex;
+  padding: 75px 0px;
+  flex-wrap: wrap;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: 75px 128px;
+  }
+`;
+
+export const WhySection = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  width: 77vw;
-  height: 38vw;
-  min-height: 700px;
-  /* max-width: 955px; */
-  left: 441px;
-
-  /* max-width: 800px;
-  max-height: 600px;
-  min-width: 790px;
-  min-height: 590px; */
+  justify-content: space-evenly;
+  padding: 0px 15px 75px 15px;
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    padding: 0px 32px 75px 32px;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    padding: 0px 128px 75px 128px;
+  }
 `;
 
-export const IntroFooter = styled.div`
+export const WhySectionTitle = styled.h2`
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 1.65px;
+
+  text-align: center;
+  margin-bottom: 3rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    text-align: left;
+    font-size: 6rem;
+  }
+`;
+
+export const WhySectionText = styled.h2`
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+
+  text-align: center;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    text-align: left;
+    font-size: 3rem;
+  }
+`;
+
+export const WhySectionColumn = styled.div`
+  width: 100%;
+  display: ${({ desktopOnly }) => (desktopOnly ? 'none' : 'block')};
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: ${({ width = 'fit-content' }) => width};
+    display: block;
+  }
+`;
+
+export const HowSection = styled.div`
   display: flex;
-  margin-top: 156px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 32px 130px 32px;
+  margin: 75px 0px;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: 0px 128px 130px 128px;
+    margin: 75px 35px;
+  }
 `;
 
-export const IntroFooterImage = styled.div`
-  width: 80vw;
+export const HowItems = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
-export const IntroFooterActions = styled.div`
-  padding-top: 100px;
-  padding-left: 40px;
+export const HowCircleContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 0px;
+`;
 
-  button {
-    margin-bottom: 28px;
+export const HowSectionText = styled.div`
+  font-weight: 300;
+  font-size: 2rem;
+  margin-left: ${({ marginLeft = '0' }) => marginLeft};
+  margin-top: 5%;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    font-size: 4rem;
+  }
+`;
+
+export const PurposeSection = styled.div`
+  display: flex;
+  justify-content: center;
+  background-image: url('./images/purpose-image.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 45vh;
+  margin: 75px 0px;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: 75px 35px;
+  }
+`;
+
+export const SectionTitle = styled.h2`
+  font-size: 3rem;
+  font-weight: 300;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 75px;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    font-size: 5rem;
+  }
+`;
+
+export const PurposeSectionTitle = styled.h2`
+  background-color: ${({ theme }) => theme.colors.white};
+  font-size: 3rem;
+  font-weight: 300;
+  display: inline-block;
+  text-align: center;
+  margin-top: 50px;
+  position: absolute;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    font-size: 5rem;
+  }
+`;
+
+export const CasesSection = styled(Section)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.grayLighter};
+`;
+
+export const HashtagSection = styled(Section)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 110px 0px;
+`;
+
+export const HashtagIcons = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const HashtagIcon = styled.div`
+  margin-top: ${({ marginTop = 0 }) => marginTop};
+  margin-left: ${({ marginLeft = '2vw' }) => marginLeft};
+  svg {
+    width: 5vw;
+  }
+`;
+
+export const Hashtag = styled.h2`
+  display: inline-block;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 300;
+  letter-spacing: 2.19px;
+  margin: 20px 0;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    font-size: 6rem;
   }
 `;
 
@@ -86,96 +245,12 @@ export const SubHeading1 = styled.h2`
   }
 `;
 
-export const Section = styled.section`
-  transition: 0.3s ease-in-out;
-  transition-property: margin, padding;
-  padding: 110px;
-  margin: 0 8px;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: 0 35px;
-  }
-`;
-
 export const GrayedSection = styled(Section)`
   background-color: ${({ theme }) => theme.colors.grayLighter};
 
   ${SubHeading1} {
     width: 80%;
     margin: 0 auto;
-  }
-`;
-
-export const TimelineSection = styled(GrayedSection)`
-  padding-left: 0;
-  padding-right: 0;
-
-  ${SubHeading1} {
-    width: 100%;
-    margin: 0 auto;
-    font-size: 3.2rem;
-    /* font-size: 2.8rem; */
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    ${SubHeading1} {
-      width: 90%;
-      font-size: 3.6rem;
-    }
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.largest}) {
-    ${SubHeading1} {
-      font-size: 4rem;
-    }
-  }
-`;
-
-export const TransparentLogoHolder = styled.div`
-  display: flex;
-  align-items: flex-end;
-  position: absolute;
-  bottom: 98px;
-  left: -28px;
-
-  svg {
-    transform: rotate(-90deg);
-  }
-`;
-
-export const HighlightsSection = styled(Section)`
-  padding: 58px 32px 117px;
-  position: relative;
-  display: flex;
-
-  ${SubHeading1} {
-    white-space: nowrap;
-    width: 560px;
-    font-size: 5rem;
-    margin-left: 0;
-
-    svg {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      left: 10px;
-      top: 66px;
-    }
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
-    padding-left: 110px;
-    padding-right: 110px;
-  }
-`;
-
-export const HighlightBox = styled.div`
-  width: 80vw;
-  margin: 0 auto;
-  height: 610px;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
-    width: 60vw;
   }
 `;
 
@@ -203,93 +278,6 @@ export const List = styled.ul`
 
 export const ListHolder = styled.div`
   width: 260px;
-`;
-
-export const Circles = styled.div`
-  margin-top: 70px;
-  margin-left: 90px;
-  margin-bottom: 32px;
-  display: grid;
-  grid-template-columns: repeat(7, 96px);
-
-  ${Circle} {
-    margin: 0 18px;
-
-    ${ListHolder} {
-      position: relative;
-      top: 85px;
-    }
-  }
-`;
-
-export const Highlights = styled.div`
-  margin-left: auto;
-`;
-
-export const TimelineWrapper = styled.div`
-  margin: 60px 0 35px;
-`;
-
-export const ProductsSection = styled(Section)`
-  background-color: ${({ theme }) => theme.colors.black};
-  padding-left: 32px;
-  padding-right: 32px;
-
-  ${SubHeading1} {
-    font-size: 5rem;
-    color: ${({ theme }) => theme.colors.white};
-    margin-bottom: 87px;
-
-    svg {
-      position: relative;
-      width: 3.5rem;
-      top: -16px;
-      left: -5px;
-    }
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding-left: inherit;
-    padding-right: inherit;
-  }
-`;
-
-export const ProductsFooter = styled.div`
-  position: relative;
-  display: flex;
-  margin-top: 64px;
-  justify-content: center;
-`;
-
-export const ProductsFloatingButton = styled.button`
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
-  border: 0 none;
-  background-color: ${({ theme }) => theme.colors.grayDark};
-  height: 64px;
-  position: absolute;
-  padding: 0 24px;
-  right: -32px;
-  top: 0;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: 1.6rem;
-  font-family: 'Roboto' sans-serif;
-  font-weight: 300;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
-  transform: scale(1);
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  &:active {
-    transform: scale(1.01);
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    right: 0;
-  }
 `;
 
 export const ExperienceSection = styled(Section)`
@@ -404,128 +392,5 @@ export const Footer = styled.div`
     justify-content: space-between;
     margin-left: 0;
     margin-right: 0;
-  }
-`;
-
-export const NameListColumn = styled.ul`
-  width: 50%;
-  padding: 15px;
-  text-align: center;
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 33%;
-  }
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    text-align: left;
-    width: 20%;
-  }
-`;
-
-export const Name = styled.li`
-  color: ${({ bold, theme }) =>
-    bold ? theme.colors.yellow : theme.colors.gray};
-  letter-spacing: 3.14px;
-  line-height: 26px;
-  font-size: 1.5rem;
-  user-select: none;
-`;
-
-export const NameListSection = styled.div`
-  display: flex;
-  padding: 75px 0px;
-  flex-wrap: wrap;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding: 75px 128px;
-  }
-`;
-
-export const WhySection = styled.div`
-  display: flex;
-  padding: 0px 32px 130px 32px;
-  align-items: center;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding: 0px 128px 130px 128px;
-  }
-`;
-
-export const WhySectionTitle = styled.h2`
-  font-size: 4rem;
-  font-weight: 300;
-  letter-spacing: 1.65px;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    font-size: 6rem;
-  }
-`;
-
-export const WhySectionText = styled.h2`
-  font-size: 2.5rem;
-  font-weight: 300;
-  letter-spacing: 0.8px;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    font-size: 3rem;
-  }
-`;
-
-export const WhySectionColumn = styled.div`
-  width: ${({ width }) => width};
-`;
-
-export const PurposeSection = styled.div`
-  display: flex;
-  justify-content: center;
-  background-image: url('./images/purpose-image.png');
-  height: 350px;
-  margin: 75px 0px;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: 75px 35px;
-  }
-`;
-
-export const PurposeSectionTitle = styled.h2`
-  background-color: ${({ theme }) => theme.colors.white};
-  font-size: 3rem;
-  font-weight: 300;
-  display: inline-block;
-  text-align: center;
-  margin-top: 50px;
-  position: absolute;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    font-size: 5rem;
-  }
-`;
-
-export const CasesSection = styled(Section)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.colors.grayLighter};
-`;
-
-export const HashtagSection = styled(Section)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 110px 0px;
-`;
-
-export const HashtagIcons = styled.div`
-  display: flex;
-`;
-
-export const HashtagIcon = styled.div`
-  width: ${({ width }) => width};
-  margin-top: ${({ marginTop = 0 }) => marginTop};
-  margin-bottom: ${({ marginBottom = 0 }) => marginBottom};
-  margin-left: ${({ marginLeft = 0 }) => marginLeft};
-  margin-right: ${({ marginRight = 0 }) => marginRight};
-`;
-
-export const Hashtag = styled.h2`
-  display: inline-block;
-  text-align: center;
-  font-size: 4rem;
-  font-weight: 300;
-  letter-spacing: 2.19px;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    font-size: 6rem;
   }
 `;

@@ -6,11 +6,8 @@ import 'aos/dist/aos.css';
 import {
   Container,
   Header,
-  Button,
-  Timeline,
   SVG,
   Logo,
-  Products,
   SpeechBubble,
   Slider,
   AnimatedUnderline,
@@ -33,39 +30,23 @@ import {
   Hashtag,
   HashtagIcons,
   HashtagIcon,
-  List,
+  HowSection,
+  HowItems,
+  HowSectionText,
+  HowCircleContainer,
   CasesSection,
-  Video,
-  Intro,
-  Circle,
-  Circles,
-  Section,
   GrayedSection,
-  TimelineSection,
-  ListHolder,
   SubHeading1,
-  MainHeading,
-  IntroHolder,
-  IntroFooter,
-  HighlightBox,
-  TimelineWrapper,
-  SecondaryHeading,
-  IntroFooterImage,
-  HighlightsSection,
-  ProductsSection,
-  ProductsFooter,
-  IntroFooterActions,
-  TransparentLogoHolder,
-  ProductsFloatingButton,
-  ExperienceSection,
   ExperienceContent,
-  ExperienceFooter,
   BubbleContent,
   Footer,
   FooterHeading,
   FooterItem,
   FooterBlock,
   FooterBlockSocial,
+  Section,
+  SectionTitle,
+  Circle,
 } from './styles';
 
 const WhoWeAreScreen = () => {
@@ -95,15 +76,15 @@ const WhoWeAreScreen = () => {
         </NameListSection>
 
         <WhySection>
-          <WhySectionColumn width="25%">
+          <WhySectionColumn width="40%">
             <WhySectionTitle>
               <strong>POR QUE</strong> YELLOW?
             </WhySectionTitle>
           </WhySectionColumn>
-          <WhySectionColumn width="5%">
+          <WhySectionColumn desktopOnly>
             <SVG name="open-key" />
           </WhySectionColumn>
-          <WhySectionColumn width="70%">
+          <WhySectionColumn width="50%">
             <WhySectionText>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo,
               atque, quia eos, enim aliquid modi distinctio perspiciatis
@@ -119,11 +100,29 @@ const WhoWeAreScreen = () => {
           </PurposeSectionTitle>
         </PurposeSection>
 
+        <HowSection>
+          <SectionTitle>
+            COMO <strong>TRABALHAMOS</strong>
+          </SectionTitle>
+          <HowItems>
+            <HowSectionText marginLeft="55%">Processo simples</HowSectionText>
+            <HowSectionText marginLeft="5%">
+              Experiência do candidato
+            </HowSectionText>
+            <HowSectionText marginLeft="75%">Agilidade</HowSectionText>
+            <HowCircleContainer>
+              <Circle highlighted />
+            </HowCircleContainer>
+            <HowSectionText>Tecnologia própria</HowSectionText>
+            <HowSectionText marginLeft="5%">Precisão</HowSectionText>
+            <HowSectionText marginLeft="70%">Foco no sucesso</HowSectionText>
+          </HowItems>
+        </HowSection>
+
         <CasesSection>
           <SubHeading1 data-aos="fade-up" data-aos-offset="300">
             YELLOW <strong>CASES</strong>
           </SubHeading1>
-
           <ExperienceContent>
             <SpeechBubble>
               <Slider>
@@ -133,14 +132,12 @@ const WhoWeAreScreen = () => {
                   a taste for murder. After the avalanche, it took us a week to
                   climb out.
                 </BubbleContent>
-
                 <BubbleContent>
                   Now, I don't know exactly when we turned on each other, but I
                   know that seven of us survived the slide... and only five made
                   it out. Now we took an oath, that I'm breaking now. You don't
                   get sick, I do. That's also clear.
                 </BubbleContent>
-
                 <BubbleContent>
                   We said we'd say it was the snow that killed the other two,
                   but it wasn't. Nature is lethal but it doesn't hold a candle
@@ -157,40 +154,81 @@ const WhoWeAreScreen = () => {
             <HashtagIcon marginTop="5%">
               <SVG name="heart-icon" />
             </HashtagIcon>
-            <HashtagIcon marginLeft="5%" marginTop="10%">
+            <HashtagIcon marginTop="10%">
               <SVG name="plane-icon" />
             </HashtagIcon>
-            <HashtagIcon marginLeft="5%">
+            <HashtagIcon>
               <SVG name="bulletlist-icon" />
             </HashtagIcon>
-            <HashtagIcon marginTop="15%">
+            <HashtagIcon marginTop="12%">
               <SVG name="suitcase-icon" />
             </HashtagIcon>
-            <HashtagIcon marginLeft="5%" marginTop="10%">
+            <HashtagIcon marginLeft="5%" marginTop="7%">
               <SVG name="lightbulb-icon" />
             </HashtagIcon>
-            <HashtagIcon marginLeft="5%">
+            <HashtagIcon marginTop="15%">
               <SVG name="clock-icon" />
             </HashtagIcon>
             <HashtagIcon>
               <SVG name="cloud-icon" />
             </HashtagIcon>
-            <HashtagIcon marginLeft="3%">
+            <HashtagIcon marginTop="5%">
               <SVG name="coffee-icon" />
             </HashtagIcon>
-            <HashtagIcon marginLeft="3%">
+            <HashtagIcon marginTop="10%">
               <SVG name="target-icon" />
             </HashtagIcon>
-            <HashtagIcon marginLeft="3%">
+            <HashtagIcon marginTop="1%">
               <SVG name="planet-icon" />
             </HashtagIcon>
-            <HashtagIcon marginLeft="3%">
+            <HashtagIcon marginTop="15%">
               <SVG name="chart-icon" />
             </HashtagIcon>
           </HashtagIcons>
           <Hashtag>
             #YELLOW<strong>WAY</strong>
           </Hashtag>
+          <HashtagIcons>
+            <HashtagIcon>
+              <SVG name="house-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginTop="-7%">
+              <SVG name="letter-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginLeft="0" marginTop="10%">
+              <SVG name="darkumbrella-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginTop="15%">
+              <SVG name="telephone-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginTop="3%">
+              <SVG name="calculator-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginTop="20%">
+              <SVG name="camera-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginTop="2%">
+              <SVG name="star-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginTop="10%">
+              <SVG name="monitor-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginTop="5%">
+              <SVG name="pig-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginTop="12%">
+              <SVG name="bag-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginTop="3%">
+              <SVG name="headphones-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginTop="-5%">
+              <SVG name="bike-icon" />
+            </HashtagIcon>
+            <HashtagIcon marginTop="10%" marginLeft="-5%">
+              <SVG name="lens-icon" />
+            </HashtagIcon>
+          </HashtagIcons>
         </HashtagSection>
 
         <Footer>

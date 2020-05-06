@@ -50,6 +50,12 @@ import LensIcon from '../../../public/images/lens-icon.svg';
 import CameraIcon from '../../../public/images/camera-icon.svg';
 import BagIcon from '../../../public/images/bag-icon.svg';
 
+import StaggeredLine1 from '../../../public/images/staggered-line1-icon.svg';
+import StaggeredLine2 from '../../../public/images/staggered-line2-icon.svg';
+import StaggeredLine3 from '../../../public/images/staggered-line3-icon.svg';
+import StaggeredLine4 from '../../../public/images/staggered-line4-icon.svg';
+import StaggeredLine5 from '../../../public/images/staggered-line5-icon.svg';
+
 const getImage = name => {
   switch (name) {
     case 'handdrawn-arrow':
@@ -150,6 +156,16 @@ const getImage = name => {
       return BagIcon;
     case 'handdrawn-scratched-circle':
       return HanddrawnScratchedCircle;
+    case 'staggered-line1-icon':
+      return StaggeredLine1;
+    case 'staggered-line2-icon':
+      return StaggeredLine2;
+    case 'staggered-line3-icon':
+      return StaggeredLine3;
+    case 'staggered-line4-icon':
+      return StaggeredLine4;
+    case 'staggered-line5-icon':
+      return StaggeredLine5;
     case 'logo':
     default:
       return Logo;
