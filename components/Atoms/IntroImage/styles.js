@@ -20,7 +20,7 @@ export const IntroImageRoot = styled.div`
 
   &::before,
   &::after {
-    transition: 2s ease-in-out;
+    transition: 0.5s ease-in-out;
     transition-property: top, bottom, opacity;
     transition-delay: 0;
     content: '';
