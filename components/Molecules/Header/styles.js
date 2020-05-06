@@ -180,11 +180,13 @@ export const FormDropdown = styled.div`
   height: 460px;
 `;
 
-export const Nav = styled.nav`
+const Nav = styled.nav`
   display: flex;
   height: 100%;
   align-items: center;
+`;
 
+export const NavMain = styled(Nav)`
   [data-item-label] > span {
     opacity: 1;
   }
@@ -197,7 +199,8 @@ export const Nav = styled.nav`
 
   &.businesses [data-item-label='businesses'],
   &.people [data-item-label='people'],
-  &.yellow-way [data-item-label='yellow-way'] {
+  &.yellow-way [data-item-label='yellow-way'],
+  &.login [data-item-label='login'] {
     &:hover {
       & > span {
         opacity: 1;
@@ -205,6 +208,8 @@ export const Nav = styled.nav`
     }
   }
 `;
+
+export const NavSecondary = styled(Nav)``;
 
 export const NavItemLabel = styled.span`
   color: ${({ theme }) => theme.colors.white};
@@ -232,14 +237,16 @@ export const NavItem = styled.span`
   }
 
   &:hover {
-    ${HeaderDropdown},
-    ${FormDropdown} {
+    ${HeaderDropdown} {
       opacity: 1;
       pointer-events: unset;
     }
+  }
 
-    ${HeaderDropdown} ${NavItemLabel} {
-      opacity: 0.3;
+  &.active {
+    ${FormDropdown} {
+      opacity: 1;
+      pointer-events: unset;
     }
   }
 
