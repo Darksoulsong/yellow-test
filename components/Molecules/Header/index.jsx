@@ -1,5 +1,5 @@
 import React from 'react';
-import { SVG, Backdrop, Button } from '@components';
+import { SVG, Backdrop, Button, LoginForm } from '@components';
 import { useScrollPosition } from '@hooks';
 import DropdownContent1 from './DropdownContent1';
 import DropdownContent2 from './DropdownContent2';
@@ -7,11 +7,13 @@ import DropdownContent3 from './DropdownContent3';
 import {
   HeaderRoot,
   HeaderBody,
+  HeaderBodyRight,
   Nav,
   NavItem,
   Logo,
   HeaderMain,
   NavItemLabel,
+  FormDropdown,
 } from './styles';
 
 export default function Header() {
@@ -131,16 +133,19 @@ export default function Header() {
           </Nav>
         </HeaderBody>
 
-        <HeaderBody right>
+        <HeaderBodyRight>
           <Nav>
             <NavItem>
               <NavItemLabel>Quero contratar</NavItemLabel>
             </NavItem>
             <NavItem active>
               <NavItemLabel>Acesse sua conta</NavItemLabel>
+              <FormDropdown>
+                <LoginForm />
+              </FormDropdown>
             </NavItem>
           </Nav>
-        </HeaderBody>
+        </HeaderBodyRight>
       </HeaderMain>
     </HeaderRoot>
   );

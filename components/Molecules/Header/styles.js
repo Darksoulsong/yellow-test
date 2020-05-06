@@ -1,13 +1,5 @@
 import styled, { css } from 'styled-components';
 
-export const HeaderBody = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
-
-  ${({ right }) => right && `margin-left: auto;`}
-`;
-
 export const Logo = styled.div`
   padding-left: 40px;
   padding-right: 90px;
@@ -179,6 +171,15 @@ export const HeaderText = styled.p`
   letter-spacing: 0.3px;
 `;
 
+export const FormDropdown = styled.div`
+  position: absolute;
+  background-color: ${({ theme }) => theme.colors.grayDarker};
+  top: 83px;
+  right: 0;
+  width: 430px;
+  height: 460px;
+`;
+
 export const Nav = styled.nav`
   display: flex;
   height: 100%;
@@ -208,6 +209,7 @@ export const Nav = styled.nav`
 export const NavItemLabel = styled.span`
   color: ${({ theme }) => theme.colors.white};
   font-size: 1.6rem;
+  cursor: pointer;
 `;
 
 export const NavItem = styled.span`
@@ -221,21 +223,22 @@ export const NavItem = styled.span`
   align-items: center;
   font-size: 1.8rem;
   letter-spacing: 0.45px;
-  cursor: pointer;
 
-  ${HeaderDropdown} {
+  ${HeaderDropdown},
+  ${FormDropdown} {
     opacity: 0;
     pointer-events: none;
     /* opacity: 1; */
   }
 
   &:hover {
-    ${HeaderDropdown} {
+    ${HeaderDropdown},
+    ${FormDropdown} {
       opacity: 1;
       pointer-events: unset;
     }
 
-    ${NavItemLabel} {
+    ${HeaderDropdown} ${NavItemLabel} {
       opacity: 0.3;
     }
   }
@@ -249,6 +252,20 @@ export const NavItem = styled.span`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     padding: 0 32px;
+  }
+`;
+
+export const HeaderBody = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+`;
+
+export const HeaderBodyRight = styled(HeaderBody)`
+  margin-left: auto;
+
+  ${NavItem} {
+    position: relative;
   }
 `;
 

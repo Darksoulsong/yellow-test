@@ -24,6 +24,9 @@ import BubbleEditIcon from '../../../public/images/bubble-edit-icon.svg';
 import OpenIcon from '../../../public/images/open-icon.svg';
 import TeamIcon from '../../../public/images/team-icon.svg';
 import UmbrellaIcon from '../../../public/images/umbrella-icon.svg';
+import KeyIcon from '../../../public/images/key-icon.svg';
+import FacebookIcon from '../../../public/images/facebook-icon.svg';
+import GoogleIcon from '../../../public/images/google-icon.svg';
 
 const getImage = name => {
   switch (name) {
@@ -75,6 +78,12 @@ const getImage = name => {
       return UmbrellaIcon;
     case 'handdrawn-scratched-circle':
       return HanddrawnScratchedCircle;
+    case 'key-icon':
+      return KeyIcon;
+    case 'facebook-icon':
+      return FacebookIcon;
+    case 'google-icon':
+      return GoogleIcon;
     case 'logo':
     default:
       return Logo;
