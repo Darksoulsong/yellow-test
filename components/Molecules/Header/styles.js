@@ -35,10 +35,18 @@ export const HeaderDropdown = styled.div`
   top: 100%;
   left: 0;
   display: flex;
-  min-height: 303px;
+  min-height: 360px;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.headerDropdownBackground};
   z-index: 1;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    min-height: 319px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    min-height: 339px;
+  }
 `;
 
 export const HeaderDropdownBlock = styled.div`
@@ -49,6 +57,7 @@ export const HeaderDropdownBlock = styled.div`
   justify-content: flex-start;
   color: ${({ theme }) => theme.colors.white};
   flex: 1;
+  background-color: ${({ theme }) => theme.colors.headerDropdownBackground};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.yellow};
