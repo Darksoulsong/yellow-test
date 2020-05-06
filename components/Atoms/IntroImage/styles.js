@@ -20,25 +20,23 @@ export const IntroImageRoot = styled.div`
 
   &::before,
   &::after {
-    transition: 0.5s ease-in-out;
-    transition-property: top, bottom, opacity;
     transition-delay: 0;
     content: '';
     position: absolute;
     height: 100%;
     width: 6px;
     background-color: ${({ theme }) => theme.colors.white};
-    opacity: 0;
+    opacity: 1;
   }
 
   &:before {
     left: 14%;
-    top: -100%;
+    top: 0;
   }
 
   &:after {
     right: 32%;
-    bottom: -100%;
+    bottom: 0;
   }
 
   &[data-aos='animate-intro'] {

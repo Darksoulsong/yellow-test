@@ -12,7 +12,7 @@ export default function AnimatedUnderline({ children }) {
         <AnimatedUnderlineContent>{children}</AnimatedUnderlineContent>
         <AnimatedUnderlineLine
           data-aos="animate-width"
-          data-aos-duration="3000"
+          data-aos-duration="600"
           data-aos-delay="1000"
         />
       </>

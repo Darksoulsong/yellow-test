@@ -66,6 +66,7 @@ export const Item = styled.div`
 
   &:hover {
     ${Description} {
+      transition-delay: 0.6s;
       opacity: 1;
     }
   }
