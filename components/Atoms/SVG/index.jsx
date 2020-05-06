@@ -56,6 +56,10 @@ import StaggeredLine3 from '../../../public/images/staggered-line3-icon.svg';
 import StaggeredLine4 from '../../../public/images/staggered-line4-icon.svg';
 import StaggeredLine5 from '../../../public/images/staggered-line5-icon.svg';
 
+import KeyIcon from '../../../public/images/key-icon.svg';
+import FacebookIcon from '../../../public/images/facebook-icon.svg';
+import GoogleIcon from '../../../public/images/google-icon.svg';
+
 const getImage = name => {
   switch (name) {
     case 'handdrawn-arrow':
@@ -166,6 +170,12 @@ const getImage = name => {
       return StaggeredLine4;
     case 'staggered-line5-icon':
       return StaggeredLine5;
+    case 'key-icon':
+      return KeyIcon;
+    case 'facebook-icon':
+      return FacebookIcon;
+    case 'google-icon':
+      return GoogleIcon;
     case 'logo':
     default:
       return Logo;
