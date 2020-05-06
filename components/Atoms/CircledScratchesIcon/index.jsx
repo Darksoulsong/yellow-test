@@ -14,7 +14,7 @@ export default function CircledScratchesIcon({ className, ...rest }) {
     >
       <style>
         {`
-          #layer1 > g {
+          #circled-scratches-icon > g {
             fill: none;
             fill-opacity:1;
             stroke:#000000;
@@ -25,18 +25,21 @@ export default function CircledScratchesIcon({ className, ...rest }) {
             stroke-opacity:1;
           }
           
-          #layer1 > g > g {
+          #circled-scratches-icon > g > g {
             fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.83299589;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-rule:nonzero;
           }
 
-          #layer1 > g > g:last-child {
+          #circled-scratches-icon > g > g:last-child {
             fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.83299589;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1
           }
         `}
       </style>
 
       <defs id="defs874" />
-      <g transform="translate(57.955021,-88.058152)" id="layer1">
+      <g
+        transform="translate(57.955021,-88.058152)"
+        id="circled-scratches-icon"
+      >
         <g
           transform="matrix(0.46696736,0,0,-0.46696736,-41.747558,129.0858)"
           id="g1501"
