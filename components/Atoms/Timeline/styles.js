@@ -14,7 +14,7 @@ export const Item = styled.div`
       content: '';
       height: 100%;
       width: 1px;
-      top: 0;
+      top: -60px;
       left: calc(50% - 1px);
       z-index: 0;
     }
@@ -22,10 +22,48 @@ export const Item = styled.div`
 
   &.first {
     padding-top: 60px;
+
+    &.has-line {
+      &:before {
+        top: 0;
+      }
+    }
   }
 
   &.last {
     padding-bottom: 60px;
+
+    &.has-line {
+      &:before {
+        top: -90px;
+      }
+    }
+  }
+
+  &[data-aos='animate-line-down'] {
+    &.has-line {
+      &:before {
+        transition: height 0.3s ease-in-out;
+        height: 0;
+      }
+    }
+
+    &.aos-animate {
+      &.has-line {
+        &:before {
+          transition: height 0.3s ease-in-out;
+          /* height: 100%; */
+          height: 150px;
+        }
+      }
+
+      &.first.has-line {
+        &:before {
+          /* height: 50%; */
+          height: 120px;
+        }
+      }
+    }
   }
 `;
 

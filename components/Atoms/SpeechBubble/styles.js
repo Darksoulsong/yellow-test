@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Root = styled.div`
+export const SpeechBubbleRoot = styled.div`
   position: relative;
 `;
 
@@ -24,5 +24,26 @@ export const BubbleElement = styled.div`
     /* border-radius: 32px; */
     border-bottom: 32px solid ${({ theme }) => theme.colors.yellowDark};
     transform: rotate(90deg);
+  }
+`;
+
+export const Dot = styled.span`
+  display: flex;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: ${({ theme, active }) =>
+    active ? theme.colors.grayDark : theme.colors.white};
+`;
+
+export const Dots = styled.div`
+  position: absolute;
+  display: flex;
+  bottom: 25px;
+  right: 30px;
+  z-index: 2;
+
+  ${Dot} {
+    margin: 0 3px;
   }
 `;

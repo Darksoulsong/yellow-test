@@ -184,7 +184,7 @@ const HomeScreen = () => {
         </ProductsSection>
 
         <ExperienceSection>
-          <SubHeading1 data-aos="fade-up" data-aos-offset="300">
+          <SubHeading1>
             YELLOW <strong>EXPERIÊNCIA</strong>
           </SubHeading1>
 
