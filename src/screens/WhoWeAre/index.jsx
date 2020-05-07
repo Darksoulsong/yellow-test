@@ -152,13 +152,21 @@ const WhoWeAreScreen = () => {
             YELLOW <strong>CASES</strong>
           </SubHeading1>
           <ExperienceContent>
-            <SpeechBubble>
+            <SpeechBubble type="stars" iconsAlign="center" arrowAlign="center">
               <Slider>
                 <BubbleContent>
-                  You think water moves fast? You should see ice. It moves like
-                  it has a mind. Like it knows it killed the world once and got
-                  a taste for murder. After the avalanche, it took us a week to
-                  climb out.
+                  <strong>O desafio:</strong> Mobilizar equipe de 12
+                  engenheiros, geólogos e gestores para uma área remota em uma
+                  planta de mineração, com um prazo reduzido e marcos
+                  contratuais bem rígidos.
+                  <br />
+                  <strong>Fato consultivo:</strong> Um dos candidatos
+                  apresentados como gerente da planta, respondendo ao diretor da
+                  empresa, não havia sido pré- aprovado pelo cliente para fazer
+                  as entrevistas. Nós chancelamos o perfil e as entrevistas
+                  aconteceram. Além de contratado, o profissional foi promovido
+                  a gerente geral após 6 meses na empresa devido ao seu
+                  excelente resultado.
                 </BubbleContent>
                 <BubbleContent>
                   Now, I don't know exactly when we turned on each other, but I
@@ -185,13 +193,11 @@ const WhoWeAreScreen = () => {
               </HashtagIcon>
             ))}
           </HashtagIcons>
-
           <Hashtag>
             <HashtagContainer>
               <HashtagText>
                 #YELLOW<strong>WAY</strong>
               </HashtagText>
-
               <SVG name="three-line-icon" />
             </HashtagContainer>
             <SVGManipulator
@@ -202,7 +208,6 @@ const WhoWeAreScreen = () => {
               <SVG name="curved-line-icon" />
             </SVGManipulator>
           </Hashtag>
-
           <HashtagIcons>
             {bottomHashtagSectionIcons.map(icon => (
               <HashtagIcon key={uid(icon)} {...icon}>

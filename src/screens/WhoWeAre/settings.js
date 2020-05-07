@@ -125,6 +125,7 @@ const fifthColumnNames = [
   },
   {
     name: 'Cecília',
+    bold: true,
   },
   {
     name: 'João Miguel',

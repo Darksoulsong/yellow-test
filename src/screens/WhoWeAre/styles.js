@@ -165,22 +165,24 @@ export const PurposeSVGModifier = styled.div`
   width: 100%;
   justify-content: flex-end;
   margin-bottom: 5vh;
-  padding-right: 2vw;
+  margin-right: 10px;
   svg {
     width: auto;
-    height: 20vh;
+    height: 20vw;
+    max-height: 150px;
   }
 `;
 
 export const PurposeSection = styled.div`
   display: flex;
   justify-content: center;
-  background-image: url('./images/purpose-image.png');
+  background-image: url('./images/purpose-image.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 60vh;
-  max-height: 350px;
+  height: 65vh;
+  max-height: 450px;
+  min-height: 300px;
   margin: 75px 0px;
 `;
 
@@ -194,7 +196,7 @@ export const SectionTitle = styled.h2`
 
 export const PurposeSectionTitle = styled.h2`
   background-color: ${({ theme }) => theme.colors.white};
-  font-size: 3vw;
+  font-size: 4vw;
   font-weight: 300;
   display: inline-block;
   text-align: center;
@@ -414,8 +416,8 @@ export const ExperienceFooter = styled.div`
 
 export const BubbleContent = styled.div`
   color: ${({ theme }) => theme.colors.grayDark};
-  font-size: 2.5rem;
-  line-height: 3rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
   font-weight: 300;
 `;
 
