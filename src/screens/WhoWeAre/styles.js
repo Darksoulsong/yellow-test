@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Root = styled.div`
   position: relative;
@@ -127,33 +127,55 @@ export const HowSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0px 32px 130px 32px;
-  margin: 75px 0px;
+  padding-bottom: 130px;
+  margin: 75px 15px;
+  position: relative;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding: 0px 128px 130px 128px;
     margin: 75px 35px;
   }
 `;
 
-export const HowItems = styled.div`
+export const HowSectionContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  svg {
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 65vw;
+    height: auto;
+  }
+`;
+
+export const HowItem = styled.div`
+  display: flex;
+  justify-content: ${({ align = 'left' }) => align};
+  margin-left: ${({ marginLeft = '0' }) => marginLeft};
+  margin-right: ${({ marginRight = '0' }) => marginRight};
+  margin-top: ${({ marginTop = '2.5%' }) => marginTop};
+`;
+
+export const HowItemText = styled.h2`
+  font-weight: 300;
+  font-size: 3vw;
+  width: ${({ width = 'unset' }) => width};
+`;
+
+export const HowItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const HowCircleContainer = styled.div`
+export const PurposeSVGModifier = styled.div`
   display: flex;
+  align-items: flex-end;
   width: 100%;
-  justify-content: center;
-  height: 0px;
-`;
-
-export const HowSectionText = styled.div`
-  font-weight: 300;
-  font-size: 2rem;
-  margin-left: ${({ marginLeft = '0' }) => marginLeft};
-  margin-top: 5%;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    font-size: 4rem;
+  justify-content: flex-end;
+  margin-bottom: 5vh;
+  padding-right: 2vw;
+  svg {
+    width: auto;
+    height: 20vh;
   }
 `;
 
@@ -164,35 +186,27 @@ export const PurposeSection = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 45vh;
+  height: 60vh;
+  max-height: 350px;
   margin: 75px 0px;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: 75px 35px;
-  }
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 3rem;
+  font-size: 3vw;
   font-weight: 300;
   display: inline-block;
   text-align: center;
   margin-bottom: 75px;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    font-size: 5rem;
-  }
 `;
 
 export const PurposeSectionTitle = styled.h2`
   background-color: ${({ theme }) => theme.colors.white};
-  font-size: 3rem;
+  font-size: 3vw;
   font-weight: 300;
   display: inline-block;
   text-align: center;
   margin-top: 50px;
   position: absolute;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    font-size: 5rem;
-  }
 `;
 
 export const CasesSection = styled(Section)`
@@ -207,6 +221,7 @@ export const HashtagSection = styled(Section)`
   flex-direction: column;
   justify-content: center;
   padding: 110px 0px;
+  overflow-x: hidden;
 `;
 
 export const HashtagIcons = styled.div`
@@ -219,19 +234,59 @@ export const HashtagIcon = styled.div`
   margin-left: ${({ marginLeft = '2vw' }) => marginLeft};
   svg {
     width: 5vw;
+    min-width: 20px;
+    transition: 0.25s all ease-in;
+    &:hover {
+      transition: 0.25s all ease-in;
+      transform: scale(1.25);
+    }
   }
 `;
 
-export const Hashtag = styled.h2`
+const handleTypeSVG = type => {
+  switch (type) {
+    case 'curved-line-icon':
+      return css`
+        text-align: center;
+        svg {
+          width: 40vw;
+          height: auto;
+        }
+      `;
+  }
+};
+
+export const SVGManipulator = styled.div`
+  ${({ type }) => handleTypeSVG(type)}
+`;
+
+export const HashtagContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  svg {
+    width: 3vw;
+    height: auto;
+    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+      width: 2vw;
+    }
+  }
+`;
+
+export const Hashtag = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+`;
+
+export const HashtagText = styled.h2`
   display: inline-block;
   text-align: center;
-  font-size: 4rem;
+  font-size: 6vw;
   font-weight: 300;
   letter-spacing: 2.19px;
-  margin: 20px 0;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    font-size: 6rem;
-  }
 `;
 
 export const SubHeading1 = styled.h2`
