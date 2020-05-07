@@ -1,8 +1,25 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const SpeechBubbleRoot = styled.div`
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: ${({ align }) => align};
 `;
+
+const handleBubbleAlignment = align => {
+  switch (align) {
+    case 'flex-start':
+      return css`
+        left: 5%;
+        transform: rotate(90deg);
+      `;
+    case 'center':
+      return css`
+        left: 43%;
+        transform: rotate(65deg);
+      `;
+  }
+};
 
 export const BubbleElement = styled.div`
   position: relative;
@@ -16,14 +33,13 @@ export const BubbleElement = styled.div`
     position: absolute;
     content: '';
     bottom: -7px;
-    left: 16px;
     width: 0;
     height: 0;
     border-left: 32px solid transparent;
     border-right: 32px solid transparent;
     /* border-radius: 32px; */
     border-bottom: 32px solid ${({ theme }) => theme.colors.yellowDark};
-    transform: rotate(90deg);
+    ${({ align }) => handleBubbleAlignment(align)};
   }
 `;
 
@@ -37,10 +53,22 @@ export const Dot = styled.span`
 `;
 
 export const Dots = styled.div`
-  position: absolute;
+  position: relative;
   display: flex;
   bottom: 25px;
   right: 30px;
+  z-index: 2;
+
+  ${Dot} {
+    margin: 0 3px;
+  }
+`;
+
+export const Stars = styled.div`
+  display: flex;
+  position: relative;
+  justify-content: center;
+  bottom: 25px;
   z-index: 2;
 
   ${Dot} {

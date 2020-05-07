@@ -13,6 +13,7 @@ export { default as AnimatedArrow } from './AnimatedArrow';
 export { default as AnimatedScratchedCircle } from './AnimatedScratchedCircle';
 export { default as IntroImage } from './IntroImage';
 export { default as CircledScratchesIcon } from './CircledScratchesIcon';
+export { default as HamburgerButton } from './HamburgerButton';
 export {
   default as Backdrop,
   BackdropProvider,
