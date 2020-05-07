@@ -6,7 +6,6 @@ const yellowDark = '#fcd602';
 const gray = '#BFBFBF';
 const grayLight = '#dcdbdb';
 const grayLighter = '#f7f7f7';
-// const grayer = '#dcdbdb';
 const grayDark = '#3B4252';
 const grayDarker = '#2e2e2e';
 const grayDarkest = '#1f2122';

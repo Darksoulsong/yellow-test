@@ -54,6 +54,10 @@ import ThreeLineIcon from '../../../public/images/three-line-icon.svg';
 import CurvedLineIcon from '../../../public/images/curved-line-icon.svg';
 import YWIcon from '../../../public/images/yw-icon.svg';
 
+import KeyIcon from '../../../public/images/key-icon.svg';
+import FacebookIcon from '../../../public/images/facebook-icon.svg';
+import GoogleIcon from '../../../public/images/google-icon.svg';
+
 const getImage = name => {
   switch (name) {
     case 'handdrawn-arrow':
@@ -162,6 +166,12 @@ const getImage = name => {
       return YWIcon;
     case 'curved-line-icon':
       return CurvedLineIcon;
+    case 'key-icon':
+      return KeyIcon;
+    case 'facebook-icon':
+      return FacebookIcon;
+    case 'google-icon':
+      return GoogleIcon;
     case 'logo':
     default:
       return Logo;

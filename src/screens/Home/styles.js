@@ -18,13 +18,13 @@ export const IntroHolder = styled.div`
 
 export const MainHeading = styled.h1`
   em {
-    font-size: 9rem;
+    font-size: 8.7rem;
     font-style: normal;
     font-weight: 700;
     font-variant: bold;
   }
 
-  font-size: 3.9rem;
+  font-size: 3.6rem;
   font-weight: 300;
   letter-spacing: 0.97px;
 `;
@@ -48,13 +48,7 @@ export const Video = styled.div`
   width: 77vw;
   height: 38vw;
   min-height: 700px;
-  /* max-width: 955px; */
-  left: 441px;
-
-  /* max-width: 800px;
-  max-height: 600px;
-  min-width: 790px;
-  min-height: 590px; */
+  left: 315px;
 `;
 
 export const IntroFooter = styled.div`

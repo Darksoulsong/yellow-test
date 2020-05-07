@@ -1,13 +1,5 @@
 import styled, { css } from 'styled-components';
 
-export const HeaderBody = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
-
-  ${({ right }) => right && `margin-left: auto;`}
-`;
-
 export const Logo = styled.div`
   padding-left: 40px;
   padding-right: 90px;
@@ -35,10 +27,18 @@ export const HeaderDropdown = styled.div`
   top: 100%;
   left: 0;
   display: flex;
-  min-height: 303px;
+  min-height: 360px;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.headerDropdownBackground};
   z-index: 1;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    min-height: 319px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    min-height: 339px;
+  }
 `;
 
 export const HeaderDropdownBlock = styled.div`
@@ -49,6 +49,7 @@ export const HeaderDropdownBlock = styled.div`
   justify-content: flex-start;
   color: ${({ theme }) => theme.colors.white};
   flex: 1;
+  background-color: ${({ theme }) => theme.colors.headerDropdownBackground};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.yellow};
@@ -170,11 +171,22 @@ export const HeaderText = styled.p`
   letter-spacing: 0.3px;
 `;
 
-export const Nav = styled.nav`
+export const FormDropdown = styled.div`
+  position: absolute;
+  background-color: ${({ theme }) => theme.colors.grayDarker};
+  top: 83px;
+  right: 0;
+  width: 430px;
+  height: 460px;
+`;
+
+const Nav = styled.nav`
   display: flex;
   height: 100%;
   align-items: center;
+`;
 
+export const NavMain = styled(Nav)`
   [data-item-label] > span {
     opacity: 1;
   }
@@ -187,7 +199,8 @@ export const Nav = styled.nav`
 
   &.businesses [data-item-label='businesses'],
   &.people [data-item-label='people'],
-  &.yellow-way [data-item-label='yellow-way'] {
+  &.yellow-way [data-item-label='yellow-way'],
+  &.login [data-item-label='login'] {
     &:hover {
       & > span {
         opacity: 1;
@@ -196,9 +209,12 @@ export const Nav = styled.nav`
   }
 `;
 
+export const NavSecondary = styled(Nav)``;
+
 export const NavItemLabel = styled.span`
   color: ${({ theme }) => theme.colors.white};
   font-size: 1.6rem;
+  cursor: pointer;
 `;
 
 export const NavItem = styled.span`
@@ -212,9 +228,9 @@ export const NavItem = styled.span`
   align-items: center;
   font-size: 1.8rem;
   letter-spacing: 0.45px;
-  cursor: pointer;
 
-  ${HeaderDropdown} {
+  ${HeaderDropdown},
+  ${FormDropdown} {
     opacity: 0;
     pointer-events: none;
     /* opacity: 1; */
@@ -225,9 +241,12 @@ export const NavItem = styled.span`
       opacity: 1;
       pointer-events: unset;
     }
+  }
 
-    ${NavItemLabel} {
-      opacity: 0.3;
+  &.active {
+    ${FormDropdown} {
+      opacity: 1;
+      pointer-events: unset;
     }
   }
 
@@ -240,6 +259,20 @@ export const NavItem = styled.span`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     padding: 0 32px;
+  }
+`;
+
+export const HeaderBody = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+`;
+
+export const HeaderBodyRight = styled(HeaderBody)`
+  margin-left: auto;
+
+  ${NavItem} {
+    position: relative;
   }
 `;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SVG, Backdrop, Button } from '@components';
+import { SVG, Backdrop, Button, LoginForm } from '@components';
 import { useScrollPosition } from '@hooks';
 import DropdownContent1 from './DropdownContent1';
 import DropdownContent2 from './DropdownContent2';
@@ -7,17 +7,21 @@ import DropdownContent3 from './DropdownContent3';
 import {
   HeaderRoot,
   HeaderBody,
-  Nav,
+  HeaderBodyRight,
+  NavMain,
+  NavSecondary,
   NavItem,
   Logo,
   HeaderMain,
   NavItemLabel,
+  FormDropdown,
 } from './styles';
 
 export default function Header() {
   const ref = React.useRef(null);
   const [isSticky, setIsSticky] = React.useState(false);
   const navElementRef = React.useRef(null);
+  const loginContainerRef = React.useRef(null);
   const [showBackdrop, setShowBackdrop] = React.useState(false);
 
   const elementIsChildOfMainElement = (parentLabel, child) => {
@@ -39,7 +43,10 @@ export default function Header() {
   };
 
   const handleMouseOver = React.useCallback(event => {
+    const element = loginContainerRef.current;
     const label = event.currentTarget.getAttribute('data-item-label');
+
+    element.classList.remove('active');
 
     if (label) {
       navElementRef.current.classList.remove(
@@ -67,6 +74,13 @@ export default function Header() {
     }
   }, []);
 
+  const handleLoginToggle = React.useCallback(() => {
+    const element = loginContainerRef.current;
+
+    element.classList.toggle('active');
+    setShowBackdrop(!showBackdrop);
+  }, [showBackdrop]);
+
   useScrollPosition(
     {
       effect: ({ prevPos, currPos }) => {
@@ -89,12 +103,8 @@ export default function Header() {
   }, []);
 
   return (
-    <HeaderRoot
-      ref={ref}
-      stickyPositioned={isSticky}
-      onMouseLeave={handleMouseOut}
-    >
-      <Backdrop active={showBackdrop} />
+    <HeaderRoot ref={ref} stickyPositioned={isSticky}>
+      <Backdrop active={showBackdrop} onClick={handleLoginToggle} />
 
       <HeaderMain>
         <Button
@@ -108,7 +118,7 @@ export default function Header() {
         </Button>
 
         <HeaderBody>
-          <Nav ref={navElementRef}>
+          <NavMain ref={navElementRef} onMouseLeave={handleMouseOut}>
             <NavItem
               data-item-label="businesses"
               onMouseEnter={handleMouseOver}
@@ -117,30 +127,40 @@ export default function Header() {
               <NavItemLabel>Para Empresas</NavItemLabel>
               <DropdownContent1 />
             </NavItem>
-            <NavItem data-item-label="people" onMouseEnter={handleMouseOver}>
+            <NavItem
+              data-item-label="people"
+              onMouseEnter={handleMouseOver}
+              onMouseLeave={handleMouseOut}
+            >
               <NavItemLabel>Para Pessoas</NavItemLabel>
               <DropdownContent2 />
             </NavItem>
             <NavItem
               data-item-label="yellow-way"
               onMouseEnter={handleMouseOver}
+              onMouseLeave={handleMouseOut}
             >
               <NavItemLabel>Yellow way</NavItemLabel>
               <DropdownContent3 />
             </NavItem>
-          </Nav>
+          </NavMain>
         </HeaderBody>
 
-        <HeaderBody right>
-          <Nav>
+        <HeaderBodyRight>
+          <NavSecondary>
             <NavItem>
               <NavItemLabel>Quero contratar</NavItemLabel>
             </NavItem>
-            <NavItem active>
-              <NavItemLabel>Acesse sua conta</NavItemLabel>
+            <NavItem ref={loginContainerRef} active data-item-label="login">
+              <NavItemLabel onClick={e => handleLoginToggle(e)}>
+                Acesse sua conta
+              </NavItemLabel>
+              <FormDropdown>
+                <LoginForm />
+              </FormDropdown>
             </NavItem>
-          </Nav>
-        </HeaderBody>
+          </NavSecondary>
+        </HeaderBodyRight>
       </HeaderMain>
     </HeaderRoot>
   );

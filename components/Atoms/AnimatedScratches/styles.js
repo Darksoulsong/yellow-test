@@ -18,7 +18,7 @@ export const Root = styled.span`
   &[data-aos='animate-scratches'] {
     path {
       transition: stroke-dashoffset 0.3s ease-in-out;
-      stroke: white;
+      stroke: ${({ theme }) => theme.colors.white};
       stroke-dasharray: 57;
       stroke-dashoffset: 57;
     }
@@ -28,7 +28,7 @@ export const Root = styled.span`
         stroke-dashoffset: 49;
       }
 
-      ${groups()};
+      /* ${groups()}; */
     }
   }
 `;

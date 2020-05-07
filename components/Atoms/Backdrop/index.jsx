@@ -1,8 +1,8 @@
 import React from 'react';
 import { BackdropRoot } from './styles';
 
-export default function Backdrop({ active }) {
-  return <BackdropRoot active={active}></BackdropRoot>;
+export default function Backdrop({ active, onClick }) {
+  return <BackdropRoot onClick={onClick} active={active}></BackdropRoot>;
 }
 
 const backdropCtx = React.createContext({});
