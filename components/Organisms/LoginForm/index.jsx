@@ -36,9 +36,6 @@ export default function LoginForm() {
         <AlternativeLogin>
           <div>ou entrar com</div>
           <a href="http://foo.com">
-            <SVG name="facebook-icon" />
-          </a>
-          <a href="http://foo.com">
             <SVG name="linkedin-icon" />
           </a>
           <a href="http://foo.com">
