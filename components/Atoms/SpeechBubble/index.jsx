@@ -1,10 +1,15 @@
 import React from 'react';
-import { Root, BubbleElement } from './styles';
+import { SpeechBubbleRoot, BubbleElement, Dots, Dot } from './styles';
 
 export default function SpeechBubble({ children }) {
   return (
-    <Root>
+    <SpeechBubbleRoot>
       <BubbleElement>{children}</BubbleElement>
-    </Root>
+      <Dots>
+        <Dot />
+        <Dot />
+        <Dot />
+      </Dots>
+    </SpeechBubbleRoot>
   );
 }
