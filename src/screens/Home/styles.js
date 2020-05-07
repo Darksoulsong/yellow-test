@@ -49,6 +49,10 @@ export const Video = styled.div`
   height: 38vw;
   min-height: 700px;
   left: 315px;
+  video {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const IntroFooter = styled.div`

@@ -75,7 +75,7 @@ const HomeScreen = () => {
           </IntroHolder>
 
           <Video data-aos="fade-left" data-aos-delay="800">
-            Vídeo
+            <video autoPlay="autoplay" muted src="/videos/yellow-video.mp4" />
           </Video>
 
           <IntroFooter>
