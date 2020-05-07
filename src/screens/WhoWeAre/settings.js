@@ -125,6 +125,7 @@ const fifthColumnNames = [
   },
   {
     name: 'Cecília',
+    bold: true,
   },
   {
     name: 'João Miguel',
@@ -143,4 +144,105 @@ export const listColumnNames = [
   thirdColumnNames,
   fourthColumnNames,
   fifthColumnNames,
+];
+
+export const topHashtagSectionIcons = [
+  {
+    name: 'heart-icon',
+    marginTop: '5%',
+  },
+  {
+    name: 'plane-icon',
+    marginTop: '10%',
+  },
+  {
+    name: 'bulletlist-icon',
+  },
+  {
+    name: 'suitcase-icon',
+    marginTop: '12%',
+  },
+  {
+    name: 'lightbulb-icon',
+    marginTop: '7%',
+  },
+  {
+    name: 'clock-icon',
+    marginTop: '15%',
+  },
+  {
+    name: 'cloud-icon',
+  },
+  {
+    name: 'coffee-icon',
+    marginTop: '5%',
+  },
+  {
+    name: 'target-icon',
+    marginTop: '10%',
+  },
+  {
+    name: 'planet-icon',
+    marginTop: '1%',
+  },
+  {
+    name: 'chart-icon',
+    marginTop: '15%',
+  },
+];
+
+export const bottomHashtagSectionIcons = [
+  {
+    name: 'house-icon',
+  },
+  {
+    name: 'letter-icon',
+    marginTop: '-7%',
+  },
+  {
+    name: 'darkumbrella-icon',
+    marginTop: '10%',
+    marginLeft: '0',
+  },
+  {
+    name: 'telephone-icon',
+    marginTop: '15%',
+  },
+  {
+    name: 'calculator-icon',
+    marginTop: '3%',
+  },
+  {
+    name: 'camera-icon',
+    marginTop: '20%',
+  },
+  {
+    name: 'star-icon',
+    marginTop: '2%',
+  },
+  {
+    name: 'monitor-icon',
+    marginTop: '10%',
+  },
+  {
+    name: 'pig-icon',
+    marginTop: '5%',
+  },
+  {
+    name: 'bag-icon',
+    marginTop: '12%',
+  },
+  {
+    name: 'headphones-icon',
+    marginTop: '3%',
+  },
+  {
+    name: 'bike-icon',
+    marginTop: '-5%',
+  },
+  {
+    name: 'lens-icon',
+    marginTop: '10%',
+    marginLeft: '-5%',
+  },
 ];

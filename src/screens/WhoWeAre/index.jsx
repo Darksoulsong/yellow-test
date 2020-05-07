@@ -13,7 +13,11 @@ import {
   AnimatedUnderline,
 } from '@components';
 
-import { listColumnNames } from './settings';
+import {
+  listColumnNames,
+  topHashtagSectionIcons,
+  bottomHashtagSectionIcons,
+} from './settings';
 
 import {
   Name,
@@ -25,15 +29,20 @@ import {
   WhySectionColumn,
   PurposeSection,
   PurposeSectionTitle,
+  PurposeSVGModifier,
   Root,
   HashtagSection,
+  HashtagText,
+  HashtagContainer,
   Hashtag,
   HashtagIcons,
   HashtagIcon,
   HowSection,
-  HowItems,
-  HowSectionText,
-  HowCircleContainer,
+  HowSectionContent,
+  HowItem,
+  HowItemsContainer,
+  HowItemText,
+  SVGManipulator,
   CasesSection,
   GrayedSection,
   SubHeading1,
@@ -98,25 +107,44 @@ const WhoWeAreScreen = () => {
           <PurposeSectionTitle>
             NOSSO PROPÓSITO É <strong>CONECTAR PESSOAS</strong>
           </PurposeSectionTitle>
+          <PurposeSVGModifier>
+            <SVG name="yw-icon" />
+          </PurposeSVGModifier>
         </PurposeSection>
 
         <HowSection>
           <SectionTitle>
             COMO <strong>TRABALHAMOS</strong>
           </SectionTitle>
-          <HowItems>
-            <HowSectionText marginLeft="55%">Processo simples</HowSectionText>
-            <HowSectionText marginLeft="5%">
-              Experiência do candidato
-            </HowSectionText>
-            <HowSectionText marginLeft="75%">Agilidade</HowSectionText>
-            <HowCircleContainer>
-              <Circle highlighted />
-            </HowCircleContainer>
-            <HowSectionText>Tecnologia própria</HowSectionText>
-            <HowSectionText marginLeft="5%">Precisão</HowSectionText>
-            <HowSectionText marginLeft="70%">Foco no sucesso</HowSectionText>
-          </HowItems>
+          <HowSectionContent>
+            <SVGManipulator
+              data-aos="animate-lines-circle"
+              data-aos-offset="600"
+              type="lines-circle-icon"
+            >
+              <SVG name="lines-circle-icon" />
+            </SVGManipulator>
+            <HowItemsContainer>
+              <HowItem align="flex-end" marginTop="-41vw" marginRight="10vw">
+                <HowItemText>Processo simples</HowItemText>
+              </HowItem>
+              <HowItem marginTop="3.5vw" marginLeft="2vw">
+                <HowItemText width="20vw">Experiência do candidato</HowItemText>
+              </HowItem>
+              <HowItem align="flex-end" marginTop="2vw">
+                <HowItemText>Agilidade</HowItemText>
+              </HowItem>
+              <HowItem marginTop="5.5vw">
+                <HowItemText>Tecnologia própria</HowItemText>
+              </HowItem>
+              <HowItem marginTop="7.5vw">
+                <HowItemText>Precisão</HowItemText>
+              </HowItem>
+              <HowItem align="flex-end" marginTop="-2vw">
+                <HowItemText width="15vw">Foco no sucesso</HowItemText>
+              </HowItem>
+            </HowItemsContainer>
+          </HowSectionContent>
         </HowSection>
 
         <CasesSection>
@@ -124,13 +152,21 @@ const WhoWeAreScreen = () => {
             YELLOW <strong>CASES</strong>
           </SubHeading1>
           <ExperienceContent>
-            <SpeechBubble>
+            <SpeechBubble type="stars" iconsAlign="center" arrowAlign="center">
               <Slider>
                 <BubbleContent>
-                  You think water moves fast? You should see ice. It moves like
-                  it has a mind. Like it knows it killed the world once and got
-                  a taste for murder. After the avalanche, it took us a week to
-                  climb out.
+                  <strong>O desafio:</strong> Mobilizar equipe de 12
+                  engenheiros, geólogos e gestores para uma área remota em uma
+                  planta de mineração, com um prazo reduzido e marcos
+                  contratuais bem rígidos.
+                  <br />
+                  <strong>Fato consultivo:</strong> Um dos candidatos
+                  apresentados como gerente da planta, respondendo ao diretor da
+                  empresa, não havia sido pré- aprovado pelo cliente para fazer
+                  as entrevistas. Nós chancelamos o perfil e as entrevistas
+                  aconteceram. Além de contratado, o profissional foi promovido
+                  a gerente geral após 6 meses na empresa devido ao seu
+                  excelente resultado.
                 </BubbleContent>
                 <BubbleContent>
                   Now, I don't know exactly when we turned on each other, but I
@@ -151,83 +187,33 @@ const WhoWeAreScreen = () => {
 
         <HashtagSection>
           <HashtagIcons>
-            <HashtagIcon marginTop="5%">
-              <SVG name="heart-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="10%">
-              <SVG name="plane-icon" />
-            </HashtagIcon>
-            <HashtagIcon>
-              <SVG name="bulletlist-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="12%">
-              <SVG name="suitcase-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginLeft="5%" marginTop="7%">
-              <SVG name="lightbulb-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="15%">
-              <SVG name="clock-icon" />
-            </HashtagIcon>
-            <HashtagIcon>
-              <SVG name="cloud-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="5%">
-              <SVG name="coffee-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="10%">
-              <SVG name="target-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="1%">
-              <SVG name="planet-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="15%">
-              <SVG name="chart-icon" />
-            </HashtagIcon>
+            {topHashtagSectionIcons.map(icon => (
+              <HashtagIcon key={uid(icon)} {...icon}>
+                <SVG name={icon.name} />
+              </HashtagIcon>
+            ))}
           </HashtagIcons>
           <Hashtag>
-            #YELLOW<strong>WAY</strong>
+            <HashtagContainer>
+              <HashtagText>
+                #YELLOW<strong>WAY</strong>
+              </HashtagText>
+              <SVG name="three-line-icon" />
+            </HashtagContainer>
+            <SVGManipulator
+              data-aos="animate-curved-line"
+              data-aos-offset="200"
+              type="curved-line-icon"
+            >
+              <SVG name="curved-line-icon" />
+            </SVGManipulator>
           </Hashtag>
           <HashtagIcons>
-            <HashtagIcon>
-              <SVG name="house-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="-7%">
-              <SVG name="letter-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginLeft="0" marginTop="10%">
-              <SVG name="darkumbrella-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="15%">
-              <SVG name="telephone-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="3%">
-              <SVG name="calculator-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="20%">
-              <SVG name="camera-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="2%">
-              <SVG name="star-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="10%">
-              <SVG name="monitor-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="5%">
-              <SVG name="pig-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="12%">
-              <SVG name="bag-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="3%">
-              <SVG name="headphones-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="-5%">
-              <SVG name="bike-icon" />
-            </HashtagIcon>
-            <HashtagIcon marginTop="10%" marginLeft="-5%">
-              <SVG name="lens-icon" />
-            </HashtagIcon>
+            {bottomHashtagSectionIcons.map(icon => (
+              <HashtagIcon key={uid(icon)} {...icon}>
+                <SVG name={icon.name} />
+              </HashtagIcon>
+            ))}
           </HashtagIcons>
         </HashtagSection>
 
