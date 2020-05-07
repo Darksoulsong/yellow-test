@@ -1,13 +1,21 @@
 import React from 'react';
-import { SVG, Backdrop, Button, LoginForm } from '@components';
+import {
+  SVG,
+  Backdrop,
+  Button,
+  LoginForm,
+  HamburgerButton,
+  MobileMenu,
+} from '@components';
 import { useScrollPosition } from '@hooks';
 import DropdownContent1 from './DropdownContent1';
 import DropdownContent2 from './DropdownContent2';
 import DropdownContent3 from './DropdownContent3';
 import {
   HeaderRoot,
-  HeaderBody,
+  HeaderBodyLeft,
   HeaderBodyRight,
+  HeaderBodyMobile,
   NavMain,
   NavSecondary,
   NavItem,
@@ -20,6 +28,7 @@ import {
 export default function Header() {
   const ref = React.useRef(null);
   const [isSticky, setIsSticky] = React.useState(false);
+  const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
   const navElementRef = React.useRef(null);
   const loginContainerRef = React.useRef(null);
   const [showBackdrop, setShowBackdrop] = React.useState(false);
@@ -81,6 +90,10 @@ export default function Header() {
     setShowBackdrop(!showBackdrop);
   }, [showBackdrop]);
 
+  const handleMobileMenuToggle = React.useCallback(() => {
+    setMobileMenuIsOpen(!mobileMenuIsOpen);
+  }, [mobileMenuIsOpen]);
+
   useScrollPosition(
     {
       effect: ({ prevPos, currPos }) => {
@@ -116,8 +129,7 @@ export default function Header() {
             <SVG />
           </Logo>
         </Button>
-
-        <HeaderBody>
+        <HeaderBodyLeft>
           <NavMain ref={navElementRef} onMouseLeave={handleMouseOut}>
             <NavItem
               data-item-label="businesses"
@@ -144,7 +156,7 @@ export default function Header() {
               <DropdownContent3 />
             </NavItem>
           </NavMain>
-        </HeaderBody>
+        </HeaderBodyLeft>
 
         <HeaderBodyRight>
           <NavSecondary>
@@ -161,7 +173,13 @@ export default function Header() {
             </NavItem>
           </NavSecondary>
         </HeaderBodyRight>
+
+        <HeaderBodyMobile>
+          <HamburgerButton onClick={() => handleMobileMenuToggle()} />
+        </HeaderBodyMobile>
       </HeaderMain>
+
+      <MobileMenu open={mobileMenuIsOpen} />
     </HeaderRoot>
   );
 }

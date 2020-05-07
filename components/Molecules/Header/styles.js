@@ -268,11 +268,28 @@ export const HeaderBody = styled.div`
   height: 100%;
 `;
 
+export const HeaderBodyLeft = styled(HeaderBody)`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: flex;
+  }
+`;
+
 export const HeaderBodyRight = styled(HeaderBody)`
   margin-left: auto;
 
   ${NavItem} {
     position: relative;
+  }
+`;
+
+export const HeaderBodyMobile = styled(HeaderBody)`
+  padding: 0 16px;
+  width: 66px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: none;
   }
 `;
 
