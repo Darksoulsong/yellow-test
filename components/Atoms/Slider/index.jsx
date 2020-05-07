@@ -1,6 +1,7 @@
 import React from 'react';
-import { SVG } from '@components';
-import { Root, Content, ControlLeft, ControlRight, Dots, Dot } from './styles';
+import { uid } from 'react-uid';
+import { SVG, Button } from '@components';
+import { Root, Content, ControlLeft, ControlRight } from './styles';
 
 const config = {
   duration: 3000,
@@ -10,6 +11,7 @@ export default function Slider({
   children,
   hideArrowsOnLoopStartAndEnd,
   autoLoop,
+  showPaginator,
 }) {
   const [activeBoxIndex, setActiveBoxIndex] = React.useState(0);
   const [items, setItems] = React.useState([]);
@@ -93,21 +95,17 @@ export default function Slider({
         <SVG onClick={() => setSlide({ stepIndex: 1 })} name="arrow-icon" />
       </ControlRight>
 
-      <Dots>
-        <Dot />
-        <Dot />
-        <Dot />
-        {/* {items.map((item, index) => (
+      {showPaginator &&
+        items.map((item, index) => (
           <Button
             onClick={() => setSlide({ jumpToIndex: index })}
             key={uid(item, index)}
             type="button"
             variant="unstyled"
           >
-            <Dot active={index === activeBoxIndex} />
+            <span className={index === activeBoxIndex} />
           </Button>
-        ))} */}
-      </Dots>
+        ))}
     </Root>
   );
 }
@@ -115,4 +113,5 @@ export default function Slider({
 Slider.defaultProps = {
   hideArrowsOnLoopStartAndEnd: false,
   autoLoop: false,
+  showPaginator: false,
 };

@@ -71,25 +71,3 @@ export const Content = styled.div`
         z-index: 0;        
       `}
 `;
-
-export const Dot = styled.span`
-  display: flex;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: ${({ theme, active }) =>
-    active ? theme.colors.grayDark : theme.colors.white};
-`;
-
-export const Dots = styled.div`
-  position: absolute;
-  display: flex;
-  /* width: 50px; */
-  bottom: -69px;
-  right: -16px;
-  z-index: 2;
-
-  ${Dot} {
-    margin: 0 3px;
-  }
-`;
