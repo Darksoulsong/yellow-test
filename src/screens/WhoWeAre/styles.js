@@ -138,13 +138,6 @@ export const HowSection = styled.div`
 export const HowSectionContent = styled.div`
   display: flex;
   flex-direction: column;
-  svg {
-    display: block;
-    margin: auto;
-    text-align: center;
-    width: 65vw;
-    height: auto;
-  }
 `;
 
 export const HowItem = styled.div`
@@ -247,16 +240,54 @@ const handleTypeSVG = type => {
   switch (type) {
     case 'curved-line-icon':
       return css`
+        &[data-aos='animate-curved-line'] {
+          path {
+            transition: stroke-dashoffset 1s ease-in-out;
+            stroke: ${({ theme }) => theme.colors.black};
+            stroke-dasharray: 1640;
+            stroke-dashoffset: 1640;
+          }
+
+          &.aos-animate {
+            path {
+              stroke-dashoffset: 950;
+            }
+          }
+        }
         text-align: center;
         svg {
           width: 40vw;
           height: auto;
         }
       `;
+    case 'lines-circle-icon':
+      return css`
+        &[data-aos='animate-lines-circle'] {
+          path {
+            transition: stroke-dashoffset 1s ease-in-out;
+            stroke: ${({ theme }) => theme.colors.black};
+            stroke-dasharray: 1640;
+            stroke-dashoffset: 1640;
+          }
+
+          &.aos-animate {
+            path {
+              stroke-dashoffset: 950;
+            }
+          }
+        }
+        svg {
+          display: block;
+          margin: auto;
+          text-align: center;
+          width: 65vw;
+          height: auto;
+        }
+      `;
   }
 };
 
-export const SVGManipulator = styled.div`
+export const SVGManipulator = styled.span`
   ${({ type }) => handleTypeSVG(type)}
 `;
 

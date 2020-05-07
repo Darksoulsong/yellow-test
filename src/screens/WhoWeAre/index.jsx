@@ -117,7 +117,13 @@ const WhoWeAreScreen = () => {
             COMO <strong>TRABALHAMOS</strong>
           </SectionTitle>
           <HowSectionContent>
-            <SVG name="lines-circle-icon" />
+            <SVGManipulator
+              data-aos="animate-lines-circle"
+              data-aos-offset="600"
+              type="lines-circle-icon"
+            >
+              <SVG name="lines-circle-icon" />
+            </SVGManipulator>
             <HowItemsContainer>
               <HowItem align="flex-end" marginTop="-41vw" marginRight="10vw">
                 <HowItemText>Processo simples</HowItemText>
@@ -188,7 +194,11 @@ const WhoWeAreScreen = () => {
 
               <SVG name="three-line-icon" />
             </HashtagContainer>
-            <SVGManipulator type="curved-line-icon">
+            <SVGManipulator
+              data-aos="animate-curved-line"
+              data-aos-offset="200"
+              type="curved-line-icon"
+            >
               <SVG name="curved-line-icon" />
             </SVGManipulator>
           </Hashtag>
