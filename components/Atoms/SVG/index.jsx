@@ -54,7 +54,12 @@ import ThreeLineIcon from '../../../public/images/three-line-icon.svg';
 import CurvedLineIcon from '../../../public/images/curved-line-icon.svg';
 import YWIcon from '../../../public/images/yw-icon.svg';
 import StarWhiteIcon from '../../../public/images/star-white-icon.svg';
-
+import HanddrawnArrowIcon1 from '../../../public/images/handdrawn-arrow1.svg';
+import HanddrawnArrowIcon2 from '../../../public/images/handdrawn-arrow2.svg';
+import HanddrawnArrowIcon3 from '../../../public/images/handdrawn-arrow3.svg';
+import HanddrawnArrowIcon4 from '../../../public/images/handdrawn-arrow4.svg';
+import HanddrawnArrowIcon5 from '../../../public/images/handdrawn-arrow5.svg';
+import HanddrawnArrowIcon6 from '../../../public/images/handdrawn-arrow6.svg';
 import KeyIcon from '../../../public/images/key-icon.svg';
 import FacebookIcon from '../../../public/images/facebook-icon.svg';
 import GoogleIcon from '../../../public/images/google-icon.svg';
@@ -175,6 +180,18 @@ const getImage = name => {
       return GoogleIcon;
     case 'star-white-icon':
       return StarWhiteIcon;
+    case 'handdrawn-arrow1':
+      return HanddrawnArrowIcon1;
+    case 'handdrawn-arrow2':
+      return HanddrawnArrowIcon2;
+    case 'handdrawn-arrow3':
+      return HanddrawnArrowIcon3;
+    case 'handdrawn-arrow4':
+      return HanddrawnArrowIcon4;
+    case 'handdrawn-arrow5':
+      return HanddrawnArrowIcon5;
+    case 'handdrawn-arrow6':
+      return HanddrawnArrowIcon6;
     case 'logo':
     default:
       return Logo;
