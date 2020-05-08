@@ -19,7 +19,7 @@ const Global = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;                
-    outline: 0 none;
+    outline: 0 none;    
   }
 
   html,
@@ -33,6 +33,12 @@ const Global = createGlobalStyle`
   }
 
   body { font-size: 1.4rem; }  
+
+  /* Hide Opera detach video popup button
+  May remove other useful browser popups, inserted after "body" element. */
+  html > div[style] {
+    display: none !important;
+  }
   
   ::-webkit-scrollbar {
     width: 6px;

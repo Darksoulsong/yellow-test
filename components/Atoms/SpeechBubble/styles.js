@@ -55,7 +55,7 @@ export const Dot = styled.span`
 export const Dots = styled.div`
   position: relative;
   display: flex;
-  bottom: 25px;
+  bottom: 40px;
   right: 30px;
   z-index: 2;
 

@@ -74,8 +74,8 @@ const HomeScreen = () => {
             <SecondaryHeading>Yellow.</SecondaryHeading>
           </IntroHolder>
 
-          <Video data-aos="fade-left" data-aos-delay="800">
-            <video autoPlay="autoplay" muted src="/videos/yellow-video.mp4" />
+          <Video>
+            <video autoPlay loop muted src="/videos/yellow-video.mp4" />
           </Video>
 
           <IntroFooter>
@@ -148,7 +148,7 @@ const HomeScreen = () => {
                     </li>
                   </List>
 
-                  <div data-aos="fade-right">
+                  <div data-aos="fade-right" data-aos-offset="-100">
                     <Button
                       type="button"
                       variant="default"

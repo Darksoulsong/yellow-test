@@ -4,7 +4,7 @@ import { Root } from './styles';
 
 export default function AnimatedScratches() {
   return (
-    <Root data-aos="animate-scratches" data-aos-offset="800">
+    <Root data-aos="animate-scratches" data-aos-offset="100">
       <SVG name="handdrawn-scratches" />
     </Root>
   );
