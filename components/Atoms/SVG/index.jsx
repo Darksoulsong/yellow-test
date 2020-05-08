@@ -53,6 +53,7 @@ import LinesCircleIcon from '../../../public/images/lines-circle-icon.svg';
 import ThreeLineIcon from '../../../public/images/three-line-icon.svg';
 import CurvedLineIcon from '../../../public/images/curved-line-icon.svg';
 import YWIcon from '../../../public/images/yw-icon.svg';
+import StarWhiteIcon from '../../../public/images/star-white-icon.svg';
 
 import KeyIcon from '../../../public/images/key-icon.svg';
 import FacebookIcon from '../../../public/images/facebook-icon.svg';
@@ -172,6 +173,8 @@ const getImage = name => {
       return FacebookIcon;
     case 'google-icon':
       return GoogleIcon;
+    case 'star-white-icon':
+      return StarWhiteIcon;
     case 'logo':
     default:
       return Logo;

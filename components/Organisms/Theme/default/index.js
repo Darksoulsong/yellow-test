@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import fonts from './fonts';
 import { experimentBrushScriptFontFace } from '@components';
 import { colors } from './colors';
 const themeProps = {
@@ -7,7 +8,7 @@ const themeProps = {
 
 const Global = createGlobalStyle`
   ${experimentBrushScriptFontFace}
-
+  ${fonts}
   * {
     box-sizing: border-box;
     list-style: none;

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const SpeechBubbleRoot = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: ${({ align }) => align};
+  align-items: ${({ align }) => align};
 `;
 
 const handleBubbleAlignment = align => {

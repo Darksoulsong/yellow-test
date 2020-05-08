@@ -1,4 +1,5 @@
 import React from 'react';
+import { SVG } from '@components';
 import { SpeechBubbleRoot, BubbleElement, Dots, Stars, Dot } from './styles';
 
 export default function SpeechBubble({
@@ -12,9 +13,11 @@ export default function SpeechBubble({
       case 'stars':
         return (
           <Stars>
-            <Dot />
-            <Dot />
-            <Dot />
+            <SVG name="star-white-icon" />
+            <SVG name="star-white-icon" />
+            <SVG name="star-white-icon" />
+            <SVG name="star-white-icon" />
+            <SVG name="star-white-icon" />
           </Stars>
         );
       case 'dots':
