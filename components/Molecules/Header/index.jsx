@@ -111,6 +111,18 @@ export default function Header() {
       ?.scrollIntoView({ block: 'start', behavior: 'smooth' });
   }, []);
 
+  const onLogoMouseEnter = React.useCallback(() => {
+    if (isSticky) {
+      ref.current.classList.add('is-hovered');
+    }
+  }, [isSticky]);
+
+  const onHeaderLeave = React.useCallback(() => {
+    if (isSticky) {
+      ref.current.classList.remove('is-hovered');
+    }
+  }, [isSticky]);
+
   React.useEffect(() => {
     if (window) {
       setIsSticky(window.scrollY > 0);
@@ -118,11 +130,15 @@ export default function Header() {
   }, []);
 
   return (
-    <HeaderRoot ref={ref} stickyPositioned={isSticky}>
+    <HeaderRoot
+      ref={ref}
+      stickyPositioned={isSticky}
+      onMouseLeave={onHeaderLeave}
+    >
       <Backdrop active={showBackdrop} onClick={handleLoginToggle} />
 
       <HeaderMain>
-        <HeaderLogo>
+        <HeaderLogo onMouseEnter={onLogoMouseEnter}>
           <Button
             type="button"
             variant="unstyled"

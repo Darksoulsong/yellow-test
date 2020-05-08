@@ -320,8 +320,8 @@ export const HeaderRoot = styled.div`
   ${({ stickyPositioned }) =>
     stickyPositioned &&
     css`
-
       ${HeaderContent} {
+        top: -110px;
         opacity: 0;
       }
 
@@ -334,13 +334,9 @@ export const HeaderRoot = styled.div`
         pointer-events: none;
       }
 
-      &:hover {
-        /* ${HeaderMain} {
-          background-color: ${({ theme }) =>
-            theme.colors.headerBackground} !important;
-        } */
+      &.is-hovered {
         ${HeaderLogo} {
-          background-color: ${({ theme }) => theme.colors.headerBackground}
+          background-color: ${({ theme }) => theme.colors.headerBackground};
         }
         ${HeaderContent} {
           opacity: 1;
