@@ -3,6 +3,7 @@ const black = '#000';
 const yellowLight = '#d08770';
 const yellow = '#fbd502';
 const yellowDark = '#fcd602';
+const yellowDarker = '#FFCA00';
 const gray = '#BFBFBF';
 const grayLight = '#dcdbdb';
 const grayLighter = '#f7f7f7';
@@ -28,6 +29,7 @@ export const colors = {
   white,
   yellow,
   yellowDark,
+  yellowDarker,
   gray,
   grayLight,
   grayLighter,
