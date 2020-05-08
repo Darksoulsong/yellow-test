@@ -44,13 +44,13 @@ export const SecondaryHeading = styled.h2`
 `;
 
 export const Video = styled.div`
+  position: absolute;
   transition: 0.3s ease-in-out;
   transition-property: width, left, color;
-  position: absolute;
   top: 0;
   right: 0;
   z-index: -1;
-  background-color: ${({ theme }) => theme.colors.grayLighter};
+  /* background-color: ${({ theme }) => theme.colors.grayLighter}; */
   font-size: 6.3rem;
   font-weight: 900;
   display: flex;
@@ -59,14 +59,29 @@ export const Video = styled.div`
   width: 100vw;
   height: 38vw;
   min-height: 700px;
-  /* left: 0px; */
+  left: 0px;
   color: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    left: 315px;
-    /* width: 77vw; */
+  &:after {
+    content: '';
+    width: 4px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: ${({ theme }) => theme.colors.white};
+    position: absolute;
+  }
 
-    left: 315px;
+  video {
+    position: relative;
+    left: -2px;
+    max-width: 100%;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {    
+    width: 77vw;
+    left: 295px;
 
     video {
       width: 100%;

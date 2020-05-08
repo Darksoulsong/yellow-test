@@ -18,7 +18,7 @@ const Global = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;                
-    outline: 0 none;
+    outline: 0 none;    
   }
 
   html,

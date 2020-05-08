@@ -13,6 +13,8 @@ import DropdownContent2 from './DropdownContent2';
 import DropdownContent3 from './DropdownContent3';
 import {
   HeaderRoot,
+  HeaderContent,
+  HeaderLogo,
   HeaderBodyLeft,
   HeaderBodyRight,
   HeaderBodyMobile,
@@ -120,63 +122,68 @@ export default function Header() {
       <Backdrop active={showBackdrop} onClick={handleLoginToggle} />
 
       <HeaderMain>
-        <Button
-          type="button"
-          variant="unstyled"
-          onClick={e => handleLogoClick(e)}
-        >
-          <Logo>
-            <SVG />
-          </Logo>
-        </Button>
-        <HeaderBodyLeft>
-          <NavMain ref={navElementRef} onMouseLeave={handleMouseOut}>
-            <NavItem
-              data-item-label="businesses"
-              onMouseEnter={handleMouseOver}
-              onMouseLeave={handleMouseOut}
-            >
-              <NavItemLabel>Para Empresas</NavItemLabel>
-              <DropdownContent1 />
-            </NavItem>
-            <NavItem
-              data-item-label="people"
-              onMouseEnter={handleMouseOver}
-              onMouseLeave={handleMouseOut}
-            >
-              <NavItemLabel>Para Pessoas</NavItemLabel>
-              <DropdownContent2 />
-            </NavItem>
-            <NavItem
-              data-item-label="yellow-way"
-              onMouseEnter={handleMouseOver}
-              onMouseLeave={handleMouseOut}
-            >
-              <NavItemLabel>Yellow way</NavItemLabel>
-              <DropdownContent3 />
-            </NavItem>
-          </NavMain>
-        </HeaderBodyLeft>
+        <HeaderLogo>
+          <Button
+            type="button"
+            variant="unstyled"
+            onClick={e => handleLogoClick(e)}
+          >
+            <Logo>
+              <SVG />
+            </Logo>
+          </Button>
+        </HeaderLogo>
 
-        <HeaderBodyRight>
-          <NavSecondary>
-            <NavItem>
-              <NavItemLabel>Quero contratar</NavItemLabel>
-            </NavItem>
-            <NavItem ref={loginContainerRef} active data-item-label="login">
-              <NavItemLabel onClick={e => handleLoginToggle(e)}>
-                Acesse sua conta
-              </NavItemLabel>
-              <FormDropdown>
-                <LoginForm />
-              </FormDropdown>
-            </NavItem>
-          </NavSecondary>
-        </HeaderBodyRight>
+        <HeaderContent>
+          <HeaderBodyLeft>
+            <NavMain ref={navElementRef} onMouseLeave={handleMouseOut}>
+              <NavItem
+                data-item-label="businesses"
+                onMouseEnter={handleMouseOver}
+                onMouseLeave={handleMouseOut}
+              >
+                <NavItemLabel>Para Empresas</NavItemLabel>
+                <DropdownContent1 />
+              </NavItem>
+              <NavItem
+                data-item-label="people"
+                onMouseEnter={handleMouseOver}
+                onMouseLeave={handleMouseOut}
+              >
+                <NavItemLabel>Para Pessoas</NavItemLabel>
+                <DropdownContent2 />
+              </NavItem>
+              <NavItem
+                data-item-label="yellow-way"
+                onMouseEnter={handleMouseOver}
+                onMouseLeave={handleMouseOut}
+              >
+                <NavItemLabel>Yellow way</NavItemLabel>
+                <DropdownContent3 />
+              </NavItem>
+            </NavMain>
+          </HeaderBodyLeft>
 
-        <HeaderBodyMobile>
-          <HamburgerButton onClick={() => handleMobileMenuToggle()} />
-        </HeaderBodyMobile>
+          <HeaderBodyRight>
+            <NavSecondary>
+              <NavItem>
+                <NavItemLabel>Quero contratar</NavItemLabel>
+              </NavItem>
+              <NavItem ref={loginContainerRef} active data-item-label="login">
+                <NavItemLabel onClick={e => handleLoginToggle(e)}>
+                  Acesse sua conta
+                </NavItemLabel>
+                <FormDropdown>
+                  <LoginForm />
+                </FormDropdown>
+              </NavItem>
+            </NavSecondary>
+          </HeaderBodyRight>
+
+          <HeaderBodyMobile>
+            <HamburgerButton onClick={() => handleMobileMenuToggle()} />
+          </HeaderBodyMobile>
+        </HeaderContent>
       </HeaderMain>
 
       <MobileMenu open={mobileMenuIsOpen} />

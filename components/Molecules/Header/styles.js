@@ -19,7 +19,6 @@ export const HeaderMain = styled.div`
   height: 83px;
   width: 100%;
   z-index: 2;
-  background-color: ${({ theme }) => theme.colors.headerBackground};
 `;
 
 export const HeaderDropdown = styled.div`
@@ -262,10 +261,25 @@ export const NavItem = styled.span`
   }
 `;
 
+export const HeaderContent = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.headerBackground};
+`;
+
 export const HeaderBody = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
+`;
+
+export const HeaderLogo = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color: ${({ theme }) => theme.colors.headerBackground};
 `;
 
 export const HeaderBodyLeft = styled(HeaderBody)`
@@ -306,7 +320,12 @@ export const HeaderRoot = styled.div`
   ${({ stickyPositioned }) =>
     stickyPositioned &&
     css`
-      ${HeaderMain} {
+
+      ${HeaderContent} {
+        opacity: 0;
+      }
+
+      ${HeaderLogo} {
         background-color: transparent;
       }
 
@@ -316,9 +335,15 @@ export const HeaderRoot = styled.div`
       }
 
       &:hover {
-        ${HeaderMain} {
+        /* ${HeaderMain} {
           background-color: ${({ theme }) =>
             theme.colors.headerBackground} !important;
+        } */
+        ${HeaderLogo} {
+          background-color: ${({ theme }) => theme.colors.headerBackground}
+        }
+        ${HeaderContent} {
+          opacity: 1;
         }
 
         ${HeaderBody} {
