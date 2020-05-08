@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 export const CirclePathAnimation = css`
   path {
     transition: 2s ease-in-out;
-    transition-delay: 4s;
     transition-property: stroke-dashoffset;
     stroke: ${({ theme }) => theme.colors.white};
   }
@@ -14,10 +13,10 @@ function scratches() {
 
   for (let i = 1; i < 12; i += 1) {
     styles += `
-        path:nth-child(${i}) {
-          transition-delay: ${(i - 1) * 150}ms;
-        }
-     `;
+      path:nth-child(${i}) {
+        transition-delay: ${(i - 1) * 100}ms;
+      }
+    `;
   }
 
   return styles;
@@ -47,8 +46,8 @@ export const AnimatedScratchedCircleRoot = styled.div`
     transform: scaleX(-1);
 
     path {
-      transition: 1s ease-in-out;
-      transition-delay: 1s;
+      transition: 90ms ease-in-out;
+      /* transition-delay: 1s; */
       transition-property: stroke-dashoffset;
       stroke: ${({ theme }) => theme.colors.white};
       stroke-dasharray: 205;
@@ -80,6 +79,7 @@ export const AnimatedScratchedCircleRoot = styled.div`
   [data-aos='animate-circle'] {
     &.aos-animate {
       path {
+        transition-duration: 1s;
         stroke-dashoffset: 0;
       }
     }

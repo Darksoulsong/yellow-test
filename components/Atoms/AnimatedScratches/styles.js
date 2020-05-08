@@ -1,19 +1,5 @@
 import styled from 'styled-components';
 
-function groups() {
-  let styles = '';
-
-  for (let i = 1; i < 10; i += 1) {
-    styles += `
-        g:nth-child(${i}) path {
-          transition-delay: ${(i - 1) * 500}ms;
-        }
-     `;
-  }
-
-  return styles;
-}
-
 export const Root = styled.span`
   &[data-aos='animate-scratches'] {
     path {
@@ -27,8 +13,6 @@ export const Root = styled.span`
       path {
         stroke-dashoffset: 49;
       }
-
-      /* ${groups()}; */
     }
   }
 `;

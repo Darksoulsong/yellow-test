@@ -8,7 +8,7 @@ export const MobileMenuRoot = styled.div`
   left: 0;
   top: 0;
   height: 0vh;
-  width: 100vw;
+  width: 100%;
   opacity: 0;
   overflow: hidden;
   flex-direction: column;
