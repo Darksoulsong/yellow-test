@@ -456,7 +456,7 @@ export const ExperienceFooter = styled.div`
 
 export const BubbleContent = styled.div`
   color: ${({ theme }) => theme.colors.grayDark};
-  font-size: 2rem;
+  font-size: 1.75rem;
   line-height: 2.5rem;
   font-weight: 300;
 `;
