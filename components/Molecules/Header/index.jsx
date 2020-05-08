@@ -174,7 +174,7 @@ export default function Header() {
                 onMouseEnter={handleMouseOver}
                 onMouseLeave={handleMouseOut}
               >
-                <NavItemLabel>Yellow way</NavItemLabel>
+                <NavItemLabel>Yellow Way</NavItemLabel>
                 <DropdownContent3 />
               </NavItem>
             </NavMain>

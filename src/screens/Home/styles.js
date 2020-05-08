@@ -16,31 +16,49 @@ export const Intro = styled.section`
 `;
 
 export const IntroHolder = styled.div`
-  padding-top: 100px;
+  padding-top: 50px;
   margin: 0 auto;
   width: 465px;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     margin: 0;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    padding-top: 100px;
   }
 `;
 
 export const MainHeading = styled.h1`
   em {
-    font-size: 8.7rem;
+    font-size: 7.3rem;
     font-style: normal;
     font-weight: 700;
-    font-variant: bold;
   }
 
-  font-size: 3.6rem;
+  font-size: 2.6rem;
   font-weight: 300;
-  letter-spacing: 0.97px;
+  letter-spacing: 0.87px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    em {
+      font-size: 8.7rem;
+      font-style: normal;
+    }
+
+    font-size: 3.6rem;
+    letter-spacing: 0.97px;
+  }
 `;
 
 export const SecondaryHeading = styled.h2`
   font-weight: 700;
-  font-size: 3.9rem;
+  font-size: 3.4rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    font-weight: 700;
+    font-size: 3.9rem;
+  }
 `;
 
 export const Video = styled.div`
@@ -50,15 +68,13 @@ export const Video = styled.div`
   top: 0;
   right: 0;
   z-index: -1;
-  /* background-color: ${({ theme }) => theme.colors.grayLighter}; */
   font-size: 6.3rem;
   font-weight: 900;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   width: 100vw;
   height: 38vw;
-  min-height: 700px;
+  min-height: 468px;
   left: 0px;
   color: rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -79,9 +95,18 @@ export const Video = styled.div`
     max-width: 100%;
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {    
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: 77vw;
+    left: 172px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    left: 268px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     left: 295px;
+    min-height: 700px;
 
     video {
       width: 100%;
@@ -96,6 +121,7 @@ export const IntroFooter = styled.div`
   margin-top: 156px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin-top: 115px;
     flex-direction: row;
   }
 `;
