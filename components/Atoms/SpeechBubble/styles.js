@@ -68,10 +68,10 @@ export const Stars = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
-  bottom: 25px;
+  bottom: 40px;
   z-index: 2;
-
-  ${Dot} {
-    margin: 0 3px;
+  svg {
+    width: 2vw;
+    min-width: 20px;
   }
 `;
