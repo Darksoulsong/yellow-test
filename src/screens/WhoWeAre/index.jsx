@@ -137,7 +137,7 @@ const WhoWeAreScreen = () => {
           <HowSectionContent>
             <SVGManipulator
               data-aos="animate-lines-circle"
-              data-aos-offset="300"
+              data-aos-offset="200"
               type="lines-circle-icon"
             >
               <SVG name="lines-circle-icon" />
@@ -197,7 +197,7 @@ const WhoWeAreScreen = () => {
               </HashtagText>
               <SVGManipulator
                 data-aos="animate-three-line"
-                data-aos-offset="200"
+                data-aos-offset="100"
                 type="three-line-icon"
               >
                 <SVG name="three-line-icon" />
@@ -205,7 +205,7 @@ const WhoWeAreScreen = () => {
             </HashtagContainer>
             <SVGManipulator
               data-aos="animate-curved-line"
-              data-aos-offset="200"
+              data-aos-offset="100"
               type="curved-line-icon"
             >
               <SVG name="curved-line-icon" />

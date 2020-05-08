@@ -1,66 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   inkscape:version="1.0 (6e3e5246a0, 2020-05-07)"
-   sodipodi:docname="three-line-icon.svg"
-   id="svg404"
-   version="1.1"
-   viewBox="0 0 51.1 51.286"
-   height="51.286"
-   width="51.1">
-  <metadata
-     id="metadata410">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs408" />
-  <sodipodi:namedview
-     inkscape:current-layer="g402"
-     inkscape:window-maximized="1"
-     inkscape:window-y="27"
-     inkscape:window-x="0"
-     inkscape:cy="30.988274"
-     inkscape:cx="27.473741"
-     inkscape:zoom="7.6265927"
-     showgrid="false"
-     id="namedview406"
-     inkscape:window-height="713"
-     inkscape:window-width="1366"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0"
-     guidetolerance="10"
-     gridtolerance="10"
-     objecttolerance="10"
-     borderopacity="1"
-     bordercolor="#666666"
-     pagecolor="#ffffff" />
-  <g
-     id="g402"
-     transform="translate(-1015.978 -3662.617)">
-    <path
-       sodipodi:nodetypes="ccc"
-       id="path396"
-       d="m 1027.334,3706.589 c 24.3374,1.5965 24.5091,2.6863 39.744,6.632 -15.4806,-4.3199 -39.6414,-2.45 -39.744,-6.632 z" />
-    <path
-       sodipodi:nodetypes="ccc"
-       id="path398"
-       d="m 1015.978,3681.4925 c 13.217,-9.2172 13.341,-9.4029 24.8,-18.875 1.1312,2.4667 -21.6276,18.139 -24.8,18.875 z" />
-    <path
-       sodipodi:nodetypes="ccccc"
-       id="path400"
-       d="m 1025.577,3693.603 c 0.875,-0.736 13.5689,-4.6695 14.5649,-4.9065 6.417,-1.542 0,0 7.4201,-1.4835 1.35,-0.1614 2.7118,-0.2019 4.069,-0.121 -11.4891,1.6045 -23.3654,7.2002 -26.054,6.511 z" />
-  </g>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" id="svg952" version="1.1" viewBox="0 0 12.518061 13.187838" height="13.187838mm" width="12.518061mm">
+	<defs id="defs946" />
+	<metadata id="metadata949">
+		<RDF>
+			<Work rdf:about="">
+				<format>
+					image/svg+xml
+				</format>
+				<type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+				<title>
+				</title>
+			</Work>
+		</RDF>
+	</metadata>
+	<g transform="translate(-64.800494,-136.1918)" id="layer1">
+		<g style="display:inline;fill:#ffff;paint-order:stroke markers fill" id="g1317" transform="matrix(0.35277777,0,0,-0.35277777,65.614786,141.14495)">
+			<path d="M 9.374,13.285 C 4.467,10.409 0.675,6.146 -1.554,0.909" style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000;stroke-width:1.50000012;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="path1319" />
+		</g>
+		<g style="display:inline;fill:#fff;paint-order:stroke markers fill" id="g1321" transform="matrix(0.35277777,0,0,-0.35277777,70.304756,149.62055)">
+			<path d="M 19.121,1.434 C 12.75,2.044 6.389,2.166 0,1.8" style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000;stroke-width:1.50000012;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="path1323" />
+		</g>
+		<g style="display:inline;fill:#fff;paint-order:stroke markers fill" id="g1325" transform="matrix(0.35277777,0,0,-0.35277777,69.306215,145.21707)">
+			<path d="M 13.819,13.39 C 8.474,9.743 3.44,5.706 -1.272,1.272" style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000;stroke-width:1.50000012;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" id="path1327" />
+		</g>
+	</g>
 </svg>
