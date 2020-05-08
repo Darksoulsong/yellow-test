@@ -5,72 +5,154 @@ export const Root = styled.div`
 `;
 
 export const Intro = styled.section`
-  padding: 0 128px;
+  padding: 0 32px;
   position: relative;
   margin-bottom: 126px;
   overflow: hidden;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: 0 128px;
+  }
 `;
 
 export const IntroHolder = styled.div`
+  padding-top: 50px;
+  margin: 0 auto;
   width: 465px;
-  padding-top: 100px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    margin: 0;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    padding-top: 100px;
+  }
 `;
 
 export const MainHeading = styled.h1`
   em {
-    font-size: 8.7rem;
+    font-size: 7.3rem;
     font-style: normal;
     font-weight: 700;
-    font-variant: bold;
   }
 
-  font-size: 3.6rem;
+  font-size: 2.6rem;
   font-weight: 300;
-  letter-spacing: 0.97px;
+  letter-spacing: 0.87px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    em {
+      font-size: 8.7rem;
+      font-style: normal;
+    }
+
+    font-size: 3.6rem;
+    letter-spacing: 0.97px;
+  }
 `;
 
 export const SecondaryHeading = styled.h2`
   font-weight: 700;
-  font-size: 3.9rem;
+  font-size: 3.4rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    font-weight: 700;
+    font-size: 3.9rem;
+  }
 `;
 
 export const Video = styled.div`
   position: absolute;
+  transition: 0.3s ease-in-out;
+  transition-property: width, left, color;
   top: 0;
   right: 0;
   z-index: -1;
-  background-color: ${({ theme }) => theme.colors.grayLighter};
   font-size: 6.3rem;
   font-weight: 900;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 77vw;
+  align-items: flex-start;
+  width: 100vw;
   height: 38vw;
-  min-height: 700px;
-  left: 315px;
+  min-height: 468px;
+  left: 0px;
+  color: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    width: 4px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: ${({ theme }) => theme.colors.white};
+    position: absolute;
+  }
+
   video {
-    width: 100%;
-    height: auto;
+    position: relative;
+    left: -2px;
+    max-width: 100%;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 77vw;
+    left: 172px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    left: 268px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    left: 295px;
+    min-height: 700px;
+
+    video {
+      width: 100%;
+      height: auto;
+    }
   }
 `;
 
 export const IntroFooter = styled.div`
   display: flex;
+  flex-direction: column;
   margin-top: 156px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin-top: 115px;
+    flex-direction: row;
+  }
 `;
 
 export const IntroFooterImage = styled.div`
-  width: 80vw;
+  width: 100%;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: 80vw;
+  }
 `;
 
 export const IntroFooterActions = styled.div`
-  padding-top: 100px;
-  padding-left: 40px;
+  width: 276px;
+  margin: 0 auto;
+  margin-top: 64px;
 
   button {
     margin-bottom: 28px;
     width: 276px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding-top: 100px;
+    padding-left: 40px;
+    margin: 0;
+
+    button {
+      margin-bottom: 28px;
+      width: 276px;
+    }
   }
 `;
 

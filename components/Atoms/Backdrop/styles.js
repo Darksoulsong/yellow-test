@@ -1,9 +1,6 @@
 import styled, { css } from 'styled-components';
 
 export const BackdropRoot = styled.div`
-  transition: 0.2s ease-in-out;
-  transition-property: opacity, visibility;
-  /* transition-delay: 0s, 0s; */
   position: fixed;
   top: 0;
   left: 0;
