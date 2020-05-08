@@ -5,15 +5,24 @@ export const Root = styled.div`
 `;
 
 export const Intro = styled.section`
-  padding: 0 128px;
+  padding: 0 32px;
   position: relative;
   margin-bottom: 126px;
   overflow: hidden;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: 0 128px;
+  }
 `;
 
 export const IntroHolder = styled.div`
-  width: 465px;
   padding-top: 100px;
+  margin: 0 auto;
+  width: 465px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: 0;
+  }
 `;
 
 export const MainHeading = styled.h1`
@@ -35,6 +44,8 @@ export const SecondaryHeading = styled.h2`
 `;
 
 export const Video = styled.div`
+  transition: 0.3s ease-in-out;
+  transition-property: width, left, color;
   position: absolute;
   top: 0;
   right: 0;
@@ -45,32 +56,62 @@ export const Video = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 77vw;
+  width: 100vw;
   height: 38vw;
   min-height: 700px;
-  left: 315px;
-  video {
-    width: 100%;
-    height: auto;
+  /* left: 0px; */
+  color: rgba(0, 0, 0, 0.1);
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    left: 315px;
+    /* width: 77vw; */
+
+    left: 315px;
+
+    video {
+      width: 100%;
+      height: auto;
+    }
   }
 `;
 
 export const IntroFooter = styled.div`
   display: flex;
+  flex-direction: column;
   margin-top: 156px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    flex-direction: row;
+  }
 `;
 
 export const IntroFooterImage = styled.div`
-  width: 80vw;
+  width: 100%;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: 80vw;
+  }
 `;
 
 export const IntroFooterActions = styled.div`
-  padding-top: 100px;
-  padding-left: 40px;
+  width: 276px;
+  margin: 0 auto;
+  margin-top: 64px;
 
   button {
     margin-bottom: 28px;
     width: 276px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding-top: 100px;
+    padding-left: 40px;
+    margin: 0;
+
+    button {
+      margin-bottom: 28px;
+      width: 276px;
+    }
   }
 `;
 
