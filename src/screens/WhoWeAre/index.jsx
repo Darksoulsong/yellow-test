@@ -19,6 +19,8 @@ import {
   bottomHashtagSectionIcons,
 } from './settings';
 
+import { spaces } from '@components/Organisms/Theme/sizes';
+
 import {
   Name,
   NameListColumn,
@@ -29,7 +31,7 @@ import {
   WhySectionColumn,
   PurposeSection,
   PurposeSectionTitle,
-  PurposeSVGModifier,
+  PurposeColumn,
   Root,
   HashtagSection,
   HashtagText,
@@ -55,7 +57,6 @@ import {
   FooterBlockSocial,
   Section,
   SectionTitle,
-  Circle,
 } from './styles';
 
 const WhoWeAreScreen = () => {
@@ -69,6 +70,7 @@ const WhoWeAreScreen = () => {
     <Container id="who-yellow" fluid padding="0" paddingOnLarge="0">
       <Root>
         <Header />
+
         <NameListSection>
           {listColumnNames.map((column, columnIndex) => (
             <NameListColumn key={columnIndex}>
@@ -85,15 +87,29 @@ const WhoWeAreScreen = () => {
         </NameListSection>
 
         <WhySection>
-          <WhySectionColumn width="40%">
+          <WhySectionColumn
+            mobileOnly
+            width="100%"
+            style={{ marginBottom: spaces.md, marginRight: '0px' }}
+          >
             <WhySectionTitle>
               <strong>POR QUE</strong> YELLOW?
             </WhySectionTitle>
           </WhySectionColumn>
-          <WhySectionColumn desktopOnly>
+          <WhySectionColumn
+            desktopOnly
+            width="fit-content"
+            style={{ marginRight: spaces.md }}
+          >
+            <WhySectionTitle>
+              <strong>POR QUE</strong>
+            </WhySectionTitle>
+            <WhySectionTitle>YELLOW?</WhySectionTitle>
+          </WhySectionColumn>
+          <WhySectionColumn width="fit-content" desktopOnly>
             <SVG name="open-key" />
           </WhySectionColumn>
-          <WhySectionColumn width="50%">
+          <WhySectionColumn style={{ flex: '1' }}>
             <WhySectionText>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo,
               atque, quia eos, enim aliquid modi distinctio perspiciatis
@@ -104,12 +120,14 @@ const WhoWeAreScreen = () => {
         </WhySection>
 
         <PurposeSection>
-          <PurposeSectionTitle>
-            NOSSO PROPÓSITO É <strong>CONECTAR PESSOAS</strong>
-          </PurposeSectionTitle>
-          <PurposeSVGModifier>
+          <PurposeColumn align="center">
+            <PurposeSectionTitle>
+              NOSSO PROPÓSITO É <strong>CONECTAR PESSOAS</strong>
+            </PurposeSectionTitle>
+          </PurposeColumn>
+          <PurposeColumn align="flex-end">
             <SVG name="yw-icon" />
-          </PurposeSVGModifier>
+          </PurposeColumn>
         </PurposeSection>
 
         <HowSection>
@@ -119,34 +137,13 @@ const WhoWeAreScreen = () => {
           <HowSectionContent>
             <SVGManipulator
               data-aos="animate-lines-circle"
-              data-aos-offset="600"
+              data-aos-offset="300"
               type="lines-circle-icon"
             >
               <SVG name="lines-circle-icon" />
             </SVGManipulator>
-            <HowItemsContainer>
-              <HowItem align="flex-end" marginTop="-41vw" marginRight="10vw">
-                <HowItemText>Processo simples</HowItemText>
-              </HowItem>
-              <HowItem marginTop="3.5vw" marginLeft="2vw">
-                <HowItemText width="20vw">Experiência do candidato</HowItemText>
-              </HowItem>
-              <HowItem align="flex-end" marginTop="2vw">
-                <HowItemText>Agilidade</HowItemText>
-              </HowItem>
-              <HowItem marginTop="5.5vw">
-                <HowItemText>Tecnologia própria</HowItemText>
-              </HowItem>
-              <HowItem marginTop="7.5vw">
-                <HowItemText>Precisão</HowItemText>
-              </HowItem>
-              <HowItem align="flex-end" marginTop="-2vw">
-                <HowItemText width="15vw">Foco no sucesso</HowItemText>
-              </HowItem>
-            </HowItemsContainer>
           </HowSectionContent>
         </HowSection>
-
         <CasesSection>
           <SubHeading1 data-aos="fade-up" data-aos-offset="300">
             YELLOW <strong>CASES</strong>
@@ -186,7 +183,7 @@ const WhoWeAreScreen = () => {
         </CasesSection>
 
         <HashtagSection>
-          <HashtagIcons>
+          <HashtagIcons specialMargin={'0 0 -7vw 0'}>
             {topHashtagSectionIcons.map(icon => (
               <HashtagIcon key={uid(icon)} {...icon}>
                 <SVG name={icon.name} />
@@ -198,7 +195,13 @@ const WhoWeAreScreen = () => {
               <HashtagText>
                 #YELLOW<strong>WAY</strong>
               </HashtagText>
-              <SVG name="three-line-icon" />
+              <SVGManipulator
+                data-aos="animate-three-line"
+                data-aos-offset="200"
+                type="three-line-icon"
+              >
+                <SVG name="three-line-icon" />
+              </SVGManipulator>
             </HashtagContainer>
             <SVGManipulator
               data-aos="animate-curved-line"
@@ -208,7 +211,7 @@ const WhoWeAreScreen = () => {
               <SVG name="curved-line-icon" />
             </SVGManipulator>
           </Hashtag>
-          <HashtagIcons>
+          <HashtagIcons specialMargin={'-7vw 0 0 0'}>
             {bottomHashtagSectionIcons.map(icon => (
               <HashtagIcon key={uid(icon)} {...icon}>
                 <SVG name={icon.name} />

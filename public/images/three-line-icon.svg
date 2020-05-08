@@ -1,7 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="51.1" height="51.286" viewBox="0 0 51.1 51.286">
-	<g transform="translate(-1015.978 -3662.617)">
-		<path d="M1027.334,3706.589a11.544,11.544,0,0,1,2.535-.207c11.121,1.542,22.242,3.08,33.339,4.78,1.363.209,2.583,1.35,3.87,2.059-1.42.236-2.883.821-4.253.651q-14.644-1.811-29.253-3.92a57.972,57.972,0,0,1-6.574-1.718Z" />
-		<path d="M1041.241,3663.729a10.5,10.5,0,0,1-1.456,1.7c-6.8,5.194-13.6,10.4-20.491,15.463-.813.6-2.2.422-3.316.6.544-.978.855-2.256,1.669-2.886q9.734-7.542,19.661-14.832c.935-.687,2.3-.786,3.47-1.157Z" />
-		<path d="M1051.854,3688.6a14.632,14.632,0,0,1-2.9,1.394c-6.663,1.568-13.334,3.109-20.041,4.473-1.011.206-2.219-.552-3.336-.864.875-.736,1.648-1.9,2.644-2.137,6.417-1.542,12.875-2.924,19.341-4.253a22.836,22.836,0,0,1,4.069-.121Z" />
-	</g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (6e3e5246a0, 2020-05-07)"
+   sodipodi:docname="three-line-icon.svg"
+   id="svg404"
+   version="1.1"
+   viewBox="0 0 51.1 51.286"
+   height="51.286"
+   width="51.1">
+  <metadata
+     id="metadata410">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs408" />
+  <sodipodi:namedview
+     inkscape:current-layer="g402"
+     inkscape:window-maximized="1"
+     inkscape:window-y="27"
+     inkscape:window-x="0"
+     inkscape:cy="30.988274"
+     inkscape:cx="27.473741"
+     inkscape:zoom="7.6265927"
+     showgrid="false"
+     id="namedview406"
+     inkscape:window-height="713"
+     inkscape:window-width="1366"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <g
+     id="g402"
+     transform="translate(-1015.978 -3662.617)">
+    <path
+       sodipodi:nodetypes="ccc"
+       id="path396"
+       d="m 1027.334,3706.589 c 24.3374,1.5965 24.5091,2.6863 39.744,6.632 -15.4806,-4.3199 -39.6414,-2.45 -39.744,-6.632 z" />
+    <path
+       sodipodi:nodetypes="ccc"
+       id="path398"
+       d="m 1015.978,3681.4925 c 13.217,-9.2172 13.341,-9.4029 24.8,-18.875 1.1312,2.4667 -21.6276,18.139 -24.8,18.875 z" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       id="path400"
+       d="m 1025.577,3693.603 c 0.875,-0.736 13.5689,-4.6695 14.5649,-4.9065 6.417,-1.542 0,0 7.4201,-1.4835 1.35,-0.1614 2.7118,-0.2019 4.069,-0.121 -11.4891,1.6045 -23.3654,7.2002 -26.054,6.511 z" />
+  </g>
 </svg>

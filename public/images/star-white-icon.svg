@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 53 50">
+	<defs>
+		<style>
+			.cls-1{isolation:isolate;}.cls-2{opacity:0.2;mix-blend-mode:multiply;}.cls-3{fill:#fff;}
+		</style>
+	</defs>
+	<g class="cls-1">
+		<g id="Layer_2" data-name="Layer 2">
+			<g id="Layer_1-2" data-name="Layer 1">
+				<image class="cls-2" width="53" height="50" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAAyCAYAAAD845PIAAAACXBIWXMAAAsSAAALEgHS3X78AAAFKklEQVRoQ9Wa229bRRDGf+PYubVNQlCaNlRcRAiqEJWogP7zSCDeWiDcywOCqqQlbS5N06a5Ofby8O3axyfHPrvHPg+MFFl21rv7zfft7Mwcm3OOus3MLPve1byo1Tw/ZtYAmsC0/+gcuHDOdYd/azxrlg0YxzxDLWAZuOE/3gZemFm7LsZqBQU0gCvAOnAX6ADfAcfABVALqEbZgKrmWWoCbwO3gc+BT4GbwBwwcM4maXUzNYNkdxvYAF4Ct4Al4NDMunVIsDamEBMtYBEBu44AbQCrCHAtbNUNahqdqavAPPAWsAasALP8n0Blot4CYmURAZxDgNaQBFv5O2wSVgsoxMAMArSOpDfr/1aBj6hRgnWCmiXHiv9bomYJThxURnpFmy8EO2kJThwUg9LLy2zU/yZmdYEqkl4AVbsEJwqqRHq9YdQswYmCIk5eMWPGsl6alPHUOJNPoUu2SHrBiticB47HIMtBv05rwoBsZvxrVQan0UbfRwwMOy9Bgqt+7GP/2XnB2DLrooz/1MwunHPdwFQT3f7vIM/NIWCprptF+d2X/rUM1C3gnn//BDgtGDvKHHLEPrAF7JtZu+lZmkKpzMfAZ2ixedIYM+ScJfrOyUsvO7blx3yB2H1Jeo11ARwCvwHfAq+BdtM558ysg7x0jCT0HoPAYhkLpXuMjBtIETdRZXyBpBRjXaCNQGwB/yBiDPqBooM89Sfy9BKSY8iwyzaYtZSA00BOnCaeoS5y/isE5nfgIbCLP5NNAOdc18xOgadoM13gCPgE+AAlpFXPWZnFOsGhfZ2gff4I3Eeg/kag2s451wvpzrmOmZ2gA3sOPAf+Qof+DpLJNdJYm5Rl5bYNbAJf+9dt/3k7dKgGynkP7Bh54hWwgyLLPoOspQaRcSzIbQd4hJi5j5h64v830Ba41KPwUjwHDlDweEOftXtcjo5lsqlqQW7HaPNZuT1CIE+cc538FwsbLx51nrXnKHy2UaSqU45JcsvbyG5SjrUzBKaNwNUlx2S55a20RZZjbQuBy8rxLtUu6yLLym2TSLnlrRRUsCFB5DX9rHsN3TdVz5hDKthFrHwFfE+E3PIWDQouyfEcMbMMvIs6seEhQFU7A/4FfkBMPUaBKqnpmQQKBuR4gsDtoYU7yNvjMNVBc+2huaPklrdKZyCTBM+hRHiOTO5V0QrnrFIRVwLFYPUa+nrjSg80x3XgQ8aYcxxQw5orVS2UI9mubqU5k89UZHMlay7zWpa8Gv3++xUqRtNkUAxKr6xxEjKDMxQEpvzYJsUpVnDYIpp3ATiwxEc+VUHFSC9cpLsoTL9BF/QqugaG1WnhXK0DPwHP0PVRD6hI6RUlopsoTC+hlsEGxXXasPmPSLAkUJRLrygR/QYBO0BMPURPFofVaUVKSHrqWAXUMOmVJaKn6EztIUkNq9PyjvuZRAlGgyqRXoeIusfMQpZfVqeFrlQlCUaDolh6LeTBIyLqnoQ6LYTzShJMBZWV3lW0kX0S657IOm0RrbVOogSjQHnpNenfH9eQhPaBX4EHJNY9EXXaHeTEG6gCiJZgFChv0+jp+grawB+oNfUA+IUKdQ8MrdMO0RrrftgC/aS5NGtPARWKuB1UvD1DXu2xQ2LdE2yIHM+Roxpo3SbQMDMrWyPqV2SZyLeMDnILeIE2cUQiO6PMzEL5sYKkN4PWeQocOufaI74ORIIC8j9xM/xP3KjIzijza7UQoAaS3Bm+Azvqu5AACnqM9SxmgaqWWctg8KFamf0HVAlHO6tyoZgAAAAASUVORK5CYII=" />
+				<polygon class="cls-3" points="25.94 2.04 31.39 18.79 49 18.79 34.75 29.14 40.19 45.89 25.94 35.54 11.69 45.89 17.14 29.14 2.89 18.79 20.5 18.79 25.94 2.04" />
+			</g>
+		</g>
+	</g>
+</svg>

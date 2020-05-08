@@ -172,41 +172,45 @@ export const topHashtagSectionIcons = [
   },
   {
     name: 'cloud-icon',
+    marginLeft: '-2%',
+    marginTop: '2%',
   },
   {
     name: 'coffee-icon',
-    marginTop: '5%',
+    marginTop: '7%',
   },
   {
     name: 'target-icon',
-    marginTop: '10%',
+    marginTop: '12%',
   },
   {
     name: 'planet-icon',
-    marginTop: '1%',
+    marginTop: '3%',
   },
   {
     name: 'chart-icon',
-    marginTop: '15%',
+    marginTop: '12%',
   },
 ];
 
 export const bottomHashtagSectionIcons = [
   {
     name: 'house-icon',
+    margingTop: '-12%',
   },
   {
     name: 'letter-icon',
-    marginTop: '-7%',
+    marginTop: '-12%',
   },
   {
     name: 'darkumbrella-icon',
-    marginTop: '10%',
-    marginLeft: '0',
+    marginTop: '7%',
+    marginLeft: '-2%',
   },
   {
     name: 'telephone-icon',
     marginTop: '15%',
+    marginLeft: '5%',
   },
   {
     name: 'calculator-icon',
@@ -234,11 +238,11 @@ export const bottomHashtagSectionIcons = [
   },
   {
     name: 'headphones-icon',
-    marginTop: '3%',
+    marginTop: '2%',
   },
   {
     name: 'bike-icon',
-    marginTop: '-5%',
+    marginTop: '-8%',
   },
   {
     name: 'lens-icon',
