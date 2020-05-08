@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import styled, { css } from 'styled-components';
 
 export const Root = styled.div`
@@ -22,6 +23,7 @@ export const Name = styled.li`
   line-height: 26px;
   font-size: 1.5rem;
   user-select: none;
+  font-family: 'Monosten', 'Roboto', 'sans-serif';
 `;
 
 export const NameListColumn = styled.ul`
@@ -66,10 +68,10 @@ export const NameListColumn = styled.ul`
 
 export const NameListSection = styled.div`
   display: flex;
-  padding: 75px 0px;
+  margin: ${({ theme }) => theme.spaces.sm + ' 0px'};
   flex-wrap: wrap;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding: 75px 128px;
+    margin: ${({ theme }) => theme.spaces.md + ' ' + theme.spaces.hg};
   }
 `;
 
@@ -77,13 +79,10 @@ export const WhySection = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
-  padding: 0px 15px 75px 15px;
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding: 0px 32px 75px 32px;
-  }
-  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
-    padding: 0px 128px 75px 128px;
+  justify-content: center;
+  margin: ${({ theme }) => theme.spaces.sm + ' 0px'};
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: ${({ theme }) => theme.spaces.md + ' ' + theme.spaces.hg};
   }
 `;
 
@@ -93,7 +92,6 @@ export const WhySectionTitle = styled.h2`
   letter-spacing: 1.65px;
 
   text-align: center;
-  margin-bottom: 3rem;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     text-align: left;
@@ -119,7 +117,7 @@ export const WhySectionColumn = styled.div`
   display: ${({ desktopOnly }) => (desktopOnly ? 'none' : 'block')};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     width: ${({ width = 'fit-content' }) => width};
-    display: block;
+    display: ${({ mobileOnly }) => (mobileOnly ? 'none' : 'block')};
   }
 `;
 
@@ -127,12 +125,8 @@ export const HowSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 130px;
-  margin: 75px 15px;
+  margin: ${({ theme }) => theme.spaces.xxlg + ' ' + theme.spaces.sm};
   position: relative;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: 75px 35px;
-  }
 `;
 
 export const HowSectionContent = styled.div`
@@ -150,7 +144,7 @@ export const HowItem = styled.div`
 
 export const HowItemText = styled.h2`
   font-weight: 300;
-  font-size: 3vw;
+  font-size: 2.5vw;
   width: ${({ width = 'unset' }) => width};
 `;
 
@@ -159,39 +153,20 @@ export const HowItemsContainer = styled.div`
   flex-direction: column;
 `;
 
-export const PurposeSVGModifier = styled.div`
-  display: flex;
-  align-items: flex-end;
-  width: 100%;
-  justify-content: flex-end;
-  margin-bottom: 5vh;
-  margin-right: 10px;
-  svg {
-    width: auto;
-    height: 20vw;
-    max-height: 150px;
-  }
-`;
-
 export const PurposeSection = styled.div`
   display: flex;
+  position: relative;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-image: url('./images/purpose-image.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 65vh;
+  height: 65vw;
   max-height: 450px;
   min-height: 300px;
-  margin: 75px 0px;
-`;
-
-export const SectionTitle = styled.h2`
-  font-size: 3vw;
-  font-weight: 300;
-  display: inline-block;
-  text-align: center;
-  margin-bottom: 75px;
+  margin: ${({ theme }) => theme.spaces.xxlg + ' ' + theme.spaces.md};
 `;
 
 export const PurposeSectionTitle = styled.h2`
@@ -200,8 +175,31 @@ export const PurposeSectionTitle = styled.h2`
   font-weight: 300;
   display: inline-block;
   text-align: center;
-  margin-top: 50px;
-  position: absolute;
+`;
+
+export const PurposeColumn = styled.div`
+  display: flex;
+  justify-content: ${({ align = 'center' }) => align};
+  width: 100%;
+  svg {
+    width: auto;
+    height: 20vw;
+    max-height: 150px;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+  }
+`;
+
+export const SectionTitle = styled.h2`
+  font-size: 3rem;
+  font-weight: 300;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: ${({ theme }) => theme.spaces.xlg};
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    font-size: 6rem;
+  }
 `;
 
 export const CasesSection = styled(Section)`
@@ -215,17 +213,22 @@ export const HashtagSection = styled(Section)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 110px 0px;
+  padding: ${({ theme }) => theme.spaces.xlg + ' 0px'};
   overflow-x: hidden;
 `;
 
 export const HashtagIcons = styled.div`
   display: flex;
   justify-content: center;
+  margin: ${({ specialMargin = '0' }) => specialMargin};
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    margin: 0px;
+  }
 `;
 
 export const HashtagIcon = styled.div`
   margin-top: ${({ marginTop = 0 }) => marginTop};
+  margin-bottom: ${({ marginBottom = 0 }) => marginBottom};
   margin-left: ${({ marginLeft = '2vw' }) => marginLeft};
   svg {
     width: 5vw;
@@ -262,9 +265,10 @@ const handleTypeSVG = type => {
           height: auto;
         }
       `;
-    case 'lines-circle-icon':
+
+    case 'three-line-icon':
       return css`
-        &[data-aos='animate-lines-circle'] {
+        &[data-aos='animate-three-line'] {
           path {
             transition: stroke-dashoffset 1s ease-in-out;
             stroke: ${({ theme }) => theme.colors.black};
@@ -278,12 +282,48 @@ const handleTypeSVG = type => {
             }
           }
         }
+        text-align: center;
+        svg {
+          width: 20vw;
+          height: auto;
+        }
+      `;
+
+    case 'lines-circle-icon':
+      return css`
+        &[data-aos='animate-lines-circle'] {
+          path {
+            transition: stroke-dashoffset 1s ease-in-out;
+            stroke: ${({ theme }) => theme.colors.black};
+            stroke-dasharray: 1640;
+            stroke-dashoffset: 1640;
+          }
+          text,
+          ellipse {
+            opacity: 0;
+            transition: all 1s ease-in-out;
+          }
+
+          &.aos-animate {
+            path {
+              stroke-dashoffset: 950;
+            }
+            text,
+            ellipse {
+              transition: all 1s ease-in-out;
+              opacity: 1;
+            }
+          }
+        }
         svg {
           display: block;
           margin: auto;
           text-align: center;
-          width: 65vw;
+          width: 80vw;
           height: auto;
+          @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+            width: 65vw;
+          }
         }
       `;
   }

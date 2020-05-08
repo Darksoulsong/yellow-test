@@ -1,16 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="810" height="493.726" viewBox="0 0 810 493.726">
-	<defs>
-		<style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="177.20959mm" height="95.61692mm" viewBox="0 0 177.20959 95.61692" version="1.1" id="svg8" inkscape:version="1.0 (6e3e5246a0, 2020-05-07)" sodipodi:docname="dibujo.svg">
+	<defs id="defs2">
+		<style id="style10">
 			.a{fill:none;stroke:#1f2122;stroke-miterlimit:10;stroke-width:1.5px;}.b{fill:#fbd502;}
 		</style>
 	</defs>
-	<g transform="translate(-282.453 -1561.886)">
-		<path class="a" d="M732.453,1825.362l221.686,221.686A26.679,26.679,0,0,0,973,2054.862h74.449" />
-		<path class="a" d="M705.453,1832.636,514.746,2007.113a21.625,21.625,0,0,1-14.574,5.523H282.453" />
-		<path class="a" d="M732.453,1816.362H870.437a14.523,14.523,0,0,0,10.27-4.254l40.992-40.992a14.523,14.523,0,0,1,10.27-4.254h160.484" />
-		<path class="a" d="M700.841,1798.362l-86.18-86.18a14.381,14.381,0,0,0-10.167-4.211H532.471a14.382,14.382,0,0,1-10.168-4.211L475.846,1657.3a14.377,14.377,0,0,0-10.167-4.211H403.841" />
-		<path class="a" d="M720,1784.862V1634.343a16.856,16.856,0,0,1,4.936-11.917l54.854-54.854a16.854,16.854,0,0,1,11.918-4.936h30.745" />
-		<path class="a" d="M688.5,1816.362H540.278a14.067,14.067,0,0,0-9.944,4.119l-53.9,53.9a14.068,14.068,0,0,1-9.945,4.119H426.453" />
-		<circle class="b" cx="45" cy="45" r="45" transform="translate(675 1771.362)" />
+	<namedview fit-margin-bottom="0" fit-margin-right="0" fit-margin-left="0" fit-margin-top="0" id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="1.4244078" inkscape:cx="357.39247" inkscape:cy="179.61198" inkscape:document-units="mm" inkscape:current-layer="layer1" inkscape:document-rotation="0" showgrid="false" inkscape:window-width="1366" inkscape:window-height="713" inkscape:window-x="0" inkscape:window-y="27" inkscape:window-maximized="1" />
+	<metadata id="metadata5">
+		<RDF>
+			<Work rdf:about="">
+				<format>
+					image/svg+xml
+				</format>
+				<type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+				<title>
+				</title>
+			</Work>
+		</RDF>
+	</metadata>
+	<g transform="translate(-64.509743,-53.40368)" inkscape:label="Capa 1" inkscape:groupmode="layer" id="layer1">
+		<g id="g28" transform="matrix(0.1855314,0,0,0.1855314,25.828154,-234.51159)">
+			<path id="path14" d="m 700.92678,1822.7913 221.686,221.686 a 26.679,26.679 0 0 0 18.861,7.814 h 74.44902" class="a" />
+			<path id="path16" d="m 673.96722,1830.038 -165.81635,174.5299 a 18.802554,21.631559 0 0 1 -12.67184,5.5247 H 306.17622" class="a" />
+			<path id="path18" d="m 700.92678,1813.7913 h 137.984 a 14.523,14.523 0 0 0 10.27,-4.254 l 40.992,-40.992 a 14.523,14.523 0 0 1 10.27,-4.254 h 160.48402" class="a" />
+			<path id="path20" d="m 669.31478,1795.7913 -86.18,-86.18 a 14.381,14.381 0 0 0 -10.167,-4.211 h -72.023 a 14.382,14.382 0 0 1 -10.168,-4.211 l -46.457,-46.46 a 14.377,14.377 0 0 0 -10.167,-4.211 h -61.838" class="a" />
+			<path id="path22" d="m 688.47378,1782.2913 v -150.519 a 16.856,16.856 0 0 1 4.936,-11.917 l 54.854,-54.854 a 16.854,16.854 0 0 1 11.918,-4.936 h 30.745" class="a" />
+			<path id="path24" d="m 656.97378,1813.7913 h -148.222 a 14.067,14.067 0 0 0 -9.944,4.119 l -53.9,53.9 a 14.068,14.068 0 0 1 -9.945,4.119 h -40.036" class="a" />
+			<circle id="circle26" r="45" cy="1813.7913" cx="688.47375" class="b" />
+		</g>
+		<ellipse style="fill:#000000;fill-rule:evenodd;stroke-width:0.18218" id="path48" cx="173.36993" cy="54.824821" rx="1.0583085" ry="1.1120158" />
+		<ellipse ry="1.1120158" rx="1.0583085" cy="92.826828" cx="222.4812" id="path48-3" style="fill:#000000;fill-rule:evenodd;stroke-width:0.18218" />
+		<ellipse ry="1.1120158" rx="1.0583085" cy="146.15982" cx="214.44077" id="path48-6" style="fill:#000000;fill-rule:evenodd;stroke-width:0.18218" />
+		<ellipse ry="1.1120158" rx="1.0583085" cy="113.50182" cx="98.829933" id="path48-7" style="fill:#000000;fill-rule:evenodd;stroke-width:0.18218" />
+		<ellipse ry="1.1120158" rx="1.0583085" cy="138.36781" cx="81.835693" id="path48-5" style="fill:#000000;fill-rule:evenodd;stroke-width:0.18218" />
+		<ellipse ry="1.1120158" rx="1.0583085" cy="71.719826" cx="94.350647" id="path48-35" style="fill:#000000;fill-rule:evenodd;stroke-width:0.18218" />
+		<text id="text166" y="71.526993" x="65.676743" style="font-size:3.43913px;line-height:1.25;font-family:Waree;-inkscape-font-specification:Waree;stroke-width:0.0859778" xml:space="preserve">
+			<tspan style="stroke-width:0.0859778" y="71.526993" x="65.676743" id="tspan164" sodipodi:role="line">
+				Experiência do
+			</tspan>
+			<tspan id="tspan172" style="stroke-width:0.0859778" y="75.825905" x="65.676743" sodipodi:role="line">
+				candidato
+			</tspan>
+		</text>
+		<text xml:space="preserve" style="font-size:3.43913px;line-height:1.25;font-family:Waree;-inkscape-font-specification:Waree;stroke-width:0.0859777" x="64.601189" y="114.68307" id="text166-5">
+			<tspan sodipodi:role="line" x="64.601189" y="114.68307" style="stroke-width:0.0859777" id="tspan172-8">
+				Tecnologia própria
+			</tspan>
+		</text>
+		<text id="text199" y="138.73344" x="72.7696" style="font-size:10.5833px;line-height:1.25;font-family:Waree;-inkscape-font-specification:Waree;stroke-width:0.264583" xml:space="preserve">
+			<tspan style="stroke-width:0.264583" y="138.73344" x="72.7696" id="tspan197" sodipodi:role="line" />
+		</text>
+		<text xml:space="preserve" style="font-size:3.43913px;line-height:1.25;font-family:Waree;-inkscape-font-specification:Waree;stroke-width:0.0859777" x="64.172211" y="139.3951" id="text166-9">
+			<tspan sodipodi:role="line" x="64.172211" y="139.3951" style="stroke-width:0.0859777" id="tspan172-5">
+				Precisão
+			</tspan>
+		</text>
+		<text id="text166-5-2" y="56.016613" x="176.62773" style="font-size:3.43913px;line-height:1.25;font-family:Waree;-inkscape-font-specification:Waree;stroke-width:0.0859777" xml:space="preserve">
+			<tspan id="tspan172-8-1" style="stroke-width:0.0859777" y="56.016613" x="176.62773" sodipodi:role="line">
+				Processo simples
+			</tspan>
+		</text>
+		<text xml:space="preserve" style="font-size:3.43913px;line-height:1.25;font-family:Waree;-inkscape-font-specification:Waree;stroke-width:0.0859777" x="225.9158" y="93.465149" id="text166-5-2-5">
+			<tspan sodipodi:role="line" x="225.9158" y="93.465149" style="stroke-width:0.0859777" id="tspan172-8-1-9">
+				Agilidade
+			</tspan>
+		</text>
+		<text xml:space="preserve" style="font-size:3.43913px;line-height:1.25;font-family:Waree;-inkscape-font-specification:Waree;stroke-width:0.0859777" x="217.17767" y="144.67299" id="text166-5-2-9">
+			<tspan sodipodi:role="line" x="217.17767" y="144.67299" style="stroke-width:0.0859777" id="tspan172-8-1-1">
+				Foco no
+			</tspan>
+			<tspan id="tspan278" sodipodi:role="line" x="217.17767" y="148.97191" style="stroke-width:0.0859777">
+				sucesso
+			</tspan>
+		</text>
 	</g>
 </svg>
