@@ -272,20 +272,19 @@ const handleTypeSVG = type => {
           path {
             transition: stroke-dashoffset 1s ease-in-out;
             stroke: ${({ theme }) => theme.colors.black};
-            stroke-dasharray: 1640;
-            stroke-dashoffset: 1640;
+            stroke-dasharray: 57;
+            stroke-dashoffset: 57;
+          }
+          svg {
+            width: 2vw;
+            height: auto;
           }
 
           &.aos-animate {
             path {
-              stroke-dashoffset: 950;
+              stroke-dashoffset: 49;
             }
           }
-        }
-        text-align: center;
-        svg {
-          width: 20vw;
-          height: auto;
         }
       `;
 
