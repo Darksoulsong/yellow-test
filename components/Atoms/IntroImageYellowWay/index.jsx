@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { SVG } from '@components';
 
 import {
@@ -23,6 +24,12 @@ import {
   BlockItem4,
   BlockItem5,
   BlockItem6,
+  ImageItem1,
+  ImageItem2,
+  ImageItem3,
+  ImageItem4,
+  ImageItem5,
+  ImageItem6,
 } from './styles';
 
 export default function IntroImageYellowWay() {
@@ -30,7 +37,43 @@ export default function IntroImageYellowWay() {
     <YellowWayIntroImageRoot>
       <div>
         <ImageHolder>
-          <Image alt="Yellow Way" src="/images/intro-image-yellow-way.png" />
+          <ImageItem1>
+            <Image
+              alt="Qualidade de Vida"
+              src="/images/yellow-way-intro/yellow-way-intro1.jpg"
+            />
+          </ImageItem1>
+          <ImageItem2>
+            <Image
+              alt="Nosso DNA Amarelo"
+              src="/images/yellow-way-intro/yellow-way-intro2.jpg"
+            />
+          </ImageItem2>
+          <ImageItem3>
+            <Image
+              alt="Nosso DNA Amarelo"
+              src="/images/yellow-way-intro/yellow-way-intro3.jpg"
+            />
+          </ImageItem3>
+          <ImageItem4>
+            <Image
+              alt="Empreender juntos"
+              src="/images/yellow-way-intro/yellow-way-intro4.jpg"
+            />
+          </ImageItem4>
+          <ImageItem5>
+            <Image
+              alt="Empreender juntos"
+              src="/images/yellow-way-intro/yellow-way-intro5.jpg"
+            />
+          </ImageItem5>
+          <ImageItem6>
+            <Image
+              alt="Liberdade para Expressar"
+              src="/images/yellow-way-intro/yellow-way-intro6.jpg"
+            />
+          </ImageItem6>
+
           <BlockItem1>
             <Item1>
               #nosso<strong>DNAamarelo</strong>

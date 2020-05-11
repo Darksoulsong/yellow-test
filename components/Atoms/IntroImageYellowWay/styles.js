@@ -11,15 +11,103 @@ export const YellowWayIntroImageRoot = styled.div`
 
 export const ImageHolder = styled.div`
   position: relative;
-  width: 37vw;
+  width: 37.2vw;
+  height: 42vw;
   margin: 0 auto;
   max-width: 538px;
+  max-height: 612px;
 `;
 
 export const Image = styled.img`
   max-width: 540px;
   width: 100%;
   height: auto;
+`;
+
+export const ImageItem1 = styled.span`
+  transition: 0.3s ease-in-out;
+  transition-property: transform, z-index;
+  position: absolute;
+  left: 13.4%;
+  top: 71.3%;
+  width: 12.2vw;
+  height: 15.7vw;
+  overflow: hidden;
+  max-width: 177px;
+  max-height: 229px;
+  z-index: 6;
+  transform: scale(1);
+
+  ${Image} {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  &:hover {
+    z-index: 8;
+    transform: scale(1.1);
+  }
+`;
+
+export const ImageItem2 = styled(ImageItem1)`
+  height: 12.7vw;
+  top: 0;
+  left: 18%;
+  width: 18.9vw;
+  max-width: 274px;
+  max-height: 236px;
+
+  ${Image} {
+    top: 0;
+    left: 0;
+  }
+`;
+
+export const ImageItem3 = styled(ImageItem1)`
+  left: 68.8%;
+  top: 7.4%;
+  width: 8vw;
+  height: 8.3vw;
+  max-width: 115px;
+  max-height: 121px;
+
+  ${Image} {
+    top: 0;
+    left: 0;
+  }
+`;
+
+export const ImageItem4 = styled(ImageItem1)`
+  left: 0vw;
+  top: 30%;
+  width: 17.2vw;
+  height: 17.4vw;
+  overflow: hidden;
+  max-width: 251px;
+  max-height: 253px;
+  z-index: 5;
+`;
+
+export const ImageItem5 = styled(ImageItem1)`
+  left: 46.1%;
+  top: 27.1%;
+  width: 20vw;
+  height: 16.5vw;
+  overflow: hidden;
+  max-width: 288px;
+  max-height: 237px;
+`;
+
+export const ImageItem6 = styled(ImageItem1)`
+  left: 46.1%;
+  top: 65.7%;
+  width: 16.2vw;
+  height: 9.5vw;
+  overflow: hidden;
+  max-width: 237px;
+  max-height: 137px;
+  z-index: 7;
 `;
 
 const Item = styled.h3`
@@ -160,7 +248,7 @@ export const BlockItem3 = styled(BlockItem)`
 export const BlockItem4 = styled(BlockItem)`
   width: 16.5vw;
   height: 7.1vw;
-  top: 85.2%;
+  top: 90.2%;
   right: -11.4%;
   max-width: 204px;
   max-height: 108px;
