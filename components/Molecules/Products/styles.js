@@ -51,7 +51,8 @@ export const Item = styled.div`
   flex-direction: column;
   padding: 0 16px;
 
-  &:hover {
+  &:hover,
+  &.active {
     .hover-icon {
       transform: scaleX(-1);
 
@@ -63,7 +64,8 @@ export const Item = styled.div`
     opacity: 0;
   }
 
-  &:hover {
+  &:hover,
+  &.active {
     ${Description} {
       transition-delay: 0.25s;
       opacity: 1;

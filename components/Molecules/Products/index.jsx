@@ -3,7 +3,11 @@ import { HoverableProductIcon, Button } from '@components';
 import { Root, Item, Description, ProductsActions } from './styles';
 
 export default function Products() {
-  const { active, setActive } = React.useState(false);
+  const [active, setActive] = React.useState(false);
+
+  const toggle = React.useCallback(() => {
+    setActive(!active);
+  }, [active]);
 
   const items = React.useMemo(() => {
     return [
@@ -28,17 +32,19 @@ export default function Products() {
       },
     ];
   }, []);
+
+  console.log({ active });
   return (
     <>
       <ProductsActions>
-        <Button type="button" variant="unstyled">
+        <Button type="button" variant="unstyled" onClick={() => toggle()}>
           <span>ver todos</span>
         </Button>
       </ProductsActions>
 
       <Root>
         {items.map((item, index) => (
-          <Item active={active} key={index}>
+          <Item className={active ? 'active' : ''} key={index}>
             <HoverableProductIcon iconName={item.iconName} />
             <Description>{item.description}</Description>
           </Item>
