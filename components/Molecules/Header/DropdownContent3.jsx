@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Router from 'next/router';
 import { Logo, SVG } from '@components';
 import {
   HeaderDropdown,
@@ -7,6 +9,8 @@ import {
   HeaderIconHolder,
   HeaderText,
 } from './styles';
+
+const routeToYellowWay = () => Router.push('/yellow-way');
 
 export default function DropdownContent1() {
   return (
@@ -22,7 +26,7 @@ export default function DropdownContent1() {
             trabalho.
           </HeaderText>
         </HeaderDropdownBlock>
-        <HeaderDropdownBlock>
+        <HeaderDropdownBlock onClick={routeToYellowWay}>
           <HeaderHeading>Cultura</HeaderHeading>
           <HeaderIconHolder className="culture">
             <SVG name="umbrella-icon" />
