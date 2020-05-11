@@ -15,14 +15,9 @@ import {
   AnimatedScratches,
   AnimatedArrow,
   IntroImageYellowWay,
+  Hashtag,
   Footer,
 } from '@components';
-import {
-  Hashtag,
-  HashtagText,
-  HashtagContainer,
-  SVGManipulator,
-} from '../WhoWeAre/styles';
 import {
   YellowWayRoot,
   YellowWayIntro,
@@ -36,6 +31,11 @@ import {
 } from './styles';
 
 export const YellowWay = () => {
+  React.useEffect(() => {
+    AOS.init({
+      duration: 500,
+    });
+  }, []);
   return (
     <Container id="page-top" fluid padding="0" paddingOnLarge="0">
       <YellowWayRoot>
@@ -43,20 +43,7 @@ export const YellowWay = () => {
 
         <Section>
           <Top>
-            <Hashtag>
-              <HashtagContainer>
-                <HashtagText>
-                  #YELLOW<strong>WAY</strong>
-                </HashtagText>
-                <SVG name="three-line-icon" />
-              </HashtagContainer>
-              <SVGManipulator
-                data-aos="animate-curved-line"
-                type="curved-line-icon"
-              >
-                <SVG name="curved-line-icon" />
-              </SVGManipulator>
-            </Hashtag>
+            <Hashtag />
           </Top>
 
           <YellowWayIntro>

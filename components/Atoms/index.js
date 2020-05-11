@@ -21,5 +21,6 @@ export {
   withBackdrop,
   useBackdrop,
 } from './Backdrop';
+export { Hashtag } from './Hashtag';
 
 export { experimentBrushScriptFontFace } from './FontFaces';
