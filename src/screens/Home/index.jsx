@@ -24,8 +24,6 @@ import {
   Intro,
   Circle,
   Circles,
-  Section,
-  GrayedSection,
   TimelineSection,
   ListHolder,
   SubHeading1,
@@ -46,6 +44,8 @@ import {
   ExperienceContent,
   ExperienceFooter,
   BubbleContent,
+  ProductsTopActions,
+  ProductsLink,
 } from './styles';
 
 const HomeScreen = () => {
@@ -168,6 +168,10 @@ const HomeScreen = () => {
             YELLOW <strong>PRODUTOS</strong>
             <AnimatedScratches />
           </SubHeading1>
+
+          <ProductsTopActions>
+            <ProductsLink href="http://foo.com">ver todos</ProductsLink>
+          </ProductsTopActions>
 
           <Products />
 
