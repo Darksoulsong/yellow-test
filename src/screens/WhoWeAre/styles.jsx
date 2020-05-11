@@ -68,10 +68,10 @@ export const NameListColumn = styled.ul`
 
 export const NameListSection = styled.div`
   display: flex;
-  margin: ${({ theme }) => theme.spaces.sm + ' 0px'};
+  margin: ${({ theme }) => `${theme.spaces.sm} 0px`};
   flex-wrap: wrap;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: ${({ theme }) => theme.spaces.md + ' ' + theme.spaces.hg};
+    margin: ${({ theme }) => `${theme.spaces.md} ${theme.spaces.hg}`};
   }
 `;
 
@@ -80,9 +80,9 @@ export const WhySection = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: ${({ theme }) => theme.spaces.sm + ' 0px'};
+  margin: ${({ theme }) => `${theme.spaces.sm} 0px`};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: ${({ theme }) => theme.spaces.md + ' ' + theme.spaces.hg};
+    margin: ${({ theme }) => `${theme.spaces.md} ${theme.spaces.hg}`};
   }
 `;
 
@@ -125,30 +125,11 @@ export const HowSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: ${({ theme }) => theme.spaces.xxlg + ' ' + theme.spaces.sm};
+  margin: ${({ theme }) => `${theme.spaces.xxlg} ${theme.spaces.sm}`};
   position: relative;
 `;
 
 export const HowSectionContent = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const HowItem = styled.div`
-  display: flex;
-  justify-content: ${({ align = 'left' }) => align};
-  margin-left: ${({ marginLeft = '0' }) => marginLeft};
-  margin-right: ${({ marginRight = '0' }) => marginRight};
-  margin-top: ${({ marginTop = '2.5%' }) => marginTop};
-`;
-
-export const HowItemText = styled.h2`
-  font-weight: 300;
-  font-size: 2.5vw;
-  width: ${({ width = 'unset' }) => width};
-`;
-
-export const HowItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -166,7 +147,7 @@ export const PurposeSection = styled.div`
   height: 65vw;
   max-height: 450px;
   min-height: 300px;
-  margin: ${({ theme }) => theme.spaces.xxlg + ' ' + theme.spaces.md};
+  margin: ${({ theme }) => `${theme.spaces.xxlg} ${theme.spaces.md}`};
 `;
 
 export const PurposeSectionTitle = styled.h2`
@@ -213,7 +194,7 @@ export const HashtagSection = styled(Section)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: ${({ theme }) => theme.spaces.xlg + ' 0px'};
+  padding: ${({ theme }) => `${theme.spaces.xlg} 0px`};
   overflow-x: hidden;
 `;
 
@@ -243,51 +224,6 @@ export const HashtagIcon = styled.div`
 
 const handleTypeSVG = type => {
   switch (type) {
-    case 'curved-line-icon':
-      return css`
-        &[data-aos='animate-curved-line'] {
-          path {
-            transition: stroke-dashoffset 1s ease-in-out;
-            stroke: ${({ theme }) => theme.colors.black};
-            stroke-dasharray: 1640;
-            stroke-dashoffset: 1640;
-          }
-
-          &.aos-animate {
-            path {
-              stroke-dashoffset: 950;
-            }
-          }
-        }
-        text-align: center;
-        svg {
-          width: 40vw;
-          height: auto;
-        }
-      `;
-
-    case 'three-line-icon':
-      return css`
-        &[data-aos='animate-three-line'] {
-          path {
-            transition: stroke-dashoffset 1s ease-in-out;
-            stroke: ${({ theme }) => theme.colors.black};
-            stroke-dasharray: 57;
-            stroke-dashoffset: 57;
-          }
-          svg {
-            width: 2vw;
-            height: auto;
-          }
-
-          &.aos-animate {
-            path {
-              stroke-dashoffset: 49;
-            }
-          }
-        }
-      `;
-
     case 'lines-circle-icon':
       return css`
         &[data-aos='animate-lines-circle'] {
@@ -330,35 +266,6 @@ const handleTypeSVG = type => {
 
 export const SVGManipulator = styled.span`
   ${({ type }) => handleTypeSVG(type)}
-`;
-
-export const HashtagContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  svg {
-    width: 3vw;
-    height: auto;
-    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-      width: 2vw;
-    }
-  }
-`;
-
-export const Hashtag = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-`;
-
-export const HashtagText = styled.h2`
-  display: inline-block;
-  text-align: center;
-  font-size: 6vw;
-  font-weight: 300;
-  letter-spacing: 2.19px;
 `;
 
 export const SubHeading1 = styled.h2`
