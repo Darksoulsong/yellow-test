@@ -51,7 +51,7 @@ export default function IntroImageYellowWay() {
           </ImageItem2>
           <ImageItem3>
             <Image
-              alt="Nosso DNA Amarelo"
+              alt="Comunicação"
               src="/images/yellow-way-intro/yellow-way-intro3.jpg"
             />
           </ImageItem3>
@@ -63,13 +63,13 @@ export default function IntroImageYellowWay() {
           </ImageItem4>
           <ImageItem5>
             <Image
-              alt="Empreender juntos"
+              alt="Liberdade para Expressar"
               src="/images/yellow-way-intro/yellow-way-intro5.jpg"
             />
           </ImageItem5>
           <ImageItem6>
             <Image
-              alt="Liberdade para Expressar"
+              alt="Feedback"
               src="/images/yellow-way-intro/yellow-way-intro6.jpg"
             />
           </ImageItem6>
