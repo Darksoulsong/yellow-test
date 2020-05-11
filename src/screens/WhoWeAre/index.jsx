@@ -10,7 +10,7 @@ import {
   Logo,
   SpeechBubble,
   Slider,
-  AnimatedUnderline,
+  Hashtag,
 } from '@components';
 
 import {
@@ -34,16 +34,10 @@ import {
   PurposeColumn,
   Root,
   HashtagSection,
-  HashtagText,
-  HashtagContainer,
-  Hashtag,
   HashtagIcons,
   HashtagIcon,
   HowSection,
   HowSectionContent,
-  HowItem,
-  HowItemsContainer,
-  HowItemText,
   SVGManipulator,
   CasesSection,
   GrayedSection,
@@ -190,27 +184,7 @@ const WhoWeAreScreen = () => {
               </HashtagIcon>
             ))}
           </HashtagIcons>
-          <Hashtag>
-            <HashtagContainer>
-              <HashtagText>
-                #YELLOW<strong>WAY</strong>
-              </HashtagText>
-              <SVGManipulator
-                data-aos="animate-three-line"
-                data-aos-offset="100"
-                type="three-line-icon"
-              >
-                <SVG name="three-line-icon" />
-              </SVGManipulator>
-            </HashtagContainer>
-            <SVGManipulator
-              data-aos="animate-curved-line"
-              data-aos-offset="100"
-              type="curved-line-icon"
-            >
-              <SVG name="curved-line-icon" />
-            </SVGManipulator>
-          </Hashtag>
+          <Hashtag />
           <HashtagIcons specialMargin={'-7vw 0 0 0'}>
             {bottomHashtagSectionIcons.map(icon => (
               <HashtagIcon key={uid(icon)} {...icon}>
