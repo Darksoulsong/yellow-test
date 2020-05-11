@@ -169,10 +169,6 @@ const HomeScreen = () => {
             <AnimatedScratches />
           </SubHeading1>
 
-          <ProductsTopActions>
-            <ProductsLink href="http://foo.com">ver todos</ProductsLink>
-          </ProductsTopActions>
-
           <Products />
 
           <ProductsFooter>

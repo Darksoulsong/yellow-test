@@ -335,25 +335,6 @@ export const ProductsSection = styled(Section)`
   }
 `;
 
-export const ProductsTopActions = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-
-  margin-top: -72px;
-`;
-
-export const ProductsLink = styled.a`
-  font-weight: 300;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: 2.2rem;
-  text-decoration: underline;
-
-  &:hover {
-    text-decoration: none;
-  }
-`;
-
 export const ProductsFooter = styled.div`
   position: relative;
   display: flex;

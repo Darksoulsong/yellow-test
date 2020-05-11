@@ -1,8 +1,10 @@
 import React from 'react';
-import { HoverableProductIcon } from '@components';
-import { Root, Item, Description } from './styles';
+import { HoverableProductIcon, Button } from '@components';
+import { Root, Item, Description, ProductsActions } from './styles';
 
 export default function Products() {
+  const { active, setActive } = React.useState(false);
+
   const items = React.useMemo(() => {
     return [
       {
@@ -13,28 +15,35 @@ export default function Products() {
       {
         iconName: 'express-icon',
         description:
-          'Recrutamento \n especializado para a \n busca de profissionais \n de alta gerência e \n diretorias.',
+          'Processo inteligente \n para encontrar o \n candidato ideal em \n 72 horas.',
       },
       {
         iconName: 'tech-icon',
-        description:
-          'Recrutamento \n especializado para a \n busca de profissionais \n de alta gerência e \n diretorias.',
+        description: 'Solução específica \n para vagas de \n tecnologia.',
       },
       {
         iconName: 'rpo-icon',
         description:
-          'Recrutamento \n especializado para a \n busca de profissionais \n de alta gerência e \n diretorias.',
+          'Terceirização \n completa ou parcial, \n para a captação e \n avaliação de equipes \n completas.',
       },
     ];
   }, []);
   return (
-    <Root>
-      {items.map((item, index) => (
-        <Item key={index}>
-          <HoverableProductIcon iconName={item.iconName} />
-          <Description>{item.description}</Description>
-        </Item>
-      ))}
-    </Root>
+    <>
+      <ProductsActions>
+        <Button type="button" variant="unstyled">
+          <span>ver todos</span>
+        </Button>
+      </ProductsActions>
+
+      <Root>
+        {items.map((item, index) => (
+          <Item active={active} key={index}>
+            <HoverableProductIcon iconName={item.iconName} />
+            <Description>{item.description}</Description>
+          </Item>
+        ))}
+      </Root>
+    </>
   );
 }
