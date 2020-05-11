@@ -38,7 +38,7 @@ export default function Products() {
     <>
       <ProductsActions>
         <Button type="button" variant="unstyled" onClick={() => toggle()}>
-          <span>ver todos</span>
+          <span>{active ? 'esconder' : 'ver'} todos</span>
         </Button>
       </ProductsActions>
 
