@@ -139,7 +139,7 @@ const WhoWeAreScreen = () => {
           </HowSectionContent>
         </HowSection>
         <CasesSection>
-          <SubHeading1 data-aos="fade-up" data-aos-offset="300">
+          <SubHeading1>
             YELLOW <strong>CASES</strong>
           </SubHeading1>
           <ExperienceContent>

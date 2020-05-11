@@ -20,7 +20,7 @@ export const Name = styled.li`
   color: ${({ bold, theme }) =>
     bold ? theme.colors.yellow : theme.colors.gray};
   letter-spacing: 3.14px;
-  line-height: 26px;
+  line-height: 25px;
   font-size: 1.5rem;
   user-select: none;
   font-family: 'Monosten', 'Roboto', 'sans-serif';
@@ -87,7 +87,7 @@ export const WhySection = styled.div`
 `;
 
 export const WhySectionTitle = styled.h2`
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 300;
   letter-spacing: 1.65px;
 
@@ -144,7 +144,7 @@ export const PurposeSection = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 65vw;
+  height: 65vh;
   max-height: 450px;
   min-height: 300px;
   margin: ${({ theme }) => `${theme.spaces.xxlg} ${theme.spaces.md}`};

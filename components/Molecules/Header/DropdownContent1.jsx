@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router';
 import { Logo, SVG } from '@components';
 import {
   HeaderDropdown,
@@ -8,11 +9,13 @@ import {
   HeaderText,
 } from './styles';
 
+const routeToWhoWeAre = () => Router.push('/quem-somos');
+
 export default function DropdownContent1() {
   return (
     <>
       <HeaderDropdown>
-        <HeaderDropdownBlock>
+        <HeaderDropdownBlock onClick={routeToWhoWeAre}>
           <HeaderHeading>Quem somos</HeaderHeading>
           <HeaderIconHolder className="logo">
             <Logo variant="transparent" />
