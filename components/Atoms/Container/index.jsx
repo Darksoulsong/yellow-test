@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { breakpoints } from '@components/Organisms/Theme/breakpoints';
 
 const Root = styled.div`
-  width: 100%;
+  width: ${({ width = '100%' }) => width};
   margin: 0 auto;  
   padding: ${({ padding }) => padding || '0 30px'};
   display: flex;
   justify-content: ${({ justify }) => justify || 'space-between'};
-  flex-direction: column;
+  flex-direction: ${({ direction = 'column' }) => direction};
 
   ${({ fluid = false }) => (!fluid ? 'max-width: 1280px;' : '')}
   
