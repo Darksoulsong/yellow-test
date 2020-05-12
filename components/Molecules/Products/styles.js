@@ -51,8 +51,7 @@ export const Item = styled.div`
   flex-direction: column;
   padding: 0 16px;
 
-  &:hover,
-  &.active {
+  &:not(.active):hover {
     .hover-icon {
       transform: scaleX(-1);
 

@@ -33,7 +33,6 @@ export default function Products() {
     ];
   }, []);
 
-  console.log({ active });
   return (
     <>
       <ProductsActions>
