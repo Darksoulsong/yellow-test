@@ -166,7 +166,7 @@ export default function Header() {
                 onMouseEnter={handleMouseOver}
                 onMouseLeave={handleMouseOut}
               >
-                <NavItemLabel>Para Pessoas</NavItemLabel>
+                <NavItemLabel>Para Candidatos</NavItemLabel>
                 <DropdownContent2 />
               </NavItem>
               <NavItem

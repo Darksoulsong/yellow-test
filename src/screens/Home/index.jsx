@@ -24,8 +24,6 @@ import {
   Intro,
   Circle,
   Circles,
-  Section,
-  GrayedSection,
   TimelineSection,
   ListHolder,
   SubHeading1,
@@ -46,6 +44,8 @@ import {
   ExperienceContent,
   ExperienceFooter,
   BubbleContent,
+  ProductsTopActions,
+  ProductsLink,
 } from './styles';
 
 const HomeScreen = () => {

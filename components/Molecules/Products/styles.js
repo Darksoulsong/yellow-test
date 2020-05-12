@@ -11,8 +11,7 @@ export const CirclePathAnimation = css`
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     animation-name: ${DrawLine};
-    animation-duration: 1s;
-    animation-delay: 0s;
+    animation-duration: 500ms;
     stroke-dasharray: 205;
     stroke-dashoffset: 205;
   }
@@ -52,7 +51,7 @@ export const Item = styled.div`
   flex-direction: column;
   padding: 0 16px;
 
-  &:hover {
+  &:not(.active):hover {
     .hover-icon {
       transform: scaleX(-1);
 
@@ -64,10 +63,30 @@ export const Item = styled.div`
     opacity: 0;
   }
 
-  &:hover {
+  &:hover,
+  &.active {
     ${Description} {
-      transition-delay: 0.6s;
+      transition-delay: 0.25s;
       opacity: 1;
+    }
+  }
+`;
+
+export const ProductsActions = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  margin-top: -72px;
+
+  button > span {
+    font-weight: 300;
+    color: ${({ theme }) => theme.colors.white};
+    font-size: 1.8rem;
+    text-decoration: underline;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.yellow};
+      text-decoration: none;
     }
   }
 `;
