@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Router from 'next/router';
+import { routeTo } from '@utils';
 import { Logo, SVG } from '@components';
 import {
   HeaderDropdown,
@@ -10,7 +10,7 @@ import {
   HeaderText,
 } from './styles';
 
-const routeToYellowWay = () => Router.push('/yellow-way');
+const routeToYellowWay = () => routeTo('/yellow-way');
 
 export default function DropdownContent1() {
   return (
