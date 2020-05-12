@@ -12,7 +12,7 @@ import {
   FieldIcon,
 } from './styles';
 
-export default function LoginForm() {
+export default function LoginForm({ onCreateAccountButtonClick }) {
   return (
     <LoginFormRoot>
       <form autoComplete="off">
@@ -43,8 +43,13 @@ export default function LoginForm() {
           </a>
         </AlternativeLogin>
         <FormActions>
-          <FormButtonGray>Criar conta</FormButtonGray>
-          <FormButtonYellow>Continuar</FormButtonYellow>
+          <FormButtonGray
+            type="button"
+            onClick={() => onCreateAccountButtonClick()}
+          >
+            Criar conta
+          </FormButtonGray>
+          <FormButtonYellow type="button">Continuar</FormButtonYellow>
         </FormActions>
       </form>
     </LoginFormRoot>
