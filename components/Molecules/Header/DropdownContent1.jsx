@@ -1,6 +1,6 @@
 import React from 'react';
-import Router from 'next/router';
 import { Logo, SVG } from '@components';
+import { routeTo } from '@utils';
 import {
   HeaderDropdown,
   HeaderDropdownBlock,
@@ -9,7 +9,7 @@ import {
   HeaderText,
 } from './styles';
 
-const routeToWhoWeAre = () => Router.push('/quem-somos');
+const routeToWhoWeAre = () => routeTo('/quem-somos');
 
 export default function DropdownContent1() {
   return (

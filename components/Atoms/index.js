@@ -22,5 +22,9 @@ export {
   useBackdrop,
 } from './Backdrop';
 export { Hashtag } from './Hashtag';
-
+export { Card } from './Card';
+export { AnimatedManipulator } from './AnimatedManipulator';
+export { CustomCarousel as Carousel } from './Carousel';
+export { CircledFilter } from './CircledFilter';
 export { experimentBrushScriptFontFace } from './FontFaces';
+export * from './Fonts';

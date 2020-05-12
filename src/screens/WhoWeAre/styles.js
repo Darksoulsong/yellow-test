@@ -20,7 +20,7 @@ export const Name = styled.li`
   color: ${({ bold, theme }) =>
     bold ? theme.colors.yellow : theme.colors.gray};
   letter-spacing: 3.14px;
-  line-height: 25px;
+  line-height: 22px;
   font-size: 1.5rem;
   user-select: none;
   font-family: 'Monosten', 'Roboto', 'sans-serif';
@@ -71,7 +71,7 @@ export const NameListSection = styled.div`
   margin: ${({ theme }) => `${theme.spaces.sm} 0px`};
   flex-wrap: wrap;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: ${({ theme }) => `${theme.spaces.md} ${theme.spaces.hg}`};
+    margin: ${({ theme }) => `${theme.spaces.sm} ${theme.spaces.hg}`};
   }
 `;
 
@@ -80,9 +80,9 @@ export const WhySection = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: ${({ theme }) => `${theme.spaces.sm} 0px`};
+  margin: ${({ theme }) => `${theme.spaces.md} 0px`};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: ${({ theme }) => `${theme.spaces.md} ${theme.spaces.hg}`};
+    margin: ${({ theme }) => `${theme.spaces.sm} ${theme.spaces.hg}`};
   }
 `;
 
@@ -108,7 +108,7 @@ export const WhySectionText = styled.h2`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     text-align: left;
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 `;
 
