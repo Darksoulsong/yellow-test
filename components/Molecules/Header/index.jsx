@@ -34,7 +34,7 @@ export default function Header() {
   const [isSticky, setIsSticky] = React.useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
   const [showBackdrop, setShowBackdrop] = React.useState(false);
-  const [showModal, setShowModal] = React.useState(true);
+  const [showModal, setShowModal] = React.useState(false);
   const navElementRef = React.useRef(null);
   const loginContainerRef = React.useRef(null);
   const createAccountRef = React.useRef(null);
