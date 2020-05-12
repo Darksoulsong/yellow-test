@@ -1,4 +1,6 @@
 import Router from 'next/router';
+export * from './mask';
+export * from './objectPick';
 
 export const routeTo = (route = '/') => {
   Router.push(route).then(() => window.scrollTo(0, 0));
