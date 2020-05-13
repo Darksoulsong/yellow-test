@@ -2,7 +2,6 @@ import React from 'react';
 import {
   SVG,
   useBackdrop,
-  TransparentBackdrop,
   Button,
   LoginForm,
   HamburgerButton,
@@ -166,7 +165,7 @@ export default function Header() {
         <HeaderLogo onMouseEnter={onLogoMouseEnter}>
           <Button
             type="button"
-            variant="unstyled"
+            version="unstyled"
             onClick={e => handleLogoClick(e)}
           >
             <Logo>

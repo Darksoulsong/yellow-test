@@ -2,8 +2,6 @@ import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {
-  Container,
-  Header,
   Button,
   Timeline,
   SVG,
@@ -15,11 +13,9 @@ import {
   AnimatedScratches,
   AnimatedArrow,
   IntroImage,
-  Footer,
   DefaultLayout,
 } from '@components';
 import {
-  Root,
   List,
   Video,
   Intro,
@@ -45,8 +41,6 @@ import {
   ExperienceContent,
   ExperienceFooter,
   BubbleContent,
-  ProductsTopActions,
-  ProductsLink,
 } from './styles';
 
 const HomeScreen = () => {
@@ -213,8 +207,6 @@ const HomeScreen = () => {
           <SVG name="bubbles-icon" />
         </ExperienceFooter>
       </ExperienceSection>
-
-      <Footer />
     </DefaultLayout>
   );
 };
