@@ -2,7 +2,6 @@ import React from 'react';
 import {
   SVG,
   useBackdrop,
-  TransparentBackdrop,
   Button,
   LoginForm,
   HamburgerButton,
@@ -34,7 +33,7 @@ export default function Header() {
   const ref = React.useRef(null);
   const [isSticky, setIsSticky] = React.useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = React.useState(true);
   const navElementRef = React.useRef(null);
   const loginContainerRef = React.useRef(null);
   const createAccountRef = React.useRef(null);
@@ -166,7 +165,7 @@ export default function Header() {
         <HeaderLogo onMouseEnter={onLogoMouseEnter}>
           <Button
             type="button"
-            variant="unstyled"
+            version="unstyled"
             onClick={e => handleLogoClick(e)}
           >
             <Logo>

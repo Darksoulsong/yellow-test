@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import Logo from '../../../public/images/logo.svg';
 import LogoAlt from '../../../public/images/logo-alt.svg';
 import LogoTransparentStroked from '../../../public/images/logo-transparent-stroked.svg';
@@ -63,142 +64,154 @@ import HanddrawnArrowIcon6 from '../../../public/images/handdrawn-arrow6.svg';
 import KeyIcon from '../../../public/images/key-icon.svg';
 import FacebookIcon from '../../../public/images/facebook-icon.svg';
 import GoogleIcon from '../../../public/images/google-icon.svg';
+import ArrowIcon2 from '../../../public/images/arrow-icon2.svg';
+
+const enhance = Component => {
+  const SVGRoot = styled(Component)`
+    ${({ size }) => size && `width: ${size}; height: auto;`}
+    ${({ invert }) => invert && `transform: rotate(-180deg)`};
+  `;
+  return SVGRoot;
+};
 
 const getImage = name => {
   switch (name) {
     case 'handdrawn-arrow':
-      return HanddrawnArrow;
+      return enhance(HanddrawnArrow);
     case 'logo-transparent-stroked':
-      return LogoTransparentStroked;
+      return enhance(LogoTransparentStroked);
     case 'handdrawn-scratches':
-      return HanddrawnScratches;
+      return enhance(HanddrawnScratches);
     case 'handdrawn-circle':
-      return HanddrawnCircle;
+      return enhance(HanddrawnCircle);
     case 'exec-icon':
-      return ExecIcon;
+      return enhance(ExecIcon);
     case 'express-icon':
-      return ExpressIcon;
+      return enhance(ExpressIcon);
     case 'rpo-icon':
-      return RPOIcon;
+      return enhance(RPOIcon);
     case 'tech-icon':
-      return TechIcon;
+      return enhance(TechIcon);
     case 'bubbles-icon':
-      return BubblesIcon;
+      return enhance(BubblesIcon);
     case 'arrow-icon':
-      return ArrowIcon;
+      return enhance(ArrowIcon);
+    case 'arrow-icon2':
+      return enhance(ArrowIcon2);
     case 'instagram-icon':
-      return InstagramIcon;
+      return enhance(InstagramIcon);
     case 'youtube-icon':
-      return YoutubeIcon;
+      return enhance(YoutubeIcon);
     case 'linkedin-icon':
-      return LinkedinIcon;
+      return enhance(LinkedinIcon);
     case 'logo-alt':
-      return LogoAlt;
+      return enhance(LogoAlt);
     case 'box-icon':
-      return BoxIcon;
+      return enhance(BoxIcon);
     case 'ideas-icon':
-      return IdeasIcon;
+      return enhance(IdeasIcon);
     case 'magnifier-user-icon':
-      return MagnifierUserIcon;
+      return enhance(MagnifierUserIcon);
     case 'phone-email-icon':
-      return PhoneEmailIcon;
+      return enhance(PhoneEmailIcon);
     case 'add-user-icon':
-      return AddUserIcon;
+      return enhance(AddUserIcon);
     case 'bubble-edit-icon':
-      return BubbleEditIcon;
+      return enhance(BubbleEditIcon);
     case 'team-icon':
-      return TeamIcon;
+      return enhance(TeamIcon);
     case 'open-icon':
-      return OpenIcon;
+      return enhance(OpenIcon);
     case 'open-key':
-      return OpenKey;
+      return enhance(OpenKey);
     case 'umbrella-icon':
-      return UmbrellaIcon;
+      return enhance(UmbrellaIcon);
     case 'bulletlist-icon':
-      return BulletListIcon;
+      return enhance(BulletListIcon);
     case 'heart-icon':
-      return HeartIcon;
+      return enhance(HeartIcon);
     case 'cloud-icon':
-      return CloudIcon;
+      return enhance(CloudIcon);
     case 'planet-icon':
-      return PlanetIcon;
+      return enhance(PlanetIcon);
     case 'plane-icon':
-      return PlaneIcon;
+      return enhance(PlaneIcon);
     case 'suitcase-icon':
-      return SuitcaseIcon;
+      return enhance(SuitcaseIcon);
     case 'lightbulb-icon':
-      return LightbulbIcon;
+      return enhance(LightbulbIcon);
     case 'coffee-icon':
-      return CoffeeIcon;
+      return enhance(CoffeeIcon);
     case 'target-icon':
-      return TargetIcon;
+      return enhance(TargetIcon);
     case 'clock-icon':
-      return ClockIcon;
+      return enhance(ClockIcon);
     case 'chart-icon':
-      return ChartIcon;
+      return enhance(ChartIcon);
     case 'letter-icon':
-      return LetterIcon;
+      return enhance(LetterIcon);
     case 'house-icon':
-      return HouseIcon;
+      return enhance(HouseIcon);
     case 'bike-icon':
-      return BikeIcon;
+      return enhance(BikeIcon);
     case 'darkumbrella-icon':
-      return DarkUmbrellaIcon;
+      return enhance(DarkUmbrellaIcon);
     case 'calculator-icon':
-      return CalculatorIcon;
+      return enhance(CalculatorIcon);
     case 'star-icon':
-      return StarIcon;
+      return enhance(StarIcon);
     case 'pig-icon':
-      return PigIcon;
+      return enhance(PigIcon);
     case 'headphones-icon':
-      return HeadphonesIcon;
+      return enhance(HeadphonesIcon);
     case 'telephone-icon':
-      return TelephoneIcon;
+      return enhance(TelephoneIcon);
     case 'monitor-icon':
-      return MonitorIcon;
+      return enhance(MonitorIcon);
     case 'lens-icon':
-      return LensIcon;
+      return enhance(LensIcon);
     case 'camera-icon':
-      return CameraIcon;
+      return enhance(CameraIcon);
     case 'bag-icon':
-      return BagIcon;
+      return enhance(BagIcon);
     case 'handdrawn-scratched-circle':
-      return HanddrawnScratchedCircle;
+      return enhance(HanddrawnScratchedCircle);
     case 'lines-circle-icon':
-      return LinesCircleIcon;
+      return enhance(LinesCircleIcon);
     case 'three-line-icon':
-      return ThreeLineIcon;
+      return enhance(ThreeLineIcon);
     case 'yw-icon':
-      return YWIcon;
+      return enhance(YWIcon);
     case 'curved-line-icon':
-      return CurvedLineIcon;
+      return enhance(CurvedLineIcon);
     case 'key-icon':
-      return KeyIcon;
+      return enhance(KeyIcon);
     case 'facebook-icon':
-      return FacebookIcon;
+      return enhance(FacebookIcon);
     case 'google-icon':
-      return GoogleIcon;
+      return enhance(GoogleIcon);
     case 'star-white-icon':
-      return StarWhiteIcon;
+      return enhance(StarWhiteIcon);
     case 'handdrawn-arrow1':
-      return HanddrawnArrowIcon1;
+      return enhance(HanddrawnArrowIcon1);
     case 'handdrawn-arrow2':
-      return HanddrawnArrowIcon2;
+      return enhance(HanddrawnArrowIcon2);
     case 'handdrawn-arrow3':
-      return HanddrawnArrowIcon3;
+      return enhance(HanddrawnArrowIcon3);
     case 'handdrawn-arrow4':
-      return HanddrawnArrowIcon4;
+      return enhance(HanddrawnArrowIcon4);
     case 'handdrawn-arrow5':
-      return HanddrawnArrowIcon5;
+      return enhance(HanddrawnArrowIcon5);
     case 'handdrawn-arrow6':
-      return HanddrawnArrowIcon6;
+      return enhance(HanddrawnArrowIcon6);
     case 'logo':
     default:
-      return Logo;
+      return enhance(Logo);
   }
 };
 
-export default React.memo(function SVG({ name, ...rest }) {
+export default React.memo(function SVG({ name, size, invert, ...rest }) {
   const Component = getImage(name);
-  return <Component {...rest} />;
+
+  return <Component size={size} invert={invert} {...rest} />;
 });
