@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   SVG,
-  Backdrop,
+  useBackdrop,
+  TransparentBackdrop,
   Button,
   LoginForm,
   HamburgerButton,
@@ -33,11 +34,15 @@ export default function Header() {
   const ref = React.useRef(null);
   const [isSticky, setIsSticky] = React.useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
-  const [showBackdrop, setShowBackdrop] = React.useState(false);
   const [showModal, setShowModal] = React.useState(false);
   const navElementRef = React.useRef(null);
   const loginContainerRef = React.useRef(null);
   const createAccountRef = React.useRef(null);
+  const {
+    isActive: showBackdrop,
+    setIsActive: setShowBackdrop,
+    setOnClickCallback: setBackdropOnClick,
+  } = useBackdrop();
 
   const elementIsChildOfMainElement = (parentLabel, child) => {
     if (!child || typeof child !== 'string') return true;
@@ -89,12 +94,13 @@ export default function Header() {
     }
   }, []);
 
-  const handleLoginToggle = React.useCallback(() => {
+  const handleLoginToggle = React.useCallback(showBackdrop => {
     const element = loginContainerRef.current;
 
     element.classList.toggle('active');
+
     setShowBackdrop(!showBackdrop);
-  }, [showBackdrop]);
+  }, []);
 
   const handleMobileMenuToggle = React.useCallback(() => {
     setMobileMenuIsOpen(!mobileMenuIsOpen);
@@ -117,9 +123,9 @@ export default function Header() {
 
   const handleCreateAccountButtonClick = React.useCallback(() => {
     setShowModal(true);
-    handleLoginToggle();
+    handleLoginToggle(showBackdrop);
     setShowBackdrop(false);
-  }, []);
+  }, [showBackdrop]);
 
   const handleOnCloseModal = React.useCallback(() => {
     setShowModal(false);
@@ -140,6 +146,7 @@ export default function Header() {
   React.useEffect(() => {
     if (window) {
       setIsSticky(window.scrollY > 0);
+      setBackdropOnClick(handleLoginToggle);
     }
   }, []);
 
@@ -149,7 +156,7 @@ export default function Header() {
       stickyPositioned={isSticky}
       onMouseLeave={onHeaderLeave}
     >
-      <Backdrop active={showBackdrop} onClick={handleLoginToggle} />
+      {/* <TransparentBackdrop active={showBackdrop} onClick={handleLoginToggle} /> */}
 
       <Modal show={showModal} displayHeader onCloseModal={handleOnCloseModal}>
         <CreateAccountForm />
@@ -204,7 +211,7 @@ export default function Header() {
                 <NavItemLabel>Quero contratar</NavItemLabel>
               </NavItem>
               <NavItem ref={loginContainerRef} active data-item-label="login">
-                <NavItemLabel onClick={e => handleLoginToggle(e)}>
+                <NavItemLabel onClick={() => handleLoginToggle(showBackdrop)}>
                   Acesse sua conta
                 </NavItemLabel>
                 <FormDropdown>
