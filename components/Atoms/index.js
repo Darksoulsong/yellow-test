@@ -21,6 +21,7 @@ export {
   withBackdrop,
   useBackdrop,
 } from './Backdrop';
+export { PageButton } from './PageButton';
 export { Hashtag } from './Hashtag';
 export { Card } from './Card';
 export { AnimatedManipulator } from './AnimatedManipulator';

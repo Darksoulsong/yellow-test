@@ -14,6 +14,8 @@ import {
   CircledFilter,
   Carousel,
   AnimatedManipulator,
+  Button,
+  Pagination,
 } from '@components';
 
 import { articles, filters } from './mocked';
@@ -38,6 +40,8 @@ import {
   FilterContainer,
   Underline,
   ContainerWithPadding,
+  CustomField,
+  SuscribeHolder,
 } from './styles';
 
 export const Blog = () => {
@@ -68,9 +72,7 @@ export const Blog = () => {
                 navegacão.
               </Text>
             </BlogCol>
-            <BlogColImage
-              style={{ position: 'relative', alignItems: 'flex-end' }}
-            >
+            <BlogColImage>
               <AnimatedManipulator
                 dataAosOffset="100"
                 name="three-line-icon"
@@ -94,14 +96,30 @@ export const Blog = () => {
 
           <CardsContainer>
             {articles.map((item, index) => (
-              <Card key={uid(item, index)} text={item.text} img={item.image} />
+              <Card
+                styling={{ padding: `0 ${spaces.sm}` }}
+                key={uid(item, index)}
+                text={item.text}
+                img={item.image}
+              />
             ))}
           </CardsContainer>
 
+          <Pagination
+            pages={10}
+            currentPage={1}
+            onClick={() => {}}
+            setCurrentPage={() => {}}
+          />
+
           <SuscribeSection>
-            <MediumTitle>
+            <MediumTitle align="center">
               QUER RECEBER <strong>MAIS CONTEÚDOS</strong>
             </MediumTitle>
+            <SuscribeHolder>
+              <CustomField />
+              <Button>inscrever</Button>
+            </SuscribeHolder>
           </SuscribeSection>
         </ContainerWithPadding>
         <Footer>

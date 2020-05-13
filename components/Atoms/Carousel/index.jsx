@@ -20,11 +20,11 @@ export const CustomCarousel = ({
 
   useEffect(() => {
     const widthOfCarouselItems = settings.slideWidth.match(/\d+/)[0];
-    console.log(widthOfCarouselItems * carouselNumberOfItems, screenWidth);
     setCarouselDragging(
       widthOfCarouselItems * carouselNumberOfItems > screenWidth
     );
   }, [screenWidth]);
+
   return (
     <Carousel dragging={carouselDragging} {...settings}>
       {children}

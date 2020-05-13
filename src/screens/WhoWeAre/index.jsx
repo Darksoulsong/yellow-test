@@ -139,9 +139,9 @@ const WhoWeAreScreen = () => {
           </HowSectionContent>
         </HowSection>
         <CasesSection>
-          <SubHeading1>
+          <SectionTitle margin="0">
             YELLOW <strong>CASES</strong>
-          </SubHeading1>
+          </SectionTitle>
           <ExperienceContent>
             <SpeechBubble type="stars" iconsAlign="center" arrowAlign="center">
               <Slider>
@@ -177,7 +177,7 @@ const WhoWeAreScreen = () => {
         </CasesSection>
 
         <HashtagSection>
-          <HashtagIcons specialMargin={'0 0 -7vw 0'}>
+          <HashtagIcons specialMargin={'0 0 -6.5vw 0'}>
             {topHashtagSectionIcons.map(icon => (
               <HashtagIcon key={uid(icon)} {...icon}>
                 <SVG name={icon.name} />

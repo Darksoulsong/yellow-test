@@ -4,7 +4,6 @@ import { Text } from '../Fonts';
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => `0 ${theme.spaces.sm}`};
   width: ${({ width = '33.33%' }) => width};
   height: auto;
 `;
