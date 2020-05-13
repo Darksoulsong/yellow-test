@@ -13,7 +13,7 @@ export default function HamburgerButton({ onClick, ...rest }) {
   );
 
   return (
-    <Button type="button" onClick={e => onButtonClick(e)} version="unstyled">
+    <Button type="button" onClick={e => onButtonClick(e)} variant="unstyled">
       <HamburgerButtonRoot>
         <HamburgerButtonIcon open={open} {...rest} />
       </HamburgerButtonRoot>

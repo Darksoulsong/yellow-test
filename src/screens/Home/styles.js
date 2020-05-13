@@ -130,7 +130,7 @@ export const IntroFooterImage = styled.div`
   width: 100%;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    width: 50vw;
+    width: 80vw;
   }
 `;
 
@@ -141,12 +141,13 @@ export const IntroFooterActions = styled.div`
 
   button {
     margin-bottom: 28px;
+    width: 276px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin-top: 100px;
-    margin-left: 40px;
-    /* margin: 0; */
+    padding-top: 100px;
+    padding-left: 40px;
+    margin: 0;
 
     button {
       margin-bottom: 28px;

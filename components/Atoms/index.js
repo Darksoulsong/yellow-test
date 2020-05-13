@@ -17,7 +17,13 @@ export { default as HamburgerButton } from './HamburgerButton';
 export { default as IntroImageYellowWay } from './IntroImageYellowWay';
 export { default as Field, FieldGroup } from './Field';
 export * from './Form';
-export { default as Backdrop, BackdropProvider, useBackdrop } from './Backdrop';
+export {
+  default as Backdrop,
+  BackdropProvider,
+  withBackdrop,
+  useBackdrop,
+} from './Backdrop';
+export { PageButton } from './PageButton';
 export { Hashtag } from './Hashtag';
 export { Card } from './Card';
 export { AnimatedManipulator } from './AnimatedManipulator';
