@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { routeTo } from '@utils';
 import { Logo, SVG } from '@components';
 import {
@@ -11,6 +10,7 @@ import {
 } from './styles';
 
 const routeToYellowWay = () => routeTo('/yellow-way');
+const routeToBlog = () => routeTo('/blog');
 
 export default function DropdownContent1() {
   return (
@@ -36,7 +36,7 @@ export default function DropdownContent1() {
             mundo. Nosso #yellowway.
           </HeaderText>
         </HeaderDropdownBlock>
-        <HeaderDropdownBlock>
+        <HeaderDropdownBlock onClick={routeToBlog}>
           <HeaderHeading>Blog</HeaderHeading>
           <HeaderIconHolder className="blog">
             <SVG name="bubble-edit-icon" />

@@ -13,6 +13,41 @@ export const ContainerWithPadding = styled.div`
   }
 `;
 
+export const CustomField = styled.input`
+  height: 45px;
+  background: ${({ theme }) => theme.colors.grayLight};
+  border: 0 none;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  font-weight: 300;
+`;
+
+export const SuscribeHolder = styled.div`
+  display: flex;
+  margin: ${({ theme }) => theme.spaces.md};
+  * {
+    height: 45px;
+    border-radius: 0;
+  }
+  input {
+    max-width: 200px;
+    padding: ${({ theme }) => theme.spaces.sm};
+    border-top-left-radius: 9.5px;
+    border-bottom-left-radius: 9.5px;
+    @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+      max-width: 300px;
+    }
+  }
+  button {
+    background-color: ${({ theme }) => theme.colors.black};
+    border-top-right-radius: 9.5px;
+    border-bottom-right-radius: 9.5px;
+    font-weight: 300;
+    padding: ${({ theme }) => theme.spaces.sm};
+    font-size: 1.75rem;
+  }
+`;
+
 export const Section = styled.section`
   transition: 0.3s ease-in-out;
   transition-property: margin, padding;
@@ -70,9 +105,7 @@ export const Column = styled.div`
 export const BlogTopContainer = styled(Container)`
   flex-direction: row;
   flex-wrap: wrap;
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding: ${({ theme }) => `${theme.spaces.lg} 0`};
-  }
+  padding: ${({ theme }) => `${theme.spaces.lg} ${theme.spaces.sm}`};
 `;
 
 export const BlogCol = styled(Column)`
@@ -84,6 +117,7 @@ export const BlogCol = styled(Column)`
   }
   margin-top: ${({ theme }) => theme.spaces.sm};
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    margin-top: 0;
     width: 33.33%;
     align-items: flex-start;
     * {
@@ -94,15 +128,24 @@ export const BlogCol = styled(Column)`
 
 export const BlogColImage = styled(BlogCol)`
   align-items: flex-end;
+  position: relative;
+  margin: ${({ theme }) => theme.spaces.md};
   svg {
     width: 7.5% !important;
     position: absolute;
     top: -25px;
-    right: -15px;
+    right: -25px;
   }
-  margin-top: ${({ theme }) => theme.spaces.md};
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    margin-top: ${({ theme }) => theme.spaces.sm};
+    padding-right: ${({ theme }) => theme.spaces.sm};
+    margin: 0;
+    svg {
+      width: 10% !important;
+      right: -10px;
+    }
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: ${({ theme }) => 0};
   }
 `;
 
@@ -119,6 +162,7 @@ export const BlogLogo = styled(Column)`
 export const CardsContainer = styled(Container)`
   flex-wrap: wrap;
   flex-direction: row;
+  padding: 0;
   div {
     margin-top: ${({ theme }) => theme.spaces.sm};
   }
@@ -128,6 +172,7 @@ export const FilterContainer = styled(Container)`
   flex-direction: row;
   justify-content: flex-start;
   margin-top: ${({ theme }) => theme.spaces.md};
+  padding: 0;
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     margin-top: 0px;
   }
@@ -135,8 +180,9 @@ export const FilterContainer = styled(Container)`
 
 export const SuscribeSection = styled.div`
   display: flex;
-  justify-content: center;
-  margin: ${({ theme }) => `${theme.spaces.lg} 0 ${theme.spaces.md} 0`};
+  align-items: center;
+  flex-direction: column;
+  padding: ${({ theme }) => `${theme.spaces.sm} 0 ${theme.spaces.md} 0`};
 `;
 
 export const Underline = styled.span`
