@@ -5,7 +5,6 @@ const unstyled = css`
   width: auto;
   background: transparent;
   border: 0 none;
-  cursor: pointer;
 `;
 
 const getButtonVariant = (variant, colors) => {
@@ -15,7 +14,6 @@ const getButtonVariant = (variant, colors) => {
         color: ${colors.black};
         background-color: ${colors.yellow};
       `;
-
     default:
       return `
         color: ${colors.white};
@@ -24,8 +22,22 @@ const getButtonVariant = (variant, colors) => {
   }
 };
 
-const hoverStyles = css`
+const main = css`
   transition: transform 0.1s ease-in-out;
+  height: ${({ height = '87px' }) => height};
+  padding: ${({ padding = '0 46px' }) => padding};
+  color: ${({ theme }) => theme.colors.black};
+  font-size: ${({ fontSize = '2.5rem' }) => fontSize};
+  border: 0 none;
+  background: ${({ theme }) => theme.colors.yellow};
+  text-indent: -0.1rem;
+  font-family: Roboto, sans-serif;
+  font-weight: ${({ fontWeight = '700' }) => fontWeight};
+  border-radius: 18px;
+  transform: scale(1);
+  white-space: nowrap;
+
+  ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
 
   &:hover {
     transform: scale(1.05) !important;
@@ -36,44 +48,13 @@ const hoverStyles = css`
   }
 `;
 
-const main = css`
-  height: ${({ height = '78px' }) => height};
-  padding: ${({ padding = '0 46px' }) => padding};
-  color: ${({ theme }) => theme.colors.black};
-  font-size: ${({ fontSize = '2.2rem' }) => fontSize};
-  border: 0 none;
-  background: ${({ theme }) => theme.colors.yellow};
-  text-indent: -0.1rem;
-  font-family: Roboto, sans-serif;
-  font-weight: ${({ fontWeight = '700' }) => fontWeight};
-  border-radius: 18px;
-  transform: scale(1);
-  white-space: nowrap;
-  letter-spacing: 0.063rem;
-
-  ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
-
-  ${hoverStyles}
-`;
-
-const tiny = css`
-  height: 32px;
-  padding: 0 16px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-
-  ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
-
-  ${hoverStyles}
-`;
-
-const getButtonVersion = version => {
-  switch (version) {
+/**
+ * @param {string} variant
+ */
+const getVariant = variant => {
+  switch (variant) {
     case 'unstyled':
       return unstyled;
-    case 'tiny':
-      return tiny;
     default:
       return main;
   }
@@ -81,6 +62,5 @@ const getButtonVersion = version => {
 
 export const Root = styled.button`
   cursor: pointer;
-
-  ${({ version }) => getButtonVersion(version)}
+  ${({ variant }) => getVariant(variant)}
 `;

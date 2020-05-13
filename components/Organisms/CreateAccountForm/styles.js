@@ -5,7 +5,7 @@ export const CreateAccountFormRoot = styled.div`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.white};
   padding: 60px 120px;
-  padding: 0 120px 20px;
+  padding: 0 120px 60px;
   width: 600px;
 `;
 
@@ -13,9 +13,4 @@ export const FormHeading = styled.h2`
   font-size: 2.8rem;
   text-align: center;
   margin-bottom: ${({ theme }) => theme.spaces.lg};
-`;
-
-export const FormStepsHolder = styled.div`
-  display: flex;
-  align-items: center;
 `;

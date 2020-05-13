@@ -1,18 +1,9 @@
 import React from 'react';
-import {
-  FormControl,
-  FormActions,
-  Field,
-  FieldGroup,
-  FormSteps,
-  Button,
-  SVG,
-} from '@components';
+import { SVG, FormControl, FormActions, Field, FieldGroup } from '@components';
 
 import {
   CreateAccountFormRoot,
   FormHeading,
-  FormStepsHolder,
   // FormButtonGray,
   // FormButtonYellow,
   // FieldIcon,
@@ -57,9 +48,10 @@ export default function LoginForm() {
             <Field type="text" placeholder="cidade" name="city" width="flex" />
           </FieldGroup>
         </FormControl>
-        <FormActions>
-          <FormSteps activeStep={1} totalItems={3} />
-        </FormActions>
+        {/* <FormActions>
+          <FormButtonGray>Criar conta</FormButtonGray>
+          <FormButtonYellow>Continuar</FormButtonYellow>
+        </FormActions> */}
       </form>
     </CreateAccountFormRoot>
   );
