@@ -7,7 +7,7 @@ export const BackdropRoot = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.grayDark};
-  z-index: 1;
+  z-index: ${({ zIndex = 1 }) => zIndex};
 
   ${({ active }) =>
     active

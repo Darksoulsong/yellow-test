@@ -6,6 +6,8 @@ import {
   LoginForm,
   HamburgerButton,
   MobileMenu,
+  Modal,
+  CreateAccountForm,
 } from '@components';
 import { useScrollPosition } from '@hooks';
 import DropdownContent1 from './DropdownContent1';
@@ -31,9 +33,11 @@ export default function Header() {
   const ref = React.useRef(null);
   const [isSticky, setIsSticky] = React.useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
+  const [showBackdrop, setShowBackdrop] = React.useState(false);
+  const [showModal, setShowModal] = React.useState(false);
   const navElementRef = React.useRef(null);
   const loginContainerRef = React.useRef(null);
-  const [showBackdrop, setShowBackdrop] = React.useState(false);
+  const createAccountRef = React.useRef(null);
 
   const elementIsChildOfMainElement = (parentLabel, child) => {
     if (!child || typeof child !== 'string') return true;
@@ -111,6 +115,16 @@ export default function Header() {
       ?.scrollIntoView({ block: 'start', behavior: 'smooth' });
   }, []);
 
+  const handleCreateAccountButtonClick = React.useCallback(() => {
+    setShowModal(true);
+    handleLoginToggle();
+    setShowBackdrop(false);
+  }, []);
+
+  const handleOnCloseModal = React.useCallback(() => {
+    setShowModal(false);
+  }, []);
+
   const onLogoMouseEnter = React.useCallback(() => {
     if (isSticky) {
       ref.current.classList.add('is-hovered');
@@ -136,6 +150,10 @@ export default function Header() {
       onMouseLeave={onHeaderLeave}
     >
       <Backdrop active={showBackdrop} onClick={handleLoginToggle} />
+
+      <Modal show={showModal} displayHeader onCloseModal={handleOnCloseModal}>
+        <CreateAccountForm />
+      </Modal>
 
       <HeaderMain>
         <HeaderLogo onMouseEnter={onLogoMouseEnter}>
@@ -182,7 +200,7 @@ export default function Header() {
 
           <HeaderBodyRight>
             <NavSecondary>
-              <NavItem>
+              <NavItem ref={createAccountRef}>
                 <NavItemLabel>Quero contratar</NavItemLabel>
               </NavItem>
               <NavItem ref={loginContainerRef} active data-item-label="login">
@@ -190,7 +208,9 @@ export default function Header() {
                   Acesse sua conta
                 </NavItemLabel>
                 <FormDropdown>
-                  <LoginForm />
+                  <LoginForm
+                    onCreateAccountButtonClick={handleCreateAccountButtonClick}
+                  />
                 </FormDropdown>
               </NavItem>
             </NavSecondary>
