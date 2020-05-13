@@ -27,8 +27,6 @@ export default function FormSteps({ activeStep, totalItems, onStepChange }) {
     setActiveStepIndex(activeStep);
   }, []);
 
-  console.log({ activeStepIndex });
-
   return (
     <FormStepsRoot>
       <FormStepButtonHolder visible={activeStepIndex > 1}>
