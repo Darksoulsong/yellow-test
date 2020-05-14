@@ -19,3 +19,23 @@ export const FormStepsHolder = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const FormUploadWrapper = styled.div`
+  width: 200px;
+  margin: 0 auto;
+`;
+
+export const FormUploadFieldLabel = styled.div`
+  font-size: 1.8rem;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.039rem;
+  line-height: 1.1rem;
+  text-align: justify;
+
+  small {
+    display: block;
+    letter-spacing: 0.095rem;
+    font-size: 1rem;
+  }
+`;

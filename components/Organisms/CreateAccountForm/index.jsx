@@ -5,17 +5,14 @@ import {
   Field,
   FieldGroup,
   FormSteps,
-  Button,
-  SVG,
+  FileUploadField,
 } from '@components';
 
 import {
   CreateAccountFormRoot,
   FormHeading,
-  FormStepsHolder,
-  // FormButtonGray,
-  // FormButtonYellow,
-  // FieldIcon,
+  FormUploadFieldLabel,
+  FormUploadWrapper,
 } from './styles';
 
 export default function LoginForm() {
@@ -56,6 +53,16 @@ export default function LoginForm() {
             <Field type="text" placeholder="UF" name="state" width="70px" />
             <Field type="text" placeholder="cidade" name="city" width="flex" />
           </FieldGroup>
+        </FormControl>
+        <FormControl>
+          <FormUploadWrapper>
+            <FileUploadField>
+              <FormUploadFieldLabel>
+                anexe seu currículo <br /> <br />
+                <small>(recomendável, mas opcional)</small>
+              </FormUploadFieldLabel>
+            </FileUploadField>
+          </FormUploadWrapper>
         </FormControl>
         <FormActions>
           <FormSteps activeStep={1} totalItems={3} />
