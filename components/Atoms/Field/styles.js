@@ -46,7 +46,7 @@ export const Field = styled.div`
 
 export const FieldIcon = styled.span`
   font-weight: 800;
-  color: ${({ theme }) => theme.colors.grayDark};
+  color: ${({ theme }) => theme.colors.grayDarkest};
   margin-left: -27px;
   margin-right: 8px;
   height: 18px;

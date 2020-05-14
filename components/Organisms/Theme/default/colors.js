@@ -41,4 +41,5 @@ export const colors = {
   grayDarkish,
   grayDark,
   grayDarker,
+  grayDarkest,
 };

@@ -25,7 +25,7 @@ export default function FileUploadField({ children }) {
       <input onChange={handleChange} type="file" />
       <FileUploadFieldContainer>
         <FileUploadFieldIcon active={!isEmpty}>
-          <SVG size="14px" name="paperclip-icon" />
+          <SVG size="7px" name="paperclip-icon" />
         </FileUploadFieldIcon>
 
         <FileUploadFieldContent>

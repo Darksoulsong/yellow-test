@@ -45,3 +45,7 @@ export const FormHolder = styled.div`
   width: 305px;
   margin: 0 auto;
 `;
+
+export const FormIconHolder = styled.span`
+  color: ${({ theme }) => theme.colors.grayDarker};
+`;
