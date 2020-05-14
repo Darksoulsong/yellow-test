@@ -1,12 +1,13 @@
 import React from 'react';
 import { FormControl, Field, FieldGroup } from '@components';
+import { FormIconHolder } from '../styles';
 
 export default function PersonalInfoOne() {
   return (
     <>
       <FormControl>
         <Field
-          renderIcon={() => '@'}
+          renderIcon={() => <FormIconHolder>@</FormIconHolder>}
           type="email"
           placeholder="seu email"
           name="email"
