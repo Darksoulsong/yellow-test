@@ -9,4 +9,5 @@ export const spaces = {
   xlg: '75px',
   xxlg: '100px',
   hg: '128px',
+  xhg: '235px',
 };
