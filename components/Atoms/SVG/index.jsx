@@ -63,6 +63,22 @@ import HanddrawnArrowIcon6 from '../../../public/images/handdrawn-arrow6.svg';
 import KeyIcon from '../../../public/images/key-icon.svg';
 import FacebookIcon from '../../../public/images/facebook-icon.svg';
 import GoogleIcon from '../../../public/images/google-icon.svg';
+import ArrowIcon2 from '../../../public/images/arrow-icon2.svg';
+
+const getStyles = (size, invert) => {
+  const style = {};
+
+  if (size) {
+    style.width = size;
+    style.height = 'auto';
+  }
+
+  if (invert) {
+    style.transform = `rotate(-180deg)`;
+  }
+
+  return style;
+};
 
 const getImage = name => {
   switch (name) {
@@ -86,6 +102,8 @@ const getImage = name => {
       return BubblesIcon;
     case 'arrow-icon':
       return ArrowIcon;
+    case 'arrow-icon2':
+      return ArrowIcon2;
     case 'instagram-icon':
       return InstagramIcon;
     case 'youtube-icon':
@@ -198,7 +216,15 @@ const getImage = name => {
   }
 };
 
-export default React.memo(function SVG({ name, ...rest }) {
+export default React.memo(function SVG({ name, size, invert, ...rest }) {
   const Component = getImage(name);
-  return <Component {...rest} />;
+
+  return (
+    <Component
+      size={size}
+      invert={invert}
+      {...rest}
+      style={getStyles(size, invert)}
+    />
+  );
 });
