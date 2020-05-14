@@ -12,8 +12,8 @@ import {
   Text,
   Card,
   AnimatedManipulator,
-  Button,
   LikesAndComments,
+  Suscribe,
 } from '@components';
 
 import { articles, mockedHTML } from './mocked';
@@ -34,10 +34,7 @@ import {
   BlogTopContainer,
   Circle,
   CardsContainer,
-  SuscribeSection,
   ContainerWithPadding,
-  CustomField,
-  SuscribeHolder,
   Image,
   ContentContainer,
   InteractSection,
@@ -95,15 +92,7 @@ export const BlogArticle = () => {
             ))}
           </CardsContainer>
 
-          <SuscribeSection>
-            <MediumTitle align="center">
-              QUER RECEBER <strong>MAIS CONTEÚDOS</strong>
-            </MediumTitle>
-            <SuscribeHolder>
-              <CustomField />
-              <Button>inscrever</Button>
-            </SuscribeHolder>
-          </SuscribeSection>
+          <Suscribe padding={`${spaces.xlg} 0`} />
         </ContainerWithPadding>
         <Footer>
           <Section>

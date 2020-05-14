@@ -14,8 +14,8 @@ import {
   CircledFilter,
   Carousel,
   AnimatedManipulator,
-  Button,
   Pagination,
+  Suscribe,
 } from '@components';
 
 import { articles, filters } from './mocked';
@@ -36,12 +36,9 @@ import {
   BlogTopContainer,
   Circle,
   CardsContainer,
-  SuscribeSection,
   FilterContainer,
   Underline,
   ContainerWithPadding,
-  CustomField,
-  SuscribeHolder,
 } from './styles';
 
 export const Blog = () => {
@@ -113,15 +110,7 @@ export const Blog = () => {
             setCurrentPage={() => {}}
           />
 
-          <SuscribeSection>
-            <MediumTitle align="center">
-              QUER RECEBER <strong>MAIS CONTEÚDOS</strong>
-            </MediumTitle>
-            <SuscribeHolder>
-              <CustomField />
-              <Button>inscrever</Button>
-            </SuscribeHolder>
-          </SuscribeSection>
+          <Suscribe padding={`${spaces.sm} 0 ${spaces.md} 0`} />
         </ContainerWithPadding>
         <Footer>
           <Section>

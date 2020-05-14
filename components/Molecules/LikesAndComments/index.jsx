@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from '@components';
+import { uid } from 'react-uid';
 import {
   CommentSection,
   CommentPostContainer,
@@ -7,20 +7,39 @@ import {
   CommentButton,
   CommentsContainer,
   LikesSection,
+  LikesAndCommentsContainer,
+  LikesText,
+  Comment,
+  CommentUser,
 } from './styles';
 
-export const LikesAndComments = () => (
-  <>
+const mockedComments = [
+  { user: 'matthias', comment: 'Gostei muito' },
+  { user: 'gabriella', comment: 'Que legal' },
+];
+
+export const LikesAndComments = ({
+  comments = mockedComments,
+  likes = '200',
+}) => (
+  <LikesAndCommentsContainer>
     <LikesSection>
       {}
-      <Text>200 curtidas</Text>
+      <LikesText>{likes} curtidas</LikesText>
     </LikesSection>
     <CommentSection>
       <CommentPostContainer>
-        <CommentPoster />
+        <CommentPoster placeholder="Adicione um comentário..." />
         <CommentButton>Publicar</CommentButton>
       </CommentPostContainer>
-      <CommentsContainer></CommentsContainer>
+      <CommentsContainer>
+        {comments.map((item, key) => (
+          <Comment key={uid(key, item)}>
+            <CommentUser>{item.user}</CommentUser>
+            {item.comment}
+          </Comment>
+        ))}
+      </CommentsContainer>
     </CommentSection>
-  </>
+  </LikesAndCommentsContainer>
 );
