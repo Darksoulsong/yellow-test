@@ -64,6 +64,7 @@ import KeyIcon from '../../../public/images/key-icon.svg';
 import FacebookIcon from '../../../public/images/facebook-icon.svg';
 import GoogleIcon from '../../../public/images/google-icon.svg';
 import ArrowIcon2 from '../../../public/images/arrow-icon2.svg';
+import PaperclipIcon from '../../../public/images/paperclip-icon.svg';
 
 const getStyles = (size, invert) => {
   const style = {};
@@ -210,6 +211,8 @@ const getImage = name => {
       return HanddrawnArrowIcon5;
     case 'handdrawn-arrow6':
       return HanddrawnArrowIcon6;
+    case 'paperclip-icon':
+      return PaperclipIcon;
     case 'logo':
     default:
       return Logo;

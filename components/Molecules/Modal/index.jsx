@@ -15,6 +15,7 @@ export default function Modal({
   closeOnClickOut,
   children,
   onCloseModal,
+  backgroundColor,
 }) {
   const {
     setIsActive: setIsBackdropActive,
@@ -43,7 +44,10 @@ export default function Modal({
 
   const element = active ? (
     <ModalRoot onClick={handleBackdropClick}>
-      <ModalContainer onClick={handleModalContainerClick}>
+      <ModalContainer
+        onClick={handleModalContainerClick}
+        backgroundColor={backgroundColor}
+      >
         {displayHeader && (
           <ModalHead>
             <span />
@@ -94,4 +98,5 @@ export default function Modal({
 Modal.defaultProps = {
   show: false,
   closeOnClickOut: false,
+  backgroundColor: '#fff',
 };

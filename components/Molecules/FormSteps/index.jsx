@@ -9,7 +9,6 @@ import {
 } from './styles';
 
 export default function FormSteps({ activeStep, totalItems, onStepChange }) {
-  // const items = new Array(totalItems).fill('');
   const items = React.useRef(null);
   const [activeStepIndex, setActiveStepIndex] = React.useState();
   items.current = new Array(totalItems).fill('');
