@@ -9,7 +9,7 @@ export const Root = styled.div`
 export const ContainerWithPadding = styled.div`
   padding: 0 0;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding: ${({ theme }) => `0 ${theme.spaces.hg}`};
+    padding: ${({ theme }) => `0 ${theme.spaces.xhg}`};
   }
 `;
 
@@ -79,12 +79,16 @@ export const GrayedSection = styled(Section)`
   }
 `;
 
+export const Image = styled.img`
+  width: 100%;
+`;
+
 export const Circle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 150px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   background-color: ${({ theme }) => theme.colors.yellow};
   svg {
@@ -94,6 +98,10 @@ export const Circle = styled.div`
     path {
       fill: black;
     }
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    width: 100px;
+    height: 100px;
   }
 `;
 
@@ -105,59 +113,53 @@ export const Column = styled.div`
 export const BlogTopContainer = styled(Container)`
   flex-direction: row;
   flex-wrap: wrap;
-  padding: ${({ theme }) => `${theme.spaces.lg} ${theme.spaces.sm}`};
+  padding: ${({ theme }) => theme.spaces.sm};
+  padding-top: ${({ theme }) => theme.spaces.lg};
+  justify-content: flex-start;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: ${({ theme }) => `${theme.spaces.lg} 0`};
+  }
 `;
 
 export const BlogCol = styled(Column)`
-  width: 100%;
+  width: fit-content;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  margin: ${({ theme }) => `0 0 0 ${theme.spaces.sm}`};
+  justify-content: center;
   * {
-    text-align: center;
-  }
-  margin-top: ${({ theme }) => theme.spaces.sm};
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    margin-top: 0;
-    width: 33.33%;
-    align-items: flex-start;
-    * {
-      text-align: left;
-    }
+    text-align: left;
   }
 `;
 
-export const BlogColImage = styled(BlogCol)`
-  align-items: flex-end;
+export const BlogColImage = styled.div`
+  display: flex;
+  flex-direction: column;
   position: relative;
-  margin: ${({ theme }) => theme.spaces.sm};
-  margin-top: ${({ theme }) => theme.spaces.md};
+  width: 100%;
+  align-items: center;
+  padding: ${({ theme }) => theme.spaces.md};
   svg {
-    width: 7.5% !important;
     position: absolute;
-    top: -25px;
-    right: -25px;
-  }
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding-right: ${({ theme }) => theme.spaces.sm};
-    margin: 0;
-    svg {
-      width: 10% !important;
-      right: -10px;
-    }
+    width: 7.5% !important;
+    top: -0.5%;
+    right: 0%;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: ${({ theme }) => 0};
+    padding: 0;
+    svg {
+      width: 10% !important;
+      right: -7.5%;
+      top: -10%;
+    }
   }
 `;
 
 export const BlogLogo = styled(Column)`
-  width: 100%;
+  width: fit-content;
   display: flex;
   align-items: center;
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: fit-content;
-    justify-content: flex-start;
-  }
+  justify-content: flex-start;
 `;
 
 export const CardsContainer = styled(Container)`
@@ -166,20 +168,7 @@ export const CardsContainer = styled(Container)`
   padding: 0;
   div {
     margin-top: ${({ theme }) => theme.spaces.sm};
-    padding: ${({ theme }) => theme.spaces.sm};
-    width: 50%;
-    @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-      width: 33.33%;
-    }
-  }
-`;
-
-export const FilterContainer = styled(Container)`
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 0;
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    margin-top: 0px;
+    padding: ${({ theme }) => `0 ${theme.spaces.sm}`};
   }
 `;
 

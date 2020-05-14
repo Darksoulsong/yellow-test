@@ -28,7 +28,7 @@ export const BackdropProvider = ({ children }) => {
   const [isActive, setIsActive] = React.useState(false);
   const [animated, setAnimated] = React.useState(false);
   const [[callback], setCallback] = React.useState([]);
-  const [zIndex, setZIndex] = React.useState(20);
+  const [zIndex, setZIndex] = React.useState(0);
 
   const toggle = React.useCallback(
     active => {

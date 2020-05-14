@@ -26,11 +26,9 @@ const getButtonVariant = (variant, colors) => {
 
 const hoverStyles = css`
   transition: transform 0.1s ease-in-out;
-
   &:hover {
     transform: scale(1.05) !important;
   }
-
   &:active {
     transform: scale(1.01) !important;
   }
@@ -50,9 +48,7 @@ const main = css`
   transform: scale(1);
   white-space: nowrap;
   letter-spacing: 0.063rem;
-
   ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
-
   ${hoverStyles}
 `;
 
@@ -62,9 +58,7 @@ const tiny = css`
   border-radius: 8px;
   display: flex;
   align-items: center;
-
   ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
-
   ${hoverStyles}
 `;
 
@@ -81,6 +75,5 @@ const getButtonVersion = version => {
 
 export const Root = styled.button`
   cursor: pointer;
-
   ${({ version }) => getButtonVersion(version)}
 `;
