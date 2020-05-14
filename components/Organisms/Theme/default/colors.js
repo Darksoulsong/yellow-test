@@ -4,6 +4,7 @@ const yellowLight = '#d08770';
 const yellow = '#fbd502';
 const yellowDark = '#fcd602';
 const yellowDarker = '#FFCA00';
+const grayLightest = '#f7f6f5';
 const grayLight = '#dcdbdb';
 const grayLightish = '#d0d2d3';
 const grayLighter = '#f7f7f7';
@@ -32,6 +33,7 @@ export const colors = {
   yellow,
   yellowDarker,
   yellowDark,
+  grayLightest,
   grayLighter,
   grayLight,
   grayLightish,
@@ -39,4 +41,5 @@ export const colors = {
   grayDarkish,
   grayDark,
   grayDarker,
+  grayDarkest,
 };
