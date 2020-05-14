@@ -219,12 +219,5 @@ const getImage = name => {
 export default React.memo(function SVG({ name, size, invert, ...rest }) {
   const Component = getImage(name);
 
-  return (
-    <Component
-      size={size}
-      invert={invert}
-      {...rest}
-      style={getStyles(size, invert)}
-    />
-  );
+  return <Component {...rest} style={getStyles(size, invert)} />;
 });
