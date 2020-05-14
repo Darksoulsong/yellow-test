@@ -172,6 +172,8 @@ export const CardsContainer = styled(Container)`
   }
 `;
 
+export const InteractSection = styled.div``;
+
 export const SuscribeSection = styled.div`
   display: flex;
   align-items: center;
@@ -179,9 +181,21 @@ export const SuscribeSection = styled.div`
   padding: ${({ theme }) => `${theme.spaces.sm} 0 ${theme.spaces.md} 0`};
 `;
 
-export const Underline = styled.span`
-  box-shadow: ${({ theme }) =>
-    `inset 0 0px 0 white, inset 0 -5px 0 ${theme.colors.yellow}`};
+export const ContentContainer = styled.div`
+  margin: ${({ theme }) => `${theme.spaces.md} 0`};
+  * {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    text-align: justify;
+    line-height: 1.5;
+  }
+  h1,
+  h2 {
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: ${({ theme }) => theme.spaces.sm};
+  }
 `;
 
 export const FooterHeading = styled.h3`
