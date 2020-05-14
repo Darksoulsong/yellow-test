@@ -150,25 +150,31 @@ export const topHashtagSectionIcons = [
   {
     name: 'heart-icon',
     marginTop: '5%',
+    marginLeft: '-10%',
   },
   {
     name: 'plane-icon',
     marginTop: '10%',
+    marginLeft: '5%',
   },
   {
     name: 'bulletlist-icon',
+    marginLeft: '5%',
   },
   {
     name: 'suitcase-icon',
     marginTop: '12%',
+    marginLeft: '-2%',
   },
   {
     name: 'lightbulb-icon',
     marginTop: '7%',
+    marginLeft: '5%',
   },
   {
     name: 'clock-icon',
     marginTop: '15%',
+    marginLeft: '5%',
   },
   {
     name: 'cloud-icon',
@@ -182,6 +188,7 @@ export const topHashtagSectionIcons = [
   {
     name: 'target-icon',
     marginTop: '12%',
+    marginLeft: '4%',
   },
   {
     name: 'planet-icon',
@@ -196,7 +203,7 @@ export const topHashtagSectionIcons = [
 export const bottomHashtagSectionIcons = [
   {
     name: 'house-icon',
-    margingTop: '-12%',
+    marginTop: '-5%',
   },
   {
     name: 'letter-icon',
@@ -204,7 +211,7 @@ export const bottomHashtagSectionIcons = [
   },
   {
     name: 'darkumbrella-icon',
-    marginTop: '7%',
+    marginTop: '4%',
     marginLeft: '-2%',
   },
   {
@@ -215,34 +222,40 @@ export const bottomHashtagSectionIcons = [
   {
     name: 'calculator-icon',
     marginTop: '3%',
+    marginLeft: '0',
   },
   {
     name: 'camera-icon',
     marginTop: '20%',
+    marginLeft: '4%',
   },
   {
     name: 'star-icon',
     marginTop: '2%',
+    marginLeft: '0',
   },
   {
     name: 'monitor-icon',
     marginTop: '10%',
+    marginLeft: '4%',
   },
   {
     name: 'pig-icon',
     marginTop: '5%',
+    width: '6vw',
   },
   {
     name: 'bag-icon',
-    marginTop: '12%',
+    marginTop: '15%',
   },
   {
     name: 'headphones-icon',
-    marginTop: '2%',
+    marginTop: '3%',
   },
   {
     name: 'bike-icon',
     marginTop: '-8%',
+    width: '5.5vw',
   },
   {
     name: 'lens-icon',

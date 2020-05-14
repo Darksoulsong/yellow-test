@@ -11,14 +11,12 @@ import {
   MediumTitle,
   Text,
   Card,
-  CircledFilter,
-  Carousel,
   AnimatedManipulator,
   Button,
   Pagination,
 } from '@components';
 
-import { articles, filters } from './mocked';
+import { articles } from './mocked';
 import { spaces } from '@components/Organisms/Theme/sizes';
 
 import {
@@ -37,14 +35,14 @@ import {
   Circle,
   CardsContainer,
   SuscribeSection,
-  FilterContainer,
   Underline,
   ContainerWithPadding,
   CustomField,
   SuscribeHolder,
+  Image,
 } from './styles';
 
-export const Blog = () => {
+export const BlogArticle = () => {
   useEffect(() => {
     AOS.init({
       duration: 500,
@@ -66,34 +64,18 @@ export const Blog = () => {
               <MediumTitle>
                 YELLOW<strong>BLOG</strong>
               </MediumTitle>
-              <Text margin={`${spaces.sm} 0 0 0`}>
-                Bem vindo ao <Underline>Yellowblog</Underline>, ele foi feito
-                com muito carinho para que você se sentisse em casa como em uma
-                página do Instagram. relevante em textos pequenos e de fácil
-                navegacão.
-              </Text>
+              <Text margin={`${spaces.xsm} 0 0 0`}>Daniel Monteiro</Text>
             </BlogCol>
-            <BlogColImage>
-              <AnimatedManipulator
-                dataAosOffset="100"
-                name="three-line-icon"
-                type="three-line-icon-yellow"
-              />
-              <Card
-                width="100%"
-                text="A dinâmica da comunicação"
-                img="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg"
-              />
-            </BlogColImage>
           </BlogTopContainer>
 
-          <FilterContainer>
-            <Carousel carouselNumberOfItems={filters.length}>
-              {filters.map(filter => (
-                <CircledFilter key={uid(filter)} text={filter.text} />
-              ))}
-            </Carousel>
-          </FilterContainer>
+          <BlogColImage>
+            <AnimatedManipulator
+              dataAosOffset="100"
+              name="three-line-icon"
+              type="three-line-icon-yellow"
+            />
+            <Image src="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg" />
+          </BlogColImage>
 
           <CardsContainer>
             {articles.map((item, index) => (
@@ -105,13 +87,6 @@ export const Blog = () => {
               />
             ))}
           </CardsContainer>
-
-          <Pagination
-            pages={10}
-            currentPage={1}
-            onClick={() => {}}
-            setCurrentPage={() => {}}
-          />
 
           <SuscribeSection>
             <MediumTitle align="center">

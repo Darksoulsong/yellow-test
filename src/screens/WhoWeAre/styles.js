@@ -177,7 +177,7 @@ export const SectionTitle = styled.h2`
   font-weight: 300;
   display: inline-block;
   text-align: center;
-  margin-bottom: ${({ theme }) => theme.spaces.xlg};
+  margin-bottom: ${({ margin, theme }) => margin || theme.spaces.xlg};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     font-size: 6rem;
   }
@@ -202,7 +202,7 @@ export const HashtagIcons = styled.div`
   display: flex;
   justify-content: center;
   margin: ${({ specialMargin = '0' }) => specialMargin};
-  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+  @media (min-width: ${({ theme }) => '700px'}) {
     margin: 0px;
   }
 `;
@@ -212,7 +212,7 @@ export const HashtagIcon = styled.div`
   margin-bottom: ${({ marginBottom = 0 }) => marginBottom};
   margin-left: ${({ marginLeft = '2vw' }) => marginLeft};
   svg {
-    width: 5vw;
+    width: ${({ width = '5vw' }) => width};
     min-width: 20px;
     transition: 0.25s all ease-in;
     &:hover {
@@ -245,8 +245,9 @@ const handleTypeSVG = type => {
             }
             text,
             ellipse {
-              transition: all 1s ease-in-out;
+              transition: all 0.5s ease-in-out;
               opacity: 1;
+              transition-delay: 0.5s;
             }
           }
         }
