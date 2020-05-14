@@ -1,73 +1,44 @@
 import React from 'react';
-import {
-  FormControl,
-  FormActions,
-  Field,
-  FieldGroup,
-  FormSteps,
-  FileUploadField,
-} from '@components';
+import { FormActions, FormSteps } from '@components';
 
-import {
-  CreateAccountFormRoot,
-  FormHeading,
-  FormUploadFieldLabel,
-  FormUploadWrapper,
-} from './styles';
+import { PersonalInfoOne, PersonalInfoTwo, AccountInfo } from './steps';
+
+import { FormRoot, FormHeading, FormHolder } from './styles';
 
 export default function LoginForm() {
+  const [activeStep, setActiveStep] = React.useState(1);
+  const handleStepChange = React.useCallback(step => {
+    setActiveStep(step);
+  }, []);
+
+  const activeForm = React.useMemo(() => {
+    switch (activeStep) {
+      case 1:
+        return <PersonalInfoOne />;
+      case 2:
+        return <PersonalInfoTwo />;
+      default:
+        return <AccountInfo />;
+    }
+  }, [activeStep]);
+
+  console.log({ activeStep });
+
   return (
-    <CreateAccountFormRoot>
+    <FormRoot>
       <FormHeading>Criar sua conta</FormHeading>
 
-      <form autoComplete="off">
-        <FormControl>
-          <Field
-            renderIcon={() => '@'}
-            type="email"
-            placeholder="seu email"
-            name="email"
-          />
-        </FormControl>
-        <FormControl>
-          <Field placeholder="nome completo" name="fullname" />
-        </FormControl>
-        <FormControl>
-          <FieldGroup>
-            <Field
-              type="text"
-              placeholder="nascimento"
-              name="birthDate"
-              width="135px"
-            />
-            <Field
-              type="tel"
-              placeholder="telefone"
-              name="phone"
-              width="flex"
-            />
-          </FieldGroup>
-        </FormControl>
-        <FormControl>
-          <FieldGroup>
-            <Field type="text" placeholder="UF" name="state" width="70px" />
-            <Field type="text" placeholder="cidade" name="city" width="flex" />
-          </FieldGroup>
-        </FormControl>
-        <FormControl>
-          <FormUploadWrapper>
-            <FileUploadField>
-              <FormUploadFieldLabel>
-                anexe seu currículo <br /> <br />
-                <small>(recomendável, mas opcional)</small>
-              </FormUploadFieldLabel>
-            </FileUploadField>
-          </FormUploadWrapper>
-        </FormControl>
-        <FormActions>
-          <FormSteps activeStep={1} totalItems={3} />
-        </FormActions>
-      </form>
-    </CreateAccountFormRoot>
+      <FormHolder>
+        <form autoComplete="off">{activeForm}</form>
+      </FormHolder>
+
+      <FormActions style={{ marginTop: 'auto' }}>
+        <FormSteps
+          activeStep={1}
+          totalItems={3}
+          onStepChange={handleStepChange}
+        />
+      </FormActions>
+    </FormRoot>
   );
 }
