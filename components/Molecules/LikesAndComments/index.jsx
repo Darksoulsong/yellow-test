@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text } from '@components';
+import { Text } from '@components';
 import {
   CommentSection,
   CommentPostContainer,

@@ -9,15 +9,16 @@ export const CommentSection = styled.div`
 export const CommentPostContainer = styled.div`
   display: flex;
   width: 100%;
-  flex-direction: column;
   padding: ${({ theme }) => `${theme.spaces.sm}`};
   border: ${({ theme }) => `1px solid ${theme.colors.grayLight}`};
 `;
 export const CommentPoster = styled.input`
-  width: 80%;
+  width: 90%;
 `;
 export const CommentButton = styled.div`
-  width: 20%;
+  width: 10%;
+  font-weight: 700;
+  cursor: pointer;
 `;
 export const CommentsContainer = styled.div``;
 export const LikesSection = styled.div``;
