@@ -28,50 +28,31 @@ export const Name = styled.li`
 
 export const NameListColumn = styled.ul`
   width: 50%;
-  padding: 15px;
-  text-align: center;
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 33%;
+  text-align: left;
+  padding: ${({ theme }) => theme.spaces.sm};
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    width: 33.33%;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    text-align: left;
     width: 20%;
-  }
-  &:nth-child(4) {
-    @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-      width: 50%;
+    &:first-child {
+      padding-left: 0;
     }
-    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-      width: 20%;
-    }
-  }
-  &:nth-child(5) {
-    @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-      width: 50%;
-    }
-    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-      width: 20%;
-    }
-  }
-
-  &:last-child {
-    width: 100%;
-    @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-      width: 33%;
-    }
-
-    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-      width: 20%;
+    &:last-child {
+      padding-right: 0;
+      width: fit-content;
     }
   }
 `;
 
 export const NameListSection = styled.div`
   display: flex;
-  margin: ${({ theme }) => `${theme.spaces.sm} 0px`};
+  padding: ${({ theme }) => `${theme.spaces.sm} 0px`};
   flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: ${({ theme }) => `${theme.spaces.sm} ${theme.spaces.hg}`};
+    padding: ${({ theme }) => `${theme.spaces.sm} 125px`};
   }
 `;
 
@@ -80,7 +61,7 @@ export const WhySection = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: ${({ theme }) => `${theme.spaces.md} 0px`};
+  margin: ${({ theme }) => `${theme.spaces.md} ${theme.spaces.sm}`};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: ${({ theme }) => `${theme.spaces.sm} ${theme.spaces.hg}`};
   }
@@ -125,7 +106,7 @@ export const HowSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: ${({ theme }) => `${theme.spaces.xxlg} ${theme.spaces.sm}`};
+  margin: ${({ theme }) => `${theme.spaces.xxlg} ${theme.spaces.md}`};
   position: relative;
 `;
 

@@ -13,41 +13,6 @@ export const ContainerWithPadding = styled.div`
   }
 `;
 
-export const CustomField = styled.input`
-  height: 45px;
-  background: ${({ theme }) => theme.colors.grayLight};
-  border: 0 none;
-  border-radius: 5px;
-  font-size: 1.8rem;
-  font-weight: 300;
-`;
-
-export const SuscribeHolder = styled.div`
-  display: flex;
-  margin: ${({ theme }) => theme.spaces.md};
-  * {
-    height: 45px;
-    border-radius: 0;
-  }
-  input {
-    max-width: 200px;
-    padding: ${({ theme }) => theme.spaces.sm};
-    border-top-left-radius: 9.5px;
-    border-bottom-left-radius: 9.5px;
-    @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
-      max-width: 300px;
-    }
-  }
-  button {
-    background-color: ${({ theme }) => theme.colors.black};
-    border-top-right-radius: 9.5px;
-    border-bottom-right-radius: 9.5px;
-    font-weight: 300;
-    padding: ${({ theme }) => theme.spaces.sm};
-    font-size: 1.75rem;
-  }
-`;
-
 export const Section = styled.section`
   transition: 0.3s ease-in-out;
   transition-property: margin, padding;
@@ -172,16 +137,25 @@ export const CardsContainer = styled(Container)`
   }
 `;
 
-export const SuscribeSection = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: ${({ theme }) => `${theme.spaces.sm} 0 ${theme.spaces.md} 0`};
-`;
+export const InteractSection = styled.div``;
 
-export const Underline = styled.span`
-  box-shadow: ${({ theme }) =>
-    `inset 0 0px 0 white, inset 0 -5px 0 ${theme.colors.yellow}`};
+export const ContentContainer = styled.div`
+  margin: ${({ theme }) => `${theme.spaces.md} 0`};
+  padding: ${({ theme }) => ` 0 ${theme.spaces.sm}`};
+  * {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    text-align: justify;
+    line-height: 1.5;
+  }
+  h1,
+  h2 {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: ${({ theme }) => theme.spaces.sm};
+  }
 `;
 
 export const FooterHeading = styled.h3`

@@ -47,12 +47,19 @@ export const HeaderDropdownBlock = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   color: ${({ theme }) => theme.colors.white};
+  a {
+    color: ${({ theme }) => theme.colors.white};
+  }
   flex: 1;
   background-color: ${({ theme }) => theme.colors.headerDropdownBackground};
+  cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.yellow};
     color: ${({ theme }) => theme.colors.textColor};
+    a {
+      color: ${({ theme }) => theme.colors.textColor};
+    }
 
     path {
       fill: ${({ theme }) => theme.colors.black};

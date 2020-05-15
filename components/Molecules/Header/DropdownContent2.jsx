@@ -1,5 +1,6 @@
 import React from 'react';
 import { Logo, SVG } from '@components';
+import { routeTo } from '@utils';
 import {
   HeaderDropdown,
   HeaderDropdownBlock,
@@ -23,14 +24,20 @@ export default function DropdownContent1() {
           </HeaderText>
         </HeaderDropdownBlock>
         <HeaderDropdownBlock>
-          <HeaderHeading>Vagas Abertas</HeaderHeading>
-          <HeaderIconHolder className="open-positions">
-            <SVG name="open-icon" />
-          </HeaderIconHolder>
-          <HeaderText>
-            Clique, conheça mais sobre nossas vagas e se inscreva nos processos
-            que te atraem.
-          </HeaderText>
+          <a
+            href="https://yellowrec.gupy.io/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <HeaderHeading>Vagas Abertas</HeaderHeading>
+            <HeaderIconHolder className="open-positions">
+              <SVG name="open-icon" />
+            </HeaderIconHolder>
+            <HeaderText>
+              Clique, conheça mais sobre nossas vagas e se inscreva nos
+              processos que te atraem.
+            </HeaderText>
+          </a>
         </HeaderDropdownBlock>
         <HeaderDropdownBlock>
           <HeaderHeading>Crie sua conta</HeaderHeading>
@@ -42,7 +49,7 @@ export default function DropdownContent1() {
             banco da Yellow.
           </HeaderText>
         </HeaderDropdownBlock>
-        <HeaderDropdownBlock>
+        <HeaderDropdownBlock onClick={() => routeTo('/blog')}>
           <HeaderHeading>Dicas para você</HeaderHeading>
           <HeaderIconHolder className="ideas">
             <SVG name="ideas-icon" />

@@ -9,9 +9,6 @@ import {
   HeaderText,
 } from './styles';
 
-const routeToYellowWay = () => routeTo('/yellow-way');
-const routeToBlog = () => routeTo('/blog');
-
 export default function DropdownContent1() {
   return (
     <>
@@ -26,7 +23,7 @@ export default function DropdownContent1() {
             trabalho.
           </HeaderText>
         </HeaderDropdownBlock>
-        <HeaderDropdownBlock onClick={routeToYellowWay}>
+        <HeaderDropdownBlock onClick={() => routeTo('/yellow-way')}>
           <HeaderHeading>Cultura</HeaderHeading>
           <HeaderIconHolder className="culture">
             <SVG name="umbrella-icon" />
@@ -36,7 +33,7 @@ export default function DropdownContent1() {
             mundo. Nosso #yellowway.
           </HeaderText>
         </HeaderDropdownBlock>
-        <HeaderDropdownBlock onClick={routeToBlog}>
+        <HeaderDropdownBlock onClick={() => routeTo('/blog')}>
           <HeaderHeading>Blog</HeaderHeading>
           <HeaderIconHolder className="blog">
             <SVG name="bubble-edit-icon" />

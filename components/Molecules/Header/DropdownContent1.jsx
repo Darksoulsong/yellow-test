@@ -9,13 +9,11 @@ import {
   HeaderText,
 } from './styles';
 
-const routeToWhoWeAre = () => routeTo('/quem-somos');
-
 export default function DropdownContent1() {
   return (
     <>
       <HeaderDropdown>
-        <HeaderDropdownBlock onClick={routeToWhoWeAre}>
+        <HeaderDropdownBlock onClick={() => routeTo('/quem-somos')}>
           <HeaderHeading>Quem somos</HeaderHeading>
           <HeaderIconHolder className="logo">
             <Logo variant="transparent" />
@@ -55,7 +53,7 @@ export default function DropdownContent1() {
             em contato com você.
           </HeaderText>
         </HeaderDropdownBlock>
-        <HeaderDropdownBlock>
+        <HeaderDropdownBlock onClick={() => routeTo('blog')}>
           <HeaderHeading>Dicas para você</HeaderHeading>
           <HeaderIconHolder className="ideas ">
             <SVG name="ideas-icon" />
