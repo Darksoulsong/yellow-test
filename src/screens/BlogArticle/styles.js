@@ -82,7 +82,7 @@ export const BlogTopContainer = styled(Container)`
   padding-top: ${({ theme }) => theme.spaces.lg};
   justify-content: flex-start;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding: ${({ theme }) => `${theme.spaces.lg} 0`};
+    padding: ${({ theme }) => `${theme.spaces.xlg} 0 ${theme.spaces.lg} 0`};
   }
 `;
 
@@ -128,16 +128,36 @@ export const BlogLogo = styled(Column)`
 `;
 
 export const CardsContainer = styled(Container)`
+  width: 100%;
   flex-wrap: wrap;
   flex-direction: row;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   div {
-    margin-top: ${({ theme }) => theme.spaces.sm};
-    padding: ${({ theme }) => `0 ${theme.spaces.sm}`};
+    padding: ${({ theme }) => `${theme.spaces.xsm} 1%`};
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    div:nth-child(1) {
+      padding: 5px 1% 5px 0;
+    }
+    div:nth-child(2) {
+      padding: 5px;
+    }
+    div:nth-child(3) {
+      padding: 5px 0 5px 1%;
+    }
   }
 `;
 
-export const InteractSection = styled.div``;
+export const SliderContainer = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: ${({ theme }) => `${theme.spaces.xlg} 0`};
+  justify-content: center;
+`;
 
 export const ContentContainer = styled.div`
   margin: ${({ theme }) => `${theme.spaces.md} 0`};
@@ -147,75 +167,23 @@ export const ContentContainer = styled.div`
     font-weight: 300;
     text-align: justify;
     line-height: 1.5;
+    font-size: 1.5rem;
   }
-  h1,
-  h2 {
+  h1 {
     text-align: left;
     text-transform: uppercase;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 300;
-    margin-bottom: ${({ theme }) => theme.spaces.sm};
+    margin-bottom: ${({ theme }) => theme.spaces.xsm};
   }
-`;
-
-export const FooterHeading = styled.h3`
-  font-weight: 600;
-`;
-
-export const FooterBlock = styled.div`
-  width: 30%;
-`;
-
-export const FooterBlockSocial = styled(FooterBlock)`
-  flex: 1;
-  text-align: center;
-
-  svg {
-    width: 29px !important;
-    height: auto;
-  }
-`;
-
-export const FooterItem = styled.div`
-  margin-bottom: 28px;
-  font-size: 1.6rem;
-  font-weight: 300;
-
-  svg path {
-    transition: fill 0.3s ease-in-out;
+  h2 {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: ${({ theme }) => theme.spaces.xsm};
   }
 
-  a {
-    transition: color 0.3s ease-in-out;
-    color: ${({ theme }) => theme.colors.black};
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.highlightColor};
-
-      svg path {
-        fill: ${({ theme }) => theme.colors.highlightColor};
-      }
-    }
-  }
-`;
-
-export const Footer = styled.div`
-  .footer-logo svg {
-    width: 140px;
-  }
-
-  ${Section} {
-    padding-top: 0;
-    padding-bottom: 16px;
-    margin: 0;
-  }
-
-  ${GrayedSection} {
-    display: flex;
-    margin-top: 0;
-    padding-top: 40px;
-    justify-content: space-between;
-    margin-left: 0;
-    margin-right: 0;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: ${({ theme }) => 0};
   }
 `;

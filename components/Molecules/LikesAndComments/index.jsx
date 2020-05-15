@@ -1,5 +1,6 @@
 import React from 'react';
 import { uid } from 'react-uid';
+import { SVG } from '@components';
 import {
   CommentSection,
   CommentPostContainer,
@@ -16,6 +17,15 @@ import {
 const mockedComments = [
   { user: 'matthias', comment: 'Gostei muito' },
   { user: 'gabriella', comment: 'Que legal' },
+  { user: 'gabriella', comment: 'Que legal' },
+  { user: 'gabriella', comment: 'Que legal' },
+  { user: 'gabriella', comment: 'Que legal' },
+  { user: 'gabriella', comment: 'Que legal' },
+  { user: 'gabriella', comment: 'Que legal' },
+  { user: 'gabriella', comment: 'Que legal' },
+  { user: 'gabriella', comment: 'Que legal' },
+  { user: 'gabriella', comment: 'Que legal' },
+  { user: 'gabriella', comment: 'Que legal' },
 ];
 
 export const LikesAndComments = ({
@@ -24,7 +34,9 @@ export const LikesAndComments = ({
 }) => (
   <LikesAndCommentsContainer>
     <LikesSection>
-      {}
+      <SVG name="interact-like" />
+      <SVG name="interact-comment" />
+      <SVG name="interact-share" />
       <LikesText>{likes} curtidas</LikesText>
     </LikesSection>
     <CommentSection>
