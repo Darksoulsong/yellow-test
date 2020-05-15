@@ -43,7 +43,7 @@ export default function DropdownContent1() {
             simule como seria contratar a Yellow.
           </HeaderText>
         </HeaderDropdownBlock>
-        <HeaderDropdownBlock>
+        <HeaderDropdownBlock onClick={() => routeTo('/contato')}>
           <HeaderHeading>Contato</HeaderHeading>
           <HeaderIconHolder className="contact">
             <SVG name="phone-email-icon" />
