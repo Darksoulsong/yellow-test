@@ -51,7 +51,7 @@ export const Contact = () => {
           <ArrowPositioner>
             <SVG name="handdrawn-arrow7" />
           </ArrowPositioner>
-          <Button variant="primary" type="button">
+          <Button variant="primary" height="70px" type="button">
             BUSQUE UMA VAGA
           </Button>
         </SimpleContainer>
@@ -134,7 +134,9 @@ export const Contact = () => {
             direction="column"
             margin={`${spaces.lg} 0 ${spaces.sm} 0`}
           >
-            <CustomButton>ENVIAR</CustomButton>
+            <CustomButton fontSize="1em" height="40px">
+              ENVIAR
+            </CustomButton>
             <CustomText
               align="center"
               margin={`${spaces.sm} 0`}
@@ -155,7 +157,7 @@ export const Contact = () => {
         <SimpleContainer margin={`${spaces.sm} 0`}>
           <SVG name="handdrawn-arrow8" />
         </SimpleContainer>
-        <Button variant="primary" type="button">
+        <Button variant="primary" height="70px" type="button">
           SIMULE SUA VAGA
         </Button>
       </SimulationSection>
