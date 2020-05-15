@@ -4,18 +4,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import {
-  Container,
-  Header,
   SVG,
-  Logo,
   MediumTitle,
-  Text,
   Card,
   CircledFilter,
   Carousel,
   AnimatedManipulator,
-  Button,
   Pagination,
+  Suscribe,
   DefaultLayout,
 } from '@components';
 
@@ -23,26 +19,16 @@ import { articles, filters } from './mocked';
 import { spaces } from '@components/Organisms/Theme/sizes';
 
 import {
-  Root,
-  GrayedSection,
-  Footer,
-  FooterHeading,
-  FooterItem,
-  FooterBlock,
-  FooterBlockSocial,
-  Section,
   BlogCol,
   BlogColImage,
   BlogLogo,
   BlogTopContainer,
   Circle,
   CardsContainer,
-  SuscribeSection,
   FilterContainer,
   Underline,
   ContainerWithPadding,
-  CustomField,
-  SuscribeHolder,
+  CustomText,
 } from './styles';
 
 export const Blog = () => {
@@ -65,11 +51,13 @@ export const Blog = () => {
             <MediumTitle>
               YELLOW<strong>BLOG</strong>
             </MediumTitle>
-            <Text margin={`${spaces.sm} 0 0 0`}>
-              Bem vindo ao <Underline>Yellowblog</Underline>, ele foi feito com
-              muito carinho para que você se sentisse em casa como em uma página
-              do Instagram. relevante em textos pequenos e de fácil navegacão.
-            </Text>
+            <CustomText margin={`${spaces.sm} 0 0 0`}>
+              <strong>Bem vindo</strong> ao <Underline>Yellowblog</Underline>,
+              ele foi feito com muito carinho para que você se sentisse em casa
+              como em uma página do Instagram.
+              <br />
+              Conteúdo relevante em textos pequenos e de fácil navegacão.
+            </CustomText>
           </BlogCol>
           <BlogColImage>
             <AnimatedManipulator
@@ -78,7 +66,8 @@ export const Blog = () => {
               type="three-line-icon-yellow"
             />
             <Card
-              width="100%"
+              width="65%"
+              mdWidth="90%"
               text="A dinâmica da comunicação"
               img="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg"
             />
@@ -95,12 +84,7 @@ export const Blog = () => {
 
         <CardsContainer>
           {articles.map((item, index) => (
-            <Card
-              styling={{ padding: `0 ${spaces.sm}` }}
-              key={uid(item, index)}
-              text={item.text}
-              img={item.image}
-            />
+            <Card key={uid(item, index)} text={item.text} img={item.image} />
           ))}
         </CardsContainer>
 
@@ -111,15 +95,10 @@ export const Blog = () => {
           setCurrentPage={() => {}}
         />
 
-        <SuscribeSection>
-          <MediumTitle align="center">
-            QUER RECEBER <strong>MAIS CONTEÚDOS</strong>
-          </MediumTitle>
-          <SuscribeHolder>
-            <CustomField />
-            <Button>inscrever</Button>
-          </SuscribeHolder>
-        </SuscribeSection>
+        <Suscribe
+          placeholder="email"
+          padding={`${spaces.sm} 0 ${spaces.md} 0`}
+        />
       </ContainerWithPadding>
     </DefaultLayout>
   );
