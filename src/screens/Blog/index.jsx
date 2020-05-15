@@ -9,7 +9,6 @@ import {
   SVG,
   Logo,
   MediumTitle,
-  Text,
   Card,
   CircledFilter,
   Carousel,
@@ -39,6 +38,7 @@ import {
   FilterContainer,
   Underline,
   ContainerWithPadding,
+  CustomText,
 } from './styles';
 
 export const Blog = () => {
@@ -63,12 +63,13 @@ export const Blog = () => {
               <MediumTitle>
                 YELLOW<strong>BLOG</strong>
               </MediumTitle>
-              <Text margin={`${spaces.sm} 0 0 0`}>
-                Bem vindo ao <Underline>Yellowblog</Underline>, ele foi feito
-                com muito carinho para que você se sentisse em casa como em uma
-                página do Instagram. relevante em textos pequenos e de fácil
-                navegacão.
-              </Text>
+              <CustomText margin={`${spaces.sm} 0 0 0`}>
+                <strong>Bem vindo</strong> ao <Underline>Yellowblog</Underline>,
+                ele foi feito com muito carinho para que você se sentisse em
+                casa como em uma página do Instagram.
+                <br />
+                Conteúdo relevante em textos pequenos e de fácil navegacão.
+              </CustomText>
             </BlogCol>
             <BlogColImage>
               <AnimatedManipulator
@@ -77,7 +78,8 @@ export const Blog = () => {
                 type="three-line-icon-yellow"
               />
               <Card
-                width="100%"
+                width="65%"
+                mdWidth="90%"
                 text="A dinâmica da comunicação"
                 img="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg"
               />
@@ -110,7 +112,10 @@ export const Blog = () => {
             setCurrentPage={() => {}}
           />
 
-          <Suscribe padding={`${spaces.sm} 0 ${spaces.md} 0`} />
+          <Suscribe
+            placeholder="email"
+            padding={`${spaces.sm} 0 ${spaces.md} 0`}
+          />
         </ContainerWithPadding>
         <Footer>
           <Section>

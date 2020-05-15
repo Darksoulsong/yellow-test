@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { ThemeConsumer } from 'styled-components';
 
 export const SuscribeSection = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import styled, { css } from 'styled-components';
-import { Container } from '@components';
+import { Container, Text } from '@components';
 
 export const Root = styled.div`
   position: relative;
@@ -48,8 +48,8 @@ export const Circle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   background-color: ${({ theme }) => theme.colors.yellow};
   svg {
@@ -70,7 +70,8 @@ export const Column = styled.div`
 export const BlogTopContainer = styled(Container)`
   flex-direction: row;
   flex-wrap: wrap;
-  padding: ${({ theme }) => `${theme.spaces.lg} ${theme.spaces.sm}`};
+  padding: ${({ theme }) =>
+    `${theme.spaces.xlg} ${theme.spaces.sm} ${theme.spaces.lg} ${theme.spaces.sm}`};
 `;
 
 export const BlogCol = styled(Column)`
@@ -83,7 +84,7 @@ export const BlogCol = styled(Column)`
   margin-top: ${({ theme }) => theme.spaces.sm};
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     margin-top: 0;
-    width: 33.33%;
+    width: 30%;
     align-items: flex-start;
     * {
       text-align: left;
@@ -91,23 +92,36 @@ export const BlogCol = styled(Column)`
   }
 `;
 
+export const CustomText = styled(Text)`
+  margin: ${({ theme }) => `${theme.spaces.sm} 0`};
+  font-size: 2rem;
+  text-align: center;
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    text-align: left;
+  }
+`;
+
 export const BlogColImage = styled(BlogCol)`
-  align-items: flex-end;
+  align-items: center;
   position: relative;
+  width: 100%;
   margin: ${({ theme }) => theme.spaces.sm};
   margin-top: ${({ theme }) => theme.spaces.md};
+  p {
+    text-align: center;
+  }
   svg {
     width: 7.5% !important;
     position: absolute;
-    top: -25px;
-    right: -25px;
+    top: -7.5%;
+    right: 12%;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     padding-right: ${({ theme }) => theme.spaces.sm};
     margin: 0;
     svg {
       width: 10% !important;
-      right: -10px;
+      right: 5%;
     }
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -120,8 +134,9 @@ export const BlogLogo = styled(Column)`
   display: flex;
   align-items: center;
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: fit-content;
+    width: 15%;
     justify-content: flex-start;
+    align-items: flex-start;
   }
 `;
 
@@ -129,13 +144,9 @@ export const CardsContainer = styled(Container)`
   flex-wrap: wrap;
   flex-direction: row;
   padding: 0;
+  margin-top: ${({ theme }) => theme.spaces.sm};
   div {
-    margin-top: ${({ theme }) => theme.spaces.sm};
-    padding: ${({ theme }) => theme.spaces.sm};
-    width: 50%;
-    @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-      width: 33.33%;
-    }
+    padding: ${({ theme }) => `${theme.spaces.xsm} 1%`};
   }
 `;
 
