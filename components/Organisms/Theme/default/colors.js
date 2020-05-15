@@ -13,6 +13,7 @@ const grayDarkish = '#58595b';
 const grayDark = '#3B4252';
 const grayDarker = '#2e2e2e';
 const grayDarkest = '#1f2122';
+const red = '#BE1E2D';
 
 export const colors = {
   background: white,
@@ -28,6 +29,12 @@ export const colors = {
   navBackgroundItem: 'transparent',
   navBackgroundItemActive: grayDarkest,
 
+  fieldBackground: grayLightish,
+  fieldBackgroundFocused: grayLighter,
+  fieldError: red,
+  fieldColor: grayDarkest,
+  fieldPlaceholder: grayDarker,
+
   black,
   white,
   yellow,
@@ -42,4 +49,5 @@ export const colors = {
   grayDark,
   grayDarker,
   grayDarkest,
+  red,
 };

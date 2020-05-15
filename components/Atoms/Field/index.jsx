@@ -1,8 +1,21 @@
 import React from 'react';
 import { mask } from '@utils';
-import { Field, FieldIcon, Input, FieldGroup } from './styles';
+import {
+  FieldRoot,
+  Field,
+  FieldIcon,
+  Input,
+  FieldGroup,
+  FieldValidationMessage,
+} from './styles';
 
-export default function FieldComponent({ renderIcon, width, ...rest }) {
+export default function FieldComponent({
+  renderIcon,
+  hasError,
+  width,
+  validationMessage,
+  ...rest
+}) {
   const ref = React.useRef(null);
   const hasIcon = typeof renderIcon === 'function';
   const inputProps = {
@@ -19,11 +32,17 @@ export default function FieldComponent({ renderIcon, width, ...rest }) {
   }
 
   return (
-    <Field width={width} hasIcon={hasIcon}>
-      {hasIcon && <FieldIcon>{renderIcon()}</FieldIcon>}
+    <FieldRoot width={width} hasError={hasError}>
+      <Field hasIcon={hasIcon}>
+        {hasIcon && <FieldIcon>{renderIcon()}</FieldIcon>}
 
-      <Input ref={ref} {...inputProps} />
-    </Field>
+        <Input ref={ref} {...inputProps} />
+      </Field>
+
+      <FieldValidationMessage show={!!validationMessage}>
+        {validationMessage}
+      </FieldValidationMessage>
+    </FieldRoot>
   );
 }
 
