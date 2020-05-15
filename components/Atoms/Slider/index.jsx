@@ -101,7 +101,7 @@ export default function Slider({
             onClick={() => setSlide({ jumpToIndex: index })}
             key={uid(item, index)}
             type="button"
-            variant="unstyled"
+            version="unstyled"
           >
             <span className={index === activeBoxIndex} />
           </Button>

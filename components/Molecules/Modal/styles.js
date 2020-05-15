@@ -17,7 +17,7 @@ export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 999;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ backgroundColor }) => backgroundColor};
 `;
 
 export const ModalCloseButton = styled.button`

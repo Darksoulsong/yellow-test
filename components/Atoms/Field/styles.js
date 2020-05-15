@@ -7,7 +7,7 @@ const getWidth = width => {
 const RoundElementBase = css`
   display: flex;
   align-items: center;
-  height: 54px;
+  height: 55px;
   border-radius: 27px;
   padding: 0 20px;
   font-size: 1.8rem;
@@ -18,7 +18,7 @@ const RoundElementBase = css`
 `;
 
 export const Input = styled.input`
-  color: ${({ theme }) => theme.colors.gray};
+  color: ${({ theme }) => theme.colors.black};
   border: 0 none;
   background-color: transparent;
   width: 100%;
@@ -27,7 +27,7 @@ export const Input = styled.input`
   font-weight: 300;
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.grayDarkest};
     opacity: 1; /* Firefox */
   }
 `;
@@ -46,7 +46,7 @@ export const Field = styled.div`
 
 export const FieldIcon = styled.span`
   font-weight: 800;
-  color: ${({ theme }) => theme.colors.grayDark};
+  color: ${({ theme }) => theme.colors.grayDarkest};
   margin-left: -27px;
   margin-right: 8px;
   height: 18px;

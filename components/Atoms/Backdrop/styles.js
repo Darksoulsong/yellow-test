@@ -6,8 +6,16 @@ export const BackdropRoot = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.grayDark};
+  background-color: ${({ theme, backgroundColor }) =>
+    backgroundColor ? backgroundColor : theme.colors.grayDark};
   z-index: ${({ zIndex = 1 }) => zIndex};
+
+  ${({ animated = false }) =>
+    animated &&
+    css`
+      transition: 0.3s ease-in-out;
+      transition-property: opacity, visibility;
+    `}
 
   ${({ active }) =>
     active

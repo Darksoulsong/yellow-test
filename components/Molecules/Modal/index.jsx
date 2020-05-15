@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Backdrop } from '@components';
+import { useBackdrop } from '@components';
 import {
   ModalRoot,
   ModalContainer,
@@ -15,33 +15,39 @@ export default function Modal({
   closeOnClickOut,
   children,
   onCloseModal,
+  backgroundColor,
 }) {
+  const {
+    setIsActive: setIsBackdropActive,
+    setAnimated,
+    animated,
+  } = useBackdrop();
   const [active, setActive] = React.useState();
-  let container;
-
-  if (typeof window !== 'undefined') {
-    const rootContainer = document.createElement('div');
-    const parentElem = document.querySelector('#__next');
-    parentElem.appendChild(rootContainer);
-    container = rootContainer;
-  }
+  const [container, setContainer] = React.useState(null);
 
   const handleBackdropClick = React.useCallback(() => {
     if (closeOnClickOut) {
       setActive(false);
-
       onCloseModal();
     }
   }, [active]);
 
+  const handleModalContainerClick = React.useCallback(e => {
+    e.stopPropagation();
+  }, []);
+
   const handleModalCloseButtonClick = React.useCallback(() => {
     setActive(false);
     onCloseModal();
+    setIsBackdropActive(false);
   }, [active]);
 
   const element = active ? (
-    <ModalRoot>
-      <ModalContainer>
+    <ModalRoot onClick={handleBackdropClick}>
+      <ModalContainer
+        onClick={handleModalContainerClick}
+        backgroundColor={backgroundColor}
+      >
         {displayHeader && (
           <ModalHead>
             <span />
@@ -53,8 +59,6 @@ export default function Modal({
 
         <ModalBody>{children}</ModalBody>
       </ModalContainer>
-
-      <Backdrop active={active} zIndex={998} onClick={handleBackdropClick} />
     </ModalRoot>
   ) : (
     ''
@@ -62,7 +66,31 @@ export default function Modal({
 
   React.useEffect(() => {
     setActive(show);
-  }, [show]);
+
+    if (show && typeof window !== 'undefined') {
+      setIsBackdropActive(show);
+      setAnimated(true);
+
+      if (!container) {
+        const rootContainer = document.createElement('div');
+        const parentElem = document.querySelector('#__next');
+        parentElem.appendChild(rootContainer);
+        setContainer(rootContainer);
+      }
+    } else {
+      if (container) {
+        container.parentNode.removeChild(container);
+        setContainer(null);
+        setAnimated(false);
+      }
+    }
+
+    return () => {
+      if (!container) {
+        setAnimated(false);
+      }
+    };
+  }, [show, animated]);
 
   return container ? ReactDOM.createPortal(element, container) : null;
 }
@@ -70,4 +98,5 @@ export default function Modal({
 Modal.defaultProps = {
   show: false,
   closeOnClickOut: false,
+  backgroundColor: '#fff',
 };
