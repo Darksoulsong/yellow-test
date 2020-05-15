@@ -11,6 +11,8 @@ export default function PersonalInfoOne() {
           type="email"
           placeholder="seu email"
           name="email"
+          hasError
+          validationMessage="Lorem ipsum dolor"
         />
       </FormControl>
       <FormControl>

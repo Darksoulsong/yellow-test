@@ -11,9 +11,9 @@ export const FormRoot = styled.div`
 `;
 
 export const FormHeading = styled.h2`
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   text-align: center;
-  margin-bottom: ${({ theme }) => theme.spaces.lg};
+  margin-bottom: ${({ theme }) => theme.spaces.md};
 `;
 
 export const FormStepsHolder = styled.div`
@@ -27,16 +27,16 @@ export const FormUploadWrapper = styled.div`
 `;
 
 export const FormUploadFieldLabel = styled.div`
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-family: Roboto, sans-serif;
   font-weight: 300;
   letter-spacing: 0.039rem;
-  line-height: 1.1rem;
+  line-height: 1rem;
   text-align: justify;
 
   small {
     display: block;
-    letter-spacing: 0.095rem;
+    letter-spacing: 0.07rem;
     font-size: 1rem;
   }
 `;
@@ -48,4 +48,26 @@ export const FormHolder = styled.div`
 
 export const FormIconHolder = styled.span`
   color: ${({ theme }) => theme.colors.grayDarker};
+`;
+
+export const CheckboxHolder = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  white-space: break-spaces;
+  width: 270px;
+  margin: 0 auto;
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.textColor};
+      text-decoration: none;
+    }
+  }
+`;
+
+export const CheckboxLabel = styled.span`
+  margin-left: 4px;
 `;
