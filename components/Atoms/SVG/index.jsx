@@ -60,6 +60,8 @@ import HanddrawnArrowIcon3 from '../../../public/images/handdrawn-arrow3.svg';
 import HanddrawnArrowIcon4 from '../../../public/images/handdrawn-arrow4.svg';
 import HanddrawnArrowIcon5 from '../../../public/images/handdrawn-arrow5.svg';
 import HanddrawnArrowIcon6 from '../../../public/images/handdrawn-arrow6.svg';
+import HanddrawnArrowIcon7 from '../../../public/images/handdrawn-arrow7.svg';
+import HanddrawnArrowIcon8 from '../../../public/images/handdrawn-arrow8.svg';
 import KeyIcon from '../../../public/images/key-icon.svg';
 import FacebookIcon from '../../../public/images/facebook-icon.svg';
 import GoogleIcon from '../../../public/images/google-icon.svg';
@@ -214,6 +216,10 @@ const getImage = name => {
       return HanddrawnArrowIcon5;
     case 'handdrawn-arrow6':
       return HanddrawnArrowIcon6;
+    case 'handdrawn-arrow7':
+      return HanddrawnArrowIcon7;
+    case 'handdrawn-arrow8':
+      return HanddrawnArrowIcon8;
     case 'paperclip-icon':
       return PaperclipIcon;
     case 'interact-like':
