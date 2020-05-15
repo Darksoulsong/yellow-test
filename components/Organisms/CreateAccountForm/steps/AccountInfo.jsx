@@ -1,5 +1,6 @@
 import React from 'react';
-import { FormControl, Field } from '@components';
+import { FormControl, FormActions, Field, Button, Checkbox } from '@components';
+import { CheckboxHolder, CheckboxLabel } from '../styles';
 
 export default function AccountInfo() {
   return (
@@ -13,6 +14,22 @@ export default function AccountInfo() {
       <FormControl>
         <Field placeholder="confirmar senha" name="confirmPassword" />
       </FormControl>
+      <FormControl>
+        <CheckboxHolder>
+          <Checkbox id="terms" />
+          <CheckboxLabel>
+            li e entendi a{' '}
+            <a href="/politica-de-privacidade">política de privacidade</a> e{' '}
+            <a href="/termo-de-adesao">termo de adesão</a>
+          </CheckboxLabel>
+        </CheckboxHolder>
+      </FormControl>
+      <FormActions align="center">
+        <Button variant="primary" version="rounded">
+          Concluir
+        </Button>
+      </FormActions>
+
       {/* <FormControl>
         <input type="checkbox" />
         li e entendi a{' '}

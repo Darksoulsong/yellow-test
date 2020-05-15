@@ -1,5 +1,6 @@
 import React from 'react';
-import { SVG, Text } from '@components';
+import { routeTo } from '@utils';
+import { SVG } from '@components';
 import {
   CardContainer,
   CardInteractions,
@@ -10,6 +11,9 @@ import {
   Interactions,
 } from './styles';
 
+// Temporary code
+const routeToContent = () => routeTo('/blog-artigo');
+
 export const Card = ({
   text,
   img,
@@ -18,7 +22,7 @@ export const Card = ({
   likes = 0,
   comments = 0,
 }) => (
-  <CardContainer width={width} mdWidth={mdWidth}>
+  <CardContainer width={width} mdWidth={mdWidth} onClick={routeToContent}>
     <CardSquare>
       <CardInteractions>
         <Interactions>

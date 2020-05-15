@@ -62,12 +62,26 @@ const tiny = css`
   ${hoverStyles}
 `;
 
+const rounded = css`
+  height: 54px;
+  padding: 0 42px;
+  border-radius: 27px;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  letter-spacing: 0.045rem;
+  ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
+  ${hoverStyles}
+`;
+
 const getButtonVersion = version => {
   switch (version) {
     case 'unstyled':
       return unstyled;
     case 'tiny':
       return tiny;
+    case 'rounded':
+      return rounded;
     default:
       return main;
   }

@@ -22,8 +22,6 @@ export default function LoginForm() {
     }
   }, [activeStep]);
 
-  console.log({ activeStep });
-
   return (
     <FormRoot>
       <FormHeading>Criar sua conta</FormHeading>

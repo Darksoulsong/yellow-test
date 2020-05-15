@@ -67,6 +67,44 @@ const handleTypeSVG = type => {
           }
         }
       `;
+    case 'handdrawn-arrow8-yellow':
+      return css`
+        &[data-aos='handdrawn-arrow8-yellow'] {
+          path {
+            transition: stroke-dashoffset 1s ease-in-out;
+            stroke: ${({ theme }) => theme.colors.yellow};
+            stroke-dasharray: 57;
+            stroke-dashoffset: 57;
+          }
+          svg {
+            width: 2vw;
+            height: auto;
+          }
+
+          &.aos-animate {
+            path {
+              stroke-dashoffset: 49;
+            }
+          }
+        }
+      `;
+    case 'handdrawn-arrow7-yellow':
+      return css`
+        &[data-aos='handdrawn-arrow7-yellow'] {
+          path {
+            transition: stroke-dashoffset 1s ease-in-out;
+            stroke: ${({ theme }) => theme.colors.yellow};
+            stroke-dasharray: 57;
+            stroke-dashoffset: 57;
+          }
+
+          &.aos-animate {
+            path {
+              stroke-dashoffset: 119;
+            }
+          }
+        }
+      `;
   }
 };
 

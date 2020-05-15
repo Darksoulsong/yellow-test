@@ -4,7 +4,7 @@ import { Text } from '@components';
 export const LikesAndCommentsContainer = styled.div`
   padding: ${({ theme }) => theme.spaces.sm};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding: ${({ theme }) => `0 ${theme.spaces.sm}`};
+    padding: 0;
   }
 `;
 
@@ -35,21 +35,29 @@ export const CommentsContainer = styled.div`
   min-height: 50px;
   max-height: 200px;
   overflow-y: auto;
+  margin: ${({ theme }) => `${theme.spaces.md} 0 ${theme.spaces.lg} 0`};
 `;
 
 export const LikesSection = styled.div`
-  margin: ${({ theme }) => `${theme.spaces.sm} 0`};
+  margin: ${({ theme }) => `${theme.spaces.md} 0`};
+  svg {
+    width: 30px;
+    height: 30px;
+    margin-right: ${({ theme }) => theme.spaces.sm};
+  }
 `;
 
 export const LikesText = styled(Text)`
   font-weight: 700;
+  margin: ${({ theme }) => `${theme.spaces.xsm} 0 0 0`};
 `;
 
 export const Comment = styled.div`
   display: flex;
-  margin: ${({ theme }) => `${theme.spaces.sm} 0`};
+  margin: ${({ theme }) => `0 0 ${theme.spaces.sm} 0`};
 `;
 
 export const CommentUser = styled.strong`
   margin-right: ${({ theme }) => theme.spaces.xsm};
+  user-select: none;
 `;
