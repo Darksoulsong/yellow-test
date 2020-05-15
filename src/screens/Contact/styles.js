@@ -56,8 +56,8 @@ export const CustomRadio = styled.input``;
 export const CustomButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.black};
   font-weight: 700;
-  font-size: 1.75rem;
   width: fit-content;
+  border-radius: 7px;
 `;
 
 export const SimpleContainer = styled.div`
