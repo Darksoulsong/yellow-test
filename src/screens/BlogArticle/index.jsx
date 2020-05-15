@@ -4,30 +4,21 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import {
-  Container,
-  Header,
   SVG,
-  Logo,
   MediumTitle,
   Text,
   Card,
   AnimatedManipulator,
   LikesAndComments,
   Suscribe,
+  DefaultLayout,
+  Slider,
 } from '@components';
 
 import { articles, mockedHTML } from './mocked';
 import { spaces } from '@components/Organisms/Theme/sizes';
 
 import {
-  Root,
-  GrayedSection,
-  Footer,
-  FooterHeading,
-  FooterItem,
-  FooterBlock,
-  FooterBlockSocial,
-  Section,
   BlogCol,
   BlogColImage,
   BlogLogo,
@@ -37,7 +28,7 @@ import {
   ContainerWithPadding,
   Image,
   ContentContainer,
-  InteractSection,
+  SliderContainer,
 } from './styles';
 
 export const BlogArticle = () => {
@@ -48,119 +39,49 @@ export const BlogArticle = () => {
   }, []);
 
   return (
-    <Container fluid padding="0" paddingOnLarge="0">
-      <Root>
-        <Header />
-        <ContainerWithPadding>
-          <BlogTopContainer>
-            <BlogLogo>
-              <Circle>
-                <SVG style={{ fill: 'black' }} name="logo" />
-              </Circle>
-            </BlogLogo>
-            <BlogCol>
-              <MediumTitle>
-                YELLOW<strong>BLOG</strong>
-              </MediumTitle>
-              <Text margin={`${spaces.xsm} 0 0 0`}>Daniel Monteiro</Text>
-            </BlogCol>
-          </BlogTopContainer>
+    <DefaultLayout>
+      <ContainerWithPadding>
+        <BlogTopContainer>
+          <BlogLogo>
+            <Circle>
+              <SVG style={{ fill: 'black' }} name="logo" />
+            </Circle>
+          </BlogLogo>
+          <BlogCol>
+            <MediumTitle>
+              YELLOW<strong>BLOG</strong>
+            </MediumTitle>
+            <Text margin={`${spaces.xsm} 0 0 0`}>Daniel Monteiro</Text>
+          </BlogCol>
+        </BlogTopContainer>
 
-          <BlogColImage>
-            <AnimatedManipulator
-              dataAosOffset="100"
-              name="three-line-icon"
-              type="three-line-icon-yellow"
+        <BlogColImage>
+          <AnimatedManipulator
+            dataAosOffset="100"
+            name="three-line-icon"
+            type="three-line-icon-yellow"
+          />
+          <Image src="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg" />
+        </BlogColImage>
+
+        <ContentContainer dangerouslySetInnerHTML={{ __html: mockedHTML }} />
+
+        <LikesAndComments />
+
+        <CardsContainer>
+          {articles.map((item, index) => (
+            <Card
+              width="50%"
+              mdWidth="33.33%"
+              key={uid(item, index)}
+              text={item.text}
+              img={item.image}
             />
-            <Image src="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg" />
-          </BlogColImage>
+          ))}
+        </CardsContainer>
 
-          <ContentContainer dangerouslySetInnerHTML={{ __html: mockedHTML }} />
-
-          <InteractSection>
-            <LikesAndComments />
-          </InteractSection>
-
-          <CardsContainer>
-            {articles.map((item, index) => (
-              <Card
-                styling={{ padding: `0 ${spaces.sm}` }}
-                key={uid(item, index)}
-                text={item.text}
-                img={item.image}
-              />
-            ))}
-          </CardsContainer>
-
-          <Suscribe padding={`${spaces.xlg} 0`} />
-        </ContainerWithPadding>
-        <Footer>
-          <Section>
-            <Logo className="footer-logo" variant="alt" />
-          </Section>
-          <GrayedSection>
-            <FooterBlock>
-              <FooterItem>
-                <FooterHeading>Para empresas</FooterHeading>
-              </FooterItem>
-              <FooterItem>
-                <a href="http://foo.com">Produtos</a>
-              </FooterItem>
-              <FooterItem>
-                <a href="http://foo.com">Contato</a>
-              </FooterItem>
-            </FooterBlock>
-
-            <FooterBlock>
-              <FooterItem>
-                <FooterHeading>Para pessoas</FooterHeading>
-              </FooterItem>
-              <FooterItem>
-                <a href="http://foo.com">Nossas Vagas</a>
-              </FooterItem>
-              <FooterItem>
-                <a href="http://foo.com">Dicas de Entrevista</a>
-              </FooterItem>
-            </FooterBlock>
-
-            <FooterBlock>
-              <FooterItem>
-                <FooterHeading>Yellow way</FooterHeading>
-              </FooterItem>
-              <FooterItem>
-                <a href="http://foo.com">Cultura</a>
-              </FooterItem>
-              <FooterItem>
-                <a href="http://foo.com">Quem somos</a>
-              </FooterItem>
-              <FooterItem>
-                <a href="http://foo.com">Blog</a>
-              </FooterItem>
-            </FooterBlock>
-
-            <FooterBlockSocial>
-              <FooterItem>
-                <FooterHeading>Social</FooterHeading>
-              </FooterItem>
-              <FooterItem>
-                <a href="http://foo.com">
-                  <SVG name="linkedin-icon" />
-                </a>
-              </FooterItem>
-              <FooterItem>
-                <a href="http://foo.com">
-                  <SVG name="instagram-icon" />
-                </a>
-              </FooterItem>
-              <FooterItem>
-                <a href="http://foo.com">
-                  <SVG name="youtube-icon" />
-                </a>
-              </FooterItem>
-            </FooterBlockSocial>
-          </GrayedSection>
-        </Footer>
-      </Root>
-    </Container>
+        <Suscribe padding={`${spaces.xlg} 0`} />
+      </ContainerWithPadding>
+    </DefaultLayout>
   );
 };
