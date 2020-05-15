@@ -22,6 +22,7 @@ export { PageButton } from './PageButton';
 export { default as Backdrop, BackdropProvider, useBackdrop } from './Backdrop';
 export { Hashtag } from './Hashtag';
 export { Card } from './Card';
+export { Radio } from './Radio';
 export { AnimatedManipulator } from './AnimatedManipulator';
 export { CustomCarousel as Carousel } from './Carousel';
 export { CircledFilter } from './CircledFilter';
