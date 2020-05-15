@@ -9,6 +9,7 @@ import {
   Modal,
   CreateAccountForm,
 } from '@components';
+import { routeTo } from '@utils';
 import { useScrollPosition } from '@hooks';
 import DropdownContent1 from './DropdownContent1';
 import DropdownContent2 from './DropdownContent2';
@@ -114,6 +115,7 @@ export default function Header() {
     [isSticky]
   );
 
+  // This method will be unused, remove when is definite
   const handleLogoClick = React.useCallback(() => {
     document
       .getElementById('page-top')
@@ -163,11 +165,7 @@ export default function Header() {
 
       <HeaderMain>
         <HeaderLogo onMouseEnter={onLogoMouseEnter}>
-          <Button
-            type="button"
-            version="unstyled"
-            onClick={e => handleLogoClick(e)}
-          >
+          <Button type="button" version="unstyled" onClick={() => routeTo('/')}>
             <Logo>
               <SVG />
             </Logo>
