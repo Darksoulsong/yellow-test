@@ -101,6 +101,19 @@ export const CustomText = styled(Text)`
   }
 `;
 
+export const ColImgSVGContainer = styled.div`
+  svg {
+    width: 7.5% !important;
+    position: absolute;
+    top: -7.5%;
+    right: 12%;
+    @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+      width: 10% !important;
+      right: 5%;
+    }
+  }
+`;
+
 export const BlogColImage = styled(BlogCol)`
   align-items: center;
   position: relative;
@@ -110,19 +123,9 @@ export const BlogColImage = styled(BlogCol)`
   p {
     text-align: center;
   }
-  svg {
-    width: 7.5% !important;
-    position: absolute;
-    top: -7.5%;
-    right: 12%;
-  }
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     padding-right: ${({ theme }) => theme.spaces.sm};
     margin: 0;
-    svg {
-      width: 10% !important;
-      right: 5%;
-    }
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: ${({ theme }) => 0};

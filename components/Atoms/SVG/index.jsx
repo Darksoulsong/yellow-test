@@ -65,6 +65,9 @@ import FacebookIcon from '../../../public/images/facebook-icon.svg';
 import GoogleIcon from '../../../public/images/google-icon.svg';
 import ArrowIcon2 from '../../../public/images/arrow-icon2.svg';
 import PaperclipIcon from '../../../public/images/paperclip-icon.svg';
+import InteractLike from '../../../public/images/interact-like-icon.svg';
+import InteractShare from '../../../public/images/interact-share-icon.svg';
+import InteractComment from '../../../public/images/interact-comment-icon.svg';
 
 const getStyles = (size, invert) => {
   const style = {};
@@ -213,6 +216,12 @@ const getImage = name => {
       return HanddrawnArrowIcon6;
     case 'paperclip-icon':
       return PaperclipIcon;
+    case 'interact-like':
+      return InteractLike;
+    case 'interact-comment':
+      return InteractComment;
+    case 'interact-share':
+      return InteractShare;
     case 'logo':
     default:
       return Logo;
