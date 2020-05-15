@@ -10,6 +10,7 @@ import {
   CreateAccountForm,
 } from '@components';
 import { routeTo } from '@utils';
+import { colors } from '@components/Organisms/Theme/default/colors';
 import { useScrollPosition } from '@hooks';
 import DropdownContent1 from './DropdownContent1';
 import DropdownContent2 from './DropdownContent2';
@@ -157,9 +158,12 @@ export default function Header() {
       stickyPositioned={isSticky}
       onMouseLeave={onHeaderLeave}
     >
-      {/* <TransparentBackdrop active={showBackdrop} onClick={handleLoginToggle} /> */}
-
-      <Modal show={showModal} displayHeader onCloseModal={handleOnCloseModal}>
+      <Modal
+        show={showModal}
+        displayHeader
+        onCloseModal={handleOnCloseModal}
+        backgroundColor={colors.grayLightest}
+      >
         <CreateAccountForm />
       </Modal>
 

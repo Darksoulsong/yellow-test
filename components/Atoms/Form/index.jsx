@@ -7,5 +7,5 @@ export const FormControl = styled.div`
 export const FormActions = styled(FormControl)`
   display: flex;
   justify-content: space-between;
-  margin-top: 43px;
+  margin-top: 33px;
 `;
