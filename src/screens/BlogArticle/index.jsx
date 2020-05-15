@@ -12,11 +12,11 @@ import {
   Text,
   Card,
   AnimatedManipulator,
-  Button,
-  Pagination,
+  LikesAndComments,
+  Suscribe,
 } from '@components';
 
-import { articles } from './mocked';
+import { articles, mockedHTML } from './mocked';
 import { spaces } from '@components/Organisms/Theme/sizes';
 
 import {
@@ -34,12 +34,10 @@ import {
   BlogTopContainer,
   Circle,
   CardsContainer,
-  SuscribeSection,
-  Underline,
   ContainerWithPadding,
-  CustomField,
-  SuscribeHolder,
   Image,
+  ContentContainer,
+  InteractSection,
 } from './styles';
 
 export const BlogArticle = () => {
@@ -50,7 +48,7 @@ export const BlogArticle = () => {
   }, []);
 
   return (
-    <Container id="blog" fluid padding="0" paddingOnLarge="0">
+    <Container fluid padding="0" paddingOnLarge="0">
       <Root>
         <Header />
         <ContainerWithPadding>
@@ -77,6 +75,12 @@ export const BlogArticle = () => {
             <Image src="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg" />
           </BlogColImage>
 
+          <ContentContainer dangerouslySetInnerHTML={{ __html: mockedHTML }} />
+
+          <InteractSection>
+            <LikesAndComments />
+          </InteractSection>
+
           <CardsContainer>
             {articles.map((item, index) => (
               <Card
@@ -88,15 +92,7 @@ export const BlogArticle = () => {
             ))}
           </CardsContainer>
 
-          <SuscribeSection>
-            <MediumTitle align="center">
-              QUER RECEBER <strong>MAIS CONTEÚDOS</strong>
-            </MediumTitle>
-            <SuscribeHolder>
-              <CustomField />
-              <Button>inscrever</Button>
-            </SuscribeHolder>
-          </SuscribeSection>
+          <Suscribe padding={`${spaces.xlg} 0`} />
         </ContainerWithPadding>
         <Footer>
           <Section>
