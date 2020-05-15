@@ -46,11 +46,12 @@ export const NameListColumn = styled.ul`
 `;
 
 export const NameListSection = styled.div`
+  width: 100%;
   display: flex;
   padding: ${({ theme }) => `${theme.spaces.sm} 0px`};
   flex-wrap: wrap;
-  width: 100%;
   margin: 0 auto;
+  justify-content: center;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     padding: ${({ theme }) => `${theme.spaces.sm} 125px`};
   }
@@ -61,9 +62,9 @@ export const WhySection = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: ${({ theme }) => `${theme.spaces.md} ${theme.spaces.sm}`};
+  margin: ${({ theme }) => `${theme.spaces.md} ${theme.spaces.md}`};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: ${({ theme }) => `${theme.spaces.sm} ${theme.spaces.hg}`};
+    margin: ${({ theme }) => `${theme.spaces.sm} 12.5%`};
   }
 `;
 
