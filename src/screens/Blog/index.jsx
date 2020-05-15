@@ -29,6 +29,7 @@ import {
   Underline,
   ContainerWithPadding,
   CustomText,
+  ColImgSVGContainer,
 } from './styles';
 
 export const Blog = () => {
@@ -60,11 +61,13 @@ export const Blog = () => {
             </CustomText>
           </BlogCol>
           <BlogColImage>
-            <AnimatedManipulator
-              dataAosOffset="100"
-              name="three-line-icon"
-              type="three-line-icon-yellow"
-            />
+            <ColImgSVGContainer>
+              <AnimatedManipulator
+                dataAosOffset="100"
+                name="three-line-icon"
+                type="three-line-icon-yellow"
+              />
+            </ColImgSVGContainer>
             <Card
               width="65%"
               mdWidth="90%"
