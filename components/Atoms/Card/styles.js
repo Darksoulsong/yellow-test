@@ -27,7 +27,8 @@ export const Image = styled.img`
 
 export const CustomText = styled(Text)`
   font-size: 1.65rem;
-  padding-top: ${({ theme }) => theme.spaces.xsm};
+  padding: ${({ theme }) => theme.spaces.xsm};
+  padding-bottom: 0px;
   margin: ${({ theme }) => `${theme.spaces.xsm} 0`};
   display: -webkit-box;
   display: -moz-box;

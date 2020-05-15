@@ -46,6 +46,7 @@ export const HeaderDropdownBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  color: ${({ theme }) => theme.colors.white};
   a {
     color: ${({ theme }) => theme.colors.white};
   }
@@ -55,6 +56,7 @@ export const HeaderDropdownBlock = styled.div`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.yellow};
+    color: ${({ theme }) => theme.colors.textColor};
     a {
       color: ${({ theme }) => theme.colors.textColor};
     }
