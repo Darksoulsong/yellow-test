@@ -1,6 +1,4 @@
 import React from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import { fieldHasError } from '@utils';
 import { FormControl, Field, FieldGroup } from '@components';
 import { FormIconHolder, FormHolder } from '../styles';
@@ -11,38 +9,8 @@ export default function PersonalInfoOne({
   handleBlur,
   handleChange,
   touched,
+  loading,
 }) {
-  // const schema = {
-  //   email: Yup.string()
-  //     .email('Informe um endereço de email válido')
-  //     .required('Campo obrigatório'),
-  //   fullname: Yup.string().required('Campo obrigatório'),
-  //   birthDate: Yup.string()
-  //     .min(6)
-  //     .required('Informe a data de nascimento'),
-  //   phone: Yup.string().required('Campo obrigatório'),
-  //   state: Yup.string().required('Campo obrigatório'),
-  //   city: Yup.string().required('Campo obrigatório'),
-  // };
-
-  // const initialValues = {
-  //   email: '',
-  //   fullname: '',
-  //   birthDate: '',
-  //   phone: '',
-  //   state: '',
-  //   city: '',
-  // };
-
-  // const initialValues = {
-  //   email: 'foo@mail.com',
-  //   fullname: 'john doe',
-  //   birthDate: '03/10/1982',
-  //   phone: '41 9 88908102',
-  //   state: 'PR',
-  //   city: 'Curitiba',
-  // };
-
   return (
     <FormHolder>
       <FormControl>
@@ -56,6 +24,8 @@ export default function PersonalInfoOne({
           value={values.email}
           hasError={fieldHasError('email', touched, errors)}
           validationMessage={errors.email}
+          isLoading={loading}
+          disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -67,6 +37,8 @@ export default function PersonalInfoOne({
           value={values.fullname}
           hasError={fieldHasError('fullname', touched, errors)}
           validationMessage={errors.fullname}
+          isLoading={loading}
+          disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -82,6 +54,8 @@ export default function PersonalInfoOne({
             hasError={fieldHasError('birthDate', touched, errors)}
             validationMessage={errors.birthDate}
             mask="date"
+            isLoading={loading}
+            disabled={loading}
           />
           <Field
             type="tel"
@@ -94,21 +68,30 @@ export default function PersonalInfoOne({
             hasError={fieldHasError('phone', touched, errors)}
             validationMessage={errors.phone}
             mask="cellphone"
+            isLoading={loading}
+            disabled={loading}
           />
         </FieldGroup>
       </FormControl>
       <FormControl>
         <FieldGroup>
           <Field
-            type="text"
+            type="select"
             placeholder="UF"
             name="state"
-            width="70px"
+            width="80px"
             onBlur={handleBlur}
             onChange={handleChange}
             value={values.state}
             hasError={fieldHasError('state', touched, errors)}
             validationMessage={errors.state}
+            options={[
+              { value: 'PR', label: 'PR' },
+              { value: 'MG', label: 'MG' },
+              { value: 'SC', label: 'SC' },
+            ]}
+            isLoading={loading}
+            disabled={loading}
           />
           <Field
             type="text"
@@ -120,6 +103,8 @@ export default function PersonalInfoOne({
             value={values.city}
             hasError={fieldHasError('city', touched, errors)}
             validationMessage={errors.city}
+            isLoading={loading}
+            disabled={loading}
           />
         </FieldGroup>
       </FormControl>

@@ -16,6 +16,12 @@ const getButtonVariant = (variant, colors) => {
         background-color: ${colors.yellow};
       `;
 
+    case 'disabled':
+      return `
+        color: ${colors.grayDark};
+        background-color: ${colors.grayLight};
+      `;
+
     default:
       return `
         color: ${colors.white};
@@ -48,8 +54,10 @@ const main = css`
   transform: scale(1);
   white-space: nowrap;
   letter-spacing: 0.063rem;
+
   ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
-  ${hoverStyles}
+
+  ${({ disabled }) => !disabled && hoverStyles}
 `;
 
 const tiny = css`
@@ -70,8 +78,15 @@ const rounded = css`
   align-items: center;
   font-size: 1.8rem;
   letter-spacing: 0.045rem;
+
   ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
-  ${hoverStyles}
+
+  ${({ disabled }) =>
+    !disabled &&
+    `
+    cursor: pointer;
+    ${hoverStyles};
+  `}
 `;
 
 const getButtonVersion = version => {
@@ -88,6 +103,5 @@ const getButtonVersion = version => {
 };
 
 export const Root = styled.button`
-  cursor: pointer;
   ${({ version }) => getButtonVersion(version)}
 `;

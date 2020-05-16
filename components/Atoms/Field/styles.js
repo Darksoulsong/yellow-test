@@ -1,4 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const AnimatedGradient = keyframes`
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+`;
 
 const getWidth = width => {
   if (!width) {
@@ -41,6 +47,10 @@ export const Input = styled.input`
   }
 `;
 
+export const Select = styled(Input).attrs({
+  as: 'select',
+})``;
+
 export const Field = styled.div`
   position: relative;
 
@@ -53,6 +63,16 @@ export const Field = styled.div`
   svg path {
     stroke: transparent;
   }
+
+  ${({ isSelect }) => isSelect && `padding-right: 6px;`};
+
+  ${({ isLoading }) =>
+    isLoading &&
+    css`
+      background: linear-gradient(245deg, #dcdbdb, #f7f6f5);
+      background-size: 800% 800%;
+      animation: ${AnimatedGradient} 1.5s ease infinite;
+    `};
 `;
 
 export const FieldValidationMessage = styled.div`

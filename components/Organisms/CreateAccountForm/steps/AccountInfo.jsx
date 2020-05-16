@@ -9,10 +9,8 @@ export default function AccountInfo({
   handleBlur,
   handleChange,
   touched,
+  loading,
 }) {
-  console.log({ errors });
-  console.log({ values });
-
   return (
     <FormHolder>
       <FormControl>
@@ -25,6 +23,8 @@ export default function AccountInfo({
           value={values.username}
           hasError={fieldHasError('username', touched, errors)}
           validationMessage={errors.username}
+          isLoading={loading}
+          disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -37,6 +37,8 @@ export default function AccountInfo({
           value={values.password}
           hasError={fieldHasError('password', touched, errors)}
           validationMessage={errors.password}
+          isLoading={loading}
+          disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -49,6 +51,8 @@ export default function AccountInfo({
           value={values.confirmPassword}
           hasError={fieldHasError('confirmPassword', touched, errors)}
           validationMessage={errors.confirmPassword}
+          isLoading={loading}
+          disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -61,6 +65,7 @@ export default function AccountInfo({
             onChange={handleChange}
             hasError={fieldHasError('terms', touched, errors)}
             validationMessage={errors.terms}
+            disabled={loading}
             renderLabel={() => (
               <CheckboxLabel>
                 li e entendi a{' '}
@@ -72,7 +77,12 @@ export default function AccountInfo({
         </CheckboxHolder>
       </FormControl>
       <FormActions align="center">
-        <Button type="submit" variant="primary" version="rounded">
+        <Button
+          type="submit"
+          variant="primary"
+          version="rounded"
+          disabled={loading}
+        >
           Concluir
         </Button>
       </FormActions>

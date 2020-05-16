@@ -18,6 +18,7 @@ export default function CheckboxComponent({
   hasError,
   validationMessage,
   renderLabel,
+  disabled,
 }) {
   return (
     <CheckboxRoot hasError={hasError}>
@@ -30,6 +31,7 @@ export default function CheckboxComponent({
             onChange={e => typeof onChange === 'function' && onChange(e)}
             onBlur={e => typeof onBlur === 'function' && onBlur(e)}
             hasError={hasError}
+            disabled={disabled}
           />
           <CheckboxLabel htmlFor={id} />
         </CheckboxWrapper>

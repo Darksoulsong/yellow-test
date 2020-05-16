@@ -9,6 +9,7 @@ const FormWizard = ({
   validateOnChange,
   validateOnBlur,
   renderStepper,
+  loading,
 }) => {
   const [page, setPage] = useState(0);
   const activeForm = React.Children.toArray(children)[page];
@@ -61,6 +62,7 @@ const FormWizard = ({
     handleBlur,
     handleChange,
     touched,
+    loading,
     ...rest,
   });
 
@@ -86,6 +88,7 @@ const FormWizard = ({
           isSubmitting,
           isValid,
           errors,
+          loading,
         })
       : defaultStepper;
 

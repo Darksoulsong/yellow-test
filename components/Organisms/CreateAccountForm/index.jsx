@@ -1,11 +1,19 @@
 import React from 'react';
 import * as Yup from 'yup';
+import { useCreateAccount } from '@hooks';
 import { FormActions, FormSteps, FormWizard } from '@components';
-import { FormDataProvider, useFormData } from '@hooks';
 import { PersonalInfoOne, PersonalInfoTwo, AccountInfo } from './steps';
 import { FormRoot, FormHeading } from './styles';
 
 export default function CreateAccountForm() {
+  const {
+    createAccount,
+    accountData,
+    loading,
+    success,
+    errors,
+  } = useCreateAccount();
+
   const personalInfoOneValidationSchema = {
     email: Yup.string()
       .email('Informe um endereço de email válido')
@@ -63,7 +71,7 @@ export default function CreateAccountForm() {
     email: 'foo@mail.com',
     fullname: 'john doe',
     birthDate: '03/10/1982',
-    phone: '41 9 88908102',
+    phone: '41 9 88888888',
     state: 'PR',
     city: 'Curitiba',
     lastCompany: 'Foo Inc.',
@@ -71,19 +79,21 @@ export default function CreateAccountForm() {
     lastWage: '123456',
     linkedin: 'https://linked.in/john-doe',
     resume: '',
-    username: 'darksoulsong',
+    username: 'doejohn',
     password: '',
     confirmPassword: '',
     terms: false,
   };
 
-  const onSubmit = (values, actions) => {
-    console.log({ values });
-    console.log({ actions });
-    debugger;
+  if (accountData && success) {
+    console.log('user saved');
+  }
+
+  const onSubmit = values => {
+    createAccount(values);
   };
 
-  const renderStepper = ({ page, previous, next, isSubmitting }) => {
+  const renderStepper = ({ page, previous, next }) => {
     const handleStepChange = nextIndex => {
       const goingNext = nextIndex > page;
 
@@ -113,6 +123,7 @@ export default function CreateAccountForm() {
     validateOnChange: false,
     validateOnBlur: true,
     renderStepper,
+    loading,
   };
 
   return (

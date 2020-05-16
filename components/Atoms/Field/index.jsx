@@ -1,16 +1,13 @@
 import React from 'react';
-import { uid } from 'react-uid';
 import { mask } from '@utils';
 import {
   FieldRoot,
   Field,
   FieldIcon,
   Input,
+  Select,
   FieldGroup,
   FieldValidationMessage,
-  FieldSelectDropdown,
-  FieldSelectDropdownItems,
-  FieldSelectDropdownItem,
 } from './styles';
 
 export default function FieldComponent({
@@ -19,15 +16,16 @@ export default function FieldComponent({
   hasError,
   width,
   validationMessage,
-  selectList,
-  onSelectItemClick,
+  options,
+  disabled,
+  isLoading,
   ...rest
 }) {
-  // const [selectedItem, setSelectedItem] = React.useState(rest.value);
   const ref = React.useRef(null);
   const hasIcon = typeof renderIcon === 'function';
   const inputProps = {
     type,
+    disabled,
     ...rest,
   };
 
@@ -39,31 +37,27 @@ export default function FieldComponent({
     };
   }
 
-  const handleSelectItemClick = React.useCallback(item => {
-    onSelectItemClick(item);
-  }, []);
-
   return (
     <FieldRoot width={width} hasError={hasError}>
-      <Field isSelect={type === 'select'} hasIcon={hasIcon}>
+      <Field
+        isSelect={type === 'select'}
+        hasIcon={hasIcon}
+        isLoading={isLoading}
+      >
         {hasIcon && <FieldIcon>{renderIcon()}</FieldIcon>}
 
-        <Input ref={ref} {...inputProps} />
-
-        <FieldSelectDropdown>
-          <FieldSelectDropdownItems>
-            {!!selectList &&
-              !!selectList.length &&
-              selectList.map(item => (
-                <FieldSelectDropdownItem
-                  key={uid(item)}
-                  onClick={handleSelectItemClick}
-                >
-                  {item.label}
-                </FieldSelectDropdownItem>
+        {type !== 'select' && <Input ref={ref} {...inputProps} />}
+        {type === 'select' && (
+          <Select ref={ref} {...inputProps}>
+            {options &&
+              options.length &&
+              options.map(option => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
               ))}
-          </FieldSelectDropdownItems>
-        </FieldSelectDropdown>
+          </Select>
+        )}
       </Field>
 
       <FieldValidationMessage show={hasError && !!validationMessage}>

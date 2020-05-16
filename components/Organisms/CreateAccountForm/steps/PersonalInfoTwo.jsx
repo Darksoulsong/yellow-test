@@ -12,38 +12,8 @@ export default function PersonalInfoTwo({
   setFieldValue,
   setTouched,
   setFieldError,
+  loading,
 }) {
-  // const schema = {
-  //   lastCompany: Yup.string().required('Campo obrigatório'),
-  //   lastOccupation: Yup.string().required('Campo obrigatório'),
-  //   lastWage: Yup.string().required('Campo obrigatório'),
-  //   resume: Yup.object().shape({
-  //     lastModified: Yup.number(),
-  //     lastModifiedDate: Yup.date(),
-  //     name: Yup.string(),
-  //     size: Yup.number(),
-  //     type: Yup.string(),
-  //     webkitRelativePath: Yup.string(),
-  //   }),
-  // };
-
-  // const initialValues = {
-  //   email: '',
-  //   fullname: '',
-  //   birthDate: '',
-  //   phone: '',
-  //   state: '',
-  //   city: '',
-  // };
-
-  // const initialValues = {
-  //   lastCompany: 'Foo Inc.',
-  //   lastOccupation: 'Programmer',
-  //   lastWage: '123456',
-  //   linkedin: 'https://linked.in/john-doe',
-  //   resume: '',
-  // };
-
   const handleInputFileChange = React.useCallback(
     file => {
       setTouched({ resume: true });
@@ -64,6 +34,8 @@ export default function PersonalInfoTwo({
           value={values.lastCompany}
           hasError={fieldHasError('lastCompany', touched, errors)}
           validationMessage={errors.lastCompany}
+          isLoading={loading}
+          disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -75,6 +47,8 @@ export default function PersonalInfoTwo({
           value={values.lastOccupation}
           hasError={fieldHasError('lastOccupation', touched, errors)}
           validationMessage={errors.lastOccupation}
+          isLoading={loading}
+          disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -86,6 +60,8 @@ export default function PersonalInfoTwo({
           value={values.lastWage}
           hasError={fieldHasError('lastWage', touched, errors)}
           validationMessage={errors.lastWage}
+          isLoading={loading}
+          disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -97,6 +73,8 @@ export default function PersonalInfoTwo({
           value={values.linkedin}
           hasError={fieldHasError('linkedin', touched, errors)}
           validationMessage={errors.linkedin}
+          isLoading={loading}
+          disabled={loading}
         />
       </FormControl>
       <FormControl style={{ marginBottom: '-32px' }}>
