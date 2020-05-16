@@ -27,14 +27,13 @@ const RoundElementBase = css`
 `;
 
 export const Input = styled.input`
-  /* color: ${({ theme }) => theme.colors.black}; */
   color: ${({ theme }) => theme.colors.fieldColor};
   border: 0 none;
   background-color: transparent;
   width: 100%;
-  font-size: 1.8rem;
+  font-size: 1.72rem;
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;  
+  font-weight: 300;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.fieldPlaceholder};
@@ -43,6 +42,8 @@ export const Input = styled.input`
 `;
 
 export const Field = styled.div`
+  position: relative;
+
   ${RoundElementBase};
 
   width: 100%;
@@ -57,10 +58,9 @@ export const Field = styled.div`
 export const FieldValidationMessage = styled.div`
   transition: 0.3s ease-in-out;
   transition-property: max-height, opacity, padding-top;
-  transition-delay: 1s;
   overflow: hidden;
   font-size: 1rem;
-  padding: 0 23px;
+  padding: 0 20px;
 
   ${({ show = false }) =>
     show
@@ -120,10 +120,25 @@ export const FieldGroup = styled.div`
 
     &:last-child {
       margin-right: 0;
+
       ${Field} {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
+
+      ${FieldValidationMessage} {
+        padding-left: 0;
+      }
     }
   }
 `;
+
+export const FieldSelectDropdown = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0%;
+`;
+
+export const FieldSelectDropdownItems = styled.ul``;
+
+export const FieldSelectDropdownItem = styled.li``;

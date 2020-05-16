@@ -8,19 +8,46 @@ import {
   FormStepButtonHolder,
 } from './styles';
 
-export default function FormSteps({ activeStep, totalItems, onStepChange }) {
+export default function FormSteps({
+  activeStep,
+  totalItems,
+  onStepChange,
+  onPrevButtonClick,
+  onNextButtonClick,
+}) {
   const items = React.useRef(null);
   const [activeStepIndex, setActiveStepIndex] = React.useState();
   items.current = new Array(totalItems).fill('');
 
-  const handleClick = React.useCallback(
-    step => {
-      const newIndex = activeStepIndex + step;
+  const handleClick = index => {
+    const goingForward = index > 0;
+    const newIndex = activeStepIndex + index;
+
+    if (newIndex > totalItems) {
+      return;
+    }
+
+    if (typeof onPrevButtonClick === 'function' && !goingForward) {
+      onPrevButtonClick(newIndex);
+    }
+
+    if (typeof onNextButtonClick === 'function' && goingForward) {
+      onNextButtonClick(newIndex);
+    }
+
+    if (!onStepChange) {
       setActiveStepIndex(newIndex);
-      onStepChange(newIndex);
-    },
-    [activeStepIndex]
-  );
+      return;
+    }
+
+    if (typeof onStepChange === 'function') {
+      const shouldContinue = onStepChange(newIndex);
+
+      if (shouldContinue) {
+        setActiveStepIndex(newIndex);
+      }
+    }
+  };
 
   React.useEffect(() => {
     setActiveStepIndex(activeStep);
@@ -28,7 +55,7 @@ export default function FormSteps({ activeStep, totalItems, onStepChange }) {
 
   return (
     <FormStepsRoot>
-      <FormStepButtonHolder visible={activeStepIndex > 1}>
+      <FormStepButtonHolder visible={activeStepIndex > 0}>
         <Button
           type="button"
           version="tiny"
@@ -41,11 +68,11 @@ export default function FormSteps({ activeStep, totalItems, onStepChange }) {
 
       <FormStepsHolder>
         {items.current.map((item, index) => (
-          <FormStep key={uid(index)} active={index <= activeStepIndex - 1} />
+          <FormStep key={uid(index)} active={index <= activeStepIndex} />
         ))}
       </FormStepsHolder>
 
-      <FormStepButtonHolder visible={activeStepIndex !== totalItems}>
+      <FormStepButtonHolder visible={activeStepIndex + 1 !== totalItems}>
         <Button
           type="button"
           version="tiny"
@@ -62,5 +89,4 @@ export default function FormSteps({ activeStep, totalItems, onStepChange }) {
 FormSteps.defaultProps = {
   activeStep: 0,
   totalItems: 0,
-  onStepChange: () => null,
 };

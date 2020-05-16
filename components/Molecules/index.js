@@ -8,3 +8,4 @@ export { Pagination } from './Pagination';
 export { Suscribe } from './Suscribe';
 export { LikesAndComments } from './LikesAndComments';
 export { default as FormSteps } from './FormSteps';
+export { default as FormWizard } from './FormWizard';
