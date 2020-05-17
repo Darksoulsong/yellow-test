@@ -1,16 +1,18 @@
 import React from 'react';
+import { useFormikContext } from 'formik';
 import { fieldHasError } from '@utils';
 import { FormControl, Field, FieldGroup } from '@components';
 import { FormIconHolder, FormHolder } from '../styles';
 
-export default function PersonalInfoOne({
-  values,
-  errors,
-  handleBlur,
-  handleChange,
-  touched,
-  loading,
-}) {
+export default function PersonalInfoOne() {
+  const {
+    handleBlur,
+    handleChange,
+    touched,
+    errors,
+    values,
+  } = useFormikContext();
+
   return (
     <FormHolder>
       <FormControl>
@@ -24,8 +26,8 @@ export default function PersonalInfoOne({
           value={values.email}
           hasError={fieldHasError('email', touched, errors)}
           validationMessage={errors.email}
-          isLoading={loading}
-          disabled={loading}
+          // isLoading={loading}
+          // disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -37,8 +39,8 @@ export default function PersonalInfoOne({
           value={values.fullname}
           hasError={fieldHasError('fullname', touched, errors)}
           validationMessage={errors.fullname}
-          isLoading={loading}
-          disabled={loading}
+          // isLoading={loading}
+          // disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -54,8 +56,8 @@ export default function PersonalInfoOne({
             hasError={fieldHasError('birthDate', touched, errors)}
             validationMessage={errors.birthDate}
             mask="date"
-            isLoading={loading}
-            disabled={loading}
+            // isLoading={loading}
+            // disabled={loading}
           />
           <Field
             type="tel"
@@ -68,8 +70,8 @@ export default function PersonalInfoOne({
             hasError={fieldHasError('phone', touched, errors)}
             validationMessage={errors.phone}
             mask="cellphone"
-            isLoading={loading}
-            disabled={loading}
+            // isLoading={loading}
+            // disabled={loading}
           />
         </FieldGroup>
       </FormControl>
@@ -90,8 +92,8 @@ export default function PersonalInfoOne({
               { value: 'MG', label: 'MG' },
               { value: 'SC', label: 'SC' },
             ]}
-            isLoading={loading}
-            disabled={loading}
+            // isLoading={loading}
+            // disabled={loading}
           />
           <Field
             type="text"
@@ -103,8 +105,8 @@ export default function PersonalInfoOne({
             value={values.city}
             hasError={fieldHasError('city', touched, errors)}
             validationMessage={errors.city}
-            isLoading={loading}
-            disabled={loading}
+            // isLoading={loading}
+            // disabled={loading}
           />
         </FieldGroup>
       </FormControl>

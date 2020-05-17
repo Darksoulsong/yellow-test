@@ -6,6 +6,7 @@ import {
   FileUploadFieldContent,
   FileUploadFieldContainer,
   FileUploadFieldName,
+  FileUploadFieldValidationMessage,
 } from './styles';
 
 export default function FileUploadField({
@@ -13,9 +14,17 @@ export default function FileUploadField({
   name,
   onChange,
   hasError,
+  validationMessage,
+  maxFileSize, // in bytes
+  accept,
 }) {
   const [file, setFile] = React.useState(null);
+  const [error, setError] = React.useState(validationMessage);
   const isEmpty = !file;
+
+  const maxSize = React.useMemo(() => {
+    return `${maxFileSize / 1000}KB`;
+  }, [maxFileSize]);
 
   const handleChange = React.useCallback(e => {
     let theFile = null;
@@ -26,19 +35,23 @@ export default function FileUploadField({
 
     setFile(theFile);
 
+    if (theFile.size > maxFileSize) {
+      setError(`Tente um arquivo menor do que ${maxSize}`);
+    } else {
+      setError(null);
+    }
+
     if (typeof onChange === 'function') {
-      onChange(theFile);
+      onChange(e, theFile);
     }
   }, []);
 
-  console.log({ hasError });
-
   return (
     <FileUploadFieldRoot>
-      <input name={name} onChange={handleChange} type="file" />
+      <input name={name} onChange={handleChange} type="file" accept={accept} />
       <FileUploadFieldContainer>
         <div>
-          <FileUploadFieldIcon active={!isEmpty} hasError={hasError}>
+          <FileUploadFieldIcon active={!isEmpty} hasError={hasError || !!error}>
             <SVG size="7px" name="paperclip-icon" />
           </FileUploadFieldIcon>
         </div>
@@ -48,6 +61,15 @@ export default function FileUploadField({
           {!isEmpty && <FileUploadFieldName>{file.name}</FileUploadFieldName>}
         </FileUploadFieldContent>
       </FileUploadFieldContainer>
+
+      <FileUploadFieldValidationMessage show={error}>
+        {error}
+      </FileUploadFieldValidationMessage>
     </FileUploadFieldRoot>
   );
 }
+
+FileUploadField.defaultProps = {
+  accept: '*',
+  maxFileSize: 1000000, // 1mb
+};

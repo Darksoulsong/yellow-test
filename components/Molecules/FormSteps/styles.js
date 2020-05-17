@@ -6,23 +6,8 @@ export const FormStep = styled.span`
   width: 30px;
   display: flex;
   overflow: hidden;
-
-  &:before {
-    content: '';
-    transition: all 0.3s ease-in-out;
-    background: linear-gradient(
-      90deg,
-      ${({ theme }) => theme.colors.yellow} 50%,
-      ${({ theme }) => theme.colors.grayLightish} 50%
-    );
-    position: absolute;
-    display: block;
-    width: 200%;
-    left: -100%;
-    top: 0;
-    height: 100%;
-    left: ${({ active }) => (active ? '0%' : '-100%')};
-  }
+  background-color: ${({ active, theme }) =>
+    active ? theme.colors.yellow : theme.colors.grayLightish};
 `;
 
 export const FormStepsRoot = styled.div`

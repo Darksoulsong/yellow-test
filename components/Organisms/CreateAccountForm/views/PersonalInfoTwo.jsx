@@ -1,26 +1,24 @@
 import React from 'react';
+import { useFormikContext } from 'formik';
 import { FormControl, Field, FileUploadField } from '@components';
 import { fieldHasError } from '@utils';
 import { FormUploadWrapper, FormUploadFieldLabel, FormHolder } from '../styles';
 
-export default function PersonalInfoTwo({
-  values,
-  errors,
-  handleBlur,
-  handleChange,
-  touched,
-  setFieldValue,
-  setTouched,
-  setFieldError,
-  loading,
-}) {
-  const handleInputFileChange = React.useCallback(
-    file => {
-      setTouched({ resume: true });
-      setFieldValue('resume', file);
-    },
-    [setFieldValue, setTouched, setFieldError]
-  );
+export default function PersonalInfoTwo() {
+  const {
+    handleBlur,
+    handleChange,
+    touched,
+    errors,
+    values,
+    setTouched,
+    setFieldValue,
+  } = useFormikContext();
+
+  const handleInputFileChange = (e, file) => {
+    setTouched({ resume: true });
+    setFieldValue('resume', file);
+  };
 
   return (
     <FormHolder>
@@ -34,8 +32,8 @@ export default function PersonalInfoTwo({
           value={values.lastCompany}
           hasError={fieldHasError('lastCompany', touched, errors)}
           validationMessage={errors.lastCompany}
-          isLoading={loading}
-          disabled={loading}
+          // isLoading={loading}
+          // disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -47,12 +45,13 @@ export default function PersonalInfoTwo({
           value={values.lastOccupation}
           hasError={fieldHasError('lastOccupation', touched, errors)}
           validationMessage={errors.lastOccupation}
-          isLoading={loading}
-          disabled={loading}
+          // isLoading={loading}
+          // disabled={loading}
         />
       </FormControl>
       <FormControl>
         <Field
+          type="number"
           placeholder="último salário"
           name="lastWage"
           onBlur={handleBlur}
@@ -60,8 +59,8 @@ export default function PersonalInfoTwo({
           value={values.lastWage}
           hasError={fieldHasError('lastWage', touched, errors)}
           validationMessage={errors.lastWage}
-          isLoading={loading}
-          disabled={loading}
+          // isLoading={loading}
+          // disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -73,16 +72,18 @@ export default function PersonalInfoTwo({
           value={values.linkedin}
           hasError={fieldHasError('linkedin', touched, errors)}
           validationMessage={errors.linkedin}
-          isLoading={loading}
-          disabled={loading}
+          // isLoading={loading}
+          // disabled={loading}
         />
       </FormControl>
-      <FormControl style={{ marginBottom: '-32px' }}>
+      <FormControl>
         <FormUploadWrapper>
           <FileUploadField
             name="resume"
             onChange={handleInputFileChange}
             hasError={fieldHasError('resume', touched, errors)}
+            validationMessage={errors.resume}
+            accept=".doc, .pdf"
           >
             <FormUploadFieldLabel>
               anexe seu currículo <br /> <br />

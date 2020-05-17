@@ -1,11 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const FileUploadFieldRoot = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  height: 40px;
+  min-height: 40px;
   overflow: hidden;
+  flex-direction: column;
 
   input {
     position: absolute;
@@ -40,10 +41,10 @@ export const FileUploadFieldIcon = styled.div`
     fill: ${({ theme }) => theme.colors.white};
   }
 
-  ${({ theme, active }) =>
+  ${({ theme, active, hasError }) =>
     active &&
     `
-      background-color: ${theme.colors.yellow};
+      background-color: ${hasError ? theme.colors.red : theme.colors.yellow};
 
       svg {
         fill: ${theme.colors.black};
@@ -60,4 +61,27 @@ export const FileUploadFieldName = styled.div`
   display: flex;
   align-items: center;
   height: 28px;
+`;
+
+export const FileUploadFieldValidationMessage = styled.div`
+  transition: 0.3s ease-in-out;
+  transition-property: max-height, opacity, padding-top;
+  display: flex;
+  font-size: 1rem;
+  width: 100%;
+  padding-left: 6px;
+  color: ${({ theme }) => theme.colors.red};
+
+  ${({ show = false }) =>
+    show
+      ? css`
+          opacity: 1;
+          max-height: 100px;
+          padding-top: 4px;
+        `
+      : css`
+          opacity: 0;
+          max-height: 0px;
+          padding-top: 0;
+        `}
 `;

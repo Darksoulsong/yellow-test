@@ -7,7 +7,7 @@ export const FormRoot = styled.div`
   padding: 60px 120px;
   padding: 0 30px 20px;
   width: 600px;
-  min-height: 463px;
+  min-height: 430px;
 
   form {
     flex: 1;

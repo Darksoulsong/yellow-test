@@ -10,7 +10,7 @@ import {
   FieldValidationMessage,
 } from './styles';
 
-export default function FieldComponent({
+const FieldComponent = React.memo(function FieldComponent({
   type,
   renderIcon,
   hasError,
@@ -65,12 +65,14 @@ export default function FieldComponent({
       </FieldValidationMessage>
     </FieldRoot>
   );
-}
+});
 
 FieldComponent.defaultProps = {
   renderIcon: null,
   width: null,
   type: 'text',
 };
+
+export default FieldComponent;
 
 export { FieldGroup };

@@ -1,16 +1,18 @@
 import React from 'react';
+import { useFormikContext } from 'formik';
 import { FormControl, FormActions, Field, Button, Checkbox } from '@components';
 import { fieldHasError } from '@utils';
 import { CheckboxHolder, CheckboxLabel, FormHolder } from '../styles';
 
-export default function AccountInfo({
-  values,
-  errors,
-  handleBlur,
-  handleChange,
-  touched,
-  loading,
-}) {
+export default function AccountInfo() {
+  const {
+    handleBlur,
+    handleChange,
+    touched,
+    errors,
+    values,
+  } = useFormikContext();
+
   return (
     <FormHolder>
       <FormControl>
@@ -23,8 +25,8 @@ export default function AccountInfo({
           value={values.username}
           hasError={fieldHasError('username', touched, errors)}
           validationMessage={errors.username}
-          isLoading={loading}
-          disabled={loading}
+          // isLoading={loading}
+          // disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -37,8 +39,8 @@ export default function AccountInfo({
           value={values.password}
           hasError={fieldHasError('password', touched, errors)}
           validationMessage={errors.password}
-          isLoading={loading}
-          disabled={loading}
+          // isLoading={loading}
+          // disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -51,8 +53,8 @@ export default function AccountInfo({
           value={values.confirmPassword}
           hasError={fieldHasError('confirmPassword', touched, errors)}
           validationMessage={errors.confirmPassword}
-          isLoading={loading}
-          disabled={loading}
+          // isLoading={loading}
+          // disabled={loading}
         />
       </FormControl>
       <FormControl>
@@ -65,7 +67,7 @@ export default function AccountInfo({
             onChange={handleChange}
             hasError={fieldHasError('terms', touched, errors)}
             validationMessage={errors.terms}
-            disabled={loading}
+            // disabled={loading}
             renderLabel={() => (
               <CheckboxLabel>
                 li e entendi a{' '}
@@ -81,7 +83,7 @@ export default function AccountInfo({
           type="submit"
           variant="primary"
           version="rounded"
-          disabled={loading}
+          // disabled={loading}
         >
           Concluir
         </Button>

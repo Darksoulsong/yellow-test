@@ -61,6 +61,7 @@ const main = css`
 `;
 
 const tiny = css`
+  cursor: pointer;
   height: 32px;
   padding: 0 16px;
   border-radius: 8px;
