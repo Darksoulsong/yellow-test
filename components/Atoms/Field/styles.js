@@ -124,10 +124,6 @@ export const FieldGroup = styled.div`
   display: flex;
   width: 100%;
 
-  ${Field} {
-    /* margin: 0 5px; */
-  }
-
   ${FieldRoot} {
     margin: 0 5px;
 
