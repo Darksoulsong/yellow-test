@@ -21,10 +21,10 @@ export default function Timeline() {
           3<span>x</span>
         </Circle>
       </Item>
-      <Item></Item>
+      <Item />
 
       <Item>
-        <Label></Label>
+        <Label />
       </Item>
       <Item
         data-aos="animate-line-down"
@@ -57,7 +57,7 @@ export default function Timeline() {
           88<span>%</span>
         </Circle>
       </Item>
-      <Item></Item>
+      <Item />
     </Root>
   );
 }

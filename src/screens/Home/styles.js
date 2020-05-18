@@ -144,12 +144,12 @@ export const IntroFooterActions = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin-top: 100px;
+    margin-top: 68px;
     margin-left: 40px;
     /* margin: 0; */
 
     button {
-      margin-bottom: 28px;
+      margin-bottom: 20px;
       width: 276px;
     }
   }
@@ -311,7 +311,7 @@ export const TimelineWrapper = styled.div`
 `;
 
 export const ProductsSection = styled(Section)`
-  background-color: ${({ theme }) => theme.colors.black};
+  background-color: ${({ theme }) => theme.colors.grayDarkish};
   padding-left: 32px;
   padding-right: 32px;
 
@@ -337,38 +337,23 @@ export const ProductsSection = styled(Section)`
 export const ProductsFooter = styled.div`
   position: relative;
   display: flex;
-  margin-top: 64px;
+  margin-top: 28px;
   justify-content: center;
 `;
 
-export const ProductsFloatingButton = styled.button`
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
-  border: 0 none;
-  background-color: ${({ theme }) => theme.colors.grayDark};
-  height: 64px;
-  position: absolute;
-  padding: 0 24px;
-  right: -32px;
-  top: 0;
-  color: ${({ theme }) => theme.colors.white};
-  font-size: 1.6rem;
-  font-family: 'Roboto' sans-serif;
-  font-weight: 300;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
-  transform: scale(1);
+export const ProductsAnchor = styled.div`
+  text-align: center;
 
-  &:hover {
-    transform: scale(1.05);
-  }
+  a {
+    font-size: 2.1rem;
+    color: ${({ theme }) => theme.colors.white};
+    font-weight: 600;
+    text-decoration: underline;
+    letter-spacing: 0.21rem;
 
-  &:active {
-    transform: scale(1.01);
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    right: 0;
+    &:hover {
+      text-decoration: none;
+    }
   }
 `;
 
@@ -393,7 +378,7 @@ export const ExperienceSection = styled(Section)`
 export const ExperienceContent = styled.div`
   display: flex;
   justify-content: center;
-  padding: 98px 0 30px;
+  padding: 98px 0 10px;
 `;
 
 export const ExperienceFooter = styled.div`

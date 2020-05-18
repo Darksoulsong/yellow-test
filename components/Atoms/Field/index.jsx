@@ -5,21 +5,27 @@ import {
   Field,
   FieldIcon,
   Input,
+  Select,
   FieldGroup,
   FieldValidationMessage,
 } from './styles';
 
-export default function FieldComponent({
+const FieldComponent = React.memo(function FieldComponent({
+  type,
   renderIcon,
   hasError,
   width,
   validationMessage,
+  options,
+  disabled,
+  isLoading,
   ...rest
 }) {
   const ref = React.useRef(null);
   const hasIcon = typeof renderIcon === 'function';
   const inputProps = {
-    type: 'text',
+    type,
+    disabled,
     ...rest,
   };
 
@@ -33,23 +39,40 @@ export default function FieldComponent({
 
   return (
     <FieldRoot width={width} hasError={hasError}>
-      <Field hasIcon={hasIcon}>
+      <Field
+        isSelect={type === 'select'}
+        hasIcon={hasIcon}
+        isLoading={isLoading}
+      >
         {hasIcon && <FieldIcon>{renderIcon()}</FieldIcon>}
 
-        <Input ref={ref} {...inputProps} />
+        {type !== 'select' && <Input ref={ref} {...inputProps} />}
+        {type === 'select' && (
+          <Select ref={ref} {...inputProps}>
+            {options &&
+              options.length &&
+              options.map(option => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+          </Select>
+        )}
       </Field>
 
-      <FieldValidationMessage show={!!validationMessage}>
+      <FieldValidationMessage show={hasError && !!validationMessage}>
         {validationMessage}
       </FieldValidationMessage>
     </FieldRoot>
   );
-}
+});
 
 FieldComponent.defaultProps = {
   renderIcon: null,
   width: null,
   type: 'text',
 };
+
+export default FieldComponent;
 
 export { FieldGroup };

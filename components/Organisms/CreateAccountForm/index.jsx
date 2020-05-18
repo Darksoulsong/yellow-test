@@ -1,42 +1,50 @@
 import React from 'react';
+import FormikWizard from 'formik-wizard';
 import { FormActions, FormSteps } from '@components';
+import steps from './steps';
+import { FormRoot, FormHeading } from './styles';
 
-import { PersonalInfoOne, PersonalInfoTwo, AccountInfo } from './steps';
+const FormWrapper = props => {
+  const handleGoForward = () => {};
 
-import { FormRoot, FormHeading, FormHolder } from './styles';
-
-export default function LoginForm() {
-  const [activeStep, setActiveStep] = React.useState(1);
-  const handleStepChange = React.useCallback(step => {
-    setActiveStep(step);
-  }, []);
-
-  const activeForm = React.useMemo(() => {
-    switch (activeStep) {
-      case 1:
-        return <PersonalInfoOne />;
-      case 2:
-        return <PersonalInfoTwo />;
-      default:
-        return <AccountInfo />;
-    }
-  }, [activeStep]);
+  const activeStep = React.useMemo(() => {
+    return steps.findIndex(step => {
+      return step.id === props.currentStep;
+    });
+  }, [props.currentStep]);
 
   return (
     <FormRoot>
       <FormHeading>Criar sua conta</FormHeading>
 
-      <FormHolder>
-        <form autoComplete="off">{activeForm}</form>
-      </FormHolder>
+      {props.children}
 
       <FormActions style={{ marginTop: 'auto' }}>
         <FormSteps
-          activeStep={1}
-          totalItems={3}
-          onStepChange={handleStepChange}
+          activeStep={activeStep}
+          totalItems={steps.length}
+          onStepForward={handleGoForward}
+          onStepBack={props.goToPreviousStep}
         />
       </FormActions>
     </FormRoot>
+  );
+};
+
+const MemoizedFormWrapper = React.memo(FormWrapper, (prev, next) => {
+  return prev.currentStep === next.currentStep;
+});
+
+export default function CreateAccountForm() {
+  const handleSubmit = React.useCallback(values => {
+    console.log('full values:', values);
+  }, []);
+
+  return (
+    <FormikWizard
+      steps={steps}
+      onSubmit={handleSubmit}
+      render={MemoizedFormWrapper}
+    />
   );
 }
