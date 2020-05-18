@@ -33,7 +33,6 @@ import {
 
 export default function Header() {
   const headerRootRef = React.useRef(null);
-  const dropdown2Ref = React.useRef(null);
 
   const [isSticky, setIsSticky] = React.useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
