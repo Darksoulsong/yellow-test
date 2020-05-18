@@ -9,7 +9,7 @@ import {
   HeaderText,
 } from './styles';
 
-export default function DropdownContent1() {
+export default function DropdownContent1({ onCreateAccountClick }) {
   return (
     <>
       <HeaderDropdown>
@@ -39,7 +39,7 @@ export default function DropdownContent1() {
             </HeaderText>
           </a>
         </HeaderDropdownBlock>
-        <HeaderDropdownBlock>
+        <HeaderDropdownBlock onClick={onCreateAccountClick}>
           <HeaderHeading>Crie sua conta</HeaderHeading>
           <HeaderIconHolder className="create-account">
             <SVG name="add-user-icon" />

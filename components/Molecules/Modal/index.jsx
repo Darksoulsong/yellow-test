@@ -19,6 +19,7 @@ export default function Modal({
 }) {
   const {
     setIsActive: setIsBackdropActive,
+    isActive: isBackdropActive,
     setAnimated,
     setZIndex,
     animated,

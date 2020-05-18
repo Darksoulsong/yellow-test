@@ -32,7 +32,9 @@ import {
 } from './styles';
 
 export default function Header() {
-  const ref = React.useRef(null);
+  const headerRootRef = React.useRef(null);
+  const dropdown2Ref = React.useRef(null);
+
   const [isSticky, setIsSticky] = React.useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
   const [showModal, setShowModal] = React.useState(false);
@@ -80,20 +82,25 @@ export default function Header() {
     }
   }, []);
 
-  const handleMouseOut = React.useCallback(e => {
-    const label = e.currentTarget.getAttribute('data-item-label');
-    const result = elementIsChildOfMainElement(label, e.target.className);
+  const handleMouseOut = React.useCallback(
+    e => {
+      const label = e.currentTarget.getAttribute('data-item-label');
+      const result = elementIsChildOfMainElement(label, e.target.className);
 
-    if (!result) {
-      navElementRef.current.classList.remove(
-        'businesses',
-        'people',
-        'yellow-way'
-      );
+      if (!result) {
+        navElementRef.current.classList.remove(
+          'businesses',
+          'people',
+          'yellow-way'
+        );
 
-      setShowBackdrop(false);
-    }
-  }, []);
+        if (!showModal) {
+          setShowBackdrop(false);
+        }
+      }
+    },
+    [showModal]
+  );
 
   const handleLoginToggle = React.useCallback(showBackdrop => {
     const element = loginContainerRef.current;
@@ -129,19 +136,24 @@ export default function Header() {
     setShowBackdrop(false);
   }, [showBackdrop]);
 
+  const handleCreateAccountItemClick = React.useCallback(() => {
+    setShowModal(true);
+    setShowBackdrop(false);
+  }, []);
+
   const handleOnCloseModal = React.useCallback(() => {
     setShowModal(false);
   }, []);
 
   const onLogoMouseEnter = React.useCallback(() => {
     if (isSticky) {
-      ref.current.classList.add('is-hovered');
+      headerRootRef.current.classList.add('is-hovered');
     }
   }, [isSticky]);
 
   const onHeaderLeave = React.useCallback(() => {
     if (isSticky) {
-      ref.current.classList.remove('is-hovered');
+      headerRootRef.current.classList.remove('is-hovered');
     }
   }, [isSticky]);
 
@@ -154,7 +166,7 @@ export default function Header() {
 
   return (
     <HeaderRoot
-      ref={ref}
+      ref={headerRootRef}
       stickyPositioned={isSticky}
       onMouseLeave={onHeaderLeave}
     >
@@ -193,7 +205,9 @@ export default function Header() {
                 onMouseLeave={handleMouseOut}
               >
                 <NavItemLabel>Para Candidatos</NavItemLabel>
-                <DropdownContent2 />
+                <DropdownContent2
+                  onCreateAccountClick={handleCreateAccountItemClick}
+                />
               </NavItem>
               <NavItem
                 data-item-label="yellow-way"
