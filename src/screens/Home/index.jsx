@@ -137,15 +137,8 @@ const HomeScreen = () => {
                 </List>
 
                 <div data-aos="fade-right" data-aos-offset="-100">
-                  <Button
-                    type="button"
-                    variant="default"
-                    fontSize="2.2rem"
-                    fontWeight="300"
-                    padding="0px 23px"
-                    height="72px"
-                  >
-                    Conheça melhor a Yellow
+                  <Button type="button" variant="primary">
+                    Conheça a Yellow
                   </Button>
                 </div>
               </ListHolder>

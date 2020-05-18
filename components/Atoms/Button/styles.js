@@ -42,22 +42,28 @@ const hoverStyles = css`
 
 const main = css`
   height: ${({ height = '78px' }) => height};
-  padding: ${({ padding = '0 46px' }) => padding};
+  padding: ${({ padding = '0 35px' }) => padding};
   color: ${({ theme }) => theme.colors.black};
-  font-size: ${({ fontSize = '2.2rem' }) => fontSize};
+  font-size: ${({ fontSize = '2rem' }) => fontSize};
   border: 0 none;
   background: ${({ theme }) => theme.colors.yellow};
   text-indent: -0.1rem;
   font-family: Roboto, sans-serif;
   font-weight: ${({ fontWeight = '700' }) => fontWeight};
-  border-radius: 18px;
+  border-radius: 16px;
   transform: scale(1);
   white-space: nowrap;
-  letter-spacing: 0.063rem;
+  letter-spacing: 0.21rem;
+  text-transform: ${({ textTransform = 'uppercase' }) => textTransform};
 
   ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
 
-  ${({ disabled }) => !disabled && hoverStyles}
+  ${({ disabled }) =>
+    !disabled &&
+    `
+    cursor: pointer;
+    ${hoverStyles};
+  `}
 `;
 
 const tiny = css`
