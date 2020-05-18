@@ -4,6 +4,7 @@ import {
   useBackdrop,
   Button,
   LoginForm,
+  ForgotPasswordForm,
   HamburgerButton,
   MobileMenu,
   Modal,
@@ -36,7 +37,12 @@ export default function Header() {
 
   const [isSticky, setIsSticky] = React.useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
-  const [showModal, setShowModal] = React.useState(false);
+  const [showCreateAccountModal, setShowCreateAccountModal] = React.useState(
+    false
+  );
+  const [showForgotPasswordModal, setShowForgotPasswordModal] = React.useState(
+    false
+  );
   const navElementRef = React.useRef(null);
   const loginContainerRef = React.useRef(null);
   const createAccountRef = React.useRef(null);
@@ -93,12 +99,12 @@ export default function Header() {
           'yellow-way'
         );
 
-        if (!showModal) {
+        if (!showCreateAccountModal) {
           setShowBackdrop(false);
         }
       }
     },
-    [showModal]
+    [showCreateAccountModal]
   );
 
   const handleLoginToggle = React.useCallback(showBackdrop => {
@@ -130,18 +136,26 @@ export default function Header() {
   }, []);
 
   const handleCreateAccountButtonClick = React.useCallback(() => {
-    setShowModal(true);
+    setShowCreateAccountModal(true);
+    handleLoginToggle(showBackdrop);
+    setShowBackdrop(false);
+  }, [showBackdrop]);
+
+  const handleForgotPasswordButtonClick = React.useCallback(() => {
+    setShowForgotPasswordModal(true);
     handleLoginToggle(showBackdrop);
     setShowBackdrop(false);
   }, [showBackdrop]);
 
   const handleCreateAccountItemClick = React.useCallback(() => {
-    setShowModal(true);
+    setShowCreateAccountModal(true);
     setShowBackdrop(false);
   }, []);
 
   const handleOnCloseModal = React.useCallback(() => {
-    setShowModal(false);
+    setShowCreateAccountModal(false);
+    setShowForgotPasswordModal(false);
+    setShowBackdrop(false);
   }, []);
 
   const onLogoMouseEnter = React.useCallback(() => {
@@ -170,12 +184,17 @@ export default function Header() {
       onMouseLeave={onHeaderLeave}
     >
       <Modal
-        show={showModal}
+        show={showCreateAccountModal || showForgotPasswordModal}
         displayHeader
         onCloseModal={handleOnCloseModal}
         backgroundColor={colors.grayLightest}
       >
-        <CreateAccountForm />
+        {showCreateAccountModal && <CreateAccountForm />}
+        {showForgotPasswordModal && (
+          <ForgotPasswordForm
+            onForgotPasswordOkButtonClick={handleOnCloseModal}
+          />
+        )}
       </Modal>
 
       <HeaderMain>
@@ -231,6 +250,9 @@ export default function Header() {
                 <FormDropdown>
                   <LoginForm
                     onCreateAccountButtonClick={handleCreateAccountButtonClick}
+                    onForgotPasswordButtonClick={
+                      handleForgotPasswordButtonClick
+                    }
                   />
                 </FormDropdown>
               </NavItem>

@@ -81,13 +81,16 @@ export const FieldValidationMessage = styled.div`
   overflow: hidden;
   font-size: 1rem;
   padding: 0 20px;
+  position: absolute;
+  left: 0;
+  bottom: -13px;
 
   ${({ show = false }) =>
     show
       ? css`
           opacity: 1;
           max-height: 100px;
-          padding-top: 8px;
+          padding-top: 4px;
         `
       : css`
           opacity: 0;
@@ -96,6 +99,8 @@ export const FieldValidationMessage = styled.div`
 `;
 
 export const FieldRoot = styled.div`
+  position: relative;
+
   ${({ width }) => getWidth(width)};
 
   ${({ theme, hasError }) =>
@@ -129,6 +134,7 @@ export const FieldGroup = styled.div`
 
     &:first-child {
       margin-left: 0;
+
       ${Field} {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;

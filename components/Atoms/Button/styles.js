@@ -78,6 +78,8 @@ const tiny = css`
 `;
 
 const rounded = css`
+  transition: 0.3s ease-in-out;
+  transition-property: color, background-color;
   height: 54px;
   padding: 0 42px;
   border-radius: 27px;
