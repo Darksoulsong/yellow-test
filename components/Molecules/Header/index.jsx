@@ -36,7 +36,7 @@ export default function Header() {
   const headerRootRef = React.useRef(null);
 
   const [isSticky, setIsSticky] = React.useState(false);
-  const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
+  const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(true);
   const [showCreateAccountModal, setShowCreateAccountModal] = React.useState(
     false
   );
