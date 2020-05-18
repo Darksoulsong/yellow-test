@@ -117,6 +117,7 @@ export const FieldIcon = styled.span`
   margin-left: -27px;
   margin-right: 8px;
   height: 18px;
+  font-size: 1.6rem;
 `;
 
 export const FieldGroup = styled.div`

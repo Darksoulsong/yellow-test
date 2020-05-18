@@ -12,7 +12,6 @@ export default function PersonalInfoOne() {
     errors,
     values,
   } = useFormikContext();
-
   return (
     <FormHolder>
       <FormControl>
@@ -79,15 +78,15 @@ export default function PersonalInfoOne() {
         <FieldGroup>
           <Field
             type="select"
-            placeholder="UF"
             name="state"
             width="80px"
             onBlur={handleBlur}
             onChange={handleChange}
             value={values.state}
             hasError={fieldHasError('state', touched, errors)}
-            validationMessage={errors.state}
+            // validationMessage={errors.state}
             options={[
+              { value: '', label: 'UF' },
               { value: 'PR', label: 'PR' },
               { value: 'MG', label: 'MG' },
               { value: 'SC', label: 'SC' },

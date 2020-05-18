@@ -18,17 +18,18 @@ export default [
     },
     validationSchema: Yup.object().shape({
       email: Yup.string()
-        .email('Informe um endereço de email válido')
+        .email('Endereço de email inválido')
         .required('Campo obrigatório'),
       fullname: Yup.string().required('Campo obrigatório'),
       birthDate: Yup.string()
         .min(6)
-        .required('Informe a data de nascimento'),
+        .required('Campo obrigatório'),
       phone: Yup.string().required('Campo obrigatório'),
       state: Yup.string().required('Campo obrigatório'),
       city: Yup.string().required('Campo obrigatório'),
     }),
   },
+
   {
     id: 'PersonalInfoTwo',
     component: PersonalInfoTwo,

@@ -20,6 +20,7 @@ export default function Modal({
   const {
     setIsActive: setIsBackdropActive,
     setAnimated,
+    setZIndex,
     animated,
   } = useBackdrop();
   const [active, setActive] = React.useState();
@@ -70,6 +71,7 @@ export default function Modal({
     if (show && typeof window !== 'undefined') {
       setIsBackdropActive(show);
       setAnimated(true);
+      setZIndex(99);
 
       if (!container) {
         const rootContainer = document.createElement('div');
@@ -82,6 +84,7 @@ export default function Modal({
         container.parentNode.removeChild(container);
         setContainer(null);
         setAnimated(false);
+        setZIndex(0);
       }
     }
 
