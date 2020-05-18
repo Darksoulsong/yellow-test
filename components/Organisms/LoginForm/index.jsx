@@ -1,5 +1,5 @@
 import React from 'react';
-import { SVG } from '@components';
+import { SVG, Button } from '@components';
 import {
   LoginFormRoot,
   FormControl,
@@ -10,9 +10,13 @@ import {
   FormButtonGray,
   FormButtonYellow,
   FieldIcon,
+  ForgotPasswordLabel,
 } from './styles';
 
-export default function LoginForm({ onCreateAccountButtonClick }) {
+export default function LoginForm({
+  onCreateAccountButtonClick,
+  onForgotPasswordButtonClick,
+}) {
   return (
     <LoginFormRoot>
       <form autoComplete="off">
@@ -31,7 +35,13 @@ export default function LoginForm({ onCreateAccountButtonClick }) {
           </Field>
         </FormControl>
         <ForgotPassword>
-          <a href="/lembrar-senha">esqueceu sua senha?</a>
+          <Button
+            type="button"
+            version="unstyled"
+            onClick={() => onForgotPasswordButtonClick()}
+          >
+            <ForgotPasswordLabel>esqueceu sua senha?</ForgotPasswordLabel>
+          </Button>
         </ForgotPassword>
         <AlternativeLogin>
           <div>ou entrar com</div>
