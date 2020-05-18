@@ -36,7 +36,7 @@ import {
   ProductsFooter,
   IntroFooterActions,
   TransparentLogoHolder,
-  ProductsFloatingButton,
+  ProductsAnchor,
   ExperienceSection,
   ExperienceContent,
   ExperienceFooter,
@@ -55,9 +55,12 @@ const HomeScreen = () => {
       <Intro>
         <IntroHolder>
           <MainHeading>
-            <em>Olá,</em> Lorem ipsum dolor sit amet, adipiscing elit, sed diam
-            nonummy nibh eusmod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat.
+            <em>Olá,</em> Lorem ipsum <br />
+            dolor sit amet, adipiscing <br />
+            elit, sed diam nonummy <br />
+            nibh eusmod tincidunt ut <br />
+            laoreet dolore magna <br />
+            aliquam erat volutpat.
           </MainHeading>
           <SecondaryHeading>Yellow.</SecondaryHeading>
         </IntroHolder>
@@ -137,7 +140,7 @@ const HomeScreen = () => {
                 </List>
 
                 <div data-aos="fade-right" data-aos-offset="-100">
-                  <Button type="button" variant="primary">
+                  <Button type="button" variant="primary" height="72px">
                     Conheça a Yellow
                   </Button>
                 </div>
@@ -156,11 +159,14 @@ const HomeScreen = () => {
 
         <Products />
 
+        <ProductsAnchor>
+          <a href="/link">ENTENDA MAIS OS PRODUTOS</a>
+        </ProductsAnchor>
+
         <ProductsFooter>
           <Button variant="primary" type="button">
             Simule sua vaga
           </Button>
-          <ProductsFloatingButton>Entenda mais</ProductsFloatingButton>
         </ProductsFooter>
       </ProductsSection>
 

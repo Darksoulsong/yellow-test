@@ -39,16 +39,6 @@ export const FooterBlock = styled.div`
   width: 30%;
 `;
 
-export const FooterBlockSocial = styled(FooterBlock)`
-  flex: 1;
-  text-align: center;
-
-  svg {
-    width: 29px !important;
-    height: auto;
-  }
-`;
-
 export const FooterItem = styled.div`
   margin-bottom: 28px;
   font-size: 1.6rem;
@@ -69,6 +59,20 @@ export const FooterItem = styled.div`
         fill: ${({ theme }) => theme.colors.highlightColor};
       }
     }
+  }
+`;
+
+export const FooterBlockSocial = styled(FooterBlock)`
+  flex: 1;
+  text-align: center;
+
+  svg {
+    width: 28px !important;
+    height: auto;
+  }
+
+  ${FooterItem} {
+    margin-bottom: 18px;
   }
 `;
 
