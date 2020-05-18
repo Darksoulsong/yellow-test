@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const FormStep = styled.span`
+  position: relative;
   height: 5px;
   width: 30px;
   display: flex;
-
-  background-color: ${({ theme, active }) =>
+  overflow: hidden;
+  background-color: ${({ active, theme }) =>
     active ? theme.colors.yellow : theme.colors.grayLightish};
 `;
 

@@ -7,7 +7,14 @@ export const FormRoot = styled.div`
   padding: 60px 120px;
   padding: 0 30px 20px;
   width: 600px;
-  height: 463px;
+  min-height: 430px;
+
+  form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 `;
 
 export const FormHeading = styled.h2`
@@ -42,7 +49,8 @@ export const FormUploadFieldLabel = styled.div`
 `;
 
 export const FormHolder = styled.div`
-  width: 305px;
+  width: 320px;
+  height: 100%;
   margin: 0 auto;
 `;
 
@@ -70,4 +78,7 @@ export const CheckboxHolder = styled.div`
 
 export const CheckboxLabel = styled.span`
   margin-left: 4px;
+  white-space: nowrap;
 `;
+
+export const FormFooter = styled.div``;

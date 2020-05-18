@@ -1,4 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const AnimatedGradient = keyframes`
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+`;
 
 const getWidth = width => {
   if (!width) {
@@ -27,14 +33,13 @@ const RoundElementBase = css`
 `;
 
 export const Input = styled.input`
-  /* color: ${({ theme }) => theme.colors.black}; */
   color: ${({ theme }) => theme.colors.fieldColor};
   border: 0 none;
   background-color: transparent;
   width: 100%;
-  font-size: 1.8rem;
+  font-size: 1.72rem;
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;  
+  font-weight: 300;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.fieldPlaceholder};
@@ -42,7 +47,13 @@ export const Input = styled.input`
   }
 `;
 
+export const Select = styled(Input).attrs({
+  as: 'select',
+})``;
+
 export const Field = styled.div`
+  position: relative;
+
   ${RoundElementBase};
 
   width: 100%;
@@ -52,15 +63,24 @@ export const Field = styled.div`
   svg path {
     stroke: transparent;
   }
+
+  ${({ isSelect }) => isSelect && `padding-right: 6px;`};
+
+  ${({ isLoading }) =>
+    isLoading &&
+    css`
+      background: linear-gradient(245deg, #dcdbdb, #f7f6f5);
+      background-size: 800% 800%;
+      animation: ${AnimatedGradient} 1.5s ease infinite;
+    `};
 `;
 
 export const FieldValidationMessage = styled.div`
   transition: 0.3s ease-in-out;
   transition-property: max-height, opacity, padding-top;
-  transition-delay: 1s;
   overflow: hidden;
   font-size: 1rem;
-  padding: 0 23px;
+  padding: 0 20px;
 
   ${({ show = false }) =>
     show
@@ -97,15 +117,12 @@ export const FieldIcon = styled.span`
   margin-left: -27px;
   margin-right: 8px;
   height: 18px;
+  font-size: 1.6rem;
 `;
 
 export const FieldGroup = styled.div`
   display: flex;
   width: 100%;
-
-  ${Field} {
-    /* margin: 0 5px; */
-  }
 
   ${FieldRoot} {
     margin: 0 5px;
@@ -120,10 +137,25 @@ export const FieldGroup = styled.div`
 
     &:last-child {
       margin-right: 0;
+
       ${Field} {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
+
+      ${FieldValidationMessage} {
+        padding-left: 0;
+      }
     }
   }
 `;
+
+export const FieldSelectDropdown = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0%;
+`;
+
+export const FieldSelectDropdownItems = styled.ul``;
+
+export const FieldSelectDropdownItem = styled.li``;

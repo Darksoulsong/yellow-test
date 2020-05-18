@@ -75,6 +75,22 @@ const Global = createGlobalStyle`
     background: transparent;
   }
 
+  /* webkit autofill hack */
+  @-webkit-keyframes autofill {
+    0%,
+    100% {
+      color: ${({ theme }) => theme.colors.fieldColor};
+      background-color: transparent;
+    }
+  }
+
+  &:-webkit-autofill,
+  &:-internal-autofill-selected {
+    -webkit-animation-delay: 1s !important;
+    -webkit-animation-name: autofill !important;
+    -webkit-animation-fill-mode: both !important;
+  }
+
   h1 {
     font-size: 42px;
   }

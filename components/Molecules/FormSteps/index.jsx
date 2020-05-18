@@ -1,5 +1,6 @@
 import React from 'react';
 import { SVG, Button } from '@components';
+import { isFunction } from '@utils';
 import { uid } from 'react-uid';
 import {
   FormStepsRoot,
@@ -8,32 +9,19 @@ import {
   FormStepButtonHolder,
 } from './styles';
 
-export default function FormSteps({ activeStep, totalItems, onStepChange }) {
+const FormSteps = ({ activeStep, totalItems, onStepForward, onStepBack }) => {
   const items = React.useRef(null);
-  const [activeStepIndex, setActiveStepIndex] = React.useState();
+
   items.current = new Array(totalItems).fill('');
-
-  const handleClick = React.useCallback(
-    step => {
-      const newIndex = activeStepIndex + step;
-      setActiveStepIndex(newIndex);
-      onStepChange(newIndex);
-    },
-    [activeStepIndex]
-  );
-
-  React.useEffect(() => {
-    setActiveStepIndex(activeStep);
-  }, []);
 
   return (
     <FormStepsRoot>
-      <FormStepButtonHolder visible={activeStepIndex > 1}>
+      <FormStepButtonHolder visible={activeStep > 0}>
         <Button
           type="button"
           version="tiny"
           variant="primary"
-          onClick={() => handleClick(-1)}
+          onClick={onStepBack}
         >
           <SVG name="arrow-icon2" invert size="8px" />
         </Button>
@@ -41,26 +29,27 @@ export default function FormSteps({ activeStep, totalItems, onStepChange }) {
 
       <FormStepsHolder>
         {items.current.map((item, index) => (
-          <FormStep key={uid(index)} active={index <= activeStepIndex - 1} />
+          <FormStep key={uid(index)} active={index <= activeStep} />
         ))}
       </FormStepsHolder>
 
-      <FormStepButtonHolder visible={activeStepIndex !== totalItems}>
+      <FormStepButtonHolder visible={activeStep + 1 !== totalItems}>
         <Button
-          type="button"
+          type="submit"
           version="tiny"
           variant="primary"
-          onClick={() => handleClick(1)}
+          onClick={e => isFunction(onStepForward) && onStepForward(e)}
         >
           <SVG name="arrow-icon2" size="8px" />
         </Button>
       </FormStepButtonHolder>
     </FormStepsRoot>
   );
-}
+};
 
 FormSteps.defaultProps = {
   activeStep: 0,
   totalItems: 0,
-  onStepChange: () => null,
 };
+
+export default FormSteps;

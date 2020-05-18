@@ -10,10 +10,10 @@ export const Item = styled.div`
   &.has-line {
     &:before {
       position: absolute;
-      background-color: ${({ theme }) => theme.colors.black};
+      background-color: #a6a8ab;
       content: '';
       height: 100%;
-      width: 1px;
+      width: 4px;
       top: -60px;
       left: calc(50% - 1px);
       z-index: 0;
@@ -102,6 +102,7 @@ export const Circle = styled.div`
   margin: 0 auto;
   z-index: 1;
   letter-spacing: -0.3rem;
+  font-weight: 600;
 
   span {
     margin-top: 0.9rem;

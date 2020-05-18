@@ -17,3 +17,7 @@ export const objectPick = (props, from) => {
     return acc;
   }, {});
 };
+
+export const objectIsEmpty = object => {
+  return Object.keys(object).length === 0;
+};
