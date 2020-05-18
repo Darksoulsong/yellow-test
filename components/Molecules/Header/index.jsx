@@ -41,7 +41,7 @@ export default function Header() {
     false
   );
   const [showForgotPasswordModal, setShowForgotPasswordModal] = React.useState(
-    true
+    false
   );
   const navElementRef = React.useRef(null);
   const loginContainerRef = React.useRef(null);
