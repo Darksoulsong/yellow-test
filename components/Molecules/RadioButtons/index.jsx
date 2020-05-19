@@ -8,7 +8,7 @@ export const RadioButtons = ({
   name,
   margin,
   selected,
-  setSelected,
+  setSelected = () => {},
 }) => (
   <Container margin={margin}>
     {radioButtons.map((radio, index) => (
