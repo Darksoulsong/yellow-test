@@ -2,20 +2,24 @@ import React from 'react';
 import { Button } from '@components';
 import { HamburgerButtonRoot, HamburgerButtonIcon } from './styles';
 
-export default function HamburgerButton({ onClick, ...rest }) {
-  const [open, setOpen] = React.useState(false);
+export default function HamburgerButton({ onClick, active, ...rest }) {
+  const [isActive, setIsActive] = React.useState(active);
   const onButtonClick = React.useCallback(
     e => {
-      setOpen(!open);
-      onClick(e, !open);
+      setIsActive(!isActive);
+      onClick(e, !isActive);
     },
-    [open]
+    [isActive]
   );
+
+  React.useEffect(() => {
+    setIsActive(active);
+  }, [active]);
 
   return (
     <Button type="button" onClick={e => onButtonClick(e)} version="unstyled">
-      <HamburgerButtonRoot>
-        <HamburgerButtonIcon open={open} {...rest} />
+      <HamburgerButtonRoot open={isActive}>
+        <HamburgerButtonIcon open={isActive} {...rest} />
       </HamburgerButtonRoot>
     </Button>
   );

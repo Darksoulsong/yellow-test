@@ -1,37 +1,94 @@
 import React from 'react';
-import {
-  CollapsibleRoot,
-  CollapsibleHeader,
-  CollapsibleBody,
-  CollapsibleHeaderIconHolder,
-  CollapsibleHeaderLabel,
-} from './styles';
+import Body from './Body';
+import Toggle from './Toggle';
+import { CollapsibleRoot, CollapsibleItem } from './styles';
 
-const Collapsible = ({ defaultActiveKey, children }) => {
-  // console.log();
-  return <CollapsibleRoot>{children}</CollapsibleRoot>;
-};
+const collapsibleCtx = React.createContext({});
 
-Collapsible.Header = ({ children, eventKey, renderIcon }) => {
-  const icon = typeof renderIcon === 'function' ? renderIcon() : '&#x2304;';
+export const useCollapsible = () => React.useContext(collapsibleCtx);
+
+const Collapsible = ({ defaultActiveIndex, children }) => {
+  const [state, setState] = React.useState({
+    activeItem: null,
+    items: [],
+  });
+  const setStates = React.useCallback(states => {
+    setState(previousState => {
+      return { ...previousState, ...(states || {}) };
+    });
+  }, []);
+
+  const { activeItem, items } = state;
+
+  const setActiveItem = React.useCallback(
+    item => {
+      setStates({ activeItem: item });
+    },
+    [activeItem]
+  );
+
+  const getClassNames = React.useCallback((isActive, index, totalItems) => {
+    const klasses = [];
+    const prefix = 'collapsible';
+
+    if (isActive) {
+      klasses.push(`${prefix}-active`);
+    }
+
+    if (index === 0) {
+      klasses.push(`${prefix}-first`);
+    }
+
+    if (index === totalItems - 1) {
+      klasses.push(`${prefix}-last`);
+    }
+
+    return klasses.join(' ');
+  }, []);
+
+  React.useEffect(() => {
+    if (
+      defaultActiveIndex !== undefined &&
+      defaultActiveIndex + 1 < children.length
+    ) {
+      setStates({ activeItem: defaultActiveIndex });
+    }
+  }, [defaultActiveIndex]);
+
+  React.useEffect(() => {
+    const childList = React.Children.map(children, (child, index) => {
+      const isActive = state.activeItem === index;
+      return (
+        <CollapsibleItem
+          className={`collapsible-item ${getClassNames(
+            isActive,
+            index,
+            children.length
+          )}`}
+          active={isActive}
+        >
+          {child}
+        </CollapsibleItem>
+      );
+    });
+
+    setStates({ items: childList });
+  }, [state.activeItem]);
+
+  const valueProvider = {
+    activeItem,
+    setActiveItem,
+  };
+
   return (
-    <CollapsibleHeader>
-      <CollapsibleHeaderLabel>{children}</CollapsibleHeaderLabel>
-      <CollapsibleHeaderIconHolder>{icon}</CollapsibleHeaderIconHolder>
-    </CollapsibleHeader>
+    <collapsibleCtx.Provider value={valueProvider}>
+      <CollapsibleRoot>{items}</CollapsibleRoot>;
+    </collapsibleCtx.Provider>
   );
 };
 
-Collapsible.Header.displayName = 'Collapsible.Header';
+Collapsible.Toggle = Toggle;
 
-Collapsible.Body = ({ children }) => {
-  return <CollapsibleBody>{children}</CollapsibleBody>;
-};
-
-Collapsible.Body.displayName = 'Collapsible.Body';
-
-Collapsible.defaultProps = {
-  defaultActiveKey: 0,
-};
+Collapsible.Body = Body;
 
 export default Collapsible;

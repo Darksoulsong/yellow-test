@@ -1,12 +1,20 @@
 import styled, { css } from 'styled-components';
 
 export const Logo = styled.div`
-  padding-left: 40px;
+  padding-left: 24px;
   padding-right: 90px;
   padding-top: 8px;
 
   svg {
-    width: 75px;
+    width: 60px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding-left: 40px;
+
+    svg {
+      width: 75px;
+    }
   }
 `;
 
@@ -16,9 +24,13 @@ export const HeaderMain = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  height: 83px;
+  height: 70px;
   width: 100%;
   z-index: 2;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    height: 83px;
+  }
 `;
 
 export const HeaderDropdown = styled.div`
@@ -271,6 +283,7 @@ export const NavItem = styled.span`
 export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   height: 100%;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.headerBackground};
@@ -298,16 +311,21 @@ export const HeaderBodyLeft = styled(HeaderBody)`
 `;
 
 export const HeaderBodyRight = styled(HeaderBody)`
+  display: none;
   margin-left: auto;
 
   ${NavItem} {
     position: relative;
   }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: flex;
+  }
 `;
 
 export const HeaderBodyMobile = styled(HeaderBody)`
   padding: 0 16px;
-  width: 66px;
+  width: 74px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     display: none;
