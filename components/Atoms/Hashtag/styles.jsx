@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Holder = styled.div`
+  cursor: ${({ clickable }) => (clickable ? 'pointer' : 'auto')};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,6 +15,7 @@ export const HashtagText = styled.h2`
   font-size: 6vw;
   font-weight: 300;
   letter-spacing: 2.19px;
+  user-select: none;
 `;
 
 export const HashtagContainer = styled.div`

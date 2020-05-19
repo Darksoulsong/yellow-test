@@ -27,6 +27,10 @@ export const ArrowPositioner = styled.div`
   position: relative;
   width: 0;
   left: -25%;
+  display: none;
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    display: block;
+  }
 `;
 
 export const CustomField = styled.input`
@@ -50,8 +54,6 @@ export const CustomTextArea = styled.textarea`
   font-family: Roboto, sans-serif;
   margin-top: ${({ theme }) => theme.spaces.md};
 `;
-
-export const CustomRadio = styled.input``;
 
 export const CustomButton = styled(Button)`
   background-color: ${({ theme }) => theme.colors.black};
@@ -88,6 +90,7 @@ export const Section = styled.div`
 
 export const VacantSection = styled(Section)`
   margin: ${({ theme }) => theme.spaces.xlg};
+  margin-bottom: ${({ theme }) => theme.spaces.lg};
   button {
     margin: ${({ theme }) => theme.spaces.lg};
     width: fit-content;
@@ -114,9 +117,10 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   margin-top: ${({ theme }) => theme.spaces.md};
+  padding: ${({ theme }) => theme.spaces.sm};
   input {
     padding: ${({ theme }) => theme.spaces.sm};
-    margin: 10px;
+    margin: 10px 0;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     max-width: 30%;
