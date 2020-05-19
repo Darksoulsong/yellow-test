@@ -21,8 +21,14 @@ export const Card = ({
   mdWidth,
   likes = 0,
   comments = 0,
+  padding,
 }) => (
-  <CardContainer width={width} mdWidth={mdWidth} onClick={routeToContent}>
+  <CardContainer
+    padding={padding}
+    width={width}
+    mdWidth={mdWidth}
+    onClick={routeToContent}
+  >
     <CardSquare>
       <CardInteractions>
         <Interactions>

@@ -14,3 +14,14 @@ export const calculateWidth = () => {
   }
   return 320;
 };
+
+export const range = (from, to, step = 1) => {
+  let i = from;
+  const rng = [];
+
+  do {
+    rng.push(i);
+    i += step;
+  } while (i <= to);
+  return rng;
+};

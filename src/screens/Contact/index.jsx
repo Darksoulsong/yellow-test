@@ -9,7 +9,7 @@ import {
   Button,
   AnimatedManipulator,
   SVG,
-  Radio,
+  RadioButtons,
 } from '@components';
 
 import {
@@ -30,8 +30,16 @@ import {
   ArrowPositioner,
 } from './styles';
 
+const radioButtons = [
+  { label: 'Tech', value: 'tech' },
+  { label: 'Exec', value: 'exec' },
+  { label: 'Express', value: 'express' },
+  { label: 'RPO', value: 'rpo' },
+];
+
 export const Contact = () => {
   const [radio, setRadio] = useState('');
+  const [send, setSend] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -52,7 +60,7 @@ export const Contact = () => {
             <SVG name="handdrawn-arrow7" />
           </ArrowPositioner>
           <Button variant="primary" height="70px" type="button">
-            BUSQUE UMA VAGA
+            BUSCO UMA VAGA
           </Button>
         </SimpleContainer>
       </VacantSection>
@@ -87,65 +95,38 @@ export const Contact = () => {
               <strong> Qual produto</strong> nosso atende sua necessidade?
             </CustomText>
           </FormQuestion>
-          <SimpleContainer>
-            <Radio
-              checked={radio}
-              onChange={setRadio}
-              label="Tech"
-              type="radio"
-              name="product"
-              value="Tech"
-            />
-          </SimpleContainer>
-          <SimpleContainer>
-            <Radio
-              checked={radio}
-              onChange={setRadio}
-              label="Exec"
-              type="radio"
-              name="product"
-              value="Exec"
-            />
-          </SimpleContainer>
-          <SimpleContainer>
-            <Radio
-              checked={radio}
-              onChange={setRadio}
-              label="Express"
-              type="radio"
-              name="product"
-              value="Express"
-            />
-          </SimpleContainer>
-          <SimpleContainer>
-            <Radio
-              checked={radio}
-              onChange={setRadio}
-              label="RPO"
-              type="radio"
-              name="product"
-              value="RPO"
-            />
-          </SimpleContainer>
+          <RadioButtons
+            radioButtons={radioButtons}
+            name="product"
+            selected={radio}
+            setSelected={setRadio}
+          />
+
           <SimpleContainer>
             <CustomTextArea placeholder="Fale mais sobre o que você precisa" />
           </SimpleContainer>
-          <SimpleContainer
-            direction="column"
-            margin={`${spaces.lg} 0 ${spaces.sm} 0`}
-          >
-            <CustomButton fontSize="1em" height="40px">
-              ENVIAR
-            </CustomButton>
-            <CustomText
-              align="center"
-              margin={`${spaces.sm} 0`}
-              style={{ fontSize: '1.75rem', opacity: '0.75' }}
-            >
-              Obrigado pelo seu contato, iremos retornar em breve!
-            </CustomText>
-          </SimpleContainer>
         </Form>
+        <SimpleContainer
+          direction="column"
+          margin={`${spaces.lg} 0 ${spaces.sm} 0`}
+        >
+          <CustomButton
+            variant={send ? 'primary' : ''}
+            fontSize="1em"
+            height="40px"
+          >
+            ENVIAR
+          </CustomButton>
+          <CustomText
+            onClick={() => setSend(true)}
+            variant={send ? 'primary' : ''}
+            align="center"
+            margin={`${spaces.sm} 0`}
+            style={{ fontSize: '1.75rem', opacity: '0.75' }}
+          >
+            Obrigado pelo seu contato, iremos retornar em breve!
+          </CustomText>
+        </SimpleContainer>
       </FormSection>
       <SimulationSection>
         <HugeTitle weight="700" align="center">

@@ -21,20 +21,53 @@ export const Name = styled.li`
     bold ? theme.colors.yellow : theme.colors.gray};
   letter-spacing: 3.14px;
   line-height: 22px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   user-select: none;
   font-family: 'Monosten', 'Roboto', 'sans-serif';
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const NameListColumn = styled.ul`
   width: 50%;
-  text-align: left;
+  text-align: center;
   padding: ${({ theme }) => theme.spaces.sm};
+  &:last-child,
+  :nth-child(4),
+  :nth-child(3) {
+    display: none;
+  }
+
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    text-align: left;
     width: 33.33%;
+    &:nth-child(3) {
+      display: block;
+      width: fit-content;
+    }
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 25%;
+    &:nth-child(3) {
+      display: block;
+      width: 25%;
+    }
+    &:nth-child(4) {
+      display: block;
+      width: fit-content;
+    }
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     width: 20%;
+    &:nth-child(3),
+    :nth-child(4) {
+      width: 20%;
+    }
+    &:nth-child(5) {
+      width: fit-content;
+      display: block;
+    }
     &:first-child {
       padding-left: 0;
     }
@@ -52,7 +85,7 @@ export const NameListSection = styled.div`
   flex-wrap: wrap;
   margin: 0 auto;
   justify-content: center;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+  @media (min-width: ${({ theme }) => '1050px'}) {
     padding: ${({ theme }) => `${theme.spaces.sm} 125px`};
   }
 `;
@@ -69,7 +102,7 @@ export const WhySection = styled.div`
 `;
 
 export const WhySectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 300;
   letter-spacing: 1.65px;
 
@@ -107,8 +140,14 @@ export const HowSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: ${({ theme }) => `${theme.spaces.xxlg} ${theme.spaces.md}`};
+  margin: ${({ theme }) => `${theme.spaces.lg} ${theme.spaces.xsm}`};
   position: relative;
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    margin: ${({ theme }) => theme.spaces.md};
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: ${({ theme }) => `${theme.spaces.xxlg} ${theme.spaces.md}`};
+  }
 `;
 
 export const HowSectionContent = styled.div`
@@ -129,15 +168,25 @@ export const PurposeSection = styled.div`
   height: 65vh;
   max-height: 450px;
   min-height: 300px;
-  margin: ${({ theme }) => `${theme.spaces.xxlg} ${theme.spaces.md}`};
+  margin: ${({ theme }) => `${theme.spaces.lg} ${theme.spaces.sm}`};
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    margin: ${({ theme }) => `${theme.spaces.lg} ${theme.spaces.md}`};
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: ${({ theme }) => `${theme.spaces.xxlg} ${theme.spaces.md}`};
+  }
 `;
 
-export const PurposeSectionTitle = styled.h2`
+export const PurposeSectionTitle = styled.span`
   background-color: ${({ theme }) => theme.colors.white};
-  font-size: 4vw;
+  font-size: 8vw;
   font-weight: 300;
-  display: inline-block;
+  display: grid;
   text-align: center;
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 4vw;
+    display: inline-block;
+  }
 `;
 
 export const PurposeColumn = styled.div`
@@ -155,7 +204,7 @@ export const PurposeColumn = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 300;
   display: inline-block;
   text-align: center;
@@ -176,8 +225,11 @@ export const HashtagSection = styled(Section)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: ${({ theme }) => `${theme.spaces.xlg} 0px`};
+  padding: ${({ theme }) => `${theme.spaces.sm} 0px`};
   overflow-x: hidden;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: ${({ theme }) => `${theme.spaces.xlg} 0px`};
+  }
 `;
 
 export const HashtagIcons = styled.div`
@@ -237,7 +289,7 @@ const handleTypeSVG = type => {
           display: block;
           margin: auto;
           text-align: center;
-          width: 80vw;
+          width: 100%;
           height: auto;
           @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
             width: 65vw;

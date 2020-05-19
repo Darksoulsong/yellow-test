@@ -20,10 +20,10 @@ export const SuscribeHolder = styled.div`
   display: flex;
   margin: ${({ theme }) => theme.spaces.md};
   * {
-    height: 45px;
     border-radius: 0;
   }
   input {
+    height: 50px;
     max-width: 200px;
     padding: ${({ theme }) => theme.spaces.sm};
     border-top-left-radius: 9.5px;
@@ -39,5 +39,6 @@ export const SuscribeHolder = styled.div`
     font-weight: 300;
     padding: ${({ theme }) => theme.spaces.sm};
     font-size: 1.75rem;
+    text-transform: lowercase;
   }
 `;

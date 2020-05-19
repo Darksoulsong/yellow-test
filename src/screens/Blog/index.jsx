@@ -84,10 +84,14 @@ export const Blog = () => {
             ))}
           </Carousel>
         </FilterContainer>
-
         <CardsContainer>
           {articles.map((item, index) => (
-            <Card key={uid(item, index)} text={item.text} img={item.image} />
+            <Card
+              padding={`${spaces.xsm} 1%`}
+              key={uid(item, index)}
+              text={item.text}
+              img={item.image}
+            />
           ))}
         </CardsContainer>
 

@@ -3,6 +3,8 @@ import { uid } from 'react-uid';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import { routeTo } from '@utils';
+
 import { SVG, SpeechBubble, Slider, Hashtag, DefaultLayout } from '@components';
 
 import {
@@ -163,7 +165,7 @@ const WhoWeAreScreen = () => {
             </HashtagIcon>
           ))}
         </HashtagIcons>
-        <Hashtag />
+        <Hashtag onClick={() => routeTo('/yellow-way')} />
         <HashtagIcons specialMargin={'-7vw 0 0 0'}>
           {bottomHashtagSectionIcons.map(icon => (
             <HashtagIcon key={uid(icon)} {...icon}>

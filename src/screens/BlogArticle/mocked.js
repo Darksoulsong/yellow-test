@@ -17,6 +17,30 @@ export const articles = [
     image:
       'https://i0.wp.com/blog.lucasgilbert.com.br/wp-content/uploads/2018/04/pexels-photo-669615.jpeg',
   },
+  {
+    text: 'Como conciliar home office com os filhos',
+    image: '/images/placeholder.jpg',
+  },
+  {
+    text: '7 dicas essenciais para brilhar em uma entrevista remota',
+    image: '/images/placeholder.jpg',
+  },
+  {
+    text: 'Home office, nuvem e escala flexível: como as empresas podem lidar',
+    image: '/images/placeholder.jpg',
+  },
+  {
+    text: 'Como conciliar home office com os filhos',
+    image: '/images/placeholder.jpg',
+  },
+  {
+    text: '7 dicas essenciais para brilhar em uma entrevista remota',
+    image: '/images/placeholder.jpg',
+  },
+  {
+    text: 'Home office, nuvem e escala flexível: como as empresas podem lidar',
+    image: '/images/placeholder.jpg',
+  },
 ];
 
 export const filters = [

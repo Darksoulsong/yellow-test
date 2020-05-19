@@ -127,36 +127,10 @@ export const BlogLogo = styled(Column)`
   justify-content: flex-start;
 `;
 
-export const CardsContainer = styled(Container)`
-  width: 100%;
-  flex-wrap: wrap;
-  flex-direction: row;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  div {
-    padding: ${({ theme }) => `${theme.spaces.xsm} 1%`};
-  }
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    div:nth-child(1) {
-      padding: 5px 1% 5px 0;
-    }
-    div:nth-child(2) {
-      padding: 5px;
-    }
-    div:nth-child(3) {
-      padding: 5px 0 5px 1%;
-    }
-  }
-`;
-
 export const SliderContainer = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: column;
-  margin: ${({ theme }) => `${theme.spaces.xlg} 0`};
-  justify-content: center;
+  margin: ${({ theme }) => `${theme.spaces.md} 0 0 0`};
 `;
 
 export const ContentContainer = styled.div`

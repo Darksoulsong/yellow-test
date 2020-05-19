@@ -1,18 +1,8 @@
 import React from 'react';
 import { uid } from 'react-uid';
+import { range } from '@utils';
 import { PageButton, SVG } from '@components';
 import { PaginationList, Arrow } from './styles';
-
-export const range = (from, to, step = 1) => {
-  let i = from;
-  const rng = [];
-
-  do {
-    rng.push(i);
-    i += step;
-  } while (i <= to);
-  return rng;
-};
 
 export const TOTAL_NUMBERS = 3;
 export const TOTAL_BUTTONS = 5;

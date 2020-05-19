@@ -148,9 +148,6 @@ export const CardsContainer = styled(Container)`
   flex-direction: row;
   padding: 0;
   margin-top: ${({ theme }) => theme.spaces.sm};
-  div {
-    padding: ${({ theme }) => `${theme.spaces.xsm} 1%`};
-  }
 `;
 
 export const FilterContainer = styled(Container)`

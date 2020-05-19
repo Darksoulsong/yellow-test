@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { uid } from 'react-uid';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -12,11 +12,13 @@ import {
   LikesAndComments,
   Suscribe,
   DefaultLayout,
-  Slider,
+  SliderMultiple,
 } from '@components';
+import { useScreenWidth } from '@hooks';
 
 import { articles, mockedHTML } from './mocked';
 import { spaces } from '@components/Organisms/Theme/sizes';
+import { breakpoints } from '@components/Organisms/Theme/breakpoints';
 
 import {
   BlogCol,
@@ -24,19 +26,30 @@ import {
   BlogLogo,
   BlogTopContainer,
   Circle,
-  CardsContainer,
+  SliderContainer,
   ContainerWithPadding,
   Image,
   ContentContainer,
-  SliderContainer,
 } from './styles';
 
 export const BlogArticle = () => {
+  const [cardsShownAtSlider, setCardsShownAtSlider] = useState(2);
+  const { screenWidth } = useScreenWidth();
+
   useEffect(() => {
     AOS.init({
       duration: 500,
     });
   }, []);
+
+  useEffect(() => {
+    const mediumResolution = breakpoints.medium.match(/\d+/)[0];
+    if (screenWidth > mediumResolution) {
+      setCardsShownAtSlider(3);
+    } else {
+      setCardsShownAtSlider(2);
+    }
+  }, [screenWidth]);
 
   return (
     <DefaultLayout>
@@ -68,17 +81,20 @@ export const BlogArticle = () => {
 
         <LikesAndComments />
 
-        <CardsContainer>
-          {articles.map((item, index) => (
-            <Card
-              width="50%"
-              mdWidth="33.33%"
-              key={uid(item, index)}
-              text={item.text}
-              img={item.image}
-            />
-          ))}
-        </CardsContainer>
+        <SliderContainer>
+          <SliderMultiple itemsShowing={cardsShownAtSlider}>
+            {articles.map((item, index) => (
+              <Card
+                padding={`${spaces.xsm} 1%`}
+                width="50%"
+                mdWidth="33.33%"
+                key={uid(item, index)}
+                text={item.text}
+                img={item.image}
+              />
+            ))}
+          </SliderMultiple>
+        </SliderContainer>
 
         <Suscribe padding={`${spaces.xlg} 0`} />
       </ContainerWithPadding>
