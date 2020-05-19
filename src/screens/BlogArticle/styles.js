@@ -2,10 +2,6 @@
 import styled, { css } from 'styled-components';
 import { Container } from '@components';
 
-export const Root = styled.div`
-  position: relative;
-`;
-
 export const ContainerWithPadding = styled.div`
   padding: 0 0;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -21,26 +17,6 @@ export const Section = styled.section`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: 0 35px;
-  }
-`;
-
-export const SubHeading1 = styled.h2`
-  font-size: 4rem;
-  font-weight: 300;
-  text-align: center;
-
-  em {
-    font-style: normal;
-    border-bottom: 3px solid ${({ theme }) => theme.colors.yellow};
-  }
-`;
-
-export const GrayedSection = styled(Section)`
-  background-color: ${({ theme }) => theme.colors.grayLighter};
-
-  ${SubHeading1} {
-    width: 80%;
-    margin: 0 auto;
   }
 `;
 
@@ -125,6 +101,17 @@ export const BlogLogo = styled(Column)`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+`;
+
+export const BlogBack = styled(Column)`
+  width: 100%;
+  align-items: flex-end;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: 500;
+  padding: ${({ theme }) => theme.spaces.sm};
+  cursor: pointer;
+  user-select: none;
 `;
 
 export const SliderContainer = styled.div`

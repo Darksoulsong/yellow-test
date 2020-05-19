@@ -14,46 +14,47 @@ export const Root = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: ${({ specialLgMargin = 'unset' }) => specialLgMargin};
+  }
 `;
 
 export const ControlLeft = styled.div`
   transition: 0.3s ease-in-out;
   transition-property: opacity, top;
-  width: 0;
+  width: 30px;
   background-color: transparent;
   border: 0 none;
   cursor: pointer;
-  z-index: 5;
-
+  padding: ${({ theme }) => theme.spaces.xsm};
   ${({ show }) =>
     show
       ? `
-        opacity: 1;        
-      `
+      opacity: 1;
+    `
       : `
-        opacity: 0;        
-        top: calc(50% - 2px);
+      opacity: 0;        
+      top: calc(50% - 2px);
         pointer-events: none;
-    `}
-
+        `}
   svg {
     fill: ${({ theme }) => theme.colors.black};
+    width: 80%;
     height: auto;
-    width: 30px;
-    border-radius: 5px;
-    background: ${({ theme }) => theme.colors.white};
-    border: ${({ theme }) => `1px solid ${theme.colors.grayLight}`};
-
-    position: relative;
-    left: 10px;
-    padding: 5px;
     @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+      position: absolute;
+      width: 25px;
       left: -50px;
       padding: 0;
       border-radius: 0px;
       background: unset;
       border: none;
     }
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: 0;
+    padding: 0;
   }
 
   &:hover {
@@ -65,7 +66,6 @@ export const ControlRight = styled(ControlLeft)`
   transform: rotate(180deg);
   svg {
     position: relative;
-    left: 10px;
     @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
       left: -50px;
       padding: 0;

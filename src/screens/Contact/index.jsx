@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import * as Yup from 'yup';
-import { useFormik, validateYupSchema } from 'formik';
+import { useFormik } from 'formik';
 
-import { fieldHasError } from '@utils';
+import { fieldHasError, routeTo } from '@utils';
 import { spaces } from '@components/Organisms/Theme/sizes';
 
 import {
@@ -68,7 +68,6 @@ export const Contact = () => {
     handleSubmit,
     handleChange,
     touched,
-    setFieldValue,
   } = useFormik({
     initialValues,
     validationSchema: Yup.object(schema),
@@ -97,9 +96,15 @@ export const Contact = () => {
           <ArrowPositioner>
             <SVG name="handdrawn-arrow7" />
           </ArrowPositioner>
-          <Button variant="primary" height="70px" type="button">
-            BUSCO UMA VAGA
-          </Button>
+          <a
+            href="https://yellowrec.gupy.io/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Button variant="primary" height="70px" type="button">
+              BUSCO UMA VAGA
+            </Button>
+          </a>
         </SimpleContainer>
       </VacantSection>
       <FormSection>
