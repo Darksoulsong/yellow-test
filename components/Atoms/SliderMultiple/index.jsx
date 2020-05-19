@@ -3,7 +3,11 @@ import { SVG } from '@components';
 import { range } from '@utils';
 import { Root, ControlLeft, ControlRight } from './styles';
 
-export default function SliderMultiple({ children, itemsShowing = 3 }) {
+export default function SliderMultiple({
+  children,
+  itemsShowing = 3,
+  specialLgMargin,
+}) {
   const [firstIndexActive, setFirstIndexActive] = useState(0);
   const [items, setItems] = useState(null);
   const totalItemsInSlider = children.length;
@@ -32,8 +36,8 @@ export default function SliderMultiple({ children, itemsShowing = 3 }) {
   }, [itemsShowing]);
 
   return (
-    <Root>
-      <ControlLeft show>
+    <Root specialLgMargin={specialLgMargin}>
+      <ControlLeft show={firstIndexActive !== 0}>
         <SVG onClick={() => onChangeSlide(-itemsShowing)} name="arrow-icon" />
       </ControlLeft>
       {items}

@@ -19,7 +19,8 @@ import { articles, filters } from './mocked';
 import { spaces } from '@components/Organisms/Theme/sizes';
 
 import {
-  BlogCol,
+  BlogColText,
+  BlogColResponsive,
   BlogColImage,
   BlogLogo,
   BlogTopContainer,
@@ -48,7 +49,21 @@ export const Blog = () => {
               <SVG style={{ fill: 'black' }} name="logo" />
             </Circle>
           </BlogLogo>
-          <BlogCol>
+          <BlogColResponsive>
+            <MediumTitle>
+              YELLOW<strong>BLOG</strong>
+            </MediumTitle>
+          </BlogColResponsive>
+          <BlogColResponsive width="100%">
+            <CustomText margin={`${spaces.sm} 0 0 0`}>
+              <strong>Bem vindo</strong> ao <Underline>Yellowblog</Underline>,
+              ele foi feito com muito carinho para que você se sentisse em casa
+              como em uma página do Instagram.
+              <br />
+              Conteúdo relevante em textos pequenos e de fácil navegacão.
+            </CustomText>
+          </BlogColResponsive>
+          <BlogColText>
             <MediumTitle>
               YELLOW<strong>BLOG</strong>
             </MediumTitle>
@@ -59,7 +74,7 @@ export const Blog = () => {
               <br />
               Conteúdo relevante em textos pequenos e de fácil navegacão.
             </CustomText>
-          </BlogCol>
+          </BlogColText>
           <BlogColImage>
             <ColImgSVGContainer>
               <AnimatedManipulator
@@ -87,6 +102,8 @@ export const Blog = () => {
         <CardsContainer>
           {articles.map((item, index) => (
             <Card
+              width="50%"
+              mdWidth="33.33%"
               padding={`${spaces.xsm} 1%`}
               key={uid(item, index)}
               text={item.text}

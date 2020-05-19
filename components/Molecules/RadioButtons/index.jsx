@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { uid } from 'react-uid';
 import { Radio } from '@components';
 import { Container } from './styles';
@@ -8,7 +8,7 @@ export const RadioButtons = ({
   name,
   margin,
   selected,
-  setSelected,
+  setSelected = () => {},
 }) => (
   <Container margin={margin}>
     {radioButtons.map((radio, index) => (

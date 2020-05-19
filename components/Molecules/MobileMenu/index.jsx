@@ -1,18 +1,147 @@
 import React from 'react';
-import { Logo, SVG } from '@components';
-import {
-  HeaderHeading,
-  HeaderIconHolder,
-} from '@components/Molecules/Header/styles';
+import { Collapsible, Button } from '@components';
 import {
   MobileMenuRoot,
-  MobileMenuItem,
-  MobileMenuText,
-  MobileMenuBox,
   MobileMenuHeading,
-  MobileMenuIcon,
+  MobileMenuList,
+  MobileMenuListItem,
 } from './styles';
 
-export default function MobileMenu({ open }) {
-  return <MobileMenuRoot open={open}>Mobile Menu</MobileMenuRoot>;
+export default function MobileMenu({
+  open,
+  onCreateAccountButtonClick,
+  onLoginToggle,
+}) {
+  const menuItems = React.useMemo(() => {
+    return [
+      {
+        heading: 'Para Empresas',
+        content: [
+          {
+            link: '/quem-somos',
+            label: 'Quem somos',
+          },
+          {
+            link: '/produtos',
+            label: 'Produtos',
+          },
+          {
+            link: '/simule-sua-vaga',
+            label: 'Simule sua vaga',
+          },
+          {
+            link: '/contato',
+            label: 'Contato',
+          },
+          {
+            link: '/dicas-para-voce',
+            label: 'Dicas para você',
+          },
+        ],
+      },
+      {
+        heading: 'Para Candidatos',
+        content: [
+          {
+            link: '/quem-somos',
+            label: 'Quem somos',
+          },
+          {
+            link: '/vagas-abertas',
+            label: 'Vagas Abertas',
+          },
+          {
+            link: '/crie-sua-conta',
+            label: 'Crie sua conta',
+            onClick: function() {
+              event.preventDefault();
+              onCreateAccountButtonClick();
+            },
+          },
+          {
+            link: '/dicas-para-voce',
+            label: 'Dicas para você',
+          },
+        ],
+      },
+      {
+        heading: 'Yellow Way',
+        content: [
+          {
+            link: '/quem-somos',
+            label: 'Quem somos',
+          },
+          {
+            link: '/cultura',
+            label: 'Cultura',
+          },
+          {
+            link: '/blog',
+            label: 'Blog',
+          },
+          {
+            link: '/entre-para-o-time',
+            label: 'Entre para o time',
+          },
+        ],
+      },
+      {
+        heading: 'Quero Contratar',
+      },
+      {
+        heading: 'Acesse sua conta',
+        onClick: onLoginToggle,
+      },
+    ];
+  }, []);
+
+  React.useEffect(() => {
+    const method = open ? 'add' : 'remove';
+    document.body.classList[method]('hide-body-overflow');
+  }, [open]);
+
+  return (
+    <MobileMenuRoot open={open}>
+      <Collapsible>
+        {menuItems.map((item, index) => (
+          <>
+            {item.content && (
+              <Collapsible.Toggle itemIndex={index}>
+                <MobileMenuHeading>{item.heading}</MobileMenuHeading>
+              </Collapsible.Toggle>
+            )}
+
+            {!item.content && (
+              <Button
+                version="unstyled"
+                block
+                onClick={typeof item.onClick === 'function' && item.onClick}
+              >
+                <MobileMenuHeading>{item.heading}</MobileMenuHeading>
+              </Button>
+            )}
+
+            <Collapsible.Body>
+              <MobileMenuList>
+                {item.content &&
+                  item.content.map(contentItem => (
+                    <MobileMenuListItem key={contentItem.link}>
+                      <a
+                        onClick={
+                          typeof contentItem.onClick === 'function' &&
+                          contentItem.onClick
+                        }
+                        href={contentItem.link}
+                      >
+                        {contentItem.label}
+                      </a>
+                    </MobileMenuListItem>
+                  ))}
+              </MobileMenuList>
+            </Collapsible.Body>
+          </>
+        ))}
+      </Collapsible>
+    </MobileMenuRoot>
+  );
 }

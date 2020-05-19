@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { uid } from 'react-uid';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { routeTo } from '@utils';
 
 import {
   SVG,
@@ -24,6 +25,7 @@ import {
   BlogCol,
   BlogColImage,
   BlogLogo,
+  BlogBack,
   BlogTopContainer,
   Circle,
   SliderContainer,
@@ -66,6 +68,9 @@ export const BlogArticle = () => {
             </MediumTitle>
             <Text margin={`${spaces.xsm} 0 0 0`}>Daniel Monteiro</Text>
           </BlogCol>
+          <BlogBack onClick={() => routeTo('/blog')}>
+            VOLTAR PARA O FEED
+          </BlogBack>
         </BlogTopContainer>
 
         <BlogColImage>
@@ -82,10 +87,13 @@ export const BlogArticle = () => {
         <LikesAndComments />
 
         <SliderContainer>
-          <SliderMultiple itemsShowing={cardsShownAtSlider}>
+          <SliderMultiple
+            itemsShowing={cardsShownAtSlider}
+            specialLgMargin="0 -1%"
+          >
             {articles.map((item, index) => (
               <Card
-                padding={`${spaces.xsm} 1%`}
+                padding="0 1%"
                 width="50%"
                 mdWidth="33.33%"
                 key={uid(item, index)}

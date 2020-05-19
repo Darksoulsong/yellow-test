@@ -109,7 +109,6 @@ const Global = createGlobalStyle`
     outline: 0 none;
   }
 
-
   i {
     cursor: pointer;
   }
@@ -122,7 +121,7 @@ const Global = createGlobalStyle`
   /* GLOBAL WIDE CLASSES */
   .hide-body-overflow {
     overflow: hidden;
-    padding-right: 8px;
+    padding-right: 6px;
   } 
 
   a {

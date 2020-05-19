@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const unstyled = css`
   height: auto;
-  width: auto;
+  width: ${({ block, width = 'auto' }) => (block ? '100%' : width)};
   background: transparent;
   border: 0 none;
   cursor: pointer;
@@ -20,6 +20,12 @@ const getButtonVariant = (variant, colors) => {
       return `
         color: ${colors.grayDark};
         background-color: ${colors.grayLight};
+      `;
+
+    case 'black':
+      return `
+        color: ${colors.white};
+        background-color: ${colors.black};
       `;
 
     default:

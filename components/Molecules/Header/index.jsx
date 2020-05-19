@@ -139,6 +139,7 @@ export default function Header() {
     setShowCreateAccountModal(true);
     handleLoginToggle(showBackdrop);
     setShowBackdrop(false);
+    setMobileMenuIsOpen(false);
   }, [showBackdrop]);
 
   const handleForgotPasswordButtonClick = React.useCallback(() => {
@@ -240,7 +241,10 @@ export default function Header() {
 
           <HeaderBodyRight>
             <NavSecondary>
-              <NavItem ref={createAccountRef}>
+              <NavItem
+                onClick={() => routeTo('/contato')}
+                ref={createAccountRef}
+              >
                 <NavItemLabel>Quero contratar</NavItemLabel>
               </NavItem>
               <NavItem ref={loginContainerRef} active data-item-label="login">
@@ -260,12 +264,19 @@ export default function Header() {
           </HeaderBodyRight>
 
           <HeaderBodyMobile>
-            <HamburgerButton onClick={() => handleMobileMenuToggle()} />
+            <HamburgerButton
+              active={mobileMenuIsOpen}
+              onClick={handleMobileMenuToggle}
+            />
           </HeaderBodyMobile>
         </HeaderContent>
       </HeaderMain>
 
-      <MobileMenu open={mobileMenuIsOpen} />
+      <MobileMenu
+        open={mobileMenuIsOpen}
+        onCreateAccountButtonClick={handleCreateAccountButtonClick}
+        onLoginToggle={handleLoginToggle}
+      />
     </HeaderRoot>
   );
 }
