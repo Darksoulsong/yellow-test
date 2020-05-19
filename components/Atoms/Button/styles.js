@@ -22,6 +22,12 @@ const getButtonVariant = (variant, colors) => {
         background-color: ${colors.grayLight};
       `;
 
+    case 'black':
+      return `
+        color: ${colors.white};
+        background-color: ${colors.black};
+      `;
+
     default:
       return `
         color: ${colors.white};

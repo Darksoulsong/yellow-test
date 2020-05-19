@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  label {
+    cursor: pointer;
+  }
   margin-bottom: ${({ theme }) => theme.spaces.sm};
 `;
 
 export const RadioContainer = styled.div`
-  cursor: pointer;
   display: inline-block;
   margin-right: ${({ theme }) => theme.spaces.xsm};
   vertical-align: middle;

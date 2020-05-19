@@ -240,7 +240,10 @@ export default function Header() {
 
           <HeaderBodyRight>
             <NavSecondary>
-              <NavItem ref={createAccountRef}>
+              <NavItem
+                onClick={() => routeTo('/contato')}
+                ref={createAccountRef}
+              >
                 <NavItemLabel>Quero contratar</NavItemLabel>
               </NavItem>
               <NavItem ref={loginContainerRef} active data-item-label="login">

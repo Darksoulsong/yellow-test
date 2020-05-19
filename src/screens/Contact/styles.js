@@ -33,31 +33,7 @@ export const ArrowPositioner = styled.div`
   }
 `;
 
-export const CustomField = styled.input`
-  height: 45px;
-  background: ${({ theme }) => theme.colors.grayLight};
-  border: 0 none;
-  border-radius: 5px;
-  font-size: 1.8rem;
-  font-weight: 300;
-`;
-
-export const CustomTextArea = styled.textarea`
-  height: 150px;
-  border-radius: 5px;
-  background: ${({ theme }) => theme.colors.grayLight};
-  padding: ${({ theme }) => theme.spaces.sm};
-  font-size: 1.8rem;
-  font-weight: 300;
-  resize: none;
-  width: 100%;
-  font-family: Roboto, sans-serif;
-  margin-top: ${({ theme }) => theme.spaces.md};
-`;
-
 export const CustomButton = styled(Button)`
-  background-color: ${({ theme }) => theme.colors.black};
-  font-weight: 700;
   width: fit-content;
   border-radius: 7px;
 `;

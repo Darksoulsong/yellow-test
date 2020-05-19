@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
+import { fieldHasError, routeTo } from '@utils';
 import { spaces } from '@components/Organisms/Theme/sizes';
 
 import {
@@ -10,6 +13,8 @@ import {
   AnimatedManipulator,
   SVG,
   RadioButtons,
+  Field,
+  FormControl,
 } from '@components';
 
 import {
@@ -21,14 +26,21 @@ import {
   HugeTitle,
   TitleContainer,
   SVGManipulator,
-  CustomField,
   Form,
   FormQuestion,
   SimpleContainer,
-  CustomTextArea,
   CustomButton,
   ArrowPositioner,
 } from './styles';
+
+const schema = {
+  name: Yup.string().required('Informe o nome'),
+  email: Yup.string().required('Informe o email'),
+  company: Yup.string().required('Informe a empresa'),
+  telf: Yup.string().required('Informe o telefone'),
+  product: Yup.string(),
+  comment: Yup.string(),
+};
 
 const radioButtons = [
   { label: 'Tech', value: 'tech' },
@@ -38,8 +50,33 @@ const radioButtons = [
 ];
 
 export const Contact = () => {
-  const [radio, setRadio] = useState('');
-  const [send, setSend] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  const initialValues = {
+    name: '',
+    email: '',
+    company: '',
+    telf: '',
+    product: 'tech',
+    comment: '',
+  };
+
+  const {
+    values,
+    errors,
+    handleBlur,
+    handleSubmit,
+    handleChange,
+    touched,
+  } = useFormik({
+    initialValues,
+    validationSchema: Yup.object(schema),
+    validateOnChange: false,
+    validateOnBlur: true,
+    onSubmit: () => {
+      setSent(true);
+    },
+  });
 
   useEffect(() => {
     AOS.init({
@@ -59,9 +96,15 @@ export const Contact = () => {
           <ArrowPositioner>
             <SVG name="handdrawn-arrow7" />
           </ArrowPositioner>
-          <Button variant="primary" height="70px" type="button">
-            BUSCO UMA VAGA
-          </Button>
+          <a
+            href="https://yellowrec.gupy.io/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Button variant="primary" height="70px" type="button">
+              BUSCO UMA VAGA
+            </Button>
+          </a>
         </SimpleContainer>
       </VacantSection>
       <FormSection>
@@ -85,11 +128,61 @@ export const Contact = () => {
             />
           </SVGManipulator>
         </TitleContainer>
-        <Form>
-          <CustomField placeholder="nome" />
-          <CustomField placeholder="email" />
-          <CustomField placeholder="empresa" />
-          <CustomField placeholder="telefone" />
+        <Form onSubmit={handleSubmit}>
+          <FormControl>
+            <Field
+              disabled={sent}
+              variant="normal"
+              placeholder="nome"
+              name="name"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.name}
+              hasError={fieldHasError('name', touched, errors)}
+              validationMessage={errors.name}
+            />
+          </FormControl>
+          <FormControl>
+            <Field
+              disabled={sent}
+              variant="normal"
+              placeholder="email"
+              name="email"
+              type="email"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.email}
+              hasError={fieldHasError('email', touched, errors)}
+              validationMessage={errors.email}
+            />
+          </FormControl>
+          <FormControl>
+            <Field
+              disabled={sent}
+              variant="normal"
+              placeholder="empresa"
+              name="company"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.company}
+              hasError={fieldHasError('company', touched, errors)}
+              validationMessage={errors.company}
+            />
+          </FormControl>
+          <FormControl>
+            <Field
+              disabled={sent}
+              variant="normal"
+              placeholder="telefone"
+              name="telf"
+              mask="cellphone"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.telf}
+              hasError={fieldHasError('telf', touched, errors)}
+              validationMessage={errors.telf}
+            />
+          </FormControl>
           <FormQuestion>
             <CustomText>
               <strong> Qual produto</strong> nosso atende sua necessidade?
@@ -98,35 +191,43 @@ export const Contact = () => {
           <RadioButtons
             radioButtons={radioButtons}
             name="product"
-            selected={radio}
-            setSelected={setRadio}
+            selected={values.product}
+            setSelected={!sent ? handleChange : () => {}}
           />
-
-          <SimpleContainer>
-            <CustomTextArea placeholder="Fale mais sobre o que você precisa" />
+          <SimpleContainer margin={`${spaces.sm} 0 0 0 `}>
+            <Field
+              disabled={sent}
+              type="textarea"
+              name="comment"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.comment}
+              placeholder="Fale mais sobre o que você precisa"
+            />
+          </SimpleContainer>
+          <SimpleContainer
+            direction="column"
+            margin={`${spaces.lg} 0 ${spaces.sm} 0`}
+          >
+            <CustomButton
+              type="submit"
+              variant={sent ? 'primary' : 'black'}
+              fontSize="1em"
+              height="40px"
+            >
+              ENVIAR
+            </CustomButton>
+            {sent && (
+              <CustomText
+                align="center"
+                margin={`${spaces.sm} 0`}
+                style={{ fontSize: '1.75rem', opacity: '0.75' }}
+              >
+                Obrigado pelo seu contato, iremos retornar em breve!
+              </CustomText>
+            )}
           </SimpleContainer>
         </Form>
-        <SimpleContainer
-          direction="column"
-          margin={`${spaces.lg} 0 ${spaces.sm} 0`}
-        >
-          <CustomButton
-            variant={send ? 'primary' : ''}
-            fontSize="1em"
-            height="40px"
-          >
-            ENVIAR
-          </CustomButton>
-          <CustomText
-            onClick={() => setSend(true)}
-            variant={send ? 'primary' : ''}
-            align="center"
-            margin={`${spaces.sm} 0`}
-            style={{ fontSize: '1.75rem', opacity: '0.75' }}
-          >
-            Obrigado pelo seu contato, iremos retornar em breve!
-          </CustomText>
-        </SimpleContainer>
       </FormSection>
       <SimulationSection>
         <HugeTitle weight="700" align="center">

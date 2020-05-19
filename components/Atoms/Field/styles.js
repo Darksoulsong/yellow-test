@@ -19,8 +19,8 @@ const RoundElementBase = css`
   transition-property: background-color, border;
   display: flex;
   align-items: center;
-  height: 55px;
-  border-radius: 27px;
+  height: ${({ type }) => (type === 'textarea' ? '150px' : '55px')};
+  border-radius: ${({ variant }) => (variant === 'rounded' ? '27px' : '5px')};
   padding: 0 20px;
 
   background-color: ${({ theme }) => theme.colors.fieldBackground};
@@ -45,6 +45,11 @@ export const Input = styled.input`
     color: ${({ theme }) => theme.colors.fieldPlaceholder};
     opacity: 1; /* Firefox */
   }
+`;
+
+export const TextArea = styled(Input).attrs({ as: 'textarea' })`
+  resize: none;
+  height: 120px;
 `;
 
 export const Select = styled(Input).attrs({
