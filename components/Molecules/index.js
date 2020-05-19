@@ -6,5 +6,6 @@ export { default as Footer } from './Footer';
 export { default as Modal } from './Modal';
 export { Pagination } from './Pagination';
 export { Suscribe } from './Suscribe';
+export { RadioButtons } from './RadioButtons';
 export { LikesAndComments } from './LikesAndComments';
 export { default as FormSteps } from './FormSteps';

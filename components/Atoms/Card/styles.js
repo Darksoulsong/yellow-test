@@ -6,6 +6,7 @@ export const CardContainer = styled.div`
   cursor: pointer;
   flex-direction: column;
   width: ${({ width = '50%' }) => width};
+  padding: ${({ padding }) => padding};
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: ${({ mdWidth = '33.33%' }) => mdWidth};
   }
@@ -49,6 +50,7 @@ export const Image = styled.img`
 
 export const CustomText = styled(Text)`
   font-size: 1.65rem;
+  height: 42px;
   padding: ${({ theme }) => theme.spaces.xsm};
   padding-bottom: 0px;
   margin: ${({ theme }) => `${theme.spaces.xsm} 0`};

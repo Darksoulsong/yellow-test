@@ -9,7 +9,7 @@ export const Suscribe = ({ padding, placeholder }) => (
     </MediumTitle>
     <SuscribeHolder>
       <CustomField placeholder={placeholder} />
-      <Button>inscrever</Button>
+      <Button height="50px">inscrever</Button>
     </SuscribeHolder>
   </SuscribeSection>
 );
