@@ -1,17 +1,8 @@
 import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Logo, IntroImageYellowWay, Hashtag, DefaultLayout } from '@components';
 import {
-  Container,
-  Header,
-  Logo,
-  IntroImageYellowWay,
-  Hashtag,
-  Footer,
-  DefaultLayout,
-} from '@components';
-import {
-  YellowWayRoot,
   YellowWayIntro,
   Section,
   YellowSection,

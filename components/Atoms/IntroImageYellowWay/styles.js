@@ -29,7 +29,7 @@ export const ImageItem1 = styled.span`
   transition-property: transform, z-index;
   position: absolute;
   left: 13.4%;
-  top: 71.3%;
+  top: 71.1%;
   width: 12.2vw;
   height: 15.7vw;
   overflow: hidden;
@@ -120,10 +120,10 @@ const Item = styled.h3`
   letter-spacing: 0.08rem;
 
   strong {
-    font-weight: 800;
+    font-weight: 600;
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.largest}) {
     font-size: 3.2rem;
   }
 `;
@@ -173,7 +173,7 @@ export const Arrow2 = styled(Arrow)`
   right: 0%;
 
   svg {
-    width: 8.2vw;
+    width: 6vw;
     max-width: 97px;
   }
 `;
@@ -197,7 +197,7 @@ export const Arrow4 = styled(Arrow)`
 `;
 export const Arrow5 = styled(Arrow)`
   left: 0;
-  top: 14.5%;
+  top: 30%;
 
   svg {
     width: 3.8vw;
@@ -228,10 +228,10 @@ export const BlockItem1 = styled(BlockItem)`
 `;
 
 export const BlockItem2 = styled(BlockItem)`
-  width: 20.1vw;
+  width: 20.8vw;
   height: 6vw;
   top: 47%;
-  left: -57.5%;
+  left: -60%;
   max-width: 320px;
   max-height: 130px;
 `;

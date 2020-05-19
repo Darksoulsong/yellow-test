@@ -17,16 +17,6 @@ export const LoginFormRoot = styled.div`
   padding: 56px 50px 45px;
   color: #a6a8ab;
   font-weight: 300;
-
-  a {
-    color: #a6a8ab;
-    text-decoration: underline;
-    font-weight: 300;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
 `;
 
 export const Field = styled.div`
@@ -129,4 +119,16 @@ export const FormButtonGray = styled(FormButton)``;
 export const FormButtonYellow = styled(FormButton)`
   background-color: ${({ theme }) => theme.colors.yellow};
   color: ${({ theme }) => theme.colors.black};
+`;
+
+export const ForgotPasswordLabel = styled.span`
+  color: #a6a8ab;
+  text-decoration: underline;
+  font-weight: 300;
+  letter-spacing: 0.045rem;
+  font-size: 1.8rem;
+
+  &:hover {
+    text-decoration: none;
+  }
 `;
