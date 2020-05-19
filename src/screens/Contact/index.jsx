@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import * as Yup from 'yup';
-import { useFormik } from 'formik';
+import { useFormik, validateYupSchema } from 'formik';
 
 import { fieldHasError } from '@utils';
 import { spaces } from '@components/Organisms/Theme/sizes';
@@ -50,7 +50,6 @@ const radioButtons = [
 ];
 
 export const Contact = () => {
-  const [radio, setRadio] = useState('tech');
   const [sent, setSent] = useState(false);
 
   const initialValues = {
@@ -58,7 +57,7 @@ export const Contact = () => {
     email: '',
     company: '',
     telf: '',
-    product: '',
+    product: 'tech',
     comment: '',
   };
 
@@ -69,6 +68,7 @@ export const Contact = () => {
     handleSubmit,
     handleChange,
     touched,
+    setFieldValue,
   } = useFormik({
     initialValues,
     validationSchema: Yup.object(schema),
@@ -186,8 +186,8 @@ export const Contact = () => {
           <RadioButtons
             radioButtons={radioButtons}
             name="product"
-            selected={radio}
-            setSelected={!sent ? setRadio : () => {}}
+            selected={values.product}
+            setSelected={!sent ? handleChange : () => {}}
           />
           <SimpleContainer margin={`${spaces.sm} 0 0 0 `}>
             <Field
