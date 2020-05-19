@@ -30,3 +30,4 @@ export { CircledFilter } from './CircledFilter';
 export { experimentBrushScriptFontFace } from './FontFaces';
 export * from './Fonts';
 export { default as Checkbox } from './Checkbox';
+export { default as Collapsible } from './Collapsible';
