@@ -109,6 +109,19 @@ export default function MobileMenu({
     document.body.classList[method]('hide-body-overflow');
   }, [open]);
 
+  const getButtonProps = React.useCallback(item => {
+    const props = {
+      version: 'unstyled',
+      block: true,
+    };
+
+    if (typeof item.onClick === 'function') {
+      props.onClick = item.onClick;
+    }
+
+    return props;
+  }, []);
+
   return (
     <MobileMenuRoot open={open}>
       <Collapsible>
@@ -121,11 +134,7 @@ export default function MobileMenu({
             )}
 
             {!item.content && (
-              <Button
-                version="unstyled"
-                block
-                onClick={typeof item.onClick === 'function' && item.onClick}
-              >
+              <Button {...getButtonProps(item)}>
                 <MobileMenuHeading>{item.heading}</MobileMenuHeading>
               </Button>
             )}
@@ -137,8 +146,9 @@ export default function MobileMenu({
                     <MobileMenuListItem key={contentItem.link}>
                       <a
                         onClick={
-                          typeof contentItem.onClick === 'function' &&
-                          contentItem.onClick
+                          typeof contentItem.onClick === 'function'
+                            ? contentItem.onClick
+                            : undefined
                         }
                         href={contentItem.link}
                       >
