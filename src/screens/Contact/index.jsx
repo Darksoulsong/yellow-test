@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
-import { fieldHasError, routeTo } from '@utils';
+import { fieldHasError } from '@utils';
 import { spaces } from '@components/Organisms/Theme/sizes';
 
 import {
@@ -29,7 +29,6 @@ import {
   Form,
   FormQuestion,
   SimpleContainer,
-  CustomButton,
   ArrowPositioner,
 } from './styles';
 
@@ -88,11 +87,11 @@ export const Contact = () => {
     <DefaultLayout>
       <VacantSection>
         <CustomTitle align="center">
-          <strong>SE VOCÊ É UM CANDIDATO,</strong> <br />
-          CLIQUE PARA SE INSCREVER EM <br />
-          UMA DE NOSSAS VAGAS
+          <strong>SE VOCÊ É UM CANDIDATO,</strong>
         </CustomTitle>
-        <SimpleContainer>
+        <CustomTitle align="center">CLIQUE PARA SE INSCREVER EM</CustomTitle>
+        <CustomTitle align="center">UMA DE NOSSAS VAGAS</CustomTitle>
+        <SimpleContainer margin={`${spaces.lg} 0`}>
           <ArrowPositioner>
             <SVG name="handdrawn-arrow7" />
           </ArrowPositioner>
@@ -132,7 +131,6 @@ export const Contact = () => {
           <FormControl>
             <Field
               disabled={sent}
-              variant="normal"
               placeholder="nome"
               name="name"
               onBlur={handleBlur}
@@ -145,7 +143,6 @@ export const Contact = () => {
           <FormControl>
             <Field
               disabled={sent}
-              variant="normal"
               placeholder="email"
               name="email"
               type="email"
@@ -159,7 +156,6 @@ export const Contact = () => {
           <FormControl>
             <Field
               disabled={sent}
-              variant="normal"
               placeholder="empresa"
               name="company"
               onBlur={handleBlur}
@@ -172,7 +168,6 @@ export const Contact = () => {
           <FormControl>
             <Field
               disabled={sent}
-              variant="normal"
               placeholder="telefone"
               name="telf"
               mask="cellphone"
@@ -209,14 +204,15 @@ export const Contact = () => {
             direction="column"
             margin={`${spaces.lg} 0 ${spaces.sm} 0`}
           >
-            <CustomButton
+            <Button
+              width="fit-content"
               type="submit"
               variant={sent ? 'primary' : 'black'}
               fontSize="1em"
               height="40px"
             >
               ENVIAR
-            </CustomButton>
+            </Button>
             {sent && (
               <CustomText
                 align="center"

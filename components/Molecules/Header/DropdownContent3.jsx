@@ -1,5 +1,5 @@
 import React from 'react';
-import { routeTo } from '@utils';
+import Link from 'next/link';
 import { Logo, SVG } from '@components';
 import {
   HeaderDropdown,
@@ -23,26 +23,30 @@ export default function DropdownContent1() {
             trabalho.
           </HeaderText>
         </HeaderDropdownBlock>
-        <HeaderDropdownBlock onClick={() => routeTo('/yellow-way')}>
-          <HeaderHeading>Cultura</HeaderHeading>
-          <HeaderIconHolder className="culture">
-            <SVG name="umbrella-icon" />
-          </HeaderIconHolder>
-          <HeaderText>
-            Conheça mais do nosso jeito de pensar e a forma como enxergamos o
-            mundo. Nosso #yellowway.
-          </HeaderText>
-        </HeaderDropdownBlock>
-        <HeaderDropdownBlock onClick={() => routeTo('/blog')}>
-          <HeaderHeading>Blog</HeaderHeading>
-          <HeaderIconHolder className="blog">
-            <SVG name="bubble-edit-icon" />
-          </HeaderIconHolder>
-          <HeaderText>
-            Clique e acesse conteúdos relevantes para você como candidato ou
-            como recrutador.
-          </HeaderText>
-        </HeaderDropdownBlock>
+        <Link href="/yellow-way">
+          <HeaderDropdownBlock>
+            <HeaderHeading>Cultura</HeaderHeading>
+            <HeaderIconHolder className="culture">
+              <SVG name="umbrella-icon" />
+            </HeaderIconHolder>
+            <HeaderText>
+              Conheça mais do nosso jeito de pensar e a forma como enxergamos o
+              mundo. Nosso #yellowway.
+            </HeaderText>
+          </HeaderDropdownBlock>
+        </Link>
+        <Link href="/blog">
+          <HeaderDropdownBlock>
+            <HeaderHeading>Blog</HeaderHeading>
+            <HeaderIconHolder className="blog">
+              <SVG name="bubble-edit-icon" />
+            </HeaderIconHolder>
+            <HeaderText>
+              Clique e acesse conteúdos relevantes para você como candidato ou
+              como recrutador.
+            </HeaderText>
+          </HeaderDropdownBlock>
+        </Link>
         <HeaderDropdownBlock>
           <HeaderHeading>Entre para o time</HeaderHeading>
           <HeaderIconHolder className="team">

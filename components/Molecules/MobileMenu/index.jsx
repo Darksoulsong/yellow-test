@@ -1,10 +1,12 @@
 import React from 'react';
-import { Collapsible, Button } from '@components';
+import { routeTo } from '@utils';
+import { Collapsible, Button, SVG } from '@components';
 import {
   MobileMenuRoot,
   MobileMenuHeading,
   MobileMenuList,
   MobileMenuListItem,
+  MobileMenuToggleIcon,
 } from './styles';
 
 export default function MobileMenu({
@@ -34,7 +36,7 @@ export default function MobileMenu({
             label: 'Contato',
           },
           {
-            link: '/dicas-para-voce',
+            link: '/blog',
             label: 'Dicas para você',
           },
         ],
@@ -47,7 +49,8 @@ export default function MobileMenu({
             label: 'Quem somos',
           },
           {
-            link: '/vagas-abertas',
+            link: 'https://yellowrec.gupy.io/',
+            external: true,
             label: 'Vagas Abertas',
           },
           {
@@ -59,7 +62,7 @@ export default function MobileMenu({
             },
           },
           {
-            link: '/dicas-para-voce',
+            link: '/blog',
             label: 'Dicas para você',
           },
         ],
@@ -72,7 +75,7 @@ export default function MobileMenu({
             label: 'Quem somos',
           },
           {
-            link: '/cultura',
+            link: '/yellow-way',
             label: 'Cultura',
           },
           {
@@ -87,6 +90,7 @@ export default function MobileMenu({
       },
       {
         heading: 'Quero Contratar',
+        onClick: () => routeTo('/contato'),
       },
       {
         heading: 'Acesse sua conta',
@@ -95,10 +99,31 @@ export default function MobileMenu({
     ];
   }, []);
 
+  const renderIcon = React.useCallback(isActive => {
+    return (
+      <MobileMenuToggleIcon active={isActive}>
+        <SVG name="caret-icon" />
+      </MobileMenuToggleIcon>
+    );
+  }, []);
+
   React.useEffect(() => {
     const method = open ? 'add' : 'remove';
     document.body.classList[method]('hide-body-overflow');
   }, [open]);
+
+  const getButtonProps = React.useCallback(item => {
+    const props = {
+      version: 'unstyled',
+      block: true,
+    };
+
+    if (typeof item.onClick === 'function') {
+      props.onClick = item.onClick;
+    }
+
+    return props;
+  }, []);
 
   return (
     <MobileMenuRoot open={open}>
@@ -106,17 +131,13 @@ export default function MobileMenu({
         {menuItems.map((item, index) => (
           <>
             {item.content && (
-              <Collapsible.Toggle itemIndex={index}>
+              <Collapsible.Toggle itemIndex={index} renderIcon={renderIcon}>
                 <MobileMenuHeading>{item.heading}</MobileMenuHeading>
               </Collapsible.Toggle>
             )}
 
             {!item.content && (
-              <Button
-                version="unstyled"
-                block
-                onClick={typeof item.onClick === 'function' && item.onClick}
-              >
+              <Button {...getButtonProps(item)}>
                 <MobileMenuHeading>{item.heading}</MobileMenuHeading>
               </Button>
             )}
@@ -128,10 +149,13 @@ export default function MobileMenu({
                     <MobileMenuListItem key={contentItem.link}>
                       <a
                         onClick={
-                          typeof contentItem.onClick === 'function' &&
-                          contentItem.onClick
+                          typeof contentItem.onClick === 'function'
+                            ? contentItem.onClick
+                            : undefined
                         }
                         href={contentItem.link}
+                        rel={contentItem.external ? 'noopener noreferrer' : ''}
+                        target={contentItem.external ? '_blank' : '_self'}
                       >
                         {contentItem.label}
                       </a>

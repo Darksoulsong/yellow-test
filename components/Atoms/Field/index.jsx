@@ -20,7 +20,6 @@ const FieldComponent = React.memo(function FieldComponent({
   options,
   disabled,
   isLoading,
-  variant = 'rounded',
   ...rest
 }) {
   const ref = React.useRef(null);
@@ -40,7 +39,7 @@ const FieldComponent = React.memo(function FieldComponent({
   }
 
   return (
-    <FieldRoot variant={variant} width={width} hasError={hasError}>
+    <FieldRoot width={width} hasError={hasError}>
       <Field
         type={type}
         isSelect={type === 'select'}
