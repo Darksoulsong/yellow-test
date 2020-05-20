@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { uid } from 'react-uid';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { routeTo } from '@utils';
 
 import {
   SVG,
@@ -68,9 +68,9 @@ export const BlogArticle = () => {
             </MediumTitle>
             <Text margin={`${spaces.xsm} 0 0 0`}>Daniel Monteiro</Text>
           </BlogCol>
-          <BlogBack onClick={() => routeTo('/blog')}>
-            VOLTAR PARA O FEED
-          </BlogBack>
+          <Link href="/blog">
+            <BlogBack>VOLTAR PARA O FEED</BlogBack>
+          </Link>
         </BlogTopContainer>
 
         <BlogColImage>

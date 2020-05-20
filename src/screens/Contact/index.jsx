@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
-import { fieldHasError, routeTo } from '@utils';
+import { fieldHasError } from '@utils';
 import { spaces } from '@components/Organisms/Theme/sizes';
 
 import {

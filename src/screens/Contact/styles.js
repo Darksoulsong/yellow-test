@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MediumTitle, Text, Button } from '@components';
+import { MediumTitle, Text } from '@components';
 
 export const CustomTitle = styled(MediumTitle)`
   font-size: 2rem;

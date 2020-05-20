@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import {
   SVG,
   useBackdrop,
@@ -10,7 +11,6 @@ import {
   Modal,
   CreateAccountForm,
 } from '@components';
-import { routeTo } from '@utils';
 import { colors } from '@components/Organisms/Theme/default/colors';
 import { useScrollPosition } from '@hooks';
 import DropdownContent1 from './DropdownContent1';
@@ -129,11 +129,11 @@ export default function Header() {
   );
 
   // This method will be unused, remove when is definite
-  const handleLogoClick = React.useCallback(() => {
-    document
-      .getElementById('page-top')
-      ?.scrollIntoView({ block: 'start', behavior: 'smooth' });
-  }, []);
+  // const handleLogoClick = React.useCallback(() => {
+  // document
+  // .getElementById('page-top')
+  // ?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  // }, []);
 
   const handleCreateAccountButtonClick = React.useCallback(() => {
     setShowCreateAccountModal(true);
@@ -200,11 +200,13 @@ export default function Header() {
 
       <HeaderMain>
         <HeaderLogo onMouseEnter={onLogoMouseEnter}>
-          <Button type="button" version="unstyled" onClick={() => routeTo('/')}>
-            <Logo>
-              <SVG />
-            </Logo>
-          </Button>
+          <Link href="/">
+            <Button type="button" version="unstyled">
+              <Logo>
+                <SVG />
+              </Logo>
+            </Button>
+          </Link>
         </HeaderLogo>
 
         <HeaderContent>
@@ -241,12 +243,11 @@ export default function Header() {
 
           <HeaderBodyRight>
             <NavSecondary>
-              <NavItem
-                onClick={() => routeTo('/contato')}
-                ref={createAccountRef}
-              >
-                <NavItemLabel>Quero contratar</NavItemLabel>
-              </NavItem>
+              <Link href="/contato">
+                <NavItem ref={createAccountRef}>
+                  <NavItemLabel>Quero contratar</NavItemLabel>
+                </NavItem>
+              </Link>
               <NavItem ref={loginContainerRef} active data-item-label="login">
                 <NavItemLabel onClick={() => handleLoginToggle(showBackdrop)}>
                   Acesse sua conta
