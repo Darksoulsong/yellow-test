@@ -9,25 +9,27 @@ import {
 
 export default function Toggle({ children, itemIndex, renderIcon }) {
   const { activeItem, setActiveItem } = useCollapsible();
+  const isActive = activeItem === itemIndex;
   const icon =
     typeof renderIcon === 'function' ? (
-      renderIcon()
+      renderIcon(isActive)
     ) : (
-      <CollapsibleDefaultToggleIcon className="collapsible-toggle-icon">
+      <CollapsibleDefaultToggleIcon
+        className="collapsible-toggle-icon"
+        active={activeItem === itemIndex}
+      >
         ⌄
       </CollapsibleDefaultToggleIcon>
     );
 
   const handleClick = React.useCallback(() => {
-    setActiveItem(activeItem === itemIndex ? null : itemIndex);
+    setActiveItem(isActive ? null : itemIndex);
   }, [itemIndex, activeItem]);
 
   return (
     <CollapsibleHeader onClick={handleClick}>
       <CollapsibleHeaderLabel>{children}</CollapsibleHeaderLabel>
-      <CollapsibleHeaderIconHolder active={activeItem === itemIndex}>
-        {icon}
-      </CollapsibleHeaderIconHolder>
+      {icon}
     </CollapsibleHeader>
   );
 }
