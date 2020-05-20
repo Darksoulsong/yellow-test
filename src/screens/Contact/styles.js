@@ -26,16 +26,11 @@ export const CustomText = styled(Text)`
 export const ArrowPositioner = styled.div`
   position: relative;
   width: 0;
-  left: -25%;
+  left: -55%;
   display: none;
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
     display: block;
   }
-`;
-
-export const CustomButton = styled(Button)`
-  width: fit-content;
-  border-radius: 7px;
 `;
 
 export const SimpleContainer = styled.div`
@@ -65,12 +60,8 @@ export const Section = styled.div`
 `;
 
 export const VacantSection = styled(Section)`
-  margin: ${({ theme }) => theme.spaces.xlg};
-  margin-bottom: ${({ theme }) => theme.spaces.lg};
-  button {
-    margin: ${({ theme }) => theme.spaces.lg};
-    width: fit-content;
-  }
+  margin: ${({ theme }) =>
+    `${theme.spaces.xlg} ${theme.spaces.md} ${theme.spaces.lg} ${theme.spaces.md}`};
 `;
 
 export const FormSection = styled(Section)`
@@ -104,5 +95,8 @@ export const Form = styled.form`
 `;
 
 export const SimulationSection = styled(Section)`
-  margin: ${({ theme }) => theme.spaces.lg};
+  margin: ${({ theme }) => theme.spaces.md};
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: ${({ theme }) => theme.spaces.lg};
+  }
 `;
