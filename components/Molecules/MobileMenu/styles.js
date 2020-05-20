@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const MobileMenuRoot = styled.div`
   transition: all 0.3s ease-in-out;
@@ -26,7 +26,7 @@ export const MobileMenuRoot = styled.div`
 
   ${({ open }) =>
     open &&
-    `
+    css`
       opacity: 1;
       height: 100vh;
     `};
@@ -70,4 +70,20 @@ export const MobileMenuListItem = styled.li`
   a {
     color: ${({ theme }) => theme.colors.grayLighter};
   }
+`;
+
+export const MobileMenuToggleIcon = styled.span`
+  transition: all 0.3s ease-in-out;
+  transform: rotateX(0deg);
+  color: ${({ theme }) => theme.colors.white};
+
+  ${({ active }) =>
+    active &&
+    css`
+      transform: rotateX(180deg);
+
+      path {
+        stroke: ${({ theme }) => theme.colors.yellow};
+      }
+    `};
 `;

@@ -70,6 +70,7 @@ import PaperclipIcon from '../../../public/images/paperclip-icon.svg';
 import InteractLike from '../../../public/images/interact-like-icon.svg';
 import InteractShare from '../../../public/images/interact-share-icon.svg';
 import InteractComment from '../../../public/images/interact-comment-icon.svg';
+import CaretIcon from '../../../public/images/caret-icon.svg';
 
 const getStyles = (size, invert) => {
   const style = {};
@@ -228,6 +229,8 @@ const getImage = name => {
       return InteractComment;
     case 'interact-share':
       return InteractShare;
+    case 'caret-icon':
+      return CaretIcon;
     case 'logo':
     default:
       return Logo;

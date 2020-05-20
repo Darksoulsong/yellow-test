@@ -1,10 +1,11 @@
 import React from 'react';
-import { Collapsible, Button } from '@components';
+import { Collapsible, Button, SVG } from '@components';
 import {
   MobileMenuRoot,
   MobileMenuHeading,
   MobileMenuList,
   MobileMenuListItem,
+  MobileMenuToggleIcon,
 } from './styles';
 
 export default function MobileMenu({
@@ -95,6 +96,14 @@ export default function MobileMenu({
     ];
   }, []);
 
+  const renderIcon = React.useCallback(isActive => {
+    return (
+      <MobileMenuToggleIcon active={isActive}>
+        <SVG name="caret-icon" />
+      </MobileMenuToggleIcon>
+    );
+  }, []);
+
   React.useEffect(() => {
     const method = open ? 'add' : 'remove';
     document.body.classList[method]('hide-body-overflow');
@@ -106,7 +115,7 @@ export default function MobileMenu({
         {menuItems.map((item, index) => (
           <>
             {item.content && (
-              <Collapsible.Toggle itemIndex={index}>
+              <Collapsible.Toggle itemIndex={index} renderIcon={renderIcon}>
                 <MobileMenuHeading>{item.heading}</MobileMenuHeading>
               </Collapsible.Toggle>
             )}
