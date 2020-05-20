@@ -133,9 +133,13 @@ export const ContentContainer = styled.div`
   h1 {
     text-align: left;
     text-transform: uppercase;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 300;
     margin-bottom: ${({ theme }) => theme.spaces.xsm};
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+      font-size: 2.5rem;
+    }
   }
   h2 {
     text-align: left;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { routeTo } from '@utils';
 import { Collapsible, Button, SVG } from '@components';
 import {
   MobileMenuRoot,
@@ -35,7 +36,7 @@ export default function MobileMenu({
             label: 'Contato',
           },
           {
-            link: '/dicas-para-voce',
+            link: '/blog',
             label: 'Dicas para você',
           },
         ],
@@ -48,7 +49,8 @@ export default function MobileMenu({
             label: 'Quem somos',
           },
           {
-            link: '/vagas-abertas',
+            link: 'https://yellowrec.gupy.io/',
+            external: true,
             label: 'Vagas Abertas',
           },
           {
@@ -60,7 +62,7 @@ export default function MobileMenu({
             },
           },
           {
-            link: '/dicas-para-voce',
+            link: '/blog',
             label: 'Dicas para você',
           },
         ],
@@ -73,7 +75,7 @@ export default function MobileMenu({
             label: 'Quem somos',
           },
           {
-            link: '/cultura',
+            link: '/yellow-way',
             label: 'Cultura',
           },
           {
@@ -88,6 +90,7 @@ export default function MobileMenu({
       },
       {
         heading: 'Quero Contratar',
+        onClick: () => routeTo('/contato'),
       },
       {
         heading: 'Acesse sua conta',
@@ -151,6 +154,8 @@ export default function MobileMenu({
                             : undefined
                         }
                         href={contentItem.link}
+                        rel={contentItem.external ? 'noopener noreferrer' : ''}
+                        target={contentItem.external ? '_blank' : '_self'}
                       >
                         {contentItem.label}
                       </a>

@@ -20,7 +20,7 @@ const RoundElementBase = css`
   display: flex;
   align-items: center;
   height: ${({ type }) => (type === 'textarea' ? '150px' : '55px')};
-  border-radius: ${({ variant }) => (variant === 'rounded' ? '27px' : '5px')};
+  border-radius: 27px;
   padding: 0 20px;
 
   background-color: ${({ theme }) => theme.colors.fieldBackground};

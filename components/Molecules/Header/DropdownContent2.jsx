@@ -1,6 +1,6 @@
 import React from 'react';
 import { Logo, SVG } from '@components';
-import { routeTo } from '@utils';
+import Link from 'next/link';
 import {
   HeaderDropdown,
   HeaderDropdownBlock,
@@ -49,16 +49,18 @@ export default function DropdownContent1({ onCreateAccountClick }) {
             banco da Yellow.
           </HeaderText>
         </HeaderDropdownBlock>
-        <HeaderDropdownBlock onClick={() => routeTo('/blog')}>
-          <HeaderHeading>Dicas para você</HeaderHeading>
-          <HeaderIconHolder className="ideas">
-            <SVG name="ideas-icon" />
-          </HeaderIconHolder>
-          <HeaderText>
-            Acesse nosso blog para encontrar conteúdos relevantes para você
-            chegar bem preparado nos processos seletivos.
-          </HeaderText>
-        </HeaderDropdownBlock>
+        <Link href="/blog">
+          <HeaderDropdownBlock>
+            <HeaderHeading>Dicas para você</HeaderHeading>
+            <HeaderIconHolder className="ideas">
+              <SVG name="ideas-icon" />
+            </HeaderIconHolder>
+            <HeaderText>
+              Acesse nosso blog para encontrar conteúdos relevantes para você
+              chegar bem preparado nos processos seletivos.
+            </HeaderText>
+          </HeaderDropdownBlock>
+        </Link>
         <HeaderDropdownBlock noHover></HeaderDropdownBlock>
       </HeaderDropdown>
     </>
