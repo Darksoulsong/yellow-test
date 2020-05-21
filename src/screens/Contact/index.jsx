@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
+import { schema, radioButtons, initialValues } from './settings';
 import { fieldHasError } from '@utils';
 import { spaces } from '@components/Organisms/Theme/sizes';
 
@@ -32,33 +33,8 @@ import {
   ArrowPositioner,
 } from './styles';
 
-const schema = {
-  name: Yup.string().required('Informe o nome'),
-  email: Yup.string().required('Informe o email'),
-  company: Yup.string().required('Informe a empresa'),
-  telf: Yup.string().required('Informe o telefone'),
-  product: Yup.string(),
-  comment: Yup.string(),
-};
-
-const radioButtons = [
-  { label: 'Tech', value: 'tech' },
-  { label: 'Exec', value: 'exec' },
-  { label: 'Express', value: 'express' },
-  { label: 'RPO', value: 'rpo' },
-];
-
 export const Contact = () => {
   const [sent, setSent] = useState(false);
-
-  const initialValues = {
-    name: '',
-    email: '',
-    company: '',
-    telf: '',
-    product: 'tech',
-    comment: '',
-  };
 
   const {
     values,
@@ -106,6 +82,7 @@ export const Contact = () => {
           </a>
         </SimpleContainer>
       </VacantSection>
+
       <FormSection>
         <TitleContainer>
           <CustomTitle align="center">
@@ -225,6 +202,7 @@ export const Contact = () => {
           </SimpleContainer>
         </Form>
       </FormSection>
+
       <SimulationSection>
         <HugeTitle weight="700" align="center">
           FAÇA SUA SIMULAÇÃO

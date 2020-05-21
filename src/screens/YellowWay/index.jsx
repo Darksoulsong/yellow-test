@@ -1,7 +1,16 @@
 import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Logo, IntroImageYellowWay, Hashtag, DefaultLayout } from '@components';
+
+import { spaces } from '@components/Organisms/Theme/sizes';
+import {
+  Logo,
+  IntroImageYellowWay,
+  Hashtag,
+  DefaultLayout,
+  Text,
+  Button,
+} from '@components';
 import {
   YellowWayIntro,
   Section,
@@ -11,6 +20,7 @@ import {
   Box,
   BoxFooter,
   Top,
+  Container,
 } from './styles';
 
 export const YellowWay = () => {
@@ -31,6 +41,15 @@ export const YellowWay = () => {
         </YellowWayIntro>
       </Section>
 
+      <Container>
+        <Text align="center" weight="500">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+          vel repellendus debitis magnam veniam illum velit dicta quidem quis
+          quaerat delectus, nemo earum vero cupiditate. Ab voluptatem possimus
+          iusto dolorum?
+        </Text>
+      </Container>
+
       <YellowSection>
         <Subheading>
           <strong>Gostou?</strong> Então venha <br />
@@ -47,6 +66,8 @@ export const YellowWay = () => {
         <HashtagHeading>
           #YELLOW<strong>TEAM</strong>
         </HashtagHeading>
+
+        <Button variant="black">Cadastrar</Button>
       </YellowSection>
     </DefaultLayout>
   );
