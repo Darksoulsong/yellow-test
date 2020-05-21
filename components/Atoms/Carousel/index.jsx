@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from 'nuka-carousel';
 import { useScreenWidth } from '@hooks';
+import { breakpoints } from '../../Organisms/Theme/breakpoints';
 
 export const defaultSettings = {
-  cellSpacing: 10,
+  cellSpacing: 0,
   slidesToScroll: 'auto',
-  slideWidth: '100px',
+  slideWidth: '72.5px',
+  slideWidthMedium: '100px',
   wrapAround: false,
   withoutControls: true,
 };
+
+const mediumResolution = breakpoints.medium.match(/\d+/)[0];
 
 export const CustomCarousel = ({
   children,
@@ -16,17 +20,31 @@ export const CustomCarousel = ({
   settings = defaultSettings,
 }) => {
   const { screenWidth } = useScreenWidth();
-  const [carouselDragging, setCarouselDragging] = useState(false);
+  const [carouselSettings, setCarouselSettings] = useState({
+    dragging: false,
+    settings,
+  });
+  // const [carouselDragging, setCarouselDragging] = useState(false);
 
   useEffect(() => {
-    const widthOfCarouselItems = settings.slideWidth.match(/\d+/)[0];
-    setCarouselDragging(
-      widthOfCarouselItems * carouselNumberOfItems > screenWidth
-    );
+    let widthOfCarouselItems = settings.slideWidth.match(/\d+/)[0];
+    if (screenWidth > mediumResolution) {
+      widthOfCarouselItems = settings.slideWidthMedium;
+    }
+    setCarouselSettings({
+      dragging: widthOfCarouselItems * carouselNumberOfItems > screenWidth,
+      settings: {
+        ...carouselSettings.settings,
+        slideWidth: `${widthOfCarouselItems}px`,
+      },
+    });
   }, [screenWidth]);
 
   return (
-    <Carousel dragging={carouselDragging} {...settings}>
+    <Carousel
+      dragging={carouselSettings.dragging}
+      {...carouselSettings.settings}
+    >
       {children}
     </Carousel>
   );

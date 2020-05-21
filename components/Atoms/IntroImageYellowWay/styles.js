@@ -43,11 +43,6 @@ export const ImageItem1 = styled.span`
     top: 0;
     left: 0;
   }
-
-  &:hover {
-    z-index: 8;
-    transform: scale(1.1);
-  }
 `;
 
 export const ImageItem2 = styled(ImageItem1)`

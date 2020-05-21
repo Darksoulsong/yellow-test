@@ -58,9 +58,8 @@ export const Blog = () => {
             <CustomText margin={`${spaces.sm} 0 0 0`}>
               <strong>Bem vindo</strong> ao <Underline>Yellowblog</Underline>,
               ele foi feito com muito carinho para que você se sentisse em casa
-              como em uma página do Instagram.
-              <br />
-              Conteúdo relevante em textos pequenos e de fácil navegacão.
+              como em uma página do Instagram. Conteúdo relevante em textos
+              pequenos e de fácil navegacão.
             </CustomText>
           </BlogColResponsive>
           <BlogColText>
