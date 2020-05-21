@@ -20,8 +20,14 @@ const handleTypeSVG = type => {
         }
         text-align: center;
         svg {
-          width: 40vw;
+          width: 60vw;
           height: auto;
+          @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+            width: 50vw;
+          }
+          @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+            width: 40vw;
+          }
         }
       `;
 
@@ -35,8 +41,14 @@ const handleTypeSVG = type => {
             stroke-dashoffset: 57;
           }
           svg {
-            width: 2vw;
+            width: 3.5vw;
             height: auto;
+            @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+              width: 3vw;
+            }
+            @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+              width: 2vw;
+            }
           }
 
           &.aos-animate {

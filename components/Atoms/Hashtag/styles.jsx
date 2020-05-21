@@ -12,10 +12,16 @@ export const Holder = styled.div`
 export const HashtagText = styled.h2`
   display: inline-block;
   text-align: center;
-  font-size: 6vw;
+  font-size: 8vw;
   font-weight: 300;
   letter-spacing: 2.19px;
   user-select: none;
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 7vw;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 6vw;
+  }
 `;
 
 export const HashtagContainer = styled.div`

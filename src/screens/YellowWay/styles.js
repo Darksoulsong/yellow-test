@@ -5,22 +5,36 @@ export const YellowWayRoot = styled.div``;
 export const YellowWayIntro = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 120px;
+  margin-top: ${({ theme }) => theme.spaces.lg};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    margin-top: ${({ theme }) => theme.spaces.hg};
+  }
 `;
 
 export const Subheading = styled.h2`
-  font-size: 3.2rem;
+  font-size: 2.5rem;
   font-weight: 300;
-  margin-bottom: 50px;
+  margin-bottom: ${({ theme }) => theme.spaces.lg};
 
   strong {
     font-weight: 600;
   }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 3.5rem;
+  }
 `;
 
 export const HashtagHeading = styled(Subheading)`
-  font-size: 5rem;
+  font-size: 3.5rem;
   margin-bottom: 0;
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 4rem;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 5rem;
+  }
 `;
 
 export const Top = styled.div`
@@ -31,26 +45,44 @@ export const Top = styled.div`
 
 export const Section = styled.section`
   text-align: center;
-  padding: 68px;
-  margin-bottom: 70px;
+  padding: ${({ theme }) => theme.spaces.md};
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: ${({ theme }) => theme.spaces.lgh};
+  }
 `;
 
 export const YellowSection = styled(Section)`
   background-color: ${({ theme }) => theme.colors.yellowDarker};
-  margin-bottom: 120px;
+  margin-bottom: ${({ theme }) => theme.spaces.hg};
+  button {
+    margin: ${({ theme }) => `${theme.spaces.md} 0`};
+  }
 `;
 
 export const Box = styled.div`
-  width: 336px;
-  height: 438px;
+  max-width: 336px;
+  max-height: 438px;
   margin: 0 auto;
-  padding: 12px 14px;
+  padding: ${({ theme }) =>
+    `${theme.spaces.sm} ${theme.spaces.sm} ${theme.spaces.lg} ${theme.spaces.sm}`};
   background-color: ${({ theme }) => theme.colors.white};
   margin-bottom: 50px;
 `;
 
 export const BoxFooter = styled.div`
-  padding-top: 30px;
-  padding-left: 24px;
+  padding: ${({ theme }) => `${theme.spaces.sm} 0 0 ${theme.spaces.sm}`};
   text-align: left;
+`;
+
+export const Container = styled.div`
+  margin: ${({ theme }) => theme.spaces.md};
+  display: flex;
+  justify-content: center;
+  * {
+    max-width: 500px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    margin: ${({ theme }) => `${theme.spaces.xlg} 0`};
+  }
 `;

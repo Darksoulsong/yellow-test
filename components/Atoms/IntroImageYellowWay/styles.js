@@ -5,7 +5,7 @@ export const YellowWayIntroImageRoot = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 630px;
+  height: auto;
   max-width: 1033px;
 `;
 
@@ -118,6 +118,7 @@ const Item = styled.h3`
   /* font-size: 2.7vw; */
   font-size: 2.2vw;
   letter-spacing: 0.08rem;
+  user-select: none;
 
   strong {
     font-weight: 600;
