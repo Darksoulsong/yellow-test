@@ -30,6 +30,10 @@ export const MobileMenuRoot = styled.div`
       opacity: 1;
       height: 100vh;
     `};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: none;
+  }
 `;
 
 export const MobileMenuItem = styled.div`

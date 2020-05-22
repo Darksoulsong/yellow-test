@@ -38,7 +38,7 @@ export default function LoginForm({
           <Button
             type="button"
             version="unstyled"
-            onClick={() => onForgotPasswordButtonClick()}
+            onClick={onForgotPasswordButtonClick}
           >
             <ForgotPasswordLabel>esqueceu sua senha?</ForgotPasswordLabel>
           </Button>
@@ -53,10 +53,7 @@ export default function LoginForm({
           </a>
         </AlternativeLogin>
         <FormActions>
-          <FormButtonGray
-            type="button"
-            onClick={() => onCreateAccountButtonClick()}
-          >
+          <FormButtonGray type="button" onClick={onCreateAccountButtonClick}>
             Criar conta
           </FormButtonGray>
           <FormButtonYellow type="button">Continuar</FormButtonYellow>

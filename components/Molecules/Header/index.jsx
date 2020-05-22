@@ -115,9 +115,9 @@ export default function Header() {
     setShowBackdrop(!showBackdrop);
   }, []);
 
-  const handleMobileMenuToggle = React.useCallback(() => {
+  const handleMobileMenuToggle = () => {
     setMobileMenuIsOpen(!mobileMenuIsOpen);
-  }, [mobileMenuIsOpen]);
+  };
 
   useScrollPosition(
     {
@@ -146,6 +146,7 @@ export default function Header() {
     setShowForgotPasswordModal(true);
     handleLoginToggle(showBackdrop);
     setShowBackdrop(false);
+    setMobileMenuIsOpen(false);
   }, [showBackdrop]);
 
   const handleCreateAccountItemClick = React.useCallback(() => {
@@ -276,7 +277,8 @@ export default function Header() {
       <MobileMenu
         open={mobileMenuIsOpen}
         onCreateAccountButtonClick={handleCreateAccountButtonClick}
-        onLoginToggle={handleLoginToggle}
+        onMenuToggle={handleMobileMenuToggle}
+        onForgotPasswordButtonClick={handleForgotPasswordButtonClick}
       />
     </HeaderRoot>
   );
