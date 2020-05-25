@@ -253,7 +253,7 @@ export const Section = styled.section`
     margin: 0 35px;
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     padding: 110px;
   }
 `;
@@ -598,8 +598,6 @@ export const ExperienceSection = styled(Section)`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin-top: 105px;
-
     ${SubHeading1} {
       font-size: 8.3rem;
       letter-spacing: 0.16rem;
