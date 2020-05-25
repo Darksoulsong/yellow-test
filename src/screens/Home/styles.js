@@ -125,6 +125,9 @@ export const Video = styled.div`
   position: relative;
   display: flex;
   overflow: hidden;
+  width: 350px;
+  height: 185px;
+  margin: 0 auto;
 
   &:after {
     content: '';
@@ -143,7 +146,7 @@ export const Video = styled.div`
     height: auto;
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
     position: absolute;
     top: 0;
     right: 0;

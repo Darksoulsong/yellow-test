@@ -22,16 +22,12 @@ export const Description = styled.div`
     width: 2px;
     background-color: ${({ theme }) => theme.colors.white};
   }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-  }
 `;
 
 export const ProductsActions = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
-  /* margin-top: -72px; */
 
   button > span {
     font-weight: 300;

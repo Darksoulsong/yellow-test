@@ -56,7 +56,6 @@ const HomeScreen = () => {
   React.useEffect(() => {
     AOS.init({
       duration: 500,
-      // disable: 'phone',
     });
   }, []);
 
