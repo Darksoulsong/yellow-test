@@ -158,16 +158,14 @@ export const Video = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    /* left: 268px; */
-    left: 238px;
-    /* height: 530px; */
-    height: 430px;
+    left: 287px;
+    height: 643px;
+    width: 95vw;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     left: 295px;
-    height: 530px;
-    /* min-height: 700px; */
+    height: 650px;
 
     video {
       width: 100%;
