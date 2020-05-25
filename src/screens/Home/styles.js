@@ -301,7 +301,7 @@ export const TransparentLogoHolder = styled.div`
   display: flex;
   align-items: flex-end;
   position: absolute;
-  bottom: 98px;
+  bottom: 0;
   left: -28px;
 
   svg {
