@@ -31,10 +31,13 @@ export default function SpeechBubble({
         );
     }
   };
+
   return (
-    <SpeechBubbleRoot align={iconsAlign}>
-      <BubbleElement align={arrowAlign}>{children}</BubbleElement>
-      {renderBottomContent()}
+    <SpeechBubbleRoot className="speech-bubble" align={iconsAlign}>
+      <BubbleElement align={arrowAlign}>
+        {children}
+        {renderBottomContent()}
+      </BubbleElement>
     </SpeechBubbleRoot>
   );
 }

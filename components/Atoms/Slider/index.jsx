@@ -1,7 +1,7 @@
 import React from 'react';
 import { uid } from 'react-uid';
 import { SVG, Button } from '@components';
-import { Root, Content, ControlLeft, ControlRight } from './styles';
+import { SliderRoot, Content, ControlLeft, ControlRight } from './styles';
 
 const config = {
   duration: 3000,
@@ -72,8 +72,9 @@ export default function Slider({
   }, []);
 
   return (
-    <Root>
+    <SliderRoot>
       <ControlLeft
+        className="slider-control-left"
         show={
           hideArrowsOnLoopStartAndEnd
             ? activeBoxIndex !== 0 && minimumChildrenLength
@@ -86,6 +87,7 @@ export default function Slider({
       {items}
 
       <ControlRight
+        className="slider-control-right"
         show={
           hideArrowsOnLoopStartAndEnd
             ? activeBoxIndex + 1 < items.length && minimumChildrenLength
@@ -106,7 +108,7 @@ export default function Slider({
             <span className={index === activeBoxIndex} />
           </Button>
         ))}
-    </Root>
+    </SliderRoot>
   );
 }
 

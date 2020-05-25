@@ -1,6 +1,8 @@
 export { default as Nav } from './Nav';
 export { default as Header } from './Header';
+export { default as Product } from './Product';
 export { default as Products } from './Products';
+export { default as ProductsCarousel } from './ProductsCarousel';
 export { default as MobileMenu } from './MobileMenu';
 export { default as Footer } from './Footer';
 export { default as Modal } from './Modal';
