@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const bounce = keyframes`
   from {
@@ -9,22 +9,25 @@ const bounce = keyframes`
   }
 `;
 
-export const Root = styled.div`
+export const SliderRoot = styled.div`
   position: relative;
   display: flex;
   height: 100%;
+  width: 100%;
 `;
 
 export const ControlLeft = styled.button`
   transition: 0.3s ease-in-out;
   transition-property: opacity, top;
   position: absolute;
-  width: 29px;
   left: -87px;
   background-color: transparent;
   border: 0 none;
   cursor: pointer;
-  top: calc(50% - 44px);
+
+  top: calc(50% - 17px);
+  width: 16px;
+  height: 35px;
 
   ${({ show }) =>
     show
@@ -39,11 +42,18 @@ export const ControlLeft = styled.button`
 
   svg {
     fill: ${({ theme }) => theme.colors.black};
-    width: 100%;
+    stroke-width: 2px;
+    width: 16px;
+    height: 100%;
   }
 
   &:hover {
     animation: ${bounce} 0.3s infinite alternate;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    height: 65px;
+    top: calc(50% - 32px);
   }
 `;
 
@@ -61,13 +71,12 @@ export const Content = styled.div`
 
   ${({ active }) =>
     active
-      ? `
-        opacity: 1;
-        z-index: 1;        
-
-      `
-      : `
-        opacity: 0;
-        z-index: 0;        
-      `}
+      ? css`
+          opacity: 1;
+          z-index: 1;
+        `
+      : css`
+          opacity: 0;
+          z-index: 0;
+        `}
 `;

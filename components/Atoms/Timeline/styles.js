@@ -13,7 +13,7 @@ export const Item = styled.div`
       background-color: #a6a8ab;
       content: '';
       height: 100%;
-      width: 4px;
+      width: 2px;
       top: -60px;
       left: calc(50% - 1px);
       z-index: 0;
@@ -36,6 +36,7 @@ export const Item = styled.div`
     &.has-line {
       &:before {
         top: -90px;
+        height: 120%;
       }
     }
   }
@@ -65,11 +66,32 @@ export const Item = styled.div`
       }
     }
   }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    &.has-line {
+      &:before {
+        width: 4px;
+      }
+    }
+  }
 `;
 
-export const Root = styled.div`
+export const TimelineRoot = styled.div`
   display: grid;
   grid-template-columns: 2fr 150px 2fr;
+  transform: scale(0.47) translateY(-575px);
+  width: 210%;
+  transform-origin: left;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    transform: scale(0.77) translateY(-142px);
+    width: 130%;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 100%;
+    transform: unset;
+  }
 `;
 
 export const Label = styled.div`

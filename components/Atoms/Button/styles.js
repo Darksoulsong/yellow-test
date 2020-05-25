@@ -46,9 +46,39 @@ const hoverStyles = css`
   }
 `;
 
+// const main = css`
+//   color: ${({ theme }) => theme.colors.black};
+//   font-size: ${({ fontSize = '2rem' }) => fontSize};
+//   border: 0 none;
+//   background: ${({ theme }) => theme.colors.yellow};
+//   text-indent: -0.1rem;
+//   font-family: Roboto, sans-serif;
+//   font-weight: ${({ fontWeight = '700' }) => fontWeight};
+//   border-radius: 16px;
+//   transform: scale(1);
+//   white-space: nowrap;
+
+//   text-transform: ${({ textTransform = 'uppercase' }) => textTransform};
+
+//   letter-spacing: 0.21rem;
+//   height: ${({ height = '78px' }) => height};
+//   padding: ${({ padding = '0 35px' }) => padding};
+
+//   ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
+
+//   ${({ disabled }) =>
+//     !disabled &&
+//     `
+//     cursor: pointer;
+//     ${hoverStyles};
+//   `}
+
+//   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+
+//   }
+// `;
+
 const main = css`
-  height: ${({ height = '78px' }) => height};
-  padding: ${({ padding = '0 35px' }) => padding};
   color: ${({ theme }) => theme.colors.black};
   font-size: ${({ fontSize = '2rem' }) => fontSize};
   border: 0 none;
@@ -56,11 +86,15 @@ const main = css`
   text-indent: -0.1rem;
   font-family: Roboto, sans-serif;
   font-weight: ${({ fontWeight = '700' }) => fontWeight};
-  border-radius: 16px;
+  border-radius: 12px;
   transform: scale(1);
   white-space: nowrap;
-  letter-spacing: 0.21rem;
+  
   text-transform: ${({ textTransform = 'uppercase' }) => textTransform};
+
+  letter-spacing: 0.21rem;
+  height: ${({ height = '78px' }) => height};
+  padding: ${({ padding = '0 35px' }) => padding};
 
   ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}
 
@@ -70,6 +104,11 @@ const main = css`
     cursor: pointer;
     ${hoverStyles};
   `}
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {    
+    
+    border-radius: 16px;
+  }
 `;
 
 const tiny = css`
