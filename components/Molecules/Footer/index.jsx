@@ -1,23 +1,27 @@
 import React from 'react';
-import { Logo, SVG } from '@components';
+import { Logo, SVG, IsDesktop } from '@components';
 import {
   FooterRoot,
-  FooterBlock,
   FooterItem,
+  FooterBlockPeople,
+  FooterBlockYellowWay,
+  FooterBlockCompanies,
+  FooterItemYoutube,
   GrayedSection,
+  MobileGrayedSection,
   FooterBlockSocial,
   FooterHeading,
-  Section,
+  FooterTopSection,
 } from './styles';
 
 export default function Footer() {
   return (
     <FooterRoot>
-      <Section>
+      <FooterTopSection>
         <Logo className="footer-logo" variant="alt" />
-      </Section>
+      </FooterTopSection>
       <GrayedSection>
-        <FooterBlock>
+        <FooterBlockCompanies>
           <FooterItem>
             <FooterHeading>Para empresas</FooterHeading>
           </FooterItem>
@@ -27,9 +31,9 @@ export default function Footer() {
           <FooterItem>
             <a href="http://foo.com">Contato</a>
           </FooterItem>
-        </FooterBlock>
+        </FooterBlockCompanies>
 
-        <FooterBlock>
+        <FooterBlockPeople>
           <FooterItem>
             <FooterHeading>Para pessoas</FooterHeading>
           </FooterItem>
@@ -39,9 +43,9 @@ export default function Footer() {
           <FooterItem>
             <a href="http://foo.com">Dicas de Entrevista</a>
           </FooterItem>
-        </FooterBlock>
+        </FooterBlockPeople>
 
-        <FooterBlock>
+        <FooterBlockYellowWay>
           <FooterItem>
             <FooterHeading>Yellow way</FooterHeading>
           </FooterItem>
@@ -54,29 +58,53 @@ export default function Footer() {
           <FooterItem>
             <a href="http://foo.com">Blog</a>
           </FooterItem>
-        </FooterBlock>
+        </FooterBlockYellowWay>
 
-        <FooterBlockSocial>
-          <FooterItem>
-            <FooterHeading>Social</FooterHeading>
-          </FooterItem>
-          <FooterItem>
-            <a href="http://foo.com">
-              <SVG name="linkedin-icon" />
-            </a>
-          </FooterItem>
-          <FooterItem>
-            <a href="http://foo.com">
-              <SVG name="instagram-icon" />
-            </a>
-          </FooterItem>
-          <FooterItem>
-            <a href="http://foo.com">
-              <SVG name="youtube-icon" />
-            </a>
-          </FooterItem>
-        </FooterBlockSocial>
+        <IsDesktop>
+          <FooterBlockSocial>
+            <FooterItem>
+              <FooterHeading>Social</FooterHeading>
+            </FooterItem>
+            <FooterItem>
+              <a href="http://foo.com">
+                <SVG name="linkedin-icon" />
+              </a>
+            </FooterItem>
+            <FooterItem>
+              <a href="http://foo.com">
+                <SVG name="instagram-icon" />
+              </a>
+            </FooterItem>
+            <FooterItem>
+              <a href="http://foo.com">
+                <SVG name="youtube-icon" />
+              </a>
+            </FooterItem>
+          </FooterBlockSocial>
+        </IsDesktop>
       </GrayedSection>
+
+      <IsDesktop invert>
+        <MobileGrayedSection>
+          <FooterBlockSocial>
+            <FooterItem>
+              <a href="http://foo.com">
+                <SVG name="linkedin-icon" />
+              </a>
+            </FooterItem>
+            <FooterItemYoutube>
+              <a href="http://foo.com">
+                <SVG name="youtube-icon" />
+              </a>
+            </FooterItemYoutube>
+            <FooterItem>
+              <a href="http://foo.com">
+                <SVG name="instagram-icon" />
+              </a>
+            </FooterItem>
+          </FooterBlockSocial>
+        </MobileGrayedSection>
+      </IsDesktop>
     </FooterRoot>
   );
 }

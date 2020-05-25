@@ -24,3 +24,5 @@ export default function Theme({ children, activeTheme = 'default' }) {
     </ThemeProvider>
   );
 }
+
+export { breakpoints, spaces };

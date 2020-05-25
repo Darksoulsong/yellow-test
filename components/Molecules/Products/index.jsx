@@ -1,6 +1,6 @@
 import React from 'react';
-import { HoverableProductIcon, Button } from '@components';
-import { Root, Item, Description, ProductsActions } from './styles';
+import { Button, Product } from '@components';
+import { Root, ProductsActions } from './styles';
 
 export default function Products() {
   const [active, setActive] = React.useState(false);
@@ -43,10 +43,9 @@ export default function Products() {
 
       <Root>
         {items.map((item, index) => (
-          <Item className={active ? 'active' : ''} key={index}>
-            <HoverableProductIcon iconName={item.iconName} />
-            <Description>{item.description}</Description>
-          </Item>
+          <Product active={active} key={index} iconName={item.iconName}>
+            {item.description}
+          </Product>
         ))}
       </Root>
     </>

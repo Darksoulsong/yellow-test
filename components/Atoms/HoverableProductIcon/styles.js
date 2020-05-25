@@ -4,8 +4,13 @@ export const Root = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  max-width: 200px;
-  height: 220px;
+  max-width: 60px;
+  /* height: 220px; */
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    max-width: 200px;
+    height: 220px;
+  }
 
   .hover-icon {
     position: absolute;
