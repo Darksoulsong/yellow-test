@@ -78,11 +78,42 @@ export const Container = styled.div`
   margin: ${({ theme }) => theme.spaces.md};
   display: flex;
   justify-content: center;
-  * {
+  /* * {
     max-width: 500px;
-  }
+  } */
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     margin: ${({ theme }) => `${theme.spaces.xlg} 0`};
+  }
+`;
+
+export const TextHolder = styled.div`
+  width: 255px;
+
+  p {
+    font-family: 'Myriad Pro Regular', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 100%;
+
+    p {
+      font-size: 2.9rem;
+      line-height: 3.7rem;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: 808px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    width: 1085px;
+    p {
+      font-size: 3.9rem;
+      line-height: 4.7rem;
+    }
   }
 `;

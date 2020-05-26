@@ -109,8 +109,6 @@ const Item = styled.h3`
   position: absolute;
   font-family: Roboto, sans-serif;
   font-weight: 300;
-  /* font-size: 3.2rem; */
-  /* font-size: 2.7vw; */
   font-size: 2.2vw;
   letter-spacing: 0.08rem;
   user-select: none;
@@ -175,7 +173,7 @@ export const Arrow2 = styled(Arrow)`
 `;
 export const Arrow3 = styled(Arrow)`
   right: 0%;
-  top: -1.4%;
+  top: 5.6%;
 
   svg {
     width: 4.3vw;
@@ -224,26 +222,34 @@ export const BlockItem1 = styled(BlockItem)`
 `;
 
 export const BlockItem2 = styled(BlockItem)`
-  width: 20.8vw;
-  height: 6vw;
+  width: 23vw;
+  height: 7vw;
   top: 47%;
-  left: -60%;
+  left: -64%;
   max-width: 320px;
   max-height: 130px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    height: 6vw;
+  }
 `;
 
 export const BlockItem3 = styled(BlockItem)`
-  width: 22.8vw;
+  width: 25.5vw;
   height: 7.5vw;
   top: 82.1%;
-  left: -53.6%;
+  left: -59.6%;
   max-width: 353px;
   max-height: 104px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 23.8vw;
+  }
 `;
 
 export const BlockItem4 = styled(BlockItem)`
   width: 16.5vw;
-  height: 7.1vw;
+  height: 9vw;
   top: 90.2%;
   right: -11.4%;
   max-width: 204px;

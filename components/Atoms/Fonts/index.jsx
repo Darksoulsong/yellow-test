@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const MediumTitle = styled.h2`
   font-size: 3rem;
@@ -14,6 +14,12 @@ export const Text = styled.p`
   margin: ${({ margin = '0' }) => margin};
   padding: ${({ padding = '0' }) => padding};
   text-align: ${({ align = 'left' }) => align};
+
+  ${({ lineHeight }) =>
+    lineHeight &&
+    css`
+      line-height: ${lineHeight};
+    `}
 `;
 
 export const SmallText = styled.h2`
