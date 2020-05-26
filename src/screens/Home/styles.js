@@ -264,9 +264,16 @@ export const Section = styled.section`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     margin: 0 35px;
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     padding: 110px;
   }
 `;
@@ -299,8 +306,8 @@ export const TimelineSection = styled(GrayedSection)`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding-top: 110px;
-    padding-bottom: 120px;
+    /* padding-top: 110px;
+    padding-bottom: 120px; */
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -347,6 +354,9 @@ export const HighlightsSection = styled(Section)`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
     ${SubHeading1} {
       width: 560px;
       padding-bottom: 54px;
@@ -420,6 +430,11 @@ export const ListHolder = styled.div`
   width: 172px;
   margin: 0 auto;
   margin-top: 24px;
+
+  button {
+    font-size: 1.9rem;
+    padding: 0 22px;
+  }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
     width: 260px;

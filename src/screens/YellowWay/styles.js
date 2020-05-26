@@ -91,7 +91,7 @@ export const TextHolder = styled.div`
   width: 255px;
 
   p {
-    font-family: 'Myriad Pro Regular', sans-serif;
+    /* font-family: 'Myriad Pro Regular', sans-serif; */
     font-size: 1.2rem;
     line-height: 1.4rem;
   }
