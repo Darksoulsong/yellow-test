@@ -1,10 +1,12 @@
 import React from 'react';
 import { Root } from './styles';
 
-export default function Button({ disabled, ...rest }) {
+function Button({ disabled, ...rest }, ref) {
   if (disabled) {
     rest.variant = 'disabled';
   }
 
-  return <Root disabled={disabled} {...rest}></Root>;
+  return <Root ref={ref} disabled={disabled} {...rest}></Root>;
 }
+
+export default React.forwardRef(Button);
