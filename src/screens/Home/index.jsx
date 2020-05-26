@@ -67,9 +67,9 @@ const HomeScreen = () => {
             <IntroHolderContent>
               <IntroHolderBlock>
                 <div>
-                  <MainHeading>
-                    <em>Olá,</em>
-                    <IsMobile>
+                  <IsDesktop invert>
+                    <MainHeading>
+                      <em>Olá,</em>
                       <br />
                       Lorem ipsum dolor sit <br />
                       amet, adipiscing elit, <br />
@@ -79,9 +79,12 @@ const HomeScreen = () => {
                       dolore magna <br />
                       aliquam erat volutpat. <br />
                       <strong>Yellow.</strong>
-                    </IsMobile>
+                    </MainHeading>
+                  </IsDesktop>
 
-                    <IsTablet>
+                  <IsDesktop>
+                    <MainHeading>
+                      <em>Olá,</em>
                       Lorem ipsum <br />
                       dolor sit amet, adipiscing <br />
                       elit, sed diam nonummy <br />
@@ -89,15 +92,14 @@ const HomeScreen = () => {
                       laoreet dolore magna <br />
                       aliquam erat volutpat. <br />
                       <strong>Yellow.</strong>
-                    </IsTablet>
-                  </MainHeading>
-                  {/* <SecondaryHeading>Yellow.</SecondaryHeading> */}
+                    </MainHeading>
+                  </IsDesktop>
                 </div>
               </IntroHolderBlock>
               <IntroHolderBlock>
-                <IsMobile>
+                <IsDesktop invert>
                   <IntroImage />
-                </IsMobile>
+                </IsDesktop>
               </IntroHolderBlock>
             </IntroHolderContent>
           </IntroHolder>
@@ -107,11 +109,11 @@ const HomeScreen = () => {
           </Video>
 
           <IntroFooter>
-            <IsTablet>
+            <IsDesktop>
               <IntroFooterImage>
                 <IntroImage />
               </IntroFooterImage>
-            </IsTablet>
+            </IsDesktop>
             <IntroFooterActions>
               <Button variant="primary" type="button">
                 Quero contratar
@@ -150,11 +152,11 @@ const HomeScreen = () => {
         </TimelineSection>
 
         <HighlightsSection>
-          <IsTablet>
+          <IsDesktop>
             <TransparentLogoHolder>
               <Logo variant="transparent" width="150px" />
             </TransparentLogoHolder>
-          </IsTablet>
+          </IsDesktop>
 
           <HighlightBox>
             <SubHeading1>
