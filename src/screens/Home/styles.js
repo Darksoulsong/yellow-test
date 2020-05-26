@@ -32,7 +32,7 @@ export const IntroHolder = styled.div`
   margin: 0 auto;
   margin-bottom: 25px;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     width: 465px;
     margin: 0;
   }
@@ -45,14 +45,14 @@ export const IntroHolder = styled.div`
 export const IntroHolderBlock = styled.div`
   display: flex;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     display: block;
   }
 `;
 
 export const IntroHolderContent = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 
   ${IntroHolderBlock} {
     &:last-child {
@@ -60,7 +60,7 @@ export const IntroHolderContent = styled.div`
     }
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     display: block;
   }
 `;
@@ -125,7 +125,8 @@ export const Video = styled.div`
   position: relative;
   display: flex;
   overflow: hidden;
-  width: 350px;
+  /* width: 350px; */
+  width: 100%;
   height: 185px;
   margin: 0 auto;
 
@@ -146,21 +147,28 @@ export const Video = styled.div`
     height: auto;
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    height: 385px;
+
+    video {
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     position: absolute;
     top: 0;
     right: 0;
     z-index: -1;
     width: 100%;
-    height: 425px;
+    height: 635px;
     width: 77vw;
-    left: 172px;
-  }
+    left: 286px;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    left: 287px;
-    height: 643px;
-    width: 95vw;
+    video {
+      transform: scale(1.3);
+      left: -17%;
+      top: 10%;
+    }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
@@ -170,6 +178,8 @@ export const Video = styled.div`
     video {
       width: 100%;
       height: auto;
+      transform: scale(1);
+      left: -2px;
     }
   }
 `;
@@ -180,9 +190,13 @@ export const IntroFooter = styled.div`
   margin-top: 25px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    margin-top: 115px;
+    margin-top: 40px;
     flex-direction: row;
     justify-content: flex-start;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin-top: 115px;
   }
 `;
 
@@ -201,21 +215,20 @@ export const IntroFooterActions = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 276px;
-    width: auto;
-    margin: 34px 0 0 40px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
 
     button {
       margin-bottom: 28px;
-      /* width: 100%; */
+      width: 276px;
     }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: 64px 0 0 46px;
+    width: 276px;
+    width: auto;
+    margin: 75px 0 0 40px;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {

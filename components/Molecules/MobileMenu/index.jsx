@@ -1,4 +1,5 @@
 import React from 'react';
+import { uid } from 'react-uid';
 import { routeTo } from '@utils';
 import { Collapsible, Button, SVG } from '@components';
 import {
@@ -129,7 +130,7 @@ export default function MobileMenu({
     <MobileMenuRoot open={open}>
       <Collapsible>
         {menuItems.map((item, index) => (
-          <>
+          <React.Fragment key={uid(item, index)}>
             {item.content && (
               <Collapsible.Toggle itemIndex={index} renderIcon={renderIcon}>
                 <MobileMenuHeading>{item.heading}</MobileMenuHeading>
@@ -146,7 +147,7 @@ export default function MobileMenu({
               <MobileMenuList>
                 {item.content &&
                   item.content.map(contentItem => (
-                    <MobileMenuListItem key={contentItem.link}>
+                    <MobileMenuListItem key={uid(contentItem.link)}>
                       <a
                         onClick={
                           typeof contentItem.onClick === 'function'
@@ -163,7 +164,7 @@ export default function MobileMenu({
                   ))}
               </MobileMenuList>
             </Collapsible.Body>
-          </>
+          </React.Fragment>
         ))}
       </Collapsible>
     </MobileMenuRoot>

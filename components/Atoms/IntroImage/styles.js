@@ -59,6 +59,15 @@ export const IntroImageRoot = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    transform: scale(1.7);
+    right: 63px;
+    top: 49px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    right: unset;
+    top: unset;
+    transform: scale(1);
     /* width: 736px;
            height: 369px; */
     background-position: -50px 0;

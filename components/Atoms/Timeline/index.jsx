@@ -1,12 +1,11 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { breakpoints } from '@components';
-import { IsTablet, IsMobile } from '@components';
+import { IsDesktop } from '@components';
 import { TimelineRoot, Item, Circle, Label } from './styles';
 
 export default function Timeline() {
   const desktopBreakpoint = +breakpoints.large.replace('px', '');
-
   const isDesktop = useMediaQuery({ minWidth: desktopBreakpoint });
 
   return (
@@ -18,16 +17,17 @@ export default function Timeline() {
             data-aos-offset="50"
             data-aos-delay="100"
           >
-            <IsMobile>
+            <IsDesktop invert>
               O salário de um <br />
               profissional, pode ser <br />
               o custo de um <br />
               <strong>erro na contratação</strong>
-            </IsMobile>
-            <IsTablet>
+            </IsDesktop>
+
+            <IsDesktop>
               O salário de um profissional, pode ser o custo de um{' '}
               <strong>erro na contratação</strong>
-            </IsTablet>
+            </IsDesktop>
           </span>
         </Label>
       </Item>
@@ -56,7 +56,7 @@ export default function Timeline() {
       </Item>
       <Item data-aos={isDesktop && 'fade-in'} data-aos-offset="200">
         <Label>
-          <IsMobile>
+          <IsDesktop invert>
             das contratações <br />
             <strong>
               terminam em <br /> demissões
@@ -64,11 +64,11 @@ export default function Timeline() {
             , por <br />
             erros na seleção de <br />
             candidatos
-          </IsMobile>
-          <IsTablet>
+          </IsDesktop>
+          <IsDesktop>
             das contratações <strong>terminam em demissões</strong>, por erros
             na seleção de candidatos
-          </IsTablet>
+          </IsDesktop>
         </Label>
       </Item>
 
@@ -78,16 +78,16 @@ export default function Timeline() {
         className="last"
       >
         <Label alignRight>
-          <IsMobile>
+          <IsDesktop invert>
             dos profissionais <br />
             <strong>desistem</strong> durante o <br />
             processo de <br />
             recrutamento
-          </IsMobile>
-          <IsTablet>
+          </IsDesktop>
+          <IsDesktop>
             dos profissionais <strong>desistem</strong> durante o processo de
             recrutamento
-          </IsTablet>
+          </IsDesktop>
         </Label>
       </Item>
       <Item
