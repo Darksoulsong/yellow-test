@@ -202,15 +202,15 @@ export const IntroFooterActions = styled.div`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: 276px;
+    width: auto;
     margin: 34px 0 0 40px;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 
     button {
       margin-bottom: 28px;
-      width: 100%;
+      /* width: 100%; */
     }
   }
 
