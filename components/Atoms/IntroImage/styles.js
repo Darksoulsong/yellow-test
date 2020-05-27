@@ -1,22 +1,22 @@
 import styled from 'styled-components';
+// import Image from '/images/intro-image-home.jpg';
 
 export const IntroImageRoot = styled.div`
   position: relative;
   overflow: hidden;
-  width: 100%;
-
-  img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-  }
+  width: 181px;
+  height: 181px;
+  background: url('/images/intro-image-home.jpg') no-repeat scroll 0 0;
+  background-position: -50px 0;
+  background-size: cover;
+  /* background: yellow; */
 
   .main-detail {
     position: absolute;
-    left: 34%;
-    top: 6%;
-    width: 35%;
-    height: 74%;
+    left: 28%;
+    top: 10%;
+    width: 45%;
+    height: 46%;
   }
 
   &::before,
@@ -25,7 +25,7 @@ export const IntroImageRoot = styled.div`
     content: '';
     position: absolute;
     height: 100%;
-    width: 6px;
+    width: 3px;
     background-color: ${({ theme }) => theme.colors.white};
     opacity: 1;
   }
@@ -36,7 +36,8 @@ export const IntroImageRoot = styled.div`
   }
 
   &:after {
-    right: 32%;
+    /* right: 32%; */
+    right: 22%;
     bottom: 0;
   }
 
@@ -54,6 +55,84 @@ export const IntroImageRoot = styled.div`
       &:after {
         bottom: 0%;
       }
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    transform: scale(1.7);
+    right: 63px;
+    top: 49px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    right: unset;
+    top: unset;
+    transform: scale(1);
+    /* width: 736px;
+           height: 369px; */
+    background-position: -50px 0;
+
+    background-size: 115%;
+    width: 368px;
+    height: 184px;
+    /* width: 441px;
+    height: 221px; */
+
+    .main-detail {
+      left: 29%;
+      top: 12%;
+      width: 35%;
+      height: 74%;
+    }
+
+    /* 
+    .main-detail {
+      left: 27%;
+      top: 10%;
+      width: 47%;
+      height: 74%;
+    } 
+    */
+
+    &:after {
+      right: 32%;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    /* width: 450px;
+    height: 225px; */
+    width: 486px;
+    height: 285px;
+
+    .main-detail {
+      /* left: 31.4%;
+      top: 14%; */
+      left: 32.1%;
+      top: 10%;
+    }
+
+    &:before,
+    &:after {
+      width: 8px;
+    }
+
+    &:after {
+      right: 32%;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    width: 736px;
+    height: 369px;
+
+    .main-detail {
+      left: 35.4%;
+      top: 14%;
+    }
+
+    &:after {
+      right: 28%;
     }
   }
 `;

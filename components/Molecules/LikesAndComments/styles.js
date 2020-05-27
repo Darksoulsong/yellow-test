@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Text } from '@components';
 
 export const LikesAndCommentsContainer = styled.div`
@@ -34,24 +34,32 @@ export const CommentButton = styled.div`
 
 export const CommentsContainer = styled.div`
   min-height: 50px;
-  max-height: 125px;
+  max-height: 90px;
   overflow-y: auto;
   margin-bottom: ${({ theme }) => theme.spaces.lg};
 `;
 
 export const LikesSection = styled.div`
-  margin: ${({ theme }) => `${theme.spaces.md} 0`};
+  margin-top: ${({ theme }) => theme.spaces.md};
   svg {
     cursor: pointer;
     width: 30px;
     height: 30px;
     margin-right: ${({ theme }) => theme.spaces.sm};
+    ${({ like }) =>
+      like &&
+      css`
+        .heart-fill {
+          fill: red;
+        }
+      `}
   }
 `;
 
 export const LikesText = styled(Text)`
   font-weight: 700;
-  margin: ${({ theme }) => `${theme.spaces.xsm} 0 0 0`};
+  user-select: none;
+  margin: ${({ theme }) => `${theme.spaces.xsm} 0 ${theme.spaces.md} 0`};
 `;
 
 export const Comment = styled.div`
@@ -62,4 +70,13 @@ export const Comment = styled.div`
 export const CommentUser = styled.strong`
   margin-right: ${({ theme }) => theme.spaces.xsm};
   user-select: none;
+`;
+
+export const SVGManipulator = styled.div`
+  display: flex;
+  svg {
+    .a {
+      fill: red;
+    }
+  }
 `;

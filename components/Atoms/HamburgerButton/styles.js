@@ -7,9 +7,7 @@ export const HamburgerButtonRoot = styled.span`
   height: 28px;
   position: relative;
   padding: 4px 0;
-  transform: scale(1);
-
-  ${({ open }) => open && `transform: scale(0.6);`}
+  transform: scale(0.8);
 `;
 
 export const HamburgerButtonIcon = styled.span`

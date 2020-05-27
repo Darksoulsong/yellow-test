@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const SpeechBubbleRoot = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: ${({ align }) => align};
 `;
@@ -23,11 +24,12 @@ const handleBubbleAlignment = align => {
 
 export const BubbleElement = styled.div`
   position: relative;
-  width: 446px;
-  height: 468px;
   background-color: ${({ theme }) => theme.colors.yellowDark};
-  padding: 59px 43px 94px;
-  border-radius: 28px;
+  border-radius: 16px;
+  width: 250px;
+  height: ${({ size = '260px' }) => size};
+  padding: 32px 28px 40px;
+  margin: 0 auto;
 
   &:before {
     position: absolute;
@@ -37,30 +39,49 @@ export const BubbleElement = styled.div`
     height: 0;
     border-left: 32px solid transparent;
     border-right: 32px solid transparent;
-    /* border-radius: 32px; */
     border-bottom: 32px solid ${({ theme }) => theme.colors.yellowDark};
     ${({ align }) => handleBubbleAlignment(align)};
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    padding: 59px 43px 52px;
+    width: 446px;
+    height: 468px;
   }
 `;
 
 export const Dot = styled.span`
   display: flex;
-  width: 14px;
-  height: 14px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: ${({ theme, active }) =>
     active ? theme.colors.grayDark : theme.colors.white};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 export const Dots = styled.div`
-  position: relative;
+  position: absolute;
   display: flex;
-  bottom: 40px;
-  right: 30px;
   z-index: 2;
+  bottom: 15px;
+  right: 25px;
 
   ${Dot} {
-    margin: 0 3px;
+    margin: 0 2px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    bottom: 25px;
+    right: 36px;
+
+    ${Dot} {
+      margin: 0 3px;
+    }
   }
 `;
 
@@ -68,8 +89,9 @@ export const Stars = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
-  bottom: 40px;
+  bottom: 0px;
   z-index: 2;
+
   svg {
     width: 2vw;
     min-width: 20px;

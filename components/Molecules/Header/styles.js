@@ -287,6 +287,7 @@ export const HeaderContent = styled.div`
   height: 100%;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.headerBackground};
+  margin-left: -1px;
 `;
 
 export const HeaderBody = styled.div`

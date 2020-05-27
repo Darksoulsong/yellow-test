@@ -49,6 +49,10 @@ export const SVGManipulator = styled.div`
   position: absolute;
   top: -5%;
   right: -5%;
+  @media (min-width: ${({ theme }) => theme.breakpoints.largest}) {
+    top: -30px;
+    right: -50px;
+  }
 `;
 
 export const Section = styled.div`
@@ -95,7 +99,7 @@ export const Form = styled.form`
 `;
 
 export const SimulationSection = styled(Section)`
-  margin: ${({ theme }) => theme.spaces.md};
+  margin: ${({ theme }) => `${theme.spaces.lg} ${theme.spaces.md}`};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: ${({ theme }) => theme.spaces.lg};
   }

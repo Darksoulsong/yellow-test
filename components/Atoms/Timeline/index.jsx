@@ -1,23 +1,42 @@
 import React from 'react';
-import { Root, Item, Circle, Label } from './styles';
+import { useMediaQuery } from 'react-responsive';
+import { breakpoints } from '@components';
+import { IsDesktop } from '@components';
+import { TimelineRoot, Item, Circle, Label } from './styles';
 
 export default function Timeline() {
+  const desktopBreakpoint = +breakpoints.large.replace('px', '');
+  const isDesktop = useMediaQuery({ minWidth: desktopBreakpoint });
+
   return (
-    <Root>
+    <TimelineRoot>
       <Item className="first">
         <Label alignRight>
-          <span data-aos="fade-in" data-aos-offset="50" data-aos-delay="100">
-            O salário de um profissional, pode ser o custo de um{' '}
-            <strong>erro na contratação</strong>
+          <span
+            data-aos={isDesktop && 'fade-in'}
+            data-aos-offset="50"
+            data-aos-delay="100"
+          >
+            <IsDesktop invert>
+              O salário de um <br />
+              profissional, pode ser <br />
+              o custo de um <br />
+              <strong>erro na contratação</strong>
+            </IsDesktop>
+
+            <IsDesktop>
+              O salário de um profissional, pode ser o custo de um{' '}
+              <strong>erro na contratação</strong>
+            </IsDesktop>
           </span>
         </Label>
       </Item>
       <Item
-        data-aos="animate-line-down"
+        data-aos={isDesktop && 'animate-line-down'}
         data-aos-offset="200"
         className="has-line first"
       >
-        <Circle data-aos="fade-in" data-aos-offset="100">
+        <Circle data-aos={isDesktop && 'fade-in'} data-aos-offset="100">
           3<span>x</span>
         </Circle>
       </Item>
@@ -27,37 +46,60 @@ export default function Timeline() {
         <Label />
       </Item>
       <Item
-        data-aos="animate-line-down"
+        data-aos={isDesktop && 'animate-line-down'}
         data-aos-offset="200"
         className="has-line"
       >
-        <Circle data-aos="fade-in" data-aos-offset="100">
+        <Circle data-aos={isDesktop && 'fade-in'} data-aos-offset="100">
           58<span>%</span>
         </Circle>
       </Item>
-      <Item data-aos="fade-in" data-aos-offset="200">
+      <Item data-aos={isDesktop && 'fade-in'} data-aos-offset="200">
         <Label>
-          das contratações <strong>terminam em demissões</strong>, por erros na
-          seleção de candidatos
+          <IsDesktop invert>
+            das contratações <br />
+            <strong>
+              terminam em <br /> demissões
+            </strong>
+            , por <br />
+            erros na seleção de <br />
+            candidatos
+          </IsDesktop>
+          <IsDesktop>
+            das contratações <strong>terminam em demissões</strong>, por erros
+            na seleção de candidatos
+          </IsDesktop>
         </Label>
       </Item>
 
-      <Item data-aos="fade-in" data-aos-offset="200" className="last">
+      <Item
+        data-aos={isDesktop && 'fade-in'}
+        data-aos-offset="200"
+        className="last"
+      >
         <Label alignRight>
-          dos profissionais <strong>desistem</strong> durante o processo de
-          recrutamento
+          <IsDesktop invert>
+            dos profissionais <br />
+            <strong>desistem</strong> durante o <br />
+            processo de <br />
+            recrutamento
+          </IsDesktop>
+          <IsDesktop>
+            dos profissionais <strong>desistem</strong> durante o processo de
+            recrutamento
+          </IsDesktop>
         </Label>
       </Item>
       <Item
-        data-aos="animate-line-down"
+        data-aos={isDesktop && 'animate-line-down'}
         data-aos-offset="200"
         className="has-line last"
       >
-        <Circle data-aos="fade-in" data-aos-offset="150">
+        <Circle data-aos={isDesktop && 'fade-in'} data-aos-offset="150">
           88<span>%</span>
         </Circle>
       </Item>
       <Item />
-    </Root>
+    </TimelineRoot>
   );
 }

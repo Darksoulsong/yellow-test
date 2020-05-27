@@ -8,12 +8,12 @@ export default function AnimatedScratchedCircle({ className }) {
       <SVG
         data-aos="animate-circle"
         className="circle"
-        data-aos-offset="1000"
+        // data-aos-offset="1000"
         name="handdrawn-circle"
       />
       <CircledScratchesIcon
         data-aos="animate-circle-scratches"
-        data-aos-offset="1000"
+        // data-aos-offset="1000"
         className="scratches"
       />
     </AnimatedScratchedCircleRoot>

@@ -1,47 +1,66 @@
 import styled from 'styled-components';
 
-export const SubHeading1 = styled.h2`
-  font-size: 4rem;
-  font-weight: 300;
-  text-align: center;
-
-  em {
-    font-style: normal;
-    border-bottom: 3px solid ${({ theme }) => theme.colors.yellow};
-  }
-`;
-
 export const Section = styled.section`
   transition: 0.3s ease-in-out;
   transition-property: margin, padding;
-  padding: 110px;
-  margin: 0 8px;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: 0 35px;
-  }
 `;
 
-export const GrayedSection = styled(Section)`
-  background-color: ${({ theme }) => theme.colors.grayLighter};
+export const FooterTopSection = styled(Section)`
+  margin: 0 16px 10px;
 
-  ${SubHeading1} {
-    width: 80%;
-    margin: 0 auto;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: 0 85px 18px;
   }
 `;
 
 export const FooterHeading = styled.h3`
   font-weight: 600;
+  font-size: 1.3rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 1.6rem;
+  }
 `;
 
 export const FooterBlock = styled.div`
-  width: 30%;
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 33.33%;
+  }
+`;
+
+export const GrayedSection = styled(Section)`
+  background-color: ${({ theme }) => theme.colors.grayLighter};
+  justify-content: space-between;
+  display: flex;
+  padding: 24px 16px 16px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    padding-top: 40px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    ${FooterBlock} {
+      width: auto;
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: 40px 85px;
+
+    ${FooterBlock} {
+      width: 30%;
+      justify-content: center;
+    }
+  }
 `;
 
 export const FooterItem = styled.div`
-  margin-bottom: 28px;
-  font-size: 1.6rem;
+  margin-bottom: 18px;
+  font-size: 1.3rem;
   font-weight: 300;
 
   svg path {
@@ -60,6 +79,31 @@ export const FooterItem = styled.div`
       }
     }
   }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    margin-bottom: 28px;
+    font-size: 1.6rem;
+  }
+`;
+
+export const FooterBlockPeople = styled(FooterBlock)`
+  width: 36%;
+`;
+
+export const FooterBlockYellowWay = styled(FooterBlock)`
+  width: 25%;
+`;
+
+export const FooterBlockCompanies = styled(FooterBlock)`
+  width: 29%;
+`;
+
+export const FooterItemYoutube = styled(FooterItem)`
+  margin: 0 34px;
+
+  svg {
+    width: 46px !important;
+  }
 `;
 
 export const FooterBlockSocial = styled(FooterBlock)`
@@ -67,7 +111,7 @@ export const FooterBlockSocial = styled(FooterBlock)`
   text-align: center;
 
   svg {
-    width: 28px !important;
+    width: 28px;
     height: auto;
   }
 
@@ -78,21 +122,29 @@ export const FooterBlockSocial = styled(FooterBlock)`
 
 export const FooterRoot = styled.div`
   .footer-logo svg {
-    width: 140px;
+    width: 110px;
   }
 
-  ${Section} {
-    padding-top: 0;
-    padding-bottom: 16px;
-    margin: 0;
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    .footer-logo svg {
+      width: 140px;
+    }
   }
+`;
 
-  ${GrayedSection} {
+export const MobileGrayedSection = styled(GrayedSection)`
+  background-color: ${({ theme }) => theme.colors.grayLighter};
+  padding-top: 0;
+
+  ${FooterBlockSocial} {
+    flex: none;
     display: flex;
-    margin-top: 0;
-    padding-top: 40px;
-    justify-content: space-between;
-    margin-left: 0;
-    margin-right: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 40px;
+    }
   }
 `;

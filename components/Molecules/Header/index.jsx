@@ -244,7 +244,7 @@ export default function Header() {
 
           <HeaderBodyRight>
             <NavSecondary>
-              <Link href="/contato">
+              <Link href="/contato#contratar">
                 <NavItem ref={createAccountRef}>
                   <NavItemLabel>Quero contratar</NavItemLabel>
                 </NavItem>

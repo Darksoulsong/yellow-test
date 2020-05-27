@@ -1,4 +1,5 @@
 import React from 'react';
+import { uid } from 'react-uid';
 import { routeTo } from '@utils';
 import { Collapsible, Button, SVG, LoginForm } from '@components';
 import {
@@ -90,7 +91,7 @@ export default function MobileMenu({
     },
     {
       heading: 'Quero Contratar',
-      onClick: () => routeTo('/contato'),
+      onClick: () => routeTo('/contato#contratar'),
     },
     {
       heading: 'Acesse sua conta',
@@ -133,7 +134,7 @@ export default function MobileMenu({
     <MobileMenuRoot open={open}>
       <Collapsible>
         {menuItems.map((item, index) => (
-          <>
+          <React.Fragment key={uid(item, index)}>
             {item.content ? (
               <Collapsible.Toggle itemIndex={index} renderIcon={renderIcon}>
                 <MobileMenuHeading>{item.heading}</MobileMenuHeading>
@@ -168,7 +169,7 @@ export default function MobileMenu({
                   : item.content}
               </MobileMenuList>
             </Collapsible.Body>
-          </>
+          </React.Fragment>
         ))}
       </Collapsible>
     </MobileMenuRoot>

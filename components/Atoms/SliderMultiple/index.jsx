@@ -1,47 +1,61 @@
 import React, { useState, useEffect } from 'react';
 import { SVG } from '@components';
-import { range } from '@utils';
+import { circularRange } from '@utils';
 import { Root, ControlLeft, ControlRight } from './styles';
 
 export default function SliderMultiple({
   children,
   itemsShowing = 3,
   specialLgMargin,
+  infinite = true,
 }) {
-  const [firstIndexActive, setFirstIndexActive] = useState(0);
-  const [items, setItems] = useState(null);
+  const [items, setItems] = useState({
+    children: null,
+    indexes: [0],
+  });
   const totalItemsInSlider = children.length;
 
   const onChangeItems = arrayOfIndexes => {
-    setItems(arrayOfIndexes.map(item => children[item]));
+    setItems({
+      children: arrayOfIndexes.map(item => children[item]),
+      indexes: arrayOfIndexes,
+    });
   };
 
   const onChangeSlide = value => {
     const isSlideIncrementing = value > 0;
+    const lastCurrentIndex = isSlideIncrementing ? items.indexes.length - 1 : 0;
+    const factorToGetNextItem = isSlideIncrementing ? 1 : -1;
 
-    let nextStartIndex = isSlideIncrementing
-      ? firstIndexActive + itemsShowing
-      : firstIndexActive - itemsShowing;
+    const range = circularRange({
+      from: items.indexes[lastCurrentIndex] + factorToGetNextItem,
+      addNElements: itemsShowing,
+      increment: isSlideIncrementing,
+      length: totalItemsInSlider,
+    });
 
-    if (nextStartIndex >= totalItemsInSlider || nextStartIndex < 0) {
-      return 0;
-    }
-
-    setFirstIndexActive(nextStartIndex);
-    onChangeItems(range(nextStartIndex, nextStartIndex + itemsShowing - 1));
+    onChangeItems(range);
   };
 
   useEffect(() => {
-    onChangeItems(range(firstIndexActive, firstIndexActive + itemsShowing - 1));
+    const range = circularRange({
+      from: items.indexes[0],
+      addNElements: itemsShowing,
+      increment: true,
+      length: totalItemsInSlider,
+    });
+    onChangeItems(range);
   }, [itemsShowing]);
 
   return (
     <Root specialLgMargin={specialLgMargin}>
-      <ControlLeft show={firstIndexActive !== 0}>
+      <ControlLeft show={infinite || items.indexes[0] !== 0}>
         <SVG onClick={() => onChangeSlide(-itemsShowing)} name="arrow-icon" />
       </ControlLeft>
-      {items}
-      <ControlRight show={firstIndexActive + itemsShowing < totalItemsInSlider}>
+      {items.children}
+      <ControlRight
+        show={infinite || items.indexes[0] + itemsShowing < totalItemsInSlider}
+      >
         <SVG onClick={() => onChangeSlide(itemsShowing)} name="arrow-icon" />
       </ControlRight>
     </Root>

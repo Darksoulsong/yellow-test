@@ -7,7 +7,7 @@ export const defaultSettings = {
   cellSpacing: 0,
   slidesToScroll: 'auto',
   slideWidth: '72.5px',
-  slideWidthMedium: '100px',
+  slideWidthMedium: '110px',
   wrapAround: false,
   withoutControls: true,
 };
@@ -24,7 +24,6 @@ export const CustomCarousel = ({
     dragging: false,
     settings,
   });
-  // const [carouselDragging, setCarouselDragging] = useState(false);
 
   useEffect(() => {
     let widthOfCarouselItems = settings.slideWidth.match(/\d+/)[0];

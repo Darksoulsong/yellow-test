@@ -1,21 +1,4 @@
-import styled, { keyframes, css } from 'styled-components';
-
-const DrawLine = keyframes`
-  to { stroke-dashOffset: 0; }
-`;
-
-export const CirclePathAnimation = css`
-  path {
-    stroke: transparent;
-    stroke: ${({ theme }) => theme.colors.white};
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-    animation-name: ${DrawLine};
-    animation-duration: 500ms;
-    stroke-dasharray: 205;
-    stroke-dashoffset: 205;
-  }
-`;
+import styled from 'styled-components';
 
 export const Description = styled.div`
   transition: opacity 0.3s ease-in-out;
@@ -39,44 +22,12 @@ export const Description = styled.div`
     width: 2px;
     background-color: ${({ theme }) => theme.colors.white};
   }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-  }
-`;
-
-export const Item = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 0 16px;
-
-  &:not(.active):hover {
-    .hover-icon {
-      transform: scaleX(-1);
-
-      ${CirclePathAnimation};
-    }
-  }
-
-  ${Description} {
-    opacity: 0;
-  }
-
-  &:hover,
-  &.active {
-    ${Description} {
-      transition-delay: 0.25s;
-      opacity: 1;
-    }
-  }
 `;
 
 export const ProductsActions = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
-  margin-top: -72px;
 
   button > span {
     font-weight: 300;
@@ -94,14 +45,5 @@ export const ProductsActions = styled.div`
 export const Root = styled.div`
   display: flex;
   justify-content: center;
-
-  ${Item} {
-    &:first-child {
-      padding-left: 0;
-    }
-
-    &:last-child {
-      padding-right: 0;
-    }
-  }
+  margin-bottom: 40px;
 `;

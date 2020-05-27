@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { useRouter } from 'next/router';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import * as Yup from 'yup';
@@ -35,6 +36,8 @@ import {
 
 export const Contact = () => {
   const [sent, setSent] = useState(false);
+  const formRef = useRef(null);
+  const router = useRouter();
 
   const {
     values,
@@ -58,6 +61,12 @@ export const Contact = () => {
       duration: 500,
     });
   }, []);
+
+  useEffect(() => {
+    if (router.asPath.includes('#contratar') && formRef) {
+      window.scrollTo(0, formRef.current.offsetWidth);
+    }
+  }, [formRef]);
 
   return (
     <DefaultLayout>
@@ -85,7 +94,7 @@ export const Contact = () => {
 
       <FormSection>
         <TitleContainer>
-          <CustomTitle align="center">
+          <CustomTitle align="center" ref={formRef}>
             <strong>
               SE VOCÊ QUER CONTRATAR A
               <br />
