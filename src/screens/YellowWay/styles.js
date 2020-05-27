@@ -1,9 +1,5 @@
 import styled from 'styled-components';
-
-const getDesktopFirstMediaQuery = mediaQueryString => {
-  const toNumber = +mediaQueryString.replace('px', '') - 1;
-  return toNumber + 'px';
-};
+import { getDesktopFirstMediaQuery } from '@utils';
 
 export const YellowWayRoot = styled.div``;
 

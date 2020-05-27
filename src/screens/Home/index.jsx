@@ -47,6 +47,8 @@ import {
   HomeRoot,
   CirclesContainer,
   HighlightsMobileArrowHolder,
+  ProductsMobileCarouselHolder,
+  ProductsDesktopHolder,
 } from './styles';
 
 const HomeScreen = () => {
@@ -164,13 +166,9 @@ const HomeScreen = () => {
               </MediaQuery>
             </SubHeading1>
 
-            <MediaQuery screenSize="smallerThanDesktop">
-              <>
-                <HighlightsMobileArrowHolder>
-                  <AnimatedArrow />
-                </HighlightsMobileArrowHolder>
-              </>
-            </MediaQuery>
+            <HighlightsMobileArrowHolder>
+              <AnimatedArrow />
+            </HighlightsMobileArrowHolder>
 
             <CirclesContainer>
               <Circles>
@@ -251,13 +249,13 @@ const HomeScreen = () => {
             <AnimatedScratches />
           </SubHeading1>
 
-          <MediaQuery screenSize="desktop">
+          <ProductsDesktopHolder>
             <Products />
-          </MediaQuery>
+          </ProductsDesktopHolder>
 
-          <MediaQuery screenSize="smallerThanDesktop">
+          <ProductsMobileCarouselHolder>
             <ProductsCarousel />
-          </MediaQuery>
+          </ProductsMobileCarouselHolder>
 
           <ProductsAnchor>
             <a href="/link">Entenda mais os produtos</a>
