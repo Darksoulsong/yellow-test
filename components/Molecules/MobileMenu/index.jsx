@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useUserData } from '@providers/User';
 import { uid } from 'react-uid';
 import { routeTo } from '@utils';
-import { Collapsible, Button, SVG } from '@components';
+import { Collapsible, Button, SVG, LoginForm } from '@components';
 import {
   MobileMenuRoot,
   MobileMenuHeading,
@@ -12,93 +13,107 @@ import {
 
 export default function MobileMenu({
   open,
+  onMenuToggle,
   onCreateAccountButtonClick,
-  onLoginToggle,
+  onForgotPasswordButtonClick,
+  onLoginButtonClick,
 }) {
-  const menuItems = React.useMemo(() => {
-    return [
-      {
-        heading: 'Para Empresas',
-        content: [
-          {
-            link: '/quem-somos',
-            label: 'Quem somos',
+  const { userLogged } = useUserData();
+  const menuItemsLogged = [
+    { heading: 'Meu perfil' },
+    { heading: 'Vagas inscritas' },
+    { heading: 'Configurações' },
+    { heading: 'Sair' },
+  ];
+  const menuItemsUnlogged = [
+    {
+      heading: 'Para Empresas',
+      content: [
+        {
+          link: '/quem-somos',
+          label: 'Quem somos',
+        },
+        {
+          link: '/produtos',
+          label: 'Produtos',
+        },
+        {
+          link: '/simule-sua-vaga',
+          label: 'Simule sua vaga',
+        },
+        {
+          link: '/contato',
+          label: 'Contato',
+        },
+        {
+          link: '/blog',
+          label: 'Dicas para você',
+        },
+      ],
+    },
+    {
+      heading: 'Para Candidatos',
+      content: [
+        {
+          link: '/quem-somos',
+          label: 'Quem somos',
+        },
+        {
+          link: 'https://yellowrec.gupy.io/',
+          external: true,
+          label: 'Vagas Abertas',
+        },
+        {
+          link: '/crie-sua-conta',
+          label: 'Crie sua conta',
+          onClick: function() {
+            event.preventDefault();
+            onCreateAccountButtonClick();
           },
-          {
-            link: '/produtos',
-            label: 'Produtos',
-          },
-          {
-            link: '/simule-sua-vaga',
-            label: 'Simule sua vaga',
-          },
-          {
-            link: '/contato',
-            label: 'Contato',
-          },
-          {
-            link: '/blog',
-            label: 'Dicas para você',
-          },
-        ],
-      },
-      {
-        heading: 'Para Candidatos',
-        content: [
-          {
-            link: '/quem-somos',
-            label: 'Quem somos',
-          },
-          {
-            link: 'https://yellowrec.gupy.io/',
-            external: true,
-            label: 'Vagas Abertas',
-          },
-          {
-            link: '/crie-sua-conta',
-            label: 'Crie sua conta',
-            onClick: function() {
-              event.preventDefault();
-              onCreateAccountButtonClick();
-            },
-          },
-          {
-            link: '/blog',
-            label: 'Dicas para você',
-          },
-        ],
-      },
-      {
-        heading: 'Yellow Way',
-        content: [
-          {
-            link: '/quem-somos',
-            label: 'Quem somos',
-          },
-          {
-            link: '/yellow-way',
-            label: 'Cultura',
-          },
-          {
-            link: '/blog',
-            label: 'Blog',
-          },
-          {
-            link: '/entre-para-o-time',
-            label: 'Entre para o time',
-          },
-        ],
-      },
-      {
-        heading: 'Quero Contratar',
-        onClick: () => routeTo('/contato'),
-      },
-      {
-        heading: 'Acesse sua conta',
-        onClick: onLoginToggle,
-      },
-    ];
-  }, []);
+        },
+        {
+          link: '/blog',
+          label: 'Dicas para você',
+        },
+      ],
+    },
+    {
+      heading: 'Yellow Way',
+      content: [
+        {
+          link: '/quem-somos',
+          label: 'Quem somos',
+        },
+        {
+          link: '/yellow-way',
+          label: 'Cultura',
+        },
+        {
+          link: '/blog',
+          label: 'Blog',
+        },
+        {
+          link: '/entre-para-o-time',
+          label: 'Entre para o time',
+        },
+      ],
+    },
+    {
+      heading: 'Quero Contratar',
+      onClick: () => routeTo('/contato#contratar'),
+    },
+    {
+      heading: 'Acesse sua conta',
+      content: (
+        <LoginForm
+          onCreateAccountButtonClick={onCreateAccountButtonClick}
+          onForgotPasswordButtonClick={onForgotPasswordButtonClick}
+          onLoginButtonClick={onLoginButtonClick}
+        />
+      ),
+    },
+  ];
+  const [menuItems, setMenuItems] = useState(menuItemsUnlogged);
 
   const renderIcon = React.useCallback(isActive => {
     return (
@@ -108,12 +123,16 @@ export default function MobileMenu({
     );
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const method = open ? 'add' : 'remove';
     document.body.classList[method]('hide-body-overflow');
   }, [open]);
 
-  const getButtonProps = React.useCallback(item => {
+  useEffect(() => {
+    setMenuItems(userLogged ? menuItemsLogged : menuItemsUnlogged);
+  }, [userLogged]);
+
+  const getButtonProps = item => {
     const props = {
       version: 'unstyled',
       block: true,
@@ -124,20 +143,18 @@ export default function MobileMenu({
     }
 
     return props;
-  }, []);
+  };
 
   return (
     <MobileMenuRoot open={open}>
       <Collapsible>
         {menuItems.map((item, index) => (
           <React.Fragment key={uid(item, index)}>
-            {item.content && (
+            {item.content ? (
               <Collapsible.Toggle itemIndex={index} renderIcon={renderIcon}>
                 <MobileMenuHeading>{item.heading}</MobileMenuHeading>
               </Collapsible.Toggle>
-            )}
-
-            {!item.content && (
+            ) : (
               <Button {...getButtonProps(item)}>
                 <MobileMenuHeading>{item.heading}</MobileMenuHeading>
               </Button>
@@ -145,23 +162,26 @@ export default function MobileMenu({
 
             <Collapsible.Body>
               <MobileMenuList>
-                {item.content &&
-                  item.content.map(contentItem => (
-                    <MobileMenuListItem key={uid(contentItem.link)}>
-                      <a
-                        onClick={
-                          typeof contentItem.onClick === 'function'
-                            ? contentItem.onClick
-                            : undefined
-                        }
-                        href={contentItem.link}
-                        rel={contentItem.external ? 'noopener noreferrer' : ''}
-                        target={contentItem.external ? '_blank' : '_self'}
-                      >
-                        {contentItem.label}
-                      </a>
-                    </MobileMenuListItem>
-                  ))}
+                {item.content && item.content.length
+                  ? item.content.map(contentItem => (
+                      <MobileMenuListItem key={contentItem.link}>
+                        <a
+                          onClick={
+                            typeof contentItem.onClick === 'function'
+                              ? contentItem.onClick
+                              : undefined
+                          }
+                          href={contentItem.link}
+                          rel={
+                            contentItem.external ? 'noopener noreferrer' : ''
+                          }
+                          target={contentItem.external ? '_blank' : '_self'}
+                        >
+                          {contentItem.label}
+                        </a>
+                      </MobileMenuListItem>
+                    ))
+                  : item.content}
               </MobileMenuList>
             </Collapsible.Body>
           </React.Fragment>
