@@ -50,6 +50,7 @@ import LensIcon from '../../../public/images/lens-icon.svg';
 import CameraIcon from '../../../public/images/camera-icon.svg';
 import BagIcon from '../../../public/images/bag-icon.svg';
 import LinesCircleIcon from '../../../public/images/lines-circle-icon.svg';
+import LinesCircleIconResponsive from '../../../public/images/lines-circle-icon-responsive.svg';
 import ThreeLineIcon from '../../../public/images/three-line-icon.svg';
 import ThreeLineThickerIcon from '../../../public/images/three-line-thicker-icon.svg';
 import CurvedLineIcon from '../../../public/images/curved-line-icon.svg';
@@ -192,6 +193,8 @@ const getImage = name => {
       return HanddrawnScratchedCircle;
     case 'lines-circle-icon':
       return LinesCircleIcon;
+    case 'lines-circle-icon-responsive':
+      return LinesCircleIconResponsive;
     case 'three-line-icon':
       return ThreeLineIcon;
     case 'three-line-thicker-icon':

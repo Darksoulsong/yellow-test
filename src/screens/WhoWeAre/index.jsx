@@ -1,5 +1,6 @@
 import React from 'react';
 import { uid } from 'react-uid';
+import { useScreenWidth } from '@hooks';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -14,6 +15,7 @@ import {
 } from './settings';
 
 import { spaces } from '@components/Organisms/Theme/sizes';
+import { breakpoints } from '@components/Organisms/Theme/breakpoints';
 
 import {
   Name,
@@ -38,7 +40,11 @@ import {
   SectionTitle,
 } from './styles';
 
+const mediumResolution = breakpoints.medium.match(/\d+/)[0];
+
 const WhoWeAreScreen = () => {
+  const { screenWidth } = useScreenWidth();
+
   React.useEffect(() => {
     AOS.init({
       duration: 500,
@@ -116,7 +122,13 @@ const WhoWeAreScreen = () => {
             data-aos-offset="200"
             type="lines-circle-icon"
           >
-            <SVG name="lines-circle-icon" />
+            <SVG
+              name={
+                screenWidth > mediumResolution
+                  ? 'lines-circle-icon'
+                  : 'lines-circle-icon-responsive'
+              }
+            />
           </SVGManipulator>
         </HowSectionContent>
       </HowSection>
@@ -125,7 +137,12 @@ const WhoWeAreScreen = () => {
           YELLOW <strong>CASES</strong>
         </SectionTitle>
         <ExperienceContent>
-          <SpeechBubble type="stars" iconsAlign="center" arrowAlign="center">
+          <SpeechBubble
+            size="450px"
+            type="stars"
+            iconsAlign="center"
+            arrowAlign="center"
+          >
             <Slider>
               <BubbleContent>
                 <strong>O desafio:</strong> Mobilizar equipe de 12 engenheiros,

@@ -153,6 +153,10 @@ export const HowSection = styled.div`
 export const HowSectionContent = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: ${({ theme }) => theme.spaces.sm};
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    margin-top: ${({ theme }) => theme.spaces.md};
+  }
 `;
 
 export const PurposeSection = styled.div`
@@ -204,11 +208,14 @@ export const PurposeColumn = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 300;
   display: inline-block;
   text-align: center;
-  margin-bottom: ${({ margin, theme }) => margin || theme.spaces.xlg};
+  margin-bottom: ${({ theme, margin }) => margin || theme.spaces.sm};
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 4.5rem;
+  }
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     font-size: 6rem;
   }
@@ -218,6 +225,7 @@ export const CasesSection = styled(Section)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: ${({ theme }) => `${theme.spaces.lg} 0`};
   background-color: ${({ theme }) => theme.colors.grayLighter};
 `;
 
@@ -355,14 +363,47 @@ export const ExperienceSection = styled(Section)`
   padding-right: 0;
 
   ${SubHeading1} {
-    font-size: 8.5rem;
-    letter-spacing: 0.16rem;
+    font-size: 3.3rem;
+    letter-spacing: 0.043rem;
+    margin-bottom: 37px;
+  }
+
+  .slider-control-left {
+    left: -75px;
+  }
+
+  .slider-control-right {
+    right: -75px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    ${SubHeading1} {
+      font-size: 4.9rem;
+      letter-spacing: 0.16rem;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    .slider-control-left {
+      left: -87px;
+    }
+
+    .slider-control-right {
+      right: -87px;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    ${SubHeading1} {
+      font-size: 8.3rem;
+      letter-spacing: 0.16rem;
+      margin-bottom: 98px;
+    }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     ${SubHeading1} {
       font-size: 9.5rem;
-      letter-spacing: 0.16rem;
     }
   }
 `;
@@ -370,7 +411,7 @@ export const ExperienceSection = styled(Section)`
 export const ExperienceContent = styled.div`
   display: flex;
   justify-content: center;
-  padding: 98px 0 30px;
+  padding: ${({ theme }) => `${theme.spaces.md} 0`};
 `;
 
 export const ExperienceFooter = styled.div`
@@ -397,7 +438,11 @@ export const ExperienceFooter = styled.div`
 
 export const BubbleContent = styled.div`
   color: ${({ theme }) => theme.colors.grayDark};
-  font-size: 1.75rem;
-  line-height: 2.5rem;
+  font-size: 1.4rem;
+  line-height: 1.75rem;
   font-weight: 300;
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 1.8rem;
+    line-height: 2.25rem;
+  }
 `;
