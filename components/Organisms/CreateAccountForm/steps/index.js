@@ -3,8 +3,13 @@ import * as Yup from 'yup';
 import { default as PersonalInfoOne } from '../views/PersonalInfoOne';
 import { default as PersonalInfoTwo } from '../views/PersonalInfoTwo';
 import { default as AccountInfo } from '../views/AccountInfo';
+import { default as AccountType } from '../views/AccountType';
 
 export default [
+  {
+    id: 'AccountType',
+    component: AccountType,
+  },
   {
     id: 'PersonalInfoOne',
     component: PersonalInfoOne,

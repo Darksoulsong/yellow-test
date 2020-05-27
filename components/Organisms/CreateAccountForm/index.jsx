@@ -19,7 +19,7 @@ const FormWrapper = props => {
 
       {props.children}
 
-      <FormActions style={{ marginTop: 'auto' }}>
+      <FormActions>
         <FormSteps
           activeStep={activeStep}
           totalItems={steps.length}

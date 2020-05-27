@@ -6,14 +6,18 @@ export const FormRoot = styled.div`
   background-color: ${({ theme }) => theme.colors.grayLightest};
   padding: 60px 120px;
   padding: 0 30px 20px;
-  width: 600px;
-  min-height: 430px;
+  width: 100vw;
+  min-height: 100vh;
 
   form {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    min-height: 430px;
+    width: 600px;
   }
 `;
 

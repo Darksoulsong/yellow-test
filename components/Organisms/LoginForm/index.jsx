@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SVG, Button } from '@components';
 import {
   LoginFormRoot,
@@ -16,14 +16,30 @@ import {
 export default function LoginForm({
   onCreateAccountButtonClick,
   onForgotPasswordButtonClick,
+  onLoginButtonClick,
+  loading,
 }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = e => {
+    if (email && password) {
+      onLoginButtonClick({ email, password });
+    }
+  };
+
   return (
     <LoginFormRoot>
       <form autoComplete="off">
         <FormControl>
           <Field>
             <FieldIcon>@</FieldIcon>
-            <input placeholder="seu email" name="email" />
+            <input
+              placeholder="seu email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              name="email"
+            />
           </Field>
         </FormControl>
         <FormControl>
@@ -31,14 +47,19 @@ export default function LoginForm({
             <FieldIcon>
               <SVG name="key-icon" />
             </FieldIcon>
-            <input placeholder="sua senha" type="password" name="password" />
+            <input
+              placeholder="sua senha"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              type="password"
+            />
           </Field>
         </FormControl>
         <ForgotPassword>
           <Button
             type="button"
             version="unstyled"
-            onClick={() => onForgotPasswordButtonClick()}
+            onClick={onForgotPasswordButtonClick}
           >
             <ForgotPasswordLabel>esqueceu sua senha?</ForgotPasswordLabel>
           </Button>
@@ -52,14 +73,13 @@ export default function LoginForm({
             <SVG name="google-icon" />
           </a>
         </AlternativeLogin>
-        <FormActions>
-          <FormButtonGray
-            type="button"
-            onClick={() => onCreateAccountButtonClick()}
-          >
+        <FormActions justify="center">
+          <FormButtonGray type="button" onClick={onCreateAccountButtonClick}>
             Criar conta
           </FormButtonGray>
-          <FormButtonYellow type="button">Continuar</FormButtonYellow>
+          <FormButtonYellow type="button" onClick={handleSubmit}>
+            Continuar
+          </FormButtonYellow>
         </FormActions>
       </form>
     </LoginFormRoot>

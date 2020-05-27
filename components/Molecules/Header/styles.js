@@ -195,7 +195,7 @@ export const FormDropdown = styled.div`
   top: 83px;
   right: 0;
   width: 430px;
-  height: 460px;
+  height: ${({ height = '460px' }) => height};
 `;
 
 const Nav = styled.nav`
@@ -374,4 +374,42 @@ export const HeaderRoot = styled.div`
         }
       }
     `};
+`;
+
+export const UserContainer = styled.div`
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+export const Circle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.yellow};
+  margin-right: ${({ theme }) => theme.spaces.xsm};
+`;
+
+export const CustomNavLabelItem = styled(NavItemLabel)`
+  width: 125px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  justify-content: center;
+  display: flex;
+`;
+
+export const ContainerFormDropdown = styled.div`
+  padding: 56px 0px 45px;
+  color: #a6a8ab;
+  font-weight: 300;
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    padding: 25px 50px;
+  }
+  * {
+    border-bottom: 0.5px solid rgba(88, 89, 91, 0.7);
+  }
 `;

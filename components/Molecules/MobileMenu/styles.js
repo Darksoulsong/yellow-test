@@ -30,6 +30,10 @@ export const MobileMenuRoot = styled.div`
       opacity: 1;
       height: 100vh;
     `};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: none;
+  }
 `;
 
 export const MobileMenuItem = styled.div`
@@ -54,15 +58,19 @@ export const MobileMenuHeading = styled.h2`
   height: 73px;
   line-height: 70px;
   text-align: left;
+  user-select: none;
+  cursor: pointer;
 `;
 
 export const MobileMenuList = styled.ul`
   padding-left: 16px;
   padding-bottom: 10px;
+  user-select: none;
 `;
 
 export const MobileMenuListItem = styled.li`
   font-size: 1.4rem;
+  user-select: none;
   font-weight: 300;
   height: 32px;
   letter-spacing: 0.035rem;
