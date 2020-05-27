@@ -7,6 +7,7 @@ export default function SpeechBubble({
   type = 'dots',
   iconsAlign = 'flex-end',
   arrowAlign = 'flex-start',
+  size,
 }) {
   const renderBottomContent = () => {
     switch (type) {
@@ -34,7 +35,7 @@ export default function SpeechBubble({
 
   return (
     <SpeechBubbleRoot className="speech-bubble" align={iconsAlign}>
-      <BubbleElement align={arrowAlign}>
+      <BubbleElement size={size} align={arrowAlign}>
         {children}
         {renderBottomContent()}
       </BubbleElement>

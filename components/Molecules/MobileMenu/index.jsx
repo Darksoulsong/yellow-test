@@ -91,7 +91,7 @@ export default function MobileMenu({
       },
       {
         heading: 'Quero Contratar',
-        onClick: () => routeTo('/contato'),
+        onClick: () => routeTo('/contato#contratar'),
       },
       {
         heading: 'Acesse sua conta',

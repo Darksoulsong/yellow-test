@@ -27,7 +27,7 @@ export const BubbleElement = styled.div`
   background-color: ${({ theme }) => theme.colors.yellowDark};
   border-radius: 16px;
   width: 250px;
-  height: 260px;
+  height: ${({ size = '260px' }) => size};
   padding: 32px 28px 40px;
   margin: 0 auto;
 
@@ -89,7 +89,7 @@ export const Stars = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
-  bottom: 40px;
+  bottom: 0px;
   z-index: 2;
 
   svg {
