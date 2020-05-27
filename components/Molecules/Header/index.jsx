@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import { useScrollPosition } from '@hooks';
+import { useUserData } from '@providers/User';
 import {
   SVG,
   useBackdrop,
@@ -12,7 +14,7 @@ import {
   CreateAccountForm,
 } from '@components';
 import { colors } from '@components/Organisms/Theme/default/colors';
-import { useScrollPosition } from '@hooks';
+import UserLoggedContent from './UserLoggedContent';
 import DropdownContent1 from './DropdownContent1';
 import DropdownContent2 from './DropdownContent2';
 import DropdownContent3 from './DropdownContent3';
@@ -34,6 +36,8 @@ import {
 
 export default function Header() {
   const headerRootRef = React.useRef(null);
+
+  const { handleUserLogin, data, userLogged } = useUserData();
 
   const [isSticky, setIsSticky] = React.useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
@@ -250,17 +254,35 @@ export default function Header() {
                 </NavItem>
               </Link>
               <NavItem ref={loginContainerRef} active data-item-label="login">
-                <NavItemLabel onClick={() => handleLoginToggle(showBackdrop)}>
-                  Acesse sua conta
-                </NavItemLabel>
-                <FormDropdown>
-                  <LoginForm
-                    onCreateAccountButtonClick={handleCreateAccountButtonClick}
-                    onForgotPasswordButtonClick={
-                      handleForgotPasswordButtonClick
-                    }
+                {!userLogged ? (
+                  <>
+                    <NavItemLabel
+                      onClick={() => handleLoginToggle(showBackdrop)}
+                    >
+                      Acesse sua conta
+                    </NavItemLabel>
+                    <FormDropdown>
+                      <LoginForm
+                        loading={data.loading}
+                        onCreateAccountButtonClick={
+                          handleCreateAccountButtonClick
+                        }
+                        onForgotPasswordButtonClick={
+                          handleForgotPasswordButtonClick
+                        }
+                        onLoginButtonClick={({ email, password }) => {
+                          handleLoginToggle(showBackdrop);
+                          handleUserLogin({ email, password });
+                          // Temporary code
+                        }}
+                      />
+                    </FormDropdown>
+                  </>
+                ) : (
+                  <UserLoggedContent
+                    onClick={() => handleLoginToggle(showBackdrop)}
                   />
-                </FormDropdown>
+                )}
               </NavItem>
             </NavSecondary>
           </HeaderBodyRight>
@@ -279,6 +301,11 @@ export default function Header() {
         onCreateAccountButtonClick={handleCreateAccountButtonClick}
         onMenuToggle={handleMobileMenuToggle}
         onForgotPasswordButtonClick={handleForgotPasswordButtonClick}
+        onLoginButtonClick={({ email, password }) => {
+          handleLoginToggle(showBackdrop);
+          handleUserLogin({ email, password });
+          // Temporary code
+        }}
       />
     </HeaderRoot>
   );

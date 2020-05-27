@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useUserData } from '@providers/User';
 import { uid } from 'react-uid';
 import { routeTo } from '@utils';
 import { Collapsible, Button, SVG, LoginForm } from '@components';
@@ -15,8 +16,16 @@ export default function MobileMenu({
   onMenuToggle,
   onCreateAccountButtonClick,
   onForgotPasswordButtonClick,
+  onLoginButtonClick,
 }) {
-  const menuItems = [
+  const { userLogged } = useUserData();
+  const menuItemsLogged = [
+    { heading: 'Meu perfil' },
+    { heading: 'Vagas inscritas' },
+    { heading: 'Configurações' },
+    { heading: 'Sair' },
+  ];
+  const menuItemsUnlogged = [
     {
       heading: 'Para Empresas',
       content: [
@@ -99,10 +108,12 @@ export default function MobileMenu({
         <LoginForm
           onCreateAccountButtonClick={onCreateAccountButtonClick}
           onForgotPasswordButtonClick={onForgotPasswordButtonClick}
+          onLoginButtonClick={onLoginButtonClick}
         />
       ),
     },
   ];
+  const [menuItems, setMenuItems] = useState(menuItemsUnlogged);
 
   const renderIcon = React.useCallback(isActive => {
     return (
@@ -112,12 +123,16 @@ export default function MobileMenu({
     );
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const method = open ? 'add' : 'remove';
     document.body.classList[method]('hide-body-overflow');
   }, [open]);
 
-  const getButtonProps = React.useCallback(item => {
+  useEffect(() => {
+    setMenuItems(userLogged ? menuItemsLogged : menuItemsUnlogged);
+  }, [userLogged]);
+
+  const getButtonProps = item => {
     const props = {
       version: 'unstyled',
       block: true,
@@ -128,7 +143,7 @@ export default function MobileMenu({
     }
 
     return props;
-  }, []);
+  };
 
   return (
     <MobileMenuRoot open={open}>

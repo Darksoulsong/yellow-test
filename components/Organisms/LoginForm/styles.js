@@ -14,9 +14,12 @@ const RoundElementBase = css`
 `;
 
 export const LoginFormRoot = styled.div`
-  padding: 56px 50px 45px;
+  padding: 56px 0px 45px;
   color: #a6a8ab;
   font-weight: 300;
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    padding: 56px 50px 45px;
+  }
 `;
 
 export const Field = styled.div`
@@ -57,8 +60,8 @@ export const FormControl = styled.div`
 
 export const FormActions = styled(FormControl)`
   display: flex;
-  justify-content: space-between;
   margin-top: 43px;
+  justify-content: ${({ justify = 'flex-start' }) => justify};
 `;
 
 export const ForgotPassword = styled(FormControl)`
@@ -100,6 +103,7 @@ export const FormButton = styled.button`
 
   transition: transform 0.1s ease-in-out;
   padding: 0 26px;
+  margin: ${({ theme }) => `0 ${theme.spaces.xsm}`};
   width: 154px;
   justify-content: center;
   transform: scale(1);
