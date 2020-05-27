@@ -96,9 +96,12 @@ export default function IntroImageYellowWay() {
             <Item3>
               #qualidadede<strong>vida</strong>
             </Item3>
-            <Arrow3>
+            <Arrow3 className="handdrawn-arrow3">
               <SVG name="handdrawn-arrow3" />
             </Arrow3>
+            <Arrow1 className="handdrawn-arrow1">
+              <SVG name="handdrawn-arrow1" />
+            </Arrow1>
           </BlockItem3>
 
           <BlockItem4>

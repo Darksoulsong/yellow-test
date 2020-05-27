@@ -43,7 +43,7 @@ export const YellowWay = () => {
 
       <Container>
         <TextHolder>
-          <Text align="center" weight="500">
+          <Text align="center" weight="300">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam{' '}
             nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
             volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
@@ -61,7 +61,7 @@ export const YellowWay = () => {
         </Subheading>
 
         <Box>
-          <img alt="Yellow Team" src="/images/yellow-team-image.png" />
+          <img alt="Yellow Team" src="/images/yellow-team-image2.png" />
           <BoxFooter>
             <Logo variant="alt" />
           </BoxFooter>
