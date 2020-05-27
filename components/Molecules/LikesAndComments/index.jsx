@@ -12,20 +12,14 @@ import {
   LikesText,
   Comment,
   CommentUser,
+  SVGManipulator,
 } from './styles';
 
 const mockedComments = [
   { user: 'matthias', comment: 'Gostei muito' },
   { user: 'gabriella', comment: 'Que legal' },
-  { user: 'gabriella', comment: 'Que legal' },
-  { user: 'gabriella', comment: 'Que legal' },
-  { user: 'gabriella', comment: 'Que legal' },
-  { user: 'gabriella', comment: 'Que legal' },
-  { user: 'gabriella', comment: 'Que legal' },
-  { user: 'gabriella', comment: 'Que legal' },
-  { user: 'gabriella', comment: 'Que legal' },
-  { user: 'gabriella', comment: 'Que legal' },
-  { user: 'gabriella', comment: 'Que legal' },
+  { user: 'jorge', comment: 'Que maravilha' },
+  { user: 'matheus', comment: 'Top demais' },
 ];
 
 export const LikesAndComments = ({
@@ -34,7 +28,7 @@ export const LikesAndComments = ({
 }) => {
   const inputRef = useRef(null);
   const [showCommentInput, setShowCommentInput] = useState(false);
-
+  const [like, setLike] = useState(false);
   const enableComment = () => {
     setShowCommentInput(true);
   };
@@ -47,12 +41,12 @@ export const LikesAndComments = ({
 
   return (
     <LikesAndCommentsContainer>
-      <LikesSection>
-        <SVG name="interact-like" />
+      <LikesSection like={like}>
+        <SVG name="interact-like" onClick={() => setLike(!like)} />
         <SVG name="interact-comment" onClick={enableComment} />
         <SVG name="interact-share" />
-        <LikesText>{likes} curtidas</LikesText>
       </LikesSection>
+      <LikesText>{likes} curtidas</LikesText>
       <CommentSection>
         {showCommentInput && (
           <CommentPostContainer>

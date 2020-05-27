@@ -9,7 +9,6 @@ import {
   Card,
   CircledFilter,
   Carousel,
-  AnimatedManipulator,
   Pagination,
   Suscribe,
   DefaultLayout,
@@ -76,16 +75,12 @@ export const Blog = () => {
           </BlogColText>
           <BlogColImage>
             <ColImgSVGContainer>
-              <AnimatedManipulator
-                dataAosOffset="100"
-                name="three-line-icon"
-                type="three-line-icon-yellow"
-              />
+              <SVG name="three-line-thicker-icon" />
             </ColImgSVGContainer>
             <Card
               width="65%"
               mdWidth="90%"
-              text="A dinâmica da comunicação"
+              text="A dinâmica de comunicação"
               img="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg"
             />
           </BlogColImage>
@@ -98,12 +93,14 @@ export const Blog = () => {
             ))}
           </Carousel>
         </FilterContainer>
+
         <CardsContainer>
           {articles.map((item, index) => (
             <Card
               width="50%"
               mdWidth="33.33%"
-              padding={`${spaces.xsm} 1%`}
+              padding={`${spaces.xsm}`}
+              paddingDesktop={`${spaces.xsm} 1%`}
               key={uid(item, index)}
               text={item.text}
               img={item.image}

@@ -6,10 +6,7 @@ import 'aos/dist/aos.css';
 
 import {
   SVG,
-  MediumTitle,
-  Text,
   Card,
-  AnimatedManipulator,
   LikesAndComments,
   Suscribe,
   DefaultLayout,
@@ -32,6 +29,9 @@ import {
   ContainerWithPadding,
   Image,
   ContentContainer,
+  CustomTitle,
+  CustomText,
+  LinkText,
 } from './styles';
 
 export const BlogArticle = () => {
@@ -63,22 +63,22 @@ export const BlogArticle = () => {
             </Circle>
           </BlogLogo>
           <BlogCol>
-            <MediumTitle>
-              YELLOW<strong>BLOG</strong>
-            </MediumTitle>
-            <Text margin={`${spaces.xsm} 0 0 0`}>Daniel Monteiro</Text>
+            <CustomTitle>
+              A DINÂMICA DE <strong>COMUNICAÇÃO</strong>
+            </CustomTitle>
+            <CustomText margin={`${spaces.xsm} 0 0 0`}>
+              Daniel Monteiro
+            </CustomText>
           </BlogCol>
-          <Link href="/blog">
-            <BlogBack>VOLTAR PARA O FEED</BlogBack>
-          </Link>
         </BlogTopContainer>
 
         <BlogColImage>
-          <AnimatedManipulator
-            dataAosOffset="100"
-            name="three-line-icon"
-            type="three-line-icon-yellow"
-          />
+          <BlogBack>
+            <Link href="/blog">
+              <LinkText>VOLTAR PARA O FEED</LinkText>
+            </Link>
+          </BlogBack>
+          <SVG name="three-line-thicker-icon" />
           <Image src="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg" />
         </BlogColImage>
 

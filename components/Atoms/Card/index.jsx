@@ -22,9 +22,11 @@ export const Card = ({
   likes = 0,
   comments = 0,
   padding,
+  paddingDesktop,
 }) => (
   <CardContainer
     padding={padding}
+    paddingDesktop={paddingDesktop}
     width={width}
     mdWidth={mdWidth}
     onClick={routeToContent}
