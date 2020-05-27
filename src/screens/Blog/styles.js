@@ -34,7 +34,7 @@ export const ColImgSVGContainer = styled.div`
     right: 12%;
     @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
       width: 10% !important;
-      right: 5%;
+      right: 0%;
     }
   }
 `;
@@ -71,9 +71,10 @@ export const BlogTopContainer = styled(Container)`
   flex-wrap: wrap;
   justify-content: flex-start;
   padding: ${({ theme }) =>
-    `${theme.spaces.xlg} ${theme.spaces.sm} ${theme.spaces.lg} ${theme.spaces.sm}`};
+    `${theme.spaces.md} ${theme.spaces.sm} ${theme.spaces.sm} ${theme.spaces.sm}`};
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     justify-content: space-between;
+    padding: ${({ theme }) => `${theme.spaces.xlg} 1% ${theme.spaces.lg} 1%`};
   }
 `;
 
@@ -82,7 +83,7 @@ export const BlogColText = styled(Column)`
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     display: flex;
     margin-top: 0;
-    width: 33.33%;
+    width: 27%;
     align-items: flex-start;
     * {
       text-align: left;
@@ -109,7 +110,7 @@ export const BlogColImage = styled.div`
     text-align: center;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding-right: ${({ theme }) => theme.spaces.sm};
+    /* padding-right: ${({ theme }) => theme.spaces.sm}; */
     margin: 0;
     display: flex;
     width: 33.33%;
@@ -136,8 +137,11 @@ export const BlogLogo = styled(Column)`
 export const CardsContainer = styled(Container)`
   flex-wrap: wrap;
   flex-direction: row;
-  padding: 0;
+  padding: 0 10px;
   margin-top: ${({ theme }) => theme.spaces.sm};
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    padding: 0px;
+  }
 `;
 
 export const FilterContainer = styled(Container)`

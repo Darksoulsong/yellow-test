@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import styled, { css } from 'styled-components';
-import { Container } from '@components';
+import { Container, MediumTitle, Text } from '@components';
 
 export const ContainerWithPadding = styled.div`
   padding: 0 0;
@@ -17,6 +17,43 @@ export const Section = styled.section`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: 0 35px;
+  }
+`;
+
+export const CustomTitle = styled(MediumTitle)`
+  font-size: 1.5rem;
+  user-select: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 2.5rem;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 3rem;
+  }
+`;
+
+export const LinkText = styled.p`
+  user-select: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 1.5rem;
+  }
+`;
+
+export const CustomText = styled(Text)`
+  font-size: 1rem;
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 1.75rem;
   }
 `;
 
@@ -53,17 +90,16 @@ export const Column = styled.div`
 
 export const BlogTopContainer = styled(Container)`
   flex-direction: row;
-  flex-wrap: wrap;
   padding: ${({ theme }) => theme.spaces.sm};
   padding-top: ${({ theme }) => theme.spaces.lg};
   justify-content: flex-start;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding: ${({ theme }) => `${theme.spaces.xlg} 0 ${theme.spaces.lg} 0`};
+    padding: ${({ theme }) => `${theme.spaces.xlg} 0 ${theme.spaces.sm} 0`};
   }
 `;
 
 export const BlogCol = styled(Column)`
-  width: fit-content;
+  width: 70%;
   display: flex;
   align-items: flex-start;
   margin: ${({ theme }) => `0 0 0 ${theme.spaces.sm}`};
@@ -79,19 +115,18 @@ export const BlogColImage = styled.div`
   position: relative;
   width: 100%;
   align-items: center;
-  padding: ${({ theme }) => theme.spaces.md};
+  padding: ${({ theme }) => theme.spaces.sm};
   svg {
     position: absolute;
-    width: 7.5% !important;
-    top: -0.5%;
-    right: 0%;
+    display: none;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     padding: 0;
     svg {
+      display: block;
       width: 10% !important;
-      right: -7.5%;
-      top: -10%;
+      right: -10%;
+      top: -8%;
     }
   }
 `;
@@ -109,7 +144,7 @@ export const BlogBack = styled(Column)`
   text-transform: uppercase;
   text-decoration: underline;
   font-weight: 500;
-  padding: ${({ theme }) => theme.spaces.sm};
+  padding-bottom: ${({ theme }) => theme.spaces.sm};
   cursor: pointer;
   user-select: none;
 `;

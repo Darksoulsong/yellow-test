@@ -9,6 +9,7 @@ export const CardContainer = styled.div`
   padding: ${({ padding }) => padding};
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: ${({ mdWidth = '33.33%' }) => mdWidth};
+    padding: ${({ paddingDesktop, padding }) => paddingDesktop || padding};
   }
   &:hover {
     main {
@@ -38,6 +39,7 @@ export const CardSquare = styled.section`
   padding-bottom: 100%;
   position: relative;
   overflow: hidden;
+  user-select: none;
 `;
 
 export const Image = styled.img`
@@ -62,6 +64,7 @@ export const CustomText = styled(Text)`
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
+  user-select: none;
 `;
 
 export const Interactions = styled.ul`
