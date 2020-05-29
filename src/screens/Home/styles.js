@@ -126,7 +126,6 @@ export const Video = styled.div`
   position: relative;
   display: flex;
   overflow: hidden;
-  /* width: 350px; */
   width: 100%;
   height: 185px;
   margin: 0 auto;
@@ -150,9 +149,6 @@ export const Video = styled.div`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     height: 385px;
-
-    video {
-    }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -202,6 +198,22 @@ export const IntroFooter = styled.div`
 `;
 
 export const IntroFooterImage = styled.div``;
+
+export const IntroFooterImageDesktop = styled.div`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: block;
+  }
+`;
+
+export const IntroFooterImageSmallerThanDesktop = styled.div`
+  display: block;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: none;
+  }
+`;
 
 export const IntroFooterActions = styled.div`
   width: 100%;
@@ -304,11 +316,6 @@ export const TimelineSection = styled(GrayedSection)`
       width: 90%;
       font-size: 2.8rem;
     }
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    /* padding-top: 110px;
-    padding-bottom: 120px; */
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {

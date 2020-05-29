@@ -1,9 +1,9 @@
 export const breakpoints = {
-  smaller: '375px',
+  smaller: '376px',
   small: '576px',
-  medium: '768px',
-  large: '992px',
-  larger: '1280px',
+  medium: '769px',
+  large: '993px',
+  larger: '1281px',
   largest: '1920px',
 };
 

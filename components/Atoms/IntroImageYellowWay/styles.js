@@ -101,8 +101,8 @@ const Item = styled.h3`
   font-family: Roboto, sans-serif;
   font-weight: 300;
   user-select: none;
-  font-size: 0.785rem;
-  letter-spacing: 0.027rem;
+  font-size: 1.9vw;
+  letter-spacing: 0.06vw;
 
   strong {
     font-weight: 600;
@@ -118,12 +118,12 @@ const Item = styled.h3`
   }
 `;
 export const Item1 = styled(Item)`
-  left: 0.7%;
+  right: 7%;
   top: 2.3%;
 `;
 export const Item2 = styled(Item)`
   top: 56%;
-  left: 35%;
+  right: 7%;
   text-align: right;
 
   strong {
@@ -141,11 +141,12 @@ export const Item2 = styled(Item)`
 `;
 export const Item3 = styled(Item)`
   top: 106%;
-  left: 27%;
+  right: 6%;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     left: 0%;
     top: 63.7%;
+    right: 22%;
   }
 `;
 export const Item4 = styled(Item)`
@@ -177,6 +178,22 @@ export const Item6 = styled(Item)`
   }
 `;
 
+export const VisibleOnMedium = styled.div`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    display: block;
+  }
+`;
+
+export const VisibleOnSmall = styled.div`
+  display: block;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    display: none;
+  }
+`;
+
 const Arrow = styled.span`
   position: absolute;
 
@@ -184,31 +201,8 @@ const Arrow = styled.span`
     width: 10vw;
     height: auto;
   }
-
-  &.handdrawn-arrow3 {
-    display: none;
-  }
-
-  &.handdrawn-arrow1 {
-    transform: scaleX(-1) rotate(-159deg);
-    top: 28%;
-    left: 71%;
-
-    svg {
-      width: 6vw;
-    }
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    &.handdrawn-arrow3 {
-      display: block;
-    }
-
-    &.handdrawn-arrow1 {
-      display: none;
-    }
-  }
 `;
+
 export const Arrow1 = styled(Arrow)`
   left: 51.4%;
   top: 45.8%;
@@ -216,6 +210,15 @@ export const Arrow1 = styled(Arrow)`
   svg {
     max-width: 118px;
     width: 8.6vw;
+  }
+`;
+export const Arrow1Alt = styled(Arrow1)`
+  transform: scaleX(-1) rotate(-159deg);
+  top: 28%;
+  left: 71%;
+
+  svg {
+    width: 6vw;
   }
 `;
 export const Arrow2 = styled(Arrow)`
@@ -272,7 +275,7 @@ export const BlockItem1 = styled(BlockItem)`
   width: 21.3vw;
   height: 7.3vw;
   top: 2.4%;
-  left: -44.2%;
+  right: 82%;
   max-width: 320px;
   max-height: 123px;
 `;
@@ -306,7 +309,6 @@ export const BlockItem3 = styled(BlockItem)`
 export const BlockItem4 = styled(BlockItem)`
   width: 16.5vw;
   height: 9vw;
-  /* top: 90.2%; */
   top: 86.2%;
   right: -11.4%;
   max-width: 204px;
@@ -326,7 +328,7 @@ export const BlockItem6 = styled(BlockItem)`
   width: 25vw;
   height: 11.2vw;
   top: 52.9%;
-  right: -68.5%;
+  left: 103%;
   max-width: 395px;
   max-height: 168px;
 `;
@@ -335,7 +337,7 @@ export const YellowWayIntroImageRoot = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 376px;
   height: auto;
   max-width: 1033px;
 

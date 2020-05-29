@@ -7,6 +7,7 @@ import {
   ImageHolder,
   Image,
   Arrow1,
+  Arrow1Alt,
   Arrow2,
   Arrow3,
   Arrow4,
@@ -30,6 +31,8 @@ import {
   ImageItem4,
   ImageItem5,
   ImageItem6,
+  VisibleOnMedium,
+  VisibleOnSmall,
 } from './styles';
 
 export default function IntroImageYellowWay() {
@@ -96,12 +99,17 @@ export default function IntroImageYellowWay() {
             <Item3>
               #qualidadede<strong>vida</strong>
             </Item3>
-            <Arrow3 className="handdrawn-arrow3">
-              <SVG name="handdrawn-arrow3" />
-            </Arrow3>
-            <Arrow1 className="handdrawn-arrow1">
-              <SVG name="handdrawn-arrow1" />
-            </Arrow1>
+            <VisibleOnMedium>
+              <Arrow3>
+                <SVG name="handdrawn-arrow3" />
+              </Arrow3>
+            </VisibleOnMedium>
+
+            <VisibleOnSmall>
+              <Arrow1Alt>
+                <SVG name="handdrawn-arrow1" />
+              </Arrow1Alt>
+            </VisibleOnSmall>
           </BlockItem3>
 
           <BlockItem4>

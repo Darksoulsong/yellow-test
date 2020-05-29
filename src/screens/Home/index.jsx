@@ -49,6 +49,8 @@ import {
   HighlightsMobileArrowHolder,
   ProductsMobileCarouselHolder,
   ProductsDesktopHolder,
+  IntroFooterImageDesktop,
+  IntroFooterImageSmallerThanDesktop,
 } from './styles';
 
 const HomeScreen = () => {
@@ -96,9 +98,9 @@ const HomeScreen = () => {
                 </div>
               </IntroHolderBlock>
               <IntroHolderBlock>
-                <MediaQuery screenSize="smallerThanDesktop">
+                <IntroFooterImageSmallerThanDesktop>
                   <IntroImage />
-                </MediaQuery>
+                </IntroFooterImageSmallerThanDesktop>
               </IntroHolderBlock>
             </IntroHolderContent>
           </IntroHolder>
@@ -108,11 +110,12 @@ const HomeScreen = () => {
           </Video>
 
           <IntroFooter>
-            <MediaQuery screenSize="desktop">
+            <IntroFooterImageDesktop>
               <IntroFooterImage>
                 <IntroImage />
               </IntroFooterImage>
-            </MediaQuery>
+            </IntroFooterImageDesktop>
+
             <IntroFooterActions>
               <Button variant="primary" type="button">
                 Quero contratar

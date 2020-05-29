@@ -37,7 +37,9 @@ export const YellowWay = () => {
         </Top>
 
         <YellowWayIntro>
-          <IntroImageYellowWay />
+          <div>
+            <IntroImageYellowWay />
+          </div>
         </YellowWayIntro>
       </Section>
 

@@ -6,7 +6,7 @@ export const YellowWayRoot = styled.div``;
 export const YellowWayIntro = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: ${({ theme }) => theme.spaces.lg};
+  margin-top: ${({ theme }) => theme.spaces.lgh};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     margin-top: ${({ theme }) => theme.spaces.hg};
@@ -16,7 +16,7 @@ export const YellowWayIntro = styled.div`
 export const Subheading = styled.h2`
   font-size: 1.6rem;
   font-weight: 300;
-  margin-bottom: 25px;
+  margin-bottom: ${({ theme }) => theme.spaces.md};
 
   strong {
     font-weight: 600;
@@ -30,11 +30,11 @@ export const Subheading = styled.h2`
 
 export const HashtagHeading = styled(Subheading)`
   font-size: 3.2rem;
-  margin-bottom: 20px;
+  margin-bottom: ${({ theme }) => theme.spaces.sm};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     font-size: 5rem;
-    margin-bottom: 50px;
+    margin-bottom: ${({ theme }) => theme.spaces.lg};
   }
 `;
 
@@ -42,13 +42,16 @@ export const Top = styled.div`
   svg path {
     fill: transparent;
   }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    margin-bottom: ${({ theme }) => theme.spaces.xxlg};
+  }
 `;
 
 export const Section = styled.section`
   text-align: center;
-  padding: ${({ theme }) => theme.spaces.md};
-  padding-top: ${({ theme }) => theme.spaces.sm};
-  padding-bottom: ${({ theme }) => theme.spaces.lg};
+  padding: ${({ theme }) =>
+    `${theme.spaces.sm} ${theme.spaces.md} ${theme.spaces.xlg}`};
   overflow: hidden;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -73,9 +76,7 @@ export const YellowSection = styled(Section)`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin-top: 0;
-    margin: ${({ theme }) => theme.spaces.md};
-    margin-bottom: ${({ theme }) => theme.spaces.xlg};
+    margin: ${({ theme }) => `0 ${theme.spaces.md} ${theme.spaces.xlg}`};
 
     button {
       margin: ${({ theme }) => `${theme.spaces.md} 0`};
@@ -117,9 +118,13 @@ export const BoxFooter = styled.div`
 `;
 
 export const Container = styled.div`
-  margin: ${({ theme }) => theme.spaces.md};
+  margin: ${({ theme }) => `0 ${theme.spaces.md} ${theme.spaces.md}`};
   display: flex;
   justify-content: center;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    margin-top: ${({ theme }) => `${theme.spaces.md}`};
+  }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: ${({ theme }) => `${theme.spaces.xlg} 0`};

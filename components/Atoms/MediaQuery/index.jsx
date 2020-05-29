@@ -1,20 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { breakpoints } from '@components';
-
-const breakpointValue = (breakpoint, invert) => {
-  const bp = breakpoints[breakpoint];
-
-  if (!bp) {
-    return null;
-  }
-
-  const value = +bp.replace('px', '');
-  const mediaQueryValue = invert ? value - 1 : value;
-  const rule = invert ? 'maxWidth' : 'minWidth';
-
-  return { [rule]: mediaQueryValue };
-};
+import { breakpointValue } from '@utils';
 
 const getBreakpointValue = screenSize => {
   switch (screenSize) {
@@ -35,12 +21,8 @@ const getBreakpointValue = screenSize => {
   }
 };
 
-const MQ = ({ children, screenSize, ...rest }) => {
+const MQ = ({ children, screenSize }) => {
   const rule = getBreakpointValue(screenSize);
-
-  if ('foo' in rest) {
-    // debugger;
-  }
 
   if (!rule) {
     return null;
