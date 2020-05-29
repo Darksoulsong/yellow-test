@@ -51,8 +51,6 @@ export default function HomeSlider() {
     );
   }, []);
 
-  console.log({ isTablet });
-
   return (
     <SpeechBubble>
       <Carousel
