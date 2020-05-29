@@ -26,10 +26,10 @@ export default function Footer() {
             <FooterHeading>Para empresas</FooterHeading>
           </FooterItem>
           <FooterItem>
-            <a href="http://foo.com">Produtos</a>
+            <a href="/Produtos">Produtos</a>
           </FooterItem>
           <FooterItem>
-            <a href="http://foo.com">Contato</a>
+            <a href="/contato">Contato</a>
           </FooterItem>
         </FooterBlockCompanies>
 
