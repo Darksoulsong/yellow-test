@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import Image from '/images/intro-image-home.jpg';
 
 export const IntroImageRoot = styled.div`
   position: relative;
@@ -9,7 +8,6 @@ export const IntroImageRoot = styled.div`
   background: url('/images/intro-image-home.jpg') no-repeat scroll 0 0;
   background-position: -50px 0;
   background-size: cover;
-  /* background: yellow; */
 
   .main-detail {
     position: absolute;
@@ -68,15 +66,11 @@ export const IntroImageRoot = styled.div`
     right: unset;
     top: unset;
     transform: scale(1);
-    /* width: 736px;
-           height: 369px; */
     background-position: -50px 0;
 
     background-size: 115%;
     width: 368px;
     height: 184px;
-    /* width: 441px;
-    height: 221px; */
 
     .main-detail {
       left: 29%;
@@ -85,29 +79,16 @@ export const IntroImageRoot = styled.div`
       height: 74%;
     }
 
-    /* 
-    .main-detail {
-      left: 27%;
-      top: 10%;
-      width: 47%;
-      height: 74%;
-    } 
-    */
-
     &:after {
       right: 32%;
     }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    /* width: 450px;
-    height: 225px; */
     width: 486px;
     height: 285px;
 
     .main-detail {
-      /* left: 31.4%;
-      top: 14%; */
       left: 32.1%;
       top: 10%;
     }

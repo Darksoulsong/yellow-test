@@ -1,5 +1,5 @@
 import React from 'react';
-import { Logo, SVG, IsDesktop } from '@components';
+import { Logo, SVG, MediaQuery } from '@components';
 import {
   FooterRoot,
   FooterItem,
@@ -60,7 +60,7 @@ export default function Footer() {
           </FooterItem>
         </FooterBlockYellowWay>
 
-        <IsDesktop>
+        <MediaQuery screenSize="desktop">
           <FooterBlockSocial>
             <FooterItem>
               <FooterHeading>Social</FooterHeading>
@@ -81,10 +81,10 @@ export default function Footer() {
               </a>
             </FooterItem>
           </FooterBlockSocial>
-        </IsDesktop>
+        </MediaQuery>
       </GrayedSection>
 
-      <IsDesktop invert>
+      <MediaQuery screenSize="smallerThanDesktop">
         <MobileGrayedSection>
           <FooterBlockSocial>
             <FooterItem>
@@ -104,7 +104,7 @@ export default function Footer() {
             </FooterItem>
           </FooterBlockSocial>
         </MobileGrayedSection>
-      </IsDesktop>
+      </MediaQuery>
     </FooterRoot>
   );
 }

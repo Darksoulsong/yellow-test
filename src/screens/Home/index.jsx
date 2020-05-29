@@ -14,9 +14,7 @@ import {
   AnimatedArrow,
   IntroImage,
   DefaultLayout,
-  IsDesktop,
-  IsTablet,
-  IsMobile,
+  MediaQuery,
   ProductsCarousel,
 } from '@components';
 import {
@@ -35,7 +33,6 @@ import {
   IntroFooter,
   HighlightBox,
   TimelineWrapper,
-  SecondaryHeading,
   IntroFooterImage,
   HighlightsSection,
   ProductsSection,
@@ -50,6 +47,10 @@ import {
   HomeRoot,
   CirclesContainer,
   HighlightsMobileArrowHolder,
+  ProductsMobileCarouselHolder,
+  ProductsDesktopHolder,
+  IntroFooterImageDesktop,
+  IntroFooterImageSmallerThanDesktop,
 } from './styles';
 
 const HomeScreen = () => {
@@ -67,7 +68,7 @@ const HomeScreen = () => {
             <IntroHolderContent>
               <IntroHolderBlock>
                 <div>
-                  <IsDesktop invert>
+                  <MediaQuery screenSize="smallerThanDesktop">
                     <MainHeading>
                       <em>Olá,</em>
                       <br />
@@ -80,9 +81,9 @@ const HomeScreen = () => {
                       aliquam erat volutpat. <br />
                       <strong>Yellow.</strong>
                     </MainHeading>
-                  </IsDesktop>
+                  </MediaQuery>
 
-                  <IsDesktop>
+                  <MediaQuery screenSize="desktop">
                     <MainHeading>
                       <em>Olá,</em>
                       Lorem ipsum <br />
@@ -93,13 +94,13 @@ const HomeScreen = () => {
                       aliquam erat volutpat. <br />
                       <strong>Yellow.</strong>
                     </MainHeading>
-                  </IsDesktop>
+                  </MediaQuery>
                 </div>
               </IntroHolderBlock>
               <IntroHolderBlock>
-                <IsDesktop invert>
+                <IntroFooterImageSmallerThanDesktop>
                   <IntroImage />
-                </IsDesktop>
+                </IntroFooterImageSmallerThanDesktop>
               </IntroHolderBlock>
             </IntroHolderContent>
           </IntroHolder>
@@ -109,11 +110,12 @@ const HomeScreen = () => {
           </Video>
 
           <IntroFooter>
-            <IsDesktop>
+            <IntroFooterImageDesktop>
               <IntroFooterImage>
                 <IntroImage />
               </IntroFooterImage>
-            </IsDesktop>
+            </IntroFooterImageDesktop>
+
             <IntroFooterActions>
               <Button variant="primary" type="button">
                 Quero contratar
@@ -127,16 +129,17 @@ const HomeScreen = () => {
 
         <TimelineSection>
           <SubHeading1>
-            <IsMobile>
+            <MediaQuery screenSize="mobile">
               Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
               não é <br /> fácil e contratações erradas <br />
               <strong>geram prejuízos</strong>
-            </IsMobile>
-            <IsTablet>
+            </MediaQuery>
+
+            <MediaQuery screenSize="tablet">
               Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
               não é fácil e <br />
               contratações erradas <strong>geram prejuízos</strong>
-            </IsTablet>
+            </MediaQuery>
           </SubHeading1>
 
           <TimelineWrapper>
@@ -152,38 +155,36 @@ const HomeScreen = () => {
         </TimelineSection>
 
         <HighlightsSection>
-          <IsDesktop>
+          <MediaQuery screenSize="desktop">
             <TransparentLogoHolder>
               <Logo variant="transparent" width="150px" />
             </TransparentLogoHolder>
-          </IsDesktop>
+          </MediaQuery>
 
           <HighlightBox>
             <SubHeading1>
               YELLOW <strong>DIFERENCIAL</strong>
-              <IsDesktop>
+              <MediaQuery screenSize="desktop">
                 <AnimatedArrow />
-              </IsDesktop>
+              </MediaQuery>
             </SubHeading1>
 
-            <IsDesktop invert>
-              <HighlightsMobileArrowHolder>
-                <AnimatedArrow />
-              </HighlightsMobileArrowHolder>
-            </IsDesktop>
+            <HighlightsMobileArrowHolder>
+              <AnimatedArrow />
+            </HighlightsMobileArrowHolder>
 
             <CirclesContainer>
               <Circles>
-                <IsDesktop>
+                <MediaQuery screenSize="desktop">
                   <Circle />
                   <Circle />
                   <Circle />
-                </IsDesktop>
+                </MediaQuery>
 
                 <Circle />
                 <Circle />
                 <Circle highlighted>
-                  <IsDesktop>
+                  <MediaQuery screenSize="desktop">
                     <ListHolder data-aos="fade-up" data-aos-delay="1000">
                       <List>
                         <li data-aos="fade-right" data-aos-delay="1100">
@@ -209,13 +210,13 @@ const HomeScreen = () => {
                         </Button>
                       </div>
                     </ListHolder>
-                  </IsDesktop>
+                  </MediaQuery>
                 </Circle>
                 <Circle />
               </Circles>
             </CirclesContainer>
 
-            <IsDesktop invert>
+            <MediaQuery screenSize="smallerThanDesktop">
               <ListHolder data-aos="fade-up" data-aos-delay="1000">
                 <List>
                   <li data-aos="fade-right" data-aos-delay="1100">
@@ -241,7 +242,7 @@ const HomeScreen = () => {
                   </Button>
                 </div>
               </ListHolder>
-            </IsDesktop>
+            </MediaQuery>
           </HighlightBox>
         </HighlightsSection>
 
@@ -251,13 +252,13 @@ const HomeScreen = () => {
             <AnimatedScratches />
           </SubHeading1>
 
-          <IsDesktop>
+          <ProductsDesktopHolder>
             <Products />
-          </IsDesktop>
+          </ProductsDesktopHolder>
 
-          <IsDesktop invert>
+          <ProductsMobileCarouselHolder>
             <ProductsCarousel />
-          </IsDesktop>
+          </ProductsMobileCarouselHolder>
 
           <ProductsAnchor>
             <a href="/link">Entenda mais os produtos</a>

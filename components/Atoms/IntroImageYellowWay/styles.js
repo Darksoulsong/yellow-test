@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-export const YellowWayIntroImageRoot = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  max-width: 1033px;
-`;
-
 export const ImageHolder = styled.div`
   position: relative;
   width: 37.2vw;
@@ -29,7 +20,7 @@ export const ImageItem1 = styled.span`
   transition-property: transform, z-index;
   position: absolute;
   left: 13.4%;
-  top: 71.1%;
+  top: 61.7%;
   width: 12.2vw;
   height: 15.7vw;
   overflow: hidden;
@@ -96,7 +87,7 @@ export const ImageItem5 = styled(ImageItem1)`
 
 export const ImageItem6 = styled(ImageItem1)`
   left: 46.1%;
-  top: 65.7%;
+  top: 61.7%;
   width: 16.2vw;
   height: 9.5vw;
   overflow: hidden;
@@ -109,14 +100,17 @@ const Item = styled.h3`
   position: absolute;
   font-family: Roboto, sans-serif;
   font-weight: 300;
-  /* font-size: 3.2rem; */
-  /* font-size: 2.7vw; */
-  font-size: 2.2vw;
-  letter-spacing: 0.08rem;
   user-select: none;
+  font-size: 1.9vw;
+  letter-spacing: 0.06vw;
 
   strong {
     font-weight: 600;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 2.2vw;
+    letter-spacing: 0.08rem;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.largest}) {
@@ -124,28 +118,80 @@ const Item = styled.h3`
   }
 `;
 export const Item1 = styled(Item)`
-  left: 0.7%;
+  right: 7%;
   top: 2.3%;
 `;
 export const Item2 = styled(Item)`
-  left: 0%;
   top: 56%;
+  right: 7%;
+  text-align: right;
+
+  strong {
+    display: block;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    text-align: left;
+    left: 0%;
+
+    strong {
+      display: inline;
+    }
+  }
 `;
 export const Item3 = styled(Item)`
-  left: 0%;
-  top: 63.7%;
+  top: 106%;
+  right: 6%;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    left: 0%;
+    top: 63.7%;
+    right: 22%;
+  }
 `;
 export const Item4 = styled(Item)`
   left: 12%;
   top: 67.7%;
 `;
 export const Item5 = styled(Item)`
-  top: 9%;
-  left: 23.9%;
+  top: -40%;
+  left: 1.9%;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    top: 9%;
+    left: 23.9%;
+  }
 `;
 export const Item6 = styled(Item)`
   left: 0.4%;
   top: 76%;
+  text-align: left;
+
+  strong {
+    display: block;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    strong {
+      display: inline;
+    }
+  }
+`;
+
+export const VisibleOnMedium = styled.div`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    display: block;
+  }
+`;
+
+export const VisibleOnSmall = styled.div`
+  display: block;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    display: none;
+  }
 `;
 
 const Arrow = styled.span`
@@ -156,6 +202,7 @@ const Arrow = styled.span`
     height: auto;
   }
 `;
+
 export const Arrow1 = styled(Arrow)`
   left: 51.4%;
   top: 45.8%;
@@ -163,6 +210,15 @@ export const Arrow1 = styled(Arrow)`
   svg {
     max-width: 118px;
     width: 8.6vw;
+  }
+`;
+export const Arrow1Alt = styled(Arrow1)`
+  transform: scaleX(-1) rotate(-159deg);
+  top: 28%;
+  left: 71%;
+
+  svg {
+    width: 6vw;
   }
 `;
 export const Arrow2 = styled(Arrow)`
@@ -175,7 +231,7 @@ export const Arrow2 = styled(Arrow)`
 `;
 export const Arrow3 = styled(Arrow)`
   right: 0%;
-  top: -1.4%;
+  top: 5.6%;
 
   svg {
     width: 4.3vw;
@@ -201,11 +257,12 @@ export const Arrow5 = styled(Arrow)`
   }
 `;
 export const Arrow6 = styled(Arrow)`
-  left: 4%;
-  top: 0%;
+  left: -1%;
+  top: 13%;
+  width: 8vw;
 
   svg {
-    width: 10vw;
+    width: 8vw;
     max-width: 148px;
   }
 `;
@@ -218,33 +275,41 @@ export const BlockItem1 = styled(BlockItem)`
   width: 21.3vw;
   height: 7.3vw;
   top: 2.4%;
-  left: -44.2%;
+  right: 82%;
   max-width: 320px;
   max-height: 123px;
 `;
 
 export const BlockItem2 = styled(BlockItem)`
-  width: 20.8vw;
-  height: 6vw;
+  width: 23vw;
+  height: 7vw;
   top: 47%;
-  left: -60%;
+  left: -64%;
   max-width: 320px;
   max-height: 130px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    height: 6vw;
+  }
 `;
 
 export const BlockItem3 = styled(BlockItem)`
-  width: 22.8vw;
+  width: 25.5vw;
   height: 7.5vw;
   top: 82.1%;
-  left: -53.6%;
+  left: -55.6%;
   max-width: 353px;
   max-height: 104px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 23.8vw;
+  }
 `;
 
 export const BlockItem4 = styled(BlockItem)`
   width: 16.5vw;
-  height: 7.1vw;
-  top: 90.2%;
+  height: 9vw;
+  top: 86.2%;
   right: -11.4%;
   max-width: 204px;
   max-height: 108px;
@@ -263,7 +328,22 @@ export const BlockItem6 = styled(BlockItem)`
   width: 25vw;
   height: 11.2vw;
   top: 52.9%;
-  right: -68.5%;
+  left: 103%;
   max-width: 395px;
   max-height: 168px;
+`;
+
+export const YellowWayIntroImageRoot = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 376px;
+  height: auto;
+  max-width: 1033px;
+
+  transform: scale(1.35);
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    transform: unset;
+  }
 `;

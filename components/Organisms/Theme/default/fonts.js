@@ -8,4 +8,5 @@ const style = css`
     src: url('fonts/monosten/Monosten-F.otf') format('opentype');
   }
 `;
+
 export default style;

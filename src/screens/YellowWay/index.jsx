@@ -20,6 +20,7 @@ import {
   BoxFooter,
   Top,
   Container,
+  TextHolder,
 } from './styles';
 
 export const YellowWay = () => {
@@ -36,17 +37,23 @@ export const YellowWay = () => {
         </Top>
 
         <YellowWayIntro>
-          <IntroImageYellowWay />
+          <div>
+            <IntroImageYellowWay />
+          </div>
         </YellowWayIntro>
       </Section>
 
       <Container>
-        <Text align="center" weight="500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-          vel repellendus debitis magnam veniam illum velit dicta quidem quis
-          quaerat delectus, nemo earum vero cupiditate. Ab voluptatem possimus
-          iusto dolorum?
-        </Text>
+        <TextHolder>
+          <Text align="center" weight="300">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam{' '}
+            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+            consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+            velit esse molestie consequat, vel illum dolore eu
+          </Text>
+        </TextHolder>
       </Container>
 
       <YellowSection>
@@ -56,7 +63,7 @@ export const YellowWay = () => {
         </Subheading>
 
         <Box>
-          <img alt="Yellow Team" src="/images/yellow-team-image.png" />
+          <img alt="Yellow Team" src="/images/yellow-team-image2.png" />
           <BoxFooter>
             <Logo variant="alt" />
           </BoxFooter>
