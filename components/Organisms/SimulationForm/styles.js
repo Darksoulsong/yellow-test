@@ -5,9 +5,10 @@ export const FormRoot = styled.div`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.grayLightest};
   padding: 60px 120px;
-  padding: 0 30px 20px;
+  padding: 0 30px 50px;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: auto;
 
   form {
     flex: 1;
@@ -18,6 +19,8 @@ export const FormRoot = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     min-height: 430px;
     width: 600px;
+    height: unset;
+    padding: 0 30px 20px;
   }
 `;
 
@@ -54,8 +57,11 @@ export const FormUploadFieldLabel = styled.div`
 
 export const FormHolder = styled.div`
   width: 320px;
-  height: 100%;
+  height: fit-content;
   margin: 0 auto;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    height: 100%;
+  }
 `;
 
 export const FormIconHolder = styled.span`
@@ -96,12 +102,15 @@ export const FormFooter = styled.div``;
 export const ResponsiveContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding: ${({ theme }) => `0 ${theme.spaces.md}`};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     flex-direction: row;
   }
 `;
 
 export const ResponsiveColumn = styled.div`
-  width: 45%;
+  width: 100%;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: 45%;
+  }
 `;
