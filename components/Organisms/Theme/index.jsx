@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import defaultTheme from './default';
-import { breakpoints } from './breakpoints';
+import { breakpoints, intBreakpoints } from './breakpoints';
 import { spaces } from './sizes';
 
 const getTheme = theme => {
@@ -15,6 +15,7 @@ export default function Theme({ children, activeTheme = 'default' }) {
   const { Global, themeProps } = getTheme(activeTheme);
 
   themeProps.breakpoints = breakpoints;
+  themeProps.intBreakpoints = intBreakpoints;
   themeProps.spaces = spaces;
 
   return (
@@ -25,4 +26,4 @@ export default function Theme({ children, activeTheme = 'default' }) {
   );
 }
 
-export { breakpoints, spaces };
+export { breakpoints, intBreakpoints, spaces };
