@@ -32,10 +32,8 @@ export const GrayedSection = styled(Section)`
   background-color: ${({ theme }) => theme.colors.grayLighter};
   justify-content: space-between;
   display: flex;
-  padding: 24px 16px 16px;
-  margin-top: 0;
-  margin-left: 0;
-  margin-right: 0;
+  padding: 24px 16px 24px;
+  margin: 0;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
     padding-top: 40px;
@@ -102,7 +100,7 @@ export const FooterItemYoutube = styled(FooterItem)`
   margin: 0 34px;
 
   svg {
-    width: 46px !important;
+    width: 36px !important;
   }
 `;
 
@@ -144,7 +142,7 @@ export const MobileGrayedSection = styled(GrayedSection)`
     justify-content: center;
 
     svg {
-      width: 40px;
+      width: 30px;
     }
   }
 `;

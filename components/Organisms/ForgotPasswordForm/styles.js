@@ -41,6 +41,9 @@ export const FormHolder = styled.div`
 
 export const FormIconHolder = styled.span`
   color: ${({ theme }) => theme.colors.grayDarker};
+  font-size: 1.7rem;
+  position: relative;
+  top: -2px;
 `;
 
 export const FormFooter = styled.div``;
