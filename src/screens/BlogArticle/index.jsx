@@ -16,7 +16,7 @@ import { useScreenWidth } from '@hooks';
 
 import { articles, mockedHTML } from './mocked';
 import { spaces } from '@components/Organisms/Theme/sizes';
-import { breakpoints } from '@components/Organisms/Theme/breakpoints';
+import { intBreakpoints } from '@components/Organisms/Theme/breakpoints';
 
 import {
   BlogCol,
@@ -45,8 +45,7 @@ export const BlogArticle = () => {
   }, []);
 
   useEffect(() => {
-    const mediumResolution = breakpoints.medium.match(/\d+/)[0];
-    if (screenWidth > mediumResolution) {
+    if (screenWidth > intBreakpoints.medium) {
       setCardsShownAtSlider(3);
     } else {
       setCardsShownAtSlider(2);

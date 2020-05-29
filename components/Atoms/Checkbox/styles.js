@@ -5,8 +5,8 @@ export const CheckboxLabel = styled.label`
   top: 0;
   left: 0;
   display: block;
-  width: 12px;
-  height: 12px;
+  width: ${({ proportion }) => (proportion === 'regular' ? '12px' : '16px')};
+  height: ${({ proportion }) => (proportion === 'regular' ? '12px' : '16px')};
   border-radius: 2px;
   border: 1px solid ${({ theme }) => theme.colors.black};
   z-index: 1;
@@ -36,8 +36,8 @@ export const CheckboxValidationMessage = styled.div`
 export const Checkbox = styled.input.attrs({
   type: 'checkbox',
 })`
-  width: 12px;
-  height: 12px;
+  width: ${({ proportion }) => (proportion === 'regular' ? '12px' : '16px')};
+  height: ${({ proportion }) => (proportion === 'regular' ? '12px' : '16px')};
   opacity: 0;
   position: relative;
   z-index: 0;
@@ -45,10 +45,10 @@ export const Checkbox = styled.input.attrs({
   &:checked + label:before {
     content: '\\2714';
     position: absolute;
-    top: -4px;
-    left: 0px;
-    width: 12px;
-    height: 12px;
+    top: ${({ proportion }) => (proportion === 'regular' ? '-4px' : '0px')};
+    left: ${({ proportion }) => (proportion === 'regular' ? '0px' : '2px')};
+    width: ${({ proportion }) => (proportion === 'regular' ? '12px' : '16px')};
+    height: ${({ proportion }) => (proportion === 'regular' ? '12px' : '16px')};
     font-size: 1.5rem;
   }
 
@@ -85,6 +85,6 @@ export const CheckboxRow = styled.div`
 
 export const CheckboxWrapper = styled.div`
   position: relative;
-  width: 12px;
-  height: 12px;
+  width: ${({ proportion }) => (proportion === 'regular' ? '12px' : '16px')};
+  height: ${({ proportion }) => (proportion === 'regular' ? '12px' : '16px')};
 `;

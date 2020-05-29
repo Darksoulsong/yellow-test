@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { useScrollPosition } from '@hooks';
+import { useScrollPosition, useScreenWidth } from '@hooks';
 import { useUserData } from '@providers/User';
 import {
   SVG,
@@ -12,8 +12,10 @@ import {
   MobileMenu,
   Modal,
   CreateAccountForm,
+  SimulationForm,
 } from '@components';
 import { colors } from '@components/Organisms/Theme/default/colors';
+import { intBreakpoints } from '@components/Organisms/Theme/breakpoints';
 import UserLoggedContent from './UserLoggedContent';
 import DropdownContent1 from './DropdownContent1';
 import DropdownContent2 from './DropdownContent2';
@@ -37,19 +39,18 @@ import {
 export default function Header() {
   const headerRootRef = React.useRef(null);
 
+  const { screenWidth } = useScreenWidth();
+
   const { handleUserLogin, data, userLogged } = useUserData();
 
   const [isSticky, setIsSticky] = React.useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
-  const [showCreateAccountModal, setShowCreateAccountModal] = React.useState(
-    false
-  );
-  const [showForgotPasswordModal, setShowForgotPasswordModal] = React.useState(
-    false
-  );
+  const [showModal, setShowModal] = React.useState('');
+
   const navElementRef = React.useRef(null);
   const loginContainerRef = React.useRef(null);
   const createAccountRef = React.useRef(null);
+
   const {
     isActive: showBackdrop,
     setIsActive: setShowBackdrop,
@@ -103,12 +104,12 @@ export default function Header() {
           'yellow-way'
         );
 
-        if (!showCreateAccountModal) {
+        if (showModal !== 'create') {
           setShowBackdrop(false);
         }
       }
     },
-    [showCreateAccountModal]
+    [showModal]
   );
 
   const handleLoginToggle = React.useCallback(showBackdrop => {
@@ -132,35 +133,39 @@ export default function Header() {
     [isSticky]
   );
 
-  // This method will be unused, remove when is definite
-  // const handleLogoClick = React.useCallback(() => {
-  // document
-  // .getElementById('page-top')
-  // ?.scrollIntoView({ block: 'start', behavior: 'smooth' });
-  // }, []);
-
   const handleCreateAccountButtonClick = React.useCallback(() => {
-    setShowCreateAccountModal(true);
+    setShowModal('create');
+    handleLoginToggle(showBackdrop);
+    setShowBackdrop(false);
+    setMobileMenuIsOpen(false);
+  }, [showBackdrop]);
+
+  const handleLoginAccountButtonClick = React.useCallback(() => {
+    setShowModal('');
     handleLoginToggle(showBackdrop);
     setShowBackdrop(false);
     setMobileMenuIsOpen(false);
   }, [showBackdrop]);
 
   const handleForgotPasswordButtonClick = React.useCallback(() => {
-    setShowForgotPasswordModal(true);
+    setShowModal('forgot');
     handleLoginToggle(showBackdrop);
     setShowBackdrop(false);
     setMobileMenuIsOpen(false);
   }, [showBackdrop]);
 
   const handleCreateAccountItemClick = React.useCallback(() => {
-    setShowCreateAccountModal(true);
+    setShowModal('create');
     setShowBackdrop(false);
   }, []);
 
+  const handleCreateSimulation = React.useCallback(() => {
+    setShowModal('simulate');
+    setMobileMenuIsOpen(false);
+  }, []);
+
   const handleOnCloseModal = React.useCallback(() => {
-    setShowCreateAccountModal(false);
-    setShowForgotPasswordModal(false);
+    setShowModal('');
     setShowBackdrop(false);
   }, []);
 
@@ -176,6 +181,36 @@ export default function Header() {
     }
   }, [isSticky]);
 
+  const renderModal = () => {
+    switch (showModal) {
+      case 'create':
+        return <CreateAccountForm />;
+      case 'forgot':
+        return (
+          <ForgotPasswordForm
+            onForgotPasswordOkButtonClick={handleOnCloseModal}
+          />
+        );
+      case 'login':
+        return (
+          <LoginForm
+            loading={data.loading}
+            onCreateAccountButtonClick={handleCreateAccountButtonClick}
+            onForgotPasswordButtonClick={handleForgotPasswordButtonClick}
+            onLoginButtonClick={({ email, password }) => {
+              handleUserLogin({ email, password });
+              handleLoginAccountButtonClick();
+              // Temporary code
+            }}
+          />
+        );
+      case 'simulate':
+        return <SimulationForm />;
+      default:
+        return null;
+    }
+  };
+
   React.useEffect(() => {
     if (window) {
       setIsSticky(window.scrollY > 0);
@@ -190,21 +225,19 @@ export default function Header() {
       onMouseLeave={onHeaderLeave}
     >
       <Modal
-        show={showCreateAccountModal || showForgotPasswordModal}
+        show={showModal !== ''}
         displayHeader
         onCloseModal={handleOnCloseModal}
-        backgroundColor={colors.grayLightest}
+        backgroundColor={
+          showModal !== 'login' ? colors.grayLightest : colors.grayDarker
+        }
+        closeColor={showModal !== 'login' ? '' : colors.white}
       >
-        {showCreateAccountModal && <CreateAccountForm />}
-        {showForgotPasswordModal && (
-          <ForgotPasswordForm
-            onForgotPasswordOkButtonClick={handleOnCloseModal}
-          />
-        )}
+        {renderModal()}
       </Modal>
 
       <HeaderMain>
-        <HeaderLogo onMouseEnter={onLogoMouseEnter}>
+        <HeaderLogo onMouseEnter={onLogoMouseEnter} stickyPositioned={isSticky}>
           <Link href="/">
             <Button type="button" version="unstyled">
               <Logo>
@@ -223,7 +256,7 @@ export default function Header() {
                 onMouseLeave={handleMouseOut}
               >
                 <NavItemLabel>Para Empresas</NavItemLabel>
-                <DropdownContent1 />
+                <DropdownContent1 onCreateSimulation={handleCreateSimulation} />
               </NavItem>
               <NavItem
                 data-item-label="people"
@@ -287,26 +320,26 @@ export default function Header() {
             </NavSecondary>
           </HeaderBodyRight>
 
-          <HeaderBodyMobile>
-            <HamburgerButton
-              active={mobileMenuIsOpen}
-              onClick={handleMobileMenuToggle}
-            />
-          </HeaderBodyMobile>
+          {screenWidth < intBreakpoints.large && (
+            <HeaderBodyMobile>
+              <HamburgerButton
+                active={mobileMenuIsOpen}
+                onClick={handleMobileMenuToggle}
+              />
+            </HeaderBodyMobile>
+          )}
         </HeaderContent>
       </HeaderMain>
 
-      <MobileMenu
-        open={mobileMenuIsOpen}
-        onCreateAccountButtonClick={handleCreateAccountButtonClick}
-        onMenuToggle={handleMobileMenuToggle}
-        onForgotPasswordButtonClick={handleForgotPasswordButtonClick}
-        onLoginButtonClick={({ email, password }) => {
-          handleLoginToggle(showBackdrop);
-          handleUserLogin({ email, password });
-          // Temporary code
-        }}
-      />
+      {screenWidth < intBreakpoints.large && (
+        <MobileMenu
+          open={mobileMenuIsOpen}
+          onCreateAccountButtonClick={handleCreateAccountButtonClick}
+          onCreateSimulation={handleCreateSimulation}
+          onForgotPasswordButtonClick={handleForgotPasswordButtonClick}
+          showModalLogin={() => setShowModal('login')}
+        />
+      )}
     </HeaderRoot>
   );
 }

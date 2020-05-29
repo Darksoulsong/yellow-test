@@ -9,7 +9,13 @@ import {
   FormStepButtonHolder,
 } from './styles';
 
-const FormSteps = ({ activeStep, totalItems, onStepForward, onStepBack }) => {
+const FormSteps = ({
+  activeStep,
+  totalItems,
+  onStepForward,
+  onStepBack,
+  proportion = '30px',
+}) => {
   const items = React.useRef(null);
 
   items.current = new Array(totalItems).fill('');
@@ -29,7 +35,11 @@ const FormSteps = ({ activeStep, totalItems, onStepForward, onStepBack }) => {
 
       <FormStepsHolder>
         {items.current.map((item, index) => (
-          <FormStep key={uid(index)} active={index <= activeStep} />
+          <FormStep
+            proportion={proportion}
+            key={uid(index)}
+            active={index <= activeStep}
+          />
         ))}
       </FormStepsHolder>
 

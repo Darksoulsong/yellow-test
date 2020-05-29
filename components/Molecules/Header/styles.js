@@ -297,10 +297,13 @@ export const HeaderBody = styled.div`
 `;
 
 export const HeaderLogo = styled.div`
-  display: flex;
+  display: ${({ stickyPositioned }) => (stickyPositioned ? 'none' : 'flex')};
   align-items: center;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.headerBackground};
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: flex;
+  }
 `;
 
 export const HeaderBodyLeft = styled(HeaderBody)`

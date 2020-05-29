@@ -9,7 +9,7 @@ import {
   HeaderText,
 } from './styles';
 
-export default function DropdownContent1() {
+export default function DropdownContent1({ onCreateSimulation }) {
   return (
     <>
       <HeaderDropdown>
@@ -35,7 +35,7 @@ export default function DropdownContent1() {
             forma.
           </HeaderText>
         </HeaderDropdownBlock>
-        <HeaderDropdownBlock>
+        <HeaderDropdownBlock onClick={onCreateSimulation}>
           <HeaderHeading>Simule sua Vaga</HeaderHeading>
           <HeaderIconHolder className="simulate">
             <SVG name="magnifier-user-icon" />

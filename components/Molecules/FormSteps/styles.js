@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FormStep = styled.span`
   position: relative;
   height: 5px;
-  width: 30px;
+  width: ${({ proportion }) => proportion};
   display: flex;
   overflow: hidden;
   background-color: ${({ active, theme }) =>
