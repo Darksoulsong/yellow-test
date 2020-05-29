@@ -15,7 +15,7 @@ import {
 } from './settings';
 
 import { spaces } from '@components/Organisms/Theme/sizes';
-import { breakpoints } from '@components/Organisms/Theme/breakpoints';
+import { intBreakpoints } from '@components/Organisms/Theme/breakpoints';
 
 import {
   Name,
@@ -39,8 +39,6 @@ import {
   BubbleContent,
   SectionTitle,
 } from './styles';
-
-const mediumResolution = breakpoints.medium.match(/\d+/)[0];
 
 const WhoWeAreScreen = () => {
   const { screenWidth } = useScreenWidth();
@@ -124,7 +122,7 @@ const WhoWeAreScreen = () => {
           >
             <SVG
               name={
-                screenWidth > mediumResolution
+                screenWidth > intBreakpoints.medium
                   ? 'lines-circle-icon'
                   : 'lines-circle-icon-responsive'
               }

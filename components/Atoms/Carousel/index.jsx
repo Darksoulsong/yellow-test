@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from 'nuka-carousel';
 import { useScreenWidth } from '@hooks';
-import { breakpoints } from '../../Organisms/Theme/breakpoints';
+import { intBreakpoints } from '../../Organisms/Theme/breakpoints';
 
 export const defaultSettings = {
   cellSpacing: 0,
@@ -11,8 +11,6 @@ export const defaultSettings = {
   wrapAround: false,
   withoutControls: true,
 };
-
-const mediumResolution = breakpoints.medium.match(/\d+/)[0];
 
 export const CustomCarousel = ({
   children,
@@ -27,7 +25,7 @@ export const CustomCarousel = ({
 
   useEffect(() => {
     let widthOfCarouselItems = settings.slideWidth.match(/\d+/)[0];
-    if (screenWidth > mediumResolution) {
+    if (screenWidth > intBreakpoints.medium) {
       widthOfCarouselItems = settings.slideWidthMedium;
     }
     setCarouselSettings({

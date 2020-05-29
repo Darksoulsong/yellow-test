@@ -17,8 +17,19 @@ export const LoginFormRoot = styled.div`
   padding: 56px 0px 45px;
   color: #a6a8ab;
   font-weight: 300;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  form {
+    max-width: 320px;
+  }
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     padding: 56px 50px 45px;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: unset;
+    height: unset;
   }
 `;
 

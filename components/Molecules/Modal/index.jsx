@@ -16,6 +16,7 @@ export default function Modal({
   children,
   onCloseModal,
   backgroundColor,
+  closeColor = 'unset',
 }) {
   const {
     setIsActive: setIsBackdropActive,
@@ -53,7 +54,10 @@ export default function Modal({
         {displayHeader && (
           <ModalHead>
             <span />
-            <ModalCloseButton onClick={handleModalCloseButtonClick}>
+            <ModalCloseButton
+              closeColor={closeColor}
+              onClick={handleModalCloseButtonClick}
+            >
               &times;
             </ModalCloseButton>
           </ModalHead>

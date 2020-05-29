@@ -13,10 +13,9 @@ import {
 
 export default function MobileMenu({
   open,
-  onMenuToggle,
   onCreateAccountButtonClick,
-  onForgotPasswordButtonClick,
-  onLoginButtonClick,
+  showModalLogin,
+  onCreateSimulation,
 }) {
   const { userLogged } = useUserData();
   const menuItemsLogged = [
@@ -38,8 +37,8 @@ export default function MobileMenu({
           label: 'Produtos',
         },
         {
-          link: '/simule-sua-vaga',
           label: 'Simule sua vaga',
+          onClick: () => onCreateSimulation(),
         },
         {
           link: '/contato',
@@ -104,33 +103,15 @@ export default function MobileMenu({
     },
     {
       heading: 'Acesse sua conta',
-      content: (
-        <LoginForm
-          onCreateAccountButtonClick={onCreateAccountButtonClick}
-          onForgotPasswordButtonClick={onForgotPasswordButtonClick}
-          onLoginButtonClick={onLoginButtonClick}
-        />
-      ),
+      onClick: () => showModalLogin(),
     },
   ];
-  const [menuItems, setMenuItems] = useState(menuItemsUnlogged);
 
-  const renderIcon = React.useCallback(isActive => {
-    return (
-      <MobileMenuToggleIcon active={isActive}>
-        <SVG name="caret-icon" />
-      </MobileMenuToggleIcon>
-    );
-  }, []);
-
-  useEffect(() => {
-    const method = open ? 'add' : 'remove';
-    document.body.classList[method]('hide-body-overflow');
-  }, [open]);
-
-  useEffect(() => {
-    setMenuItems(userLogged ? menuItemsLogged : menuItemsUnlogged);
-  }, [userLogged]);
+  const renderIcon = isActive => (
+    <MobileMenuToggleIcon active={isActive}>
+      <SVG name="caret-icon" />
+    </MobileMenuToggleIcon>
+  );
 
   const getButtonProps = item => {
     const props = {
@@ -145,9 +126,11 @@ export default function MobileMenu({
     return props;
   };
 
-  return (
-    <MobileMenuRoot open={open}>
-      <Collapsible>
+  const renderItems = () => {
+    const menuItems = userLogged ? menuItemsLogged : menuItemsUnlogged;
+
+    return (
+      <Collapsible key={menuItems[0].heading}>
         {menuItems.map((item, index) => (
           <React.Fragment key={uid(item, index)}>
             {item.content ? (
@@ -187,6 +170,13 @@ export default function MobileMenu({
           </React.Fragment>
         ))}
       </Collapsible>
-    </MobileMenuRoot>
-  );
+    );
+  };
+
+  useEffect(() => {
+    const method = open ? 'add' : 'remove';
+    document.body.classList[method]('hide-body-overflow');
+  }, [open]);
+
+  return <MobileMenuRoot open={open}>{renderItems()}</MobileMenuRoot>;
 }
