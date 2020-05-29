@@ -1,6 +1,6 @@
 import React from 'react';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
+import Carousel from 'nuka-carousel';
 import {
   Button,
   Timeline,
@@ -8,7 +8,6 @@ import {
   Logo,
   Products,
   SpeechBubble,
-  Slider,
   AnimatedUnderline,
   AnimatedScratches,
   AnimatedArrow,
@@ -16,6 +15,7 @@ import {
   DefaultLayout,
   MediaQuery,
   ProductsCarousel,
+  HomeSlider,
 } from '@components';
 import {
   List,
@@ -52,6 +52,7 @@ import {
   IntroFooterImageDesktop,
   IntroFooterImageSmallerThanDesktop,
 } from './styles';
+import 'aos/dist/aos.css';
 
 const HomeScreen = () => {
   React.useEffect(() => {
@@ -277,30 +278,7 @@ const HomeScreen = () => {
           </SubHeading1>
 
           <ExperienceContent>
-            <SpeechBubble>
-              <Slider>
-                <BubbleContent>
-                  You think water moves fast? You should see ice. It moves like
-                  it has a mind. Like it knows it killed the world once and got
-                  a taste for murder. After the avalanche, it took us a week to
-                  climb out.
-                </BubbleContent>
-
-                <BubbleContent>
-                  Now, I don't know exactly when we turned on each other, but I
-                  know that seven of us survived the slide... and only five made
-                  it out. Now we took an oath, that I'm breaking now. You don't
-                  get sick, I do. That's also clear.
-                </BubbleContent>
-
-                <BubbleContent>
-                  We said we'd say it was the snow that killed the other two,
-                  but it wasn't. Nature is lethal but it doesn't hold a candle
-                  to man. Your bones don't break, mine do. That's clear. Your
-                  cells react to bacteria and viruses differently than mine.
-                </BubbleContent>
-              </Slider>
-            </SpeechBubble>
+            <HomeSlider />
           </ExperienceContent>
           <ExperienceFooter>
             <img src="/images/testimony-image.png" alt="#Depoimentos" />

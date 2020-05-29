@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { getDesktopFirstMediaQuery } from '@utils';
 
 export const HomeRoot = styled.div`
@@ -79,7 +79,7 @@ export const MainHeading = styled.h1`
   line-height: 1.7rem;
   padding-top: 10px;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     em {
       font-size: 6rem;
       font-style: normal;
@@ -753,4 +753,60 @@ export const BubbleContent = styled.div`
     font-size: 2.5rem;
     line-height: 3rem;
   }
+`;
+
+const bounce = keyframes`
+  from {
+    margin-top: -5px;
+  }
+  to {
+    margin-top: 0px;
+  }
+`;
+
+export const ControlLeft = styled.button`
+  transition: 0.3s ease-in-out;
+  transition-property: opacity, top;
+  position: absolute;
+  left: -87px;
+  background-color: transparent;
+  border: 0 none;
+  cursor: pointer;
+
+  top: calc(50% - 17px);
+  width: 16px;
+  height: 35px;
+
+  ${({ show }) =>
+    show
+      ? `
+        opacity: 1;        
+      `
+      : `
+        opacity: 0;        
+        top: calc(50% - 2px);
+        pointer-events: none;
+    `}
+
+  svg {
+    fill: ${({ theme }) => theme.colors.black};
+    stroke-width: 2px;
+    width: 16px;
+    height: 100%;
+  }
+
+  &:hover {
+    animation: ${bounce} 0.3s infinite alternate;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    height: 65px;
+    top: calc(50% - 32px);
+  }
+`;
+
+export const ControlRight = styled(ControlLeft)`
+  left: unset;
+  right: -87px;
+  transform: rotate(180deg);
 `;

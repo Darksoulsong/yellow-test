@@ -32,3 +32,4 @@ export * from './Fonts';
 export { default as Checkbox } from './Checkbox';
 export { default as Collapsible } from './Collapsible';
 export { default as MediaQuery } from './MediaQuery';
+export { default as HomeSlider } from './HomeSlider';
