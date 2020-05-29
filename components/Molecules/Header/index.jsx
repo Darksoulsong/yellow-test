@@ -104,7 +104,7 @@ export default function Header() {
           'yellow-way'
         );
 
-        if (showModal !== 'create') {
+        if (showModal === '') {
           setShowBackdrop(false);
         }
       }
@@ -145,6 +145,12 @@ export default function Header() {
     handleLoginToggle(showBackdrop);
     setShowBackdrop(false);
     setMobileMenuIsOpen(false);
+  }, [showBackdrop]);
+
+  const handleResponsiveLoginAccountButtonClick = React.useCallback(() => {
+    setMobileMenuIsOpen(false);
+    setShowBackdrop(false);
+    setShowModal('login');
   }, [showBackdrop]);
 
   const handleForgotPasswordButtonClick = React.useCallback(() => {
@@ -225,7 +231,7 @@ export default function Header() {
       onMouseLeave={onHeaderLeave}
     >
       <Modal
-        show={showModal !== ''}
+        show={showModal}
         displayHeader
         onCloseModal={handleOnCloseModal}
         backgroundColor={
@@ -337,7 +343,7 @@ export default function Header() {
           onCreateAccountButtonClick={handleCreateAccountButtonClick}
           onCreateSimulation={handleCreateSimulation}
           onForgotPasswordButtonClick={handleForgotPasswordButtonClick}
-          showModalLogin={() => setShowModal('login')}
+          showModalLogin={handleResponsiveLoginAccountButtonClick}
         />
       )}
     </HeaderRoot>
