@@ -446,7 +446,7 @@ export const ListHolder = styled.div`
   margin-top: 24px;
 
   button {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     padding: 0 22px;
     height: 50px;
     margin-left: -17px;
