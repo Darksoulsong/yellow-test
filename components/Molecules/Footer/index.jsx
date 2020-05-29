@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Logo, SVG, MediaQuery } from '@components';
 import {
   FooterRoot,
@@ -26,10 +27,10 @@ export default function Footer() {
             <FooterHeading>Para empresas</FooterHeading>
           </FooterItem>
           <FooterItem>
-            <a href="/Produtos">Produtos</a>
+            <Link href="/">Produtos</Link>
           </FooterItem>
           <FooterItem>
-            <a href="/contato">Contato</a>
+            <Link href="/contato">Contato</Link>
           </FooterItem>
         </FooterBlockCompanies>
 
@@ -38,10 +39,10 @@ export default function Footer() {
             <FooterHeading>Para pessoas</FooterHeading>
           </FooterItem>
           <FooterItem>
-            <a href="http://foo.com">Nossas Vagas</a>
+            <Link href="/">Nossas Vagas</Link>
           </FooterItem>
           <FooterItem>
-            <a href="http://foo.com">Dicas de Entrevista</a>
+            <Link href="/">Dicas de Entrevista</Link>
           </FooterItem>
         </FooterBlockPeople>
 
@@ -50,13 +51,13 @@ export default function Footer() {
             <FooterHeading>Yellow way</FooterHeading>
           </FooterItem>
           <FooterItem>
-            <a href="http://foo.com">Cultura</a>
+            <Link href="/cultura">Cultura</Link>
           </FooterItem>
           <FooterItem>
-            <a href="http://foo.com">Quem somos</a>
+            <Link href="/quem-somos">Quem somos</Link>
           </FooterItem>
           <FooterItem>
-            <a href="http://foo.com">Blog</a>
+            <Link href="/blog">Blog</Link>
           </FooterItem>
         </FooterBlockYellowWay>
 
