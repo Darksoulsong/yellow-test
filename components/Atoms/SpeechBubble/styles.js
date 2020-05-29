@@ -89,7 +89,7 @@ export const Stars = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
-  bottom: 0px;
+  bottom: 0;
   z-index: 2;
 
   svg {

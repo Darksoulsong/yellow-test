@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { getDesktopFirstMediaQuery } from '@utils';
 
 export const HomeRoot = styled.div`
   button {
@@ -125,7 +126,6 @@ export const Video = styled.div`
   position: relative;
   display: flex;
   overflow: hidden;
-  /* width: 350px; */
   width: 100%;
   height: 185px;
   margin: 0 auto;
@@ -149,9 +149,6 @@ export const Video = styled.div`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     height: 385px;
-
-    video {
-    }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -201,6 +198,22 @@ export const IntroFooter = styled.div`
 `;
 
 export const IntroFooterImage = styled.div``;
+
+export const IntroFooterImageDesktop = styled.div`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: block;
+  }
+`;
+
+export const IntroFooterImageSmallerThanDesktop = styled.div`
+  display: block;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: none;
+  }
+`;
 
 export const IntroFooterActions = styled.div`
   width: 100%;
@@ -264,9 +277,16 @@ export const Section = styled.section`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     margin: 0 35px;
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     padding: 110px;
   }
 `;
@@ -296,11 +316,6 @@ export const TimelineSection = styled(GrayedSection)`
       width: 90%;
       font-size: 2.8rem;
     }
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding-top: 110px;
-    padding-bottom: 120px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -347,6 +362,9 @@ export const HighlightsSection = styled(Section)`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
     ${SubHeading1} {
       width: 560px;
       padding-bottom: 54px;
@@ -355,6 +373,7 @@ export const HighlightsSection = styled(Section)`
 `;
 
 export const HighlightsMobileArrowHolder = styled.div`
+  display: none;
   height: 60px;
 
   svg {
@@ -362,6 +381,11 @@ export const HighlightsMobileArrowHolder = styled.div`
     margin: 0 auto;
     width: 50px;
     transform: scaleX(-1) rotate(75deg) translateX(-24px);
+  }
+
+  @media (max-width: ${({ theme }) =>
+      getDesktopFirstMediaQuery(theme.breakpoints.large)}) {
+    display: block;
   }
 `;
 
@@ -421,8 +445,21 @@ export const ListHolder = styled.div`
   margin: 0 auto;
   margin-top: 24px;
 
+  button {
+    font-size: 1.5rem;
+    padding: 0 22px;
+    height: 50px;
+    margin-left: -17px;
+  }
+
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
     width: 260px;
+
+    button {
+      height: 62px;
+      margin-left: unset;
+      width: 100%;
+    }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
@@ -539,6 +576,23 @@ export const ProductsSection = styled(Section)`
   }
 `;
 
+export const ProductsMobileCarouselHolder = styled.div`
+  display: none;
+
+  @media (max-width: ${({ theme }) =>
+      getDesktopFirstMediaQuery(theme.breakpoints.large)}) {
+    display: block;
+  }
+`;
+
+export const ProductsDesktopHolder = styled.div`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: block;
+  }
+`;
+
 export const ProductsFooter = styled.div`
   position: relative;
   display: flex;
@@ -585,12 +639,23 @@ export const ExperienceSection = styled(Section)`
     margin-bottom: 37px;
   }
 
+  .slider-control-left,
+  .slider-control-right {
+    width: 40px;
+    height: 49px;
+
+    svg {
+      width: 16px;
+      height: 49px;
+    }
+  }
+
   .slider-control-left {
-    left: -75px;
+    left: -80px;
   }
 
   .slider-control-right {
-    right: -75px;
+    right: -80px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
@@ -601,6 +666,7 @@ export const ExperienceSection = styled(Section)`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    padding-bottom: 85px;
     .slider-control-left {
       left: -87px;
     }
@@ -660,7 +726,7 @@ export const ExperienceFooter = styled.div`
 
     svg {
       right: -40px;
-      bottom: -30px;
+      bottom: -60px;
       width: 132px;
     }
   }

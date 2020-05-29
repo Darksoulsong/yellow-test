@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { breakpoints } from '@components';
-import { IsDesktop } from '@components';
+import { MediaQuery } from '@components';
 import { TimelineRoot, Item, Circle, Label } from './styles';
 
 export default function Timeline() {
@@ -17,17 +17,17 @@ export default function Timeline() {
             data-aos-offset="50"
             data-aos-delay="100"
           >
-            <IsDesktop invert>
+            <MediaQuery screenSize="smallerThanDesktop">
               O salário de um <br />
               profissional, pode ser <br />
               o custo de um <br />
               <strong>erro na contratação</strong>
-            </IsDesktop>
+            </MediaQuery>
 
-            <IsDesktop>
+            <MediaQuery screenSize="desktop">
               O salário de um profissional, pode ser o custo de um{' '}
               <strong>erro na contratação</strong>
-            </IsDesktop>
+            </MediaQuery>
           </span>
         </Label>
       </Item>
@@ -56,7 +56,7 @@ export default function Timeline() {
       </Item>
       <Item data-aos={isDesktop && 'fade-in'} data-aos-offset="200">
         <Label>
-          <IsDesktop invert>
+          <MediaQuery screenSize="smallerThanDesktop">
             das contratações <br />
             <strong>
               terminam em <br /> demissões
@@ -64,11 +64,11 @@ export default function Timeline() {
             , por <br />
             erros na seleção de <br />
             candidatos
-          </IsDesktop>
-          <IsDesktop>
+          </MediaQuery>
+          <MediaQuery screenSize="desktop">
             das contratações <strong>terminam em demissões</strong>, por erros
             na seleção de candidatos
-          </IsDesktop>
+          </MediaQuery>
         </Label>
       </Item>
 
@@ -78,16 +78,16 @@ export default function Timeline() {
         className="last"
       >
         <Label alignRight>
-          <IsDesktop invert>
+          <MediaQuery screenSize="smallerThanDesktop">
             dos profissionais <br />
             <strong>desistem</strong> durante o <br />
             processo de <br />
             recrutamento
-          </IsDesktop>
-          <IsDesktop>
+          </MediaQuery>
+          <MediaQuery screenSize="desktop">
             dos profissionais <strong>desistem</strong> durante o processo de
             recrutamento
-          </IsDesktop>
+          </MediaQuery>
         </Label>
       </Item>
       <Item

@@ -31,7 +31,4 @@ export { experimentBrushScriptFontFace } from './FontFaces';
 export * from './Fonts';
 export { default as Checkbox } from './Checkbox';
 export { default as Collapsible } from './Collapsible';
-export { default as IsDesktop } from './IsDesktop';
-export { default as IsLargeDesktop } from './IsLargeDesktop';
-export { default as IsTablet } from './IsTablet';
-export { default as IsMobile } from './IsMobile';
+export { default as MediaQuery } from './MediaQuery';

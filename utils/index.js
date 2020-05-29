@@ -4,6 +4,11 @@ export * from './object';
 export * from './form';
 export * from './function';
 
+export const getDesktopFirstMediaQuery = mediaQueryString => {
+  const toNumber = +mediaQueryString.replace('px', '') - 1;
+  return toNumber + 'px';
+};
+
 export const routeTo = (route = '/') => {
   Router.push(route).then(() => window.scrollTo(0, 0));
 };
