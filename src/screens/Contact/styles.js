@@ -28,7 +28,7 @@ export const ArrowPositioner = styled.div`
   width: 0;
   left: -55%;
   display: none;
-  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     display: block;
   }
 `;

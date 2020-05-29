@@ -147,7 +147,7 @@ export default function MobileMenu({
               <MobileMenuList>
                 {item.content && item.content.length
                   ? item.content.map(contentItem => (
-                      <MobileMenuListItem key={contentItem}>
+                      <MobileMenuListItem key={uid(contentItem, item.heading)}>
                         <a
                           onClick={
                             typeof contentItem.onClick === 'function'
