@@ -19,7 +19,7 @@ const FormWrapper = props => {
       {!steps[activeStep].removeControls && (
         <FormActions>
           <FormSteps
-            proportion="20px"
+            proportion="15px"
             activeStep={activeStep}
             totalItems={steps.length}
             onStepForward={handleGoForward}
