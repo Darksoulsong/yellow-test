@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const BackdropRoot = styled.div`
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +10,6 @@ export const BackdropRoot = styled.div`
   background-color: ${({ theme, backgroundColor }) =>
     backgroundColor ? backgroundColor : theme.colors.grayDark};
   z-index: ${({ zIndex = 1 }) => zIndex};
-
   ${({ animated = false }) =>
     animated &&
     css`
@@ -28,4 +28,7 @@ export const BackdropRoot = styled.div`
           visibility: hidden;
           pointer-events: none;
         `}
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: block;
+  }
 `;

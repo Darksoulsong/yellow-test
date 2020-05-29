@@ -26,7 +26,7 @@ export const ModalCloseButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   font-size: 2.8rem;
-
+  color: ${({ closeColor }) => closeColor};
   &:hover {
     opacity: 0.5;
   }

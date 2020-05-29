@@ -19,12 +19,14 @@ export default function CheckboxComponent({
   validationMessage,
   renderLabel,
   disabled,
+  proportion = 'regular',
 }) {
   return (
     <CheckboxRoot hasError={hasError}>
       <CheckboxRow>
-        <CheckboxWrapper>
+        <CheckboxWrapper proportion={proportion}>
           <Checkbox
+            proportion={proportion}
             id={id}
             name={name}
             checked={checked}
@@ -33,7 +35,7 @@ export default function CheckboxComponent({
             hasError={hasError}
             disabled={disabled}
           />
-          <CheckboxLabel htmlFor={id} />
+          <CheckboxLabel proportion={proportion} htmlFor={id} />
         </CheckboxWrapper>
         <CheckboxContent>
           {typeof renderLabel === 'function' &&
