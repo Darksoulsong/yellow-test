@@ -153,8 +153,8 @@ export const TextHolder = styled.div`
     width: 100%;
 
     p {
-      font-size: 2.9rem;
-      line-height: 3.7rem;
+      font-size: 2.6rem;
+      line-height: 3.4rem;
     }
   }
 
