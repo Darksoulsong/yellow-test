@@ -49,7 +49,7 @@ export default function ProductsCarousel() {
     [isTablet]
   );
 
-  const renderCenterLeftControls = React.useCallback(({ previousSlide }) => {
+  const renderCenterLeftControls = ({ previousSlide }) => {
     return (
       <ControlLeft
         type="button"
@@ -60,9 +60,9 @@ export default function ProductsCarousel() {
         <SVG name="arrow-icon" />
       </ControlLeft>
     );
-  }, []);
+  };
 
-  const renderCenterRightControls = React.useCallback(({ nextSlide }) => {
+  const renderCenterRightControls = ({ nextSlide }) => {
     return (
       <ControlRight
         type="button"
@@ -73,7 +73,7 @@ export default function ProductsCarousel() {
         <SVG name="arrow-icon" />
       </ControlRight>
     );
-  }, []);
+  };
 
   return (
     <ProductsCarouselRoot>

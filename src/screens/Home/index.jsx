@@ -126,10 +126,9 @@ const HomeScreen = () => {
               </Button>
               <Button
                 variant="primary"
-                type="button"
-                onClick={() =>
-                  window.open('https://yellowrec.gupy.io/', '_blank')
-                }
+                type="link"
+                href="https://yellowrec.gupy.io/"
+                target="_blank"
               >
                 Busco uma vaga
               </Button>
