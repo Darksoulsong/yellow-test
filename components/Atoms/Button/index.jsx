@@ -1,12 +1,26 @@
 import React from 'react';
 import { Root } from './styles';
 
-function Button({ disabled, ...rest }, ref) {
+function Button({ disabled, type, ...rest }, ref) {
   if (disabled) {
     rest.variant = 'disabled';
   }
 
-  return <Root ref={ref} disabled={disabled} {...rest}></Root>;
+  const buttonProps = {
+    ref,
+    disabled,
+    type,
+    ...rest,
+  };
+
+  if (type === 'link') {
+    buttonProps.as = 'a';
+    buttonProps.role = 'button';
+
+    console.log({ buttonProps });
+  }
+
+  return <Root {...buttonProps}></Root>;
 }
 
 export default React.forwardRef(Button);

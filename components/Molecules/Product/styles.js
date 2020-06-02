@@ -24,7 +24,6 @@ export const Description = styled.div`
   text-align: center;
   font-weight: 300;
   width: 100%;
-  /* padding: 0 8px; */
   padding-top: 50px;
   opacity: 1;
   white-space: pre-wrap;
@@ -41,7 +40,13 @@ export const Description = styled.div`
     background-color: ${({ theme }) => theme.colors.white};
   }
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 60%;
+    margin: 0 auto;
+  }
+
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: auto;
     padding-top: 140px;
     font-size: 2rem;
 

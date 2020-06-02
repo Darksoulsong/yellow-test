@@ -47,15 +47,17 @@ export default function DropdownContent1() {
             </HeaderText>
           </HeaderDropdownBlock>
         </Link>
-        <HeaderDropdownBlock>
-          <HeaderHeading>Entre para o time</HeaderHeading>
-          <HeaderIconHolder className="team">
-            <SVG name="team-icon" />
-          </HeaderIconHolder>
-          <HeaderText>
-            Se quiser trabalhar com a gente, clique e deixe seus dados.
-          </HeaderText>
-        </HeaderDropdownBlock>
+        <Link href="/yellow-way#entre-para-o-time">
+          <HeaderDropdownBlock>
+            <HeaderHeading>Entre para o time</HeaderHeading>
+            <HeaderIconHolder className="team">
+              <SVG name="team-icon" />
+            </HeaderIconHolder>
+            <HeaderText>
+              Se quiser trabalhar com a gente, clique e deixe seus dados.
+            </HeaderText>
+          </HeaderDropdownBlock>
+        </Link>
         <HeaderDropdownBlock noHover></HeaderDropdownBlock>
       </HeaderDropdown>
     </>

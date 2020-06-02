@@ -16,25 +16,29 @@ const CustomFormActions = styled(FormActions)`
   }
 `;
 
-export default function AccountInfo() {
+export default function AccountType({ onAccountTypeSelect }) {
+  const handleClick = React.useCallback(type => {
+    onAccountTypeSelect(type);
+  }, []);
+
   return (
     <FormHolder>
-      <FormHeading>Vôce é</FormHeading>
+      <FormHeading>Você é</FormHeading>
       <CustomFormActions direction="column" align="center">
         <Button
-          type="submit"
+          type="button"
+          onClick={() => handleClick('company')}
           variant="primary"
           version="rounded"
-          // disabled={loading}
         >
           Empresa
         </Button>
         <CustomHeading>ou</CustomHeading>
         <Button
-          type="submit"
+          type="button"
+          onClick={() => handleClick('candidate')}
           variant="primary"
           version="rounded"
-          // disabled={loading}
         >
           Candidato
         </Button>

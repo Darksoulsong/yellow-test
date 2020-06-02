@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ImageHolder = styled.div`
   position: relative;
+  z-index: 0;
   width: 37.2vw;
   height: 42vw;
   margin: 0 auto;
