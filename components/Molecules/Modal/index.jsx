@@ -33,7 +33,7 @@ export default function Modal({
       setActive(false);
       onCloseModal();
     }
-  }, [active]);
+  }, [active, closeOnClickOut]);
 
   const handleModalContainerClick = React.useCallback(e => {
     e.stopPropagation();

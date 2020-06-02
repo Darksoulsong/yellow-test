@@ -45,6 +45,7 @@ export default function Header() {
 
   const [isSticky, setIsSticky] = React.useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
+  const [closeModalOnClickOut, setCloseModalOnClickOut] = React.useState(true);
   const [showModal, setShowModal] = React.useState('');
 
   const navElementRef = React.useRef(null);
@@ -173,6 +174,7 @@ export default function Header() {
   const handleOnCloseModal = React.useCallback(() => {
     setShowModal('');
     setShowBackdrop(false);
+    setCloseModalOnClickOut(true);
   }, []);
 
   const onLogoMouseEnter = React.useCallback(() => {
@@ -187,10 +189,14 @@ export default function Header() {
     }
   }, [isSticky]);
 
+  const onCreateAccountFormNextStep = React.useCallback(() => {
+    setCloseModalOnClickOut(false);
+  }, [setCloseModalOnClickOut]);
+
   const renderModal = () => {
     switch (showModal) {
       case 'create':
-        return <CreateAccountForm />;
+        return <CreateAccountForm onNextStep={onCreateAccountFormNextStep} />;
       case 'forgot':
         return (
           <ForgotPasswordForm
@@ -233,6 +239,7 @@ export default function Header() {
       <Modal
         show={showModal}
         displayHeader
+        closeOnClickOut={closeModalOnClickOut}
         onCloseModal={handleOnCloseModal}
         backgroundColor={
           showModal !== 'login' ? colors.grayLightest : colors.grayDarker
