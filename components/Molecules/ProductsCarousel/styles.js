@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const bounce = keyframes`
+  from {
+    margin-top: -5px;
+  }
+  to {
+    margin-top: 0px;
+  }
+`;
 
 export const ProductsCarouselRoot = styled.div`
   height: 310px;
@@ -7,12 +16,8 @@ export const ProductsCarouselRoot = styled.div`
   margin-top: 20px;
   margin-bottom: 25px;
 
-  .slider-control-left,
-  .slider-control-right {
-    path {
-      stroke: ${({ theme }) => theme.colors.white};
-      stroke-width: 2px;
-    }
+  .slider-control-bottomcenter {
+    display: none;
   }
 
   .exec-icon,
@@ -21,27 +26,61 @@ export const ProductsCarouselRoot = styled.div`
   .rpo-icon {
     .product-icon {
       height: 115px;
+      max-width: unset;
     }
   }
 
   .product-description {
     padding-top: 70px;
+
     &:before {
       top: 20px;
     }
   }
+`;
 
-  /* .exec-icon .product-icon {
-    height: 115px;
-  } */
+export const ControlLeft = styled.button`
+  transition: 0.3s ease-in-out;
+  transition-property: opacity, top;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
-    /* padding-top: 140px;
-           font-size: 2rem;
+  background-color: transparent;
+  border: 0 none;
+  cursor: pointer;
 
-           &:before {
-             top: 44px;
-             height: 72px;
-           } */
+  width: 16px;
+  height: 35px;
+
+  ${({ show }) =>
+    show
+      ? css`
+          opacity: 1;
+        `
+      : css`
+          opacity: 0;
+          top: calc(50% - 2px);
+          pointer-events: none;
+        `}
+
+  svg {
+    width: 16px;
+    height: 100%;
+
+    path {
+      stroke-width: 2px;
+      stroke: ${({ theme }) => theme.colors.white};
+    }
   }
+
+  &:hover {
+    animation: ${bounce} 0.3s infinite alternate;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    height: 65px;
+    top: calc(50% - 32px);
+  }
+`;
+
+export const ControlRight = styled(ControlLeft)`
+  transform: rotate(180deg);
 `;

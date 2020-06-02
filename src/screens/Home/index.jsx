@@ -1,13 +1,13 @@
 import React from 'react';
+import { routeTo } from '@utils';
 import AOS from 'aos';
-import Carousel from 'nuka-carousel';
+
 import {
   Button,
   Timeline,
   SVG,
   Logo,
   Products,
-  SpeechBubble,
   AnimatedUnderline,
   AnimatedScratches,
   AnimatedArrow,
@@ -43,7 +43,6 @@ import {
   ExperienceSection,
   ExperienceContent,
   ExperienceFooter,
-  BubbleContent,
   HomeRoot,
   CirclesContainer,
   HighlightsMobileArrowHolder,
@@ -118,10 +117,20 @@ const HomeScreen = () => {
             </IntroFooterImageDesktop>
 
             <IntroFooterActions>
-              <Button variant="primary" type="button">
+              <Button
+                variant="primary"
+                type="button"
+                onClick={() => routeTo('/contato#contratar')}
+              >
                 Quero contratar
               </Button>
-              <Button variant="primary" type="button">
+              <Button
+                variant="primary"
+                type="button"
+                onClick={() =>
+                  window.open('https://yellowrec.gupy.io/', '_blank')
+                }
+              >
                 Busco uma vaga
               </Button>
             </IntroFooterActions>
