@@ -16,8 +16,6 @@ function Button({ disabled, type, ...rest }, ref) {
   if (type === 'link') {
     buttonProps.as = 'a';
     buttonProps.role = 'button';
-
-    console.log({ buttonProps });
   }
 
   return <Root {...buttonProps}></Root>;

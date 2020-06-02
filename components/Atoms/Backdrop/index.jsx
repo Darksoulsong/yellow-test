@@ -2,13 +2,20 @@ import React from 'react';
 import { BackdropRoot } from './styles';
 
 export default function Backdrop() {
-  const { isActive, zIndex, animated, onClickCallback } = useBackdrop();
+  const { isActive, zIndex, animated, onClickCallbacks } = useBackdrop();
 
   const handleOnClickCallback = React.useCallback(() => {
-    if (typeof onClickCallback === 'function') {
-      onClickCallback(isActive);
+    const callbacks = Object.keys(onClickCallbacks);
+
+    if (callbacks.length) {
+      callbacks.forEach(callback => {
+        const fn = onClickCallbacks[callback];
+        if (typeof fn === 'function') {
+          fn(isActive);
+        }
+      });
     }
-  }, [onClickCallback, isActive]);
+  }, [onClickCallbacks, isActive]);
 
   return (
     <BackdropRoot
@@ -27,7 +34,8 @@ export const useBackdrop = () => React.useContext(backdropCtx);
 export const BackdropProvider = ({ children }) => {
   const [isActive, setIsActive] = React.useState(false);
   const [animated, setAnimated] = React.useState(false);
-  const [[callback], setCallback] = React.useState([]);
+  // const [[callback], setCallback] = React.useState([]);
+  const [callbacks, setCallback] = React.useState({});
   const [zIndex, setZIndex] = React.useState(0);
 
   const toggle = React.useCallback(
@@ -37,9 +45,11 @@ export const BackdropProvider = ({ children }) => {
     [isActive]
   );
 
-  const onClickCallback = callback;
+  const onClickCallbacks = callbacks;
 
-  const setOnClickCallback = onClickFn => setCallback([onClickFn]);
+  const setOnClickCallback = onClickFn => {
+    setCallback(previousState => ({ ...previousState, ...onClickFn }));
+  };
 
   const valueProvider = {
     isActive,
@@ -49,7 +59,7 @@ export const BackdropProvider = ({ children }) => {
     zIndex,
     animated,
     setAnimated,
-    onClickCallback,
+    onClickCallbacks,
     setOnClickCallback,
   };
 

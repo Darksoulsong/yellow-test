@@ -17,6 +17,7 @@ import {
   ProductsCarousel,
   HomeSlider,
 } from '@components';
+import { useFormModal } from '@providers/FormModal';
 import {
   List,
   Video,
@@ -54,6 +55,12 @@ import {
 import 'aos/dist/aos.css';
 
 const HomeScreen = () => {
+  const props = useFormModal();
+
+  const handleOpenSimulate = () => {
+    props.openFormModal('simulate');
+  };
+
   React.useEffect(() => {
     AOS.init({
       duration: 500,
@@ -274,7 +281,11 @@ const HomeScreen = () => {
           </ProductsAnchor>
 
           <ProductsFooter>
-            <Button variant="primary" type="button">
+            <Button
+              variant="primary"
+              type="button"
+              onClick={handleOpenSimulate}
+            >
               Simule sua vaga
             </Button>
           </ProductsFooter>
