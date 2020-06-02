@@ -9,12 +9,15 @@ function Button({ disabled, type, ...rest }, ref) {
   const buttonProps = {
     ref,
     disabled,
+    type,
     ...rest,
   };
 
   if (type === 'link') {
     buttonProps.as = 'a';
     buttonProps.role = 'button';
+
+    console.log({ buttonProps });
   }
 
   return <Root {...buttonProps}></Root>;
