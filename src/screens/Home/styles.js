@@ -2,7 +2,8 @@ import styled, { keyframes } from 'styled-components';
 import { getDesktopFirstMediaQuery } from '@utils';
 
 export const HomeRoot = styled.div`
-  button {
+  button,
+  a[role='button'] {
     @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
       font-size: 1.2rem;
       height: 49px;
@@ -230,7 +231,8 @@ export const IntroFooterActions = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     display: flex;
 
-    button {
+    button,
+    a {
       margin-bottom: 28px;
       width: 276px;
     }
@@ -248,7 +250,8 @@ export const IntroFooterActions = styled.div`
     margin-top: 108px;
     margin-left: 40px;
 
-    button {
+    button,
+    a {
       margin-bottom: 20px;
     }
   }
