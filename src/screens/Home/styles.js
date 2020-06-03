@@ -72,6 +72,8 @@ export const MainHeading = styled.h1`
     font-size: 4.3rem;
     font-style: normal;
     font-weight: 700;
+    display: block;
+    margin-bottom: ${({ theme }) => theme.spaces.sm};
   }
 
   font-size: 1.3rem;
@@ -94,6 +96,7 @@ export const MainHeading = styled.h1`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     em {
+      display: inline;
       font-size: 8.7rem;
       font-style: normal;
     }

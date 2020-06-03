@@ -78,7 +78,6 @@ const HomeScreen = () => {
                   <MediaQuery screenSize="smallerThanDesktop">
                     <MainHeading>
                       <em>Olá,</em>
-                      <br />
                       Lorem ipsum dolor sit <br />
                       amet, adipiscing elit, <br />
                       sed diam nonummy <br />
