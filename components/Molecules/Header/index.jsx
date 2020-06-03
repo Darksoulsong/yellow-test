@@ -1,20 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import { useScrollPosition, useScreenWidth } from '@hooks';
 import { useUserData } from '@providers/User';
+import { useFormModal } from '@providers/FormModal';
 import {
   SVG,
   useBackdrop,
   Button,
   LoginForm,
-  ForgotPasswordForm,
   HamburgerButton,
   MobileMenu,
-  Modal,
-  CreateAccountForm,
-  SimulationForm,
 } from '@components';
-import { colors } from '@components/Organisms/Theme/default/colors';
 import { intBreakpoints } from '@components/Organisms/Theme/breakpoints';
 import UserLoggedContent from './UserLoggedContent';
 import DropdownContent1 from './DropdownContent1';
@@ -37,21 +34,15 @@ import {
 } from './styles';
 
 export default function Header() {
+  const { openFormModal, activeFormModal } = useFormModal();
   const headerRootRef = React.useRef(null);
-
   const { screenWidth } = useScreenWidth();
-
   const { handleUserLogin, data, userLogged } = useUserData();
-
   const [isSticky, setIsSticky] = React.useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = React.useState(false);
-  const [closeModalOnClickOut, setCloseModalOnClickOut] = React.useState(true);
-  const [showModal, setShowModal] = React.useState('');
-
   const navElementRef = React.useRef(null);
   const loginContainerRef = React.useRef(null);
   const createAccountRef = React.useRef(null);
-
   const {
     isActive: showBackdrop,
     setIsActive: setShowBackdrop,
@@ -76,7 +67,7 @@ export default function Header() {
     }
   };
 
-  const handleMouseOver = React.useCallback(event => {
+  const handleMouseOver = event => {
     const element = loginContainerRef.current;
     const label = event.currentTarget.getAttribute('data-item-label');
 
@@ -89,9 +80,10 @@ export default function Header() {
         'yellow-way'
       );
       navElementRef.current.classList.add(label);
+
       setShowBackdrop(true);
     }
-  }, []);
+  };
 
   const handleMouseOut = React.useCallback(
     e => {
@@ -105,21 +97,24 @@ export default function Header() {
           'yellow-way'
         );
 
-        if (showModal === '') {
+        if (activeFormModal === '') {
           setShowBackdrop(false);
         }
       }
     },
-    [showModal]
+    [activeFormModal]
   );
 
-  const handleLoginToggle = React.useCallback(showBackdrop => {
-    const element = loginContainerRef.current;
+  const handleLoginToggle = React.useCallback(
+    showBackdrop => {
+      const element = loginContainerRef.current;
 
-    element.classList.toggle('active');
+      element.classList.toggle('active');
 
-    setShowBackdrop(!showBackdrop);
-  }, []);
+      setShowBackdrop(!showBackdrop);
+    },
+    [showBackdrop]
+  );
 
   const handleMobileMenuToggle = () => {
     setMobileMenuIsOpen(!mobileMenuIsOpen);
@@ -134,48 +129,31 @@ export default function Header() {
     [isSticky]
   );
 
-  const handleCreateAccountButtonClick = React.useCallback(() => {
-    setShowModal('create');
+  const handleCreateAccountButtonClick = () => {
+    openFormModal('create');
     handleLoginToggle(showBackdrop);
-    setShowBackdrop(false);
     setMobileMenuIsOpen(false);
-  }, [showBackdrop]);
+  };
 
-  const handleLoginAccountButtonClick = React.useCallback(() => {
-    setShowModal('');
+  const handleResponsiveLoginAccountButtonClick = () => {
+    setMobileMenuIsOpen(false);
+    openFormModal('login');
+  };
+
+  const handleForgotPasswordButtonClick = () => {
+    openFormModal('forgot');
     handleLoginToggle(showBackdrop);
-    setShowBackdrop(false);
     setMobileMenuIsOpen(false);
-  }, [showBackdrop]);
+  };
 
-  const handleResponsiveLoginAccountButtonClick = React.useCallback(() => {
+  const handleCreateAccountItemClick = () => {
+    openFormModal('create');
+  };
+
+  const handleCreateSimulation = () => {
+    openFormModal('simulate');
     setMobileMenuIsOpen(false);
-    setShowBackdrop(false);
-    setShowModal('login');
-  }, [showBackdrop]);
-
-  const handleForgotPasswordButtonClick = React.useCallback(() => {
-    setShowModal('forgot');
-    handleLoginToggle(showBackdrop);
-    setShowBackdrop(false);
-    setMobileMenuIsOpen(false);
-  }, [showBackdrop]);
-
-  const handleCreateAccountItemClick = React.useCallback(() => {
-    setShowModal('create');
-    setShowBackdrop(false);
-  }, []);
-
-  const handleCreateSimulation = React.useCallback(() => {
-    setShowModal('simulate');
-    setMobileMenuIsOpen(false);
-  }, []);
-
-  const handleOnCloseModal = React.useCallback(() => {
-    setShowModal('');
-    setShowBackdrop(false);
-    setCloseModalOnClickOut(true);
-  }, []);
+  };
 
   const onLogoMouseEnter = React.useCallback(() => {
     if (isSticky) {
@@ -189,44 +167,14 @@ export default function Header() {
     }
   }, [isSticky]);
 
-  const onCreateAccountFormNextStep = React.useCallback(() => {
-    setCloseModalOnClickOut(false);
-  }, [setCloseModalOnClickOut]);
-
-  const renderModal = () => {
-    switch (showModal) {
-      case 'create':
-        return <CreateAccountForm onNextStep={onCreateAccountFormNextStep} />;
-      case 'forgot':
-        return (
-          <ForgotPasswordForm
-            onForgotPasswordOkButtonClick={handleOnCloseModal}
-          />
-        );
-      case 'login':
-        return (
-          <LoginForm
-            loading={data.loading}
-            onCreateAccountButtonClick={handleCreateAccountButtonClick}
-            onForgotPasswordButtonClick={handleForgotPasswordButtonClick}
-            onLoginButtonClick={({ email, password }) => {
-              handleUserLogin({ email, password });
-              handleLoginAccountButtonClick();
-              // Temporary code
-            }}
-          />
-        );
-      case 'simulate':
-        return <SimulationForm />;
-      default:
-        return null;
-    }
-  };
-
   React.useEffect(() => {
     if (window) {
       setIsSticky(window.scrollY > 0);
-      setBackdropOnClick(handleLoginToggle);
+      setBackdropOnClick({ loginToggle: handleLoginToggle });
+
+      Router.events.on('routeChangeComplete', () => {
+        setShowBackdrop(false);
+      });
     }
   }, []);
 
@@ -236,19 +184,6 @@ export default function Header() {
       stickyPositioned={isSticky}
       onMouseLeave={onHeaderLeave}
     >
-      <Modal
-        show={showModal}
-        displayHeader
-        closeOnClickOut={closeModalOnClickOut}
-        onCloseModal={handleOnCloseModal}
-        backgroundColor={
-          showModal !== 'login' ? colors.grayLightest : colors.grayDarker
-        }
-        closeColor={showModal !== 'login' ? '' : colors.white}
-      >
-        {renderModal()}
-      </Modal>
-
       <HeaderMain>
         <HeaderLogo onMouseEnter={onLogoMouseEnter} stickyPositioned={isSticky}>
           <Link href="/">

@@ -24,7 +24,12 @@ export const FooterHeading = styled.h3`
 
 export const FooterBlock = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 33.33%;
+    width: auto;
+    justify-content: space-between;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    justify-content: center;
   }
 `;
 
@@ -39,18 +44,10 @@ export const GrayedSection = styled(Section)`
     padding-top: 40px;
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    ${FooterBlock} {
-      width: auto;
-      justify-content: space-between;
-    }
-  }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     padding: 40px 85px;
 
     ${FooterBlock} {
-      width: 30%;
       justify-content: center;
     }
   }
@@ -85,15 +82,21 @@ export const FooterItem = styled.div`
 `;
 
 export const FooterBlockPeople = styled(FooterBlock)`
-  width: 36%;
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 26%;
+  }
 `;
 
 export const FooterBlockYellowWay = styled(FooterBlock)`
-  width: 25%;
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 20%;
+  }
 `;
 
 export const FooterBlockCompanies = styled(FooterBlock)`
-  width: 29%;
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 22%;
+  }
 `;
 
 export const FooterItemYoutube = styled(FooterItem)`
@@ -105,7 +108,6 @@ export const FooterItemYoutube = styled(FooterItem)`
 `;
 
 export const FooterBlockSocial = styled(FooterBlock)`
-  flex: 1;
   text-align: center;
 
   svg {
