@@ -56,7 +56,10 @@ export default function SliderMultiple({
       <ControlRight
         show={infinite || items.indexes[0] + itemsShowing < totalItemsInSlider}
       >
-        <SVG onClick={() => onChangeSlide(itemsShowing)} name="arrow-icon" />
+        <SVG
+          onClick={() => onChangeSlide(itemsShowing)}
+          name="arrow-icon-inverted"
+        />
       </ControlRight>
     </Root>
   );

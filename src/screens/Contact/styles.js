@@ -38,6 +38,9 @@ export const SimpleContainer = styled.div`
   flex-direction: ${({ direction = 'row' }) => direction};
   align-items: center;
   margin: ${({ margin = '0' }) => margin};
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin: ${({ margin, marginLg = margin }) => marginLg};
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -65,7 +68,7 @@ export const Section = styled.div`
 
 export const VacantSection = styled(Section)`
   margin: ${({ theme }) =>
-    `${theme.spaces.xlg} ${theme.spaces.md} ${theme.spaces.lg} ${theme.spaces.md}`};
+    `${theme.spaces.xlg} ${theme.spaces.md} 0 ${theme.spaces.md}`};
 `;
 
 export const FormSection = styled(Section)`
@@ -76,6 +79,7 @@ export const FormSection = styled(Section)`
   font-weight: 300;
   font-size: 1.8rem;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: ${({ theme }) => `${theme.spaces.lgh} ${theme.spaces.xsm}`};
     margin: ${({ theme }) => `0 ${theme.spaces.md}`};
   }
 `;
@@ -89,6 +93,7 @@ export const Form = styled.form`
   flex-direction: column;
   margin-top: ${({ theme }) => theme.spaces.md};
   padding: ${({ theme }) => theme.spaces.sm};
+  padding-bottom: 0;
   input {
     padding: ${({ theme }) => theme.spaces.sm};
     margin: 10px 0;
@@ -99,8 +104,8 @@ export const Form = styled.form`
 `;
 
 export const SimulationSection = styled(Section)`
-  margin: ${({ theme }) => `${theme.spaces.lg} ${theme.spaces.md}`};
+  margin: ${({ theme }) => `${theme.spaces.lg} 25px`};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin: ${({ theme }) => theme.spaces.lg};
+    margin: ${({ theme }) => `${theme.spaces.lgh} ${theme.spaces.lg}`};
   }
 `;

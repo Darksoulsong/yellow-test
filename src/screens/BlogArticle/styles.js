@@ -51,7 +51,7 @@ export const LinkText = styled.p`
 `;
 
 export const CustomText = styled(Text)`
-  font-size: 1rem;
+  font-size: 1.35rem;
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 1.75rem;
   }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { uid } from 'react-uid';
 import { useScreenWidth } from '@hooks';
 import AOS from 'aos';
@@ -10,6 +10,7 @@ import { SVG, SpeechBubble, Slider, Hashtag, DefaultLayout } from '@components';
 
 import {
   listColumnNames,
+  listColumnNamesMedium,
   topHashtagSectionIcons,
   bottomHashtagSectionIcons,
 } from './settings';
@@ -41,9 +42,10 @@ import {
 } from './styles';
 
 const WhoWeAreScreen = () => {
-  const { screenWidth } = useScreenWidth();
+  const { screenWidth, isMedium } = useScreenWidth();
+  const columnNames = isMedium ? listColumnNamesMedium : listColumnNames;
 
-  React.useEffect(() => {
+  useEffect(() => {
     AOS.init({
       duration: 500,
     });
@@ -52,7 +54,7 @@ const WhoWeAreScreen = () => {
   return (
     <DefaultLayout>
       <NameListSection>
-        {listColumnNames.map((column, columnIndex) => (
+        {columnNames.map((column, columnIndex) => (
           <NameListColumn key={columnIndex}>
             {column.map(element => (
               <Name

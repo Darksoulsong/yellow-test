@@ -12,6 +12,7 @@ import RPOIcon from '../../../public/images/rpo-icon.svg';
 import TechIcon from '../../../public/images/tech-icon.svg';
 import BubblesIcon from '../../../public/images/bubbles-icon.svg';
 import ArrowIcon from '../../../public/images/arrow-icon.svg';
+import ArrowIconInverted from '../../../public/images/arrow-icon-inverted.svg';
 import LinkedinIcon from '../../../public/images/linkedin-icon.svg';
 import YoutubeIcon from '../../../public/images/youtube-icon.svg';
 import InstagramIcon from '../../../public/images/instagram-icon.svg';
@@ -111,6 +112,8 @@ const getImage = name => {
       return BubblesIcon;
     case 'arrow-icon':
       return ArrowIcon;
+    case 'arrow-icon-inverted':
+      return ArrowIconInverted;
     case 'arrow-icon2':
       return ArrowIcon2;
     case 'instagram-icon':

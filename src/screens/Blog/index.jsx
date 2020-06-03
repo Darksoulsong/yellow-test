@@ -16,6 +16,7 @@ import {
 
 import { articles, filters } from './mocked';
 import { spaces } from '@components/Organisms/Theme/sizes';
+import { useScreenWidth } from '@hooks';
 
 import {
   BlogColText,
@@ -33,6 +34,8 @@ import {
 } from './styles';
 
 export const Blog = () => {
+  const { isMedium } = useScreenWidth();
+  const cards = !isMedium ? articles.slice(0, 8) : articles;
   useEffect(() => {
     AOS.init({
       duration: 500,
@@ -74,15 +77,15 @@ export const Blog = () => {
             </CustomText>
           </BlogColText>
           <BlogColImage>
-            <ColImgSVGContainer>
-              <SVG name="three-line-thicker-icon" />
-            </ColImgSVGContainer>
             <Card
-              width="65%"
-              mdWidth="90%"
+              width="100%"
+              mdWidth="100%"
               text="A dinâmica de comunicação"
               img="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg"
             />
+            <ColImgSVGContainer>
+              <SVG name="three-line-thicker-icon" />
+            </ColImgSVGContainer>
           </BlogColImage>
         </BlogTopContainer>
 
@@ -95,7 +98,7 @@ export const Blog = () => {
         </FilterContainer>
 
         <CardsContainer>
-          {articles.map((item, index) => (
+          {cards.map((item, index) => (
             <Card
               width="50%"
               mdWidth="33.33%"
@@ -115,10 +118,7 @@ export const Blog = () => {
           setCurrentPage={() => {}}
         />
 
-        <Suscribe
-          placeholder="email"
-          padding={`${spaces.sm} 0 ${spaces.md} 0`}
-        />
+        <Suscribe padding={`${spaces.sm} 0 ${spaces.md} 0`} />
       </ContainerWithPadding>
     </DefaultLayout>
   );

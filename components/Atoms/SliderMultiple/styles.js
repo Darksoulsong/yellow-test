@@ -28,24 +28,27 @@ export const ControlLeft = styled.div`
   border: 0 none;
   cursor: pointer;
   padding: ${({ theme }) => theme.spaces.xsm};
+  position: relative;
   ${({ show }) =>
     show
       ? `
       opacity: 1;
-    `
+      `
       : `
       opacity: 0;        
       top: calc(50% - 2px);
-        pointer-events: none;
-        `}
+      pointer-events: none;
+      `}
   svg {
     fill: ${({ theme }) => theme.colors.black};
     width: 80%;
     height: auto;
+
     @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
       position: absolute;
       width: 25px;
       left: -50px;
+      bottom: 0;
       padding: 0;
       border-radius: 0px;
       background: unset;
@@ -63,11 +66,9 @@ export const ControlLeft = styled.div`
 `;
 
 export const ControlRight = styled(ControlLeft)`
-  transform: rotate(180deg);
   svg {
-    position: relative;
     @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-      left: -50px;
+      left: 25px;
       padding: 0;
       border-radius: 0px;
       background: unset;
