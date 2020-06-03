@@ -30,12 +30,10 @@ export const Name = styled.li`
 `;
 
 export const NameListColumn = styled.ul`
-  width: 50%;
+  width: 25%;
   text-align: center;
   padding: ${({ theme }) => theme.spaces.sm};
-  &:last-child,
-  :nth-child(4),
-  :nth-child(3) {
+  &:last-child {
     display: none;
   }
 

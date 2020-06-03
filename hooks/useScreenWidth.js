@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { calculateWidth } from '@utils';
+import { intBreakpoints } from '@components/Organisms/Theme/breakpoints';
 
 export const useScreenWidth = () => {
   const [screenWidthObject, setscreenWidthObject] = useState({
@@ -18,5 +19,6 @@ export const useScreenWidth = () => {
 
   return {
     ...screenWidthObject,
+    isMedium: screenWidthObject.screenWidth > intBreakpoints.medium,
   };
 };

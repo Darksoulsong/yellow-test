@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, MediumTitle } from '@components';
 import { CustomField, SuscribeHolder, SuscribeSection } from './styles';
 
-export const Suscribe = ({ padding, placeholder }) => (
+export const Suscribe = ({ padding, placeholder = 'email' }) => (
   <SuscribeSection padding={padding}>
     <MediumTitle align="center">
       QUER RECEBER <strong>MAIS CONTEÚDOS</strong>

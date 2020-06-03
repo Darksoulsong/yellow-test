@@ -19,7 +19,7 @@ const CustomFormActions = styled(FormActions)`
 export default function AccountInfo() {
   return (
     <FormHolder>
-      <FormHeading>Vôce é</FormHeading>
+      <FormHeading>Você é</FormHeading>
       <CustomFormActions direction="column" align="center">
         <Button
           type="submit"
