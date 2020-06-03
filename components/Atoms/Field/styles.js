@@ -54,7 +54,26 @@ export const TextArea = styled(Input).attrs({ as: 'textarea' })`
 
 export const Select = styled(Input).attrs({
   as: 'select',
-})``;
+})`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+`;
+
+export const SelectWrapper = styled.div`
+  width: 100%;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    content: '▼';
+    right: 2px;
+    top: calc(50% - 7px);
+    width: 8px;
+    height: 14px;
+    line-height: 1.4rem;
+    font-size: 1.1rem;
+  }
+`;
 
 export const Field = styled.div`
   position: relative;
