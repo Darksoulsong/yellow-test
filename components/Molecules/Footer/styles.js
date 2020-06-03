@@ -81,21 +81,18 @@ export const FooterItem = styled.div`
 
 export const FooterBlockPeople = styled(FooterBlock)`
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    /* width: 35%; */
     width: 31vw;
   }
 `;
 
 export const FooterBlockYellowWay = styled(FooterBlock)`
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    /* width: 25%; */
     width: 25vw;
   }
 `;
 
 export const FooterBlockCompanies = styled(FooterBlock)`
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    /* width: 29%; */
     width: 28vw;
   }
 `;
