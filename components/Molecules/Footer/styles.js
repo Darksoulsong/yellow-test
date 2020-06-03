@@ -24,11 +24,13 @@ export const FooterHeading = styled.h3`
 
 export const FooterBlock = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 33.33%;
     width: auto;
     justify-content: space-between;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: 30%;
     justify-content: center;
   }
 `;
@@ -46,10 +48,6 @@ export const GrayedSection = styled(Section)`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     padding: 40px 85px;
-
-    ${FooterBlock} {
-      justify-content: center;
-    }
   }
 `;
 
@@ -82,20 +80,23 @@ export const FooterItem = styled.div`
 `;
 
 export const FooterBlockPeople = styled(FooterBlock)`
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 26%;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    /* width: 35%; */
+    width: 31vw;
   }
 `;
 
 export const FooterBlockYellowWay = styled(FooterBlock)`
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 20%;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    /* width: 25%; */
+    width: 25vw;
   }
 `;
 
 export const FooterBlockCompanies = styled(FooterBlock)`
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 22%;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    /* width: 29%; */
+    width: 28vw;
   }
 `;
 
@@ -117,6 +118,10 @@ export const FooterBlockSocial = styled(FooterBlock)`
 
   ${FooterItem} {
     margin-bottom: 18px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: 10vw;
   }
 `;
 
