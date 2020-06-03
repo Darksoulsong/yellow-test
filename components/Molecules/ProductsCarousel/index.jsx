@@ -1,6 +1,8 @@
 import React from 'react';
-import { Product, Slider } from '@components';
-import { ProductsCarouselRoot } from './styles';
+import Carousel from 'nuka-carousel';
+import { Product, SVG, intBreakpoints } from '@components';
+import { useMediaQuery } from 'react-responsive';
+import { ProductsCarouselRoot, ControlLeft, ControlRight } from './styles';
 
 export default function ProductsCarousel() {
   const items = React.useMemo(() => {
@@ -27,15 +29,72 @@ export default function ProductsCarousel() {
     ];
   }, []);
 
+  const isTablet = useMediaQuery({ minWidth: intBreakpoints.medium });
+
+  const getControlsContainerStyles = React.useCallback(
+    key => {
+      switch (key) {
+        case 'CenterLeft':
+          return {
+            top: isTablet ? '40%' : '40%',
+            left: isTablet ? '-24%' : '-38%',
+          };
+        default:
+          return {
+            top: isTablet ? '40%' : '40%',
+            right: isTablet ? '-24%' : '-38%',
+          };
+      }
+    },
+    [isTablet]
+  );
+
+  const renderCenterLeftControls = ({ previousSlide }) => {
+    return (
+      <ControlLeft
+        type="button"
+        version="unstyled"
+        onClick={previousSlide}
+        show={true}
+      >
+        <SVG name="arrow-icon" />
+      </ControlLeft>
+    );
+  };
+
+  const renderCenterRightControls = ({ nextSlide }) => {
+    return (
+      <ControlRight
+        type="button"
+        version="unstyled"
+        onClick={nextSlide}
+        show={true}
+      >
+        <SVG name="arrow-icon" />
+      </ControlRight>
+    );
+  };
+
   return (
     <ProductsCarouselRoot>
-      <Slider>
+      <Carousel
+        slideIndex={0}
+        wrapAround
+        renderCenterLeftControls={renderCenterLeftControls}
+        renderCenterRightControls={renderCenterRightControls}
+        getControlsContainerStyles={getControlsContainerStyles}
+        defaultControlsConfig={{
+          pagingDotsStyle: {
+            display: 'none',
+          },
+        }}
+      >
         {items.map(props => (
           <Product key={props.description} active {...props}>
             {props.description}
           </Product>
         ))}
-      </Slider>
+      </Carousel>
     </ProductsCarouselRoot>
   );
 }

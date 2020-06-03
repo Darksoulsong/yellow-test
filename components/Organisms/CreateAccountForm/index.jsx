@@ -1,33 +1,46 @@
 import React from 'react';
 import FormikWizard from 'formik-wizard';
 import { FormActions, FormSteps } from '@components';
+import AccountTypeView from '@components/Organisms/CreateAccountForm/views/AccountType';
 import steps from './steps';
 import { FormRoot, FormHeading } from './styles';
 
-const FormWrapper = props => {
-  const handleGoForward = () => {};
+const getActiveStep = step => {
+  return steps.findIndex(item => {
+    return item.id === step;
+  });
+};
 
-  const activeStep = React.useMemo(() => {
-    return steps.findIndex(step => {
-      return step.id === props.currentStep;
-    });
-  }, [props.currentStep]);
-
+const FormContainer = ({ children, renderActions }) => {
   return (
     <FormRoot>
       <FormHeading>Criar sua conta</FormHeading>
 
-      {props.children}
+      {children}
 
-      <FormActions>
-        <FormSteps
-          activeStep={activeStep}
-          totalItems={steps.length}
-          onStepForward={handleGoForward}
-          onStepBack={props.goToPreviousStep}
-        />
-      </FormActions>
+      {renderActions && renderActions()}
     </FormRoot>
+  );
+};
+
+const FormWrapper = props => {
+  const handleGoForward = () => {};
+
+  const renderActions = () => (
+    <FormActions>
+      <FormSteps
+        activeStep={getActiveStep(props.currentStep)}
+        totalItems={steps.length}
+        onStepForward={handleGoForward}
+        onStepBack={props.goToPreviousStep}
+      />
+    </FormActions>
+  );
+
+  return (
+    <FormContainer renderActions={renderActions}>
+      {props.children}
+    </FormContainer>
   );
 };
 
@@ -35,16 +48,43 @@ const MemoizedFormWrapper = React.memo(FormWrapper, (prev, next) => {
   return prev.currentStep === next.currentStep;
 });
 
-export default function CreateAccountForm() {
+export default function CreateAccountForm({ onNextStep }) {
+  const [showForm, setShowForm] = React.useState(false);
+
   const handleSubmit = React.useCallback(values => {
     console.log('full values:', values);
   }, []);
 
+  const handleAccountTypeSelect = React.useCallback(() => {
+    setShowForm(true);
+    onNextStep();
+  }, [setShowForm]);
+
+  const onNext = props => {
+    const activeStep = getActiveStep(props.step.id);
+
+    if (activeStep !== -1) {
+      onNextStep(activeStep);
+      props.push();
+    }
+  };
+
   return (
-    <FormikWizard
-      steps={steps}
-      onSubmit={handleSubmit}
-      render={MemoizedFormWrapper}
-    />
+    <>
+      {!showForm && (
+        <FormContainer>
+          <AccountTypeView onAccountTypeSelect={handleAccountTypeSelect} />
+        </FormContainer>
+      )}
+
+      {showForm && (
+        <FormikWizard
+          steps={steps}
+          onSubmit={handleSubmit}
+          render={MemoizedFormWrapper}
+          albusProps={{ onNext }}
+        />
+      )}
+    </>
   );
 }

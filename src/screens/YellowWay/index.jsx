@@ -56,7 +56,7 @@ export const YellowWay = () => {
         </TextHolder>
       </Container>
 
-      <YellowSection>
+      <YellowSection id="entre-para-o-time">
         <Subheading>
           <strong>Gostou?</strong> Então venha <br />
           fazer parte do nosso time.
