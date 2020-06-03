@@ -21,31 +21,33 @@ export const Name = styled.li`
     bold ? theme.colors.yellow : theme.colors.gray};
   letter-spacing: 3.14px;
   line-height: 22px;
-  font-size: 1.25rem;
+  font-size: 0.85rem;
   user-select: none;
   font-family: 'Monosten', 'Roboto', 'sans-serif';
-  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+  @media (min-width: 450px) {
+    font-size: 1.15rem;
+  }
+  @media (min-width: 475px) {
+    font-size: 1.25rem;
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 1.5rem;
   }
 `;
 
 export const NameListColumn = styled.ul`
   width: 25%;
-  text-align: center;
+  text-align: left;
   padding: ${({ theme }) => theme.spaces.sm};
   &:last-child {
     display: none;
   }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
-    text-align: left;
-    width: 33.33%;
-    &:nth-child(3) {
-      display: block;
+    &:nth-child(4) {
       width: fit-content;
     }
   }
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+  /* @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: 25%;
     &:nth-child(3) {
       display: block;
@@ -55,7 +57,7 @@ export const NameListColumn = styled.ul`
       display: block;
       width: fit-content;
     }
-  }
+  } */
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     width: 20%;
     &:nth-child(3),

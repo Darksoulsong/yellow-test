@@ -44,7 +44,7 @@ const secondColumnNames = [
     name: 'Nicolas',
   },
   {
-    name: 'Maria Luiza',
+    name: 'Maria',
   },
   {
     name: 'Lorenzo',
@@ -56,13 +56,13 @@ const secondColumnNames = [
 
 const thirdColumnNames = [
   {
-    name: 'Maria Clara',
+    name: 'Maria',
   },
   {
     name: 'Henrique',
   },
   {
-    name: 'Ana Clara',
+    name: 'Ana',
   },
   {
     name: 'Raquel',
@@ -88,7 +88,7 @@ const fourthColumnNames = [
     bold: true,
   },
   {
-    name: 'Ana Clara',
+    name: 'Ana',
   },
   {
     name: 'Theo',
@@ -138,11 +138,131 @@ const fifthColumnNames = [
   },
 ];
 
+const firstColumnNamesMedium = [
+  {
+    name: 'Miguel',
+  },
+  {
+    name: 'Sophia',
+  },
+  {
+    name: 'Davi',
+  },
+  {
+    name: 'Alice',
+  },
+  {
+    name: 'Arthur',
+  },
+  {
+    name: 'Julia',
+    bold: true,
+  },
+  {
+    name: 'Pedro',
+  },
+  {
+    name: 'Isabella',
+  },
+];
+
+const secondColumnNamesMedium = [
+  {
+    name: 'Enzo',
+  },
+  {
+    name: 'Helena',
+    bold: true,
+  },
+  {
+    name: 'Guilherme',
+  },
+  {
+    name: 'Beatriz',
+  },
+  {
+    name: 'Nicolas',
+  },
+  {
+    name: 'Maria Luiza',
+  },
+  {
+    name: 'Lorenzo',
+  },
+  {
+    name: 'Lara',
+  },
+];
+
+const thirdColumnNamesMedium = [
+  {
+    name: 'Maria Clara',
+  },
+  {
+    name: 'Henrique',
+  },
+  {
+    name: 'Ana Clara',
+  },
+  {
+    name: 'Raquel',
+  },
+  {
+    name: 'Flora',
+  },
+  {
+    name: 'Keila ',
+  },
+  {
+    name: 'Kaique',
+  },
+  {
+    name: 'Carlos',
+    bold: true,
+  },
+];
+
+const fourthColumnNamesMedium = [
+  {
+    name: 'Henrique',
+    bold: true,
+  },
+  {
+    name: 'Ana Clara',
+  },
+  {
+    name: 'Theo',
+  },
+  {
+    name: 'Lorena',
+  },
+  {
+    name: 'Murilo',
+  },
+  {
+    name: 'Gabriela',
+  },
+  {
+    name: 'Eduardo',
+  },
+  {
+    name: 'Yasmin',
+  },
+];
+
 export const listColumnNames = [
   firstColumnNames,
   secondColumnNames,
   thirdColumnNames,
   fourthColumnNames,
+  fifthColumnNames,
+];
+
+export const listColumnNamesMedium = [
+  firstColumnNamesMedium,
+  secondColumnNamesMedium,
+  thirdColumnNamesMedium,
+  fourthColumnNamesMedium,
   fifthColumnNames,
 ];
 

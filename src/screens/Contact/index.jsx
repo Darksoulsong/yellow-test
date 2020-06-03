@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
@@ -55,12 +53,6 @@ export const Contact = () => {
       setSent(true);
     },
   });
-
-  useEffect(() => {
-    AOS.init({
-      duration: 500,
-    });
-  }, []);
 
   useEffect(() => {
     if (router.asPath.includes('#contratar') && formRef) {
