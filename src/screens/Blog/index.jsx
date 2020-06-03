@@ -77,15 +77,15 @@ export const Blog = () => {
             </CustomText>
           </BlogColText>
           <BlogColImage>
-            <ColImgSVGContainer>
-              <SVG name="three-line-thicker-icon" />
-            </ColImgSVGContainer>
             <Card
-              width="65%"
-              mdWidth="90%"
+              width="100%"
+              mdWidth="80%"
               text="A dinâmica de comunicação"
               img="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg"
             />
+            <ColImgSVGContainer>
+              <SVG name="three-line-thicker-icon" />
+            </ColImgSVGContainer>
           </BlogColImage>
         </BlogTopContainer>
 

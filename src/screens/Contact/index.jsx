@@ -68,7 +68,10 @@ export const Contact = () => {
         </CustomTitle>
         <CustomTitle align="center">CLIQUE PARA SE INSCREVER EM</CustomTitle>
         <CustomTitle align="center">UMA DE NOSSAS VAGAS</CustomTitle>
-        <SimpleContainer margin={`${spaces.lg} 0`}>
+        <SimpleContainer
+          margin={`${spaces.md} 0 ${spaces.lg}`}
+          marginLg={`${spaces.lg} 0 ${spaces.lgh}`}
+        >
           <ArrowPositioner>
             <SVG name="handdrawn-arrow7" />
           </ArrowPositioner>
@@ -178,10 +181,7 @@ export const Contact = () => {
               placeholder="Fale mais sobre o que você precisa"
             />
           </SimpleContainer>
-          <SimpleContainer
-            direction="column"
-            margin={`${spaces.lg} 0 ${spaces.sm} 0`}
-          >
+          <SimpleContainer direction="column" margin={`${spaces.lg} 0 0 0`}>
             <Button
               width="fit-content"
               type="submit"
@@ -191,10 +191,11 @@ export const Contact = () => {
             >
               ENVIAR
             </Button>
+
             {sent && (
               <CustomText
                 align="center"
-                margin={`${spaces.sm} 0`}
+                margin={`${spaces.sm} 0 0 0`}
                 style={{ fontSize: '1.75rem', opacity: '0.75' }}
               >
                 Obrigado pelo seu contato, iremos retornar em breve!

@@ -27,14 +27,21 @@ export const CustomText = styled(Text)`
 `;
 
 export const ColImgSVGContainer = styled.div`
+  display: flex;
+  height: 100%;
   svg {
     width: 7.5% !important;
     position: absolute;
     top: -7.5%;
-    right: 12%;
+    /* right: 12%; */
     @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
       width: 10% !important;
-      right: 0%;
+      /* right: 12%; */
+      /* top: -5%; */
+    }
+    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+      /* width: 10% !important; */
+      /* right: 12%; */
     }
   }
 `;
@@ -74,7 +81,7 @@ export const BlogTopContainer = styled(Container)`
     `${theme.spaces.md} ${theme.spaces.sm} ${theme.spaces.sm} ${theme.spaces.sm}`};
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     justify-content: space-between;
-    padding: ${({ theme }) => `${theme.spaces.xlg} 1% ${theme.spaces.lg} 1%`};
+    padding: ${({ theme }) => `${theme.spaces.lg} 1% ${theme.spaces.sm} 1%`};
   }
 `;
 
