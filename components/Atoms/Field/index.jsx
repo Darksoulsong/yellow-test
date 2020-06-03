@@ -57,7 +57,6 @@ const FieldComponent = React.memo(function FieldComponent({
           <SelectWrapper>
             <Select ref={ref} {...inputProps}>
               {options &&
-                options.length &&
                 options.map(option => (
                   <option key={option.value} value={option.value}>
                     {option.label}

@@ -70,7 +70,7 @@ export default function Footer() {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.linkedin.com/company/yellowrecrutamento/"
+                href="https://www.linkedin.com/company/28613312/"
               >
                 <SVG name="linkedin-icon" />
               </a>
