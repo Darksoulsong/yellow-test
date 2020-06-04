@@ -6,6 +6,7 @@ import {
   FieldIcon,
   Input,
   Select,
+  SelectWrapper,
   FieldGroup,
   FieldValidationMessage,
   TextArea,
@@ -53,15 +54,16 @@ const FieldComponent = React.memo(function FieldComponent({
         )}
         {type === 'textarea' && <TextArea ref={ref} {...inputProps} />}
         {type === 'select' && (
-          <Select ref={ref} {...inputProps}>
-            {options &&
-              options.length &&
-              options.map(option => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-          </Select>
+          <SelectWrapper>
+            <Select ref={ref} {...inputProps}>
+              {options &&
+                options.map(option => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+            </Select>
+          </SelectWrapper>
         )}
       </Field>
 

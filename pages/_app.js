@@ -1,17 +1,14 @@
 import React from 'react';
 import NextApp from 'next/app';
-import { Theme } from '@components';
-import { UserProvider } from '@providers/User';
+import RootProvider from '@providers';
 
 export default class App extends NextApp {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <Theme>
-        <UserProvider>
-          <Component {...pageProps} />
-        </UserProvider>
-      </Theme>
+      <RootProvider>
+        <Component {...pageProps} />
+      </RootProvider>
     );
   }
 }

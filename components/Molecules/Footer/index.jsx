@@ -67,17 +67,29 @@ export default function Footer() {
               <FooterHeading>Social</FooterHeading>
             </FooterItem>
             <FooterItem>
-              <a href="http://foo.com">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/company/28613312/"
+              >
                 <SVG name="linkedin-icon" />
               </a>
             </FooterItem>
             <FooterItem>
-              <a href="http://foo.com">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/yellow.rec/"
+              >
                 <SVG name="instagram-icon" />
               </a>
             </FooterItem>
             <FooterItem>
-              <a href="http://foo.com">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.youtube.com/channel/UCUokCIPwOOqxRIIj-_ZCZQg"
+              >
                 <SVG name="youtube-icon" />
               </a>
             </FooterItem>

@@ -37,9 +37,10 @@ export const IntroHolder = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     width: 465px;
     margin: 0;
+    padding-top: 70px;
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     padding-top: 100px;
   }
 `;
@@ -72,6 +73,8 @@ export const MainHeading = styled.h1`
     font-size: 4.3rem;
     font-style: normal;
     font-weight: 700;
+    display: block;
+    margin-bottom: ${({ theme }) => theme.spaces.sm};
   }
 
   font-size: 1.3rem;
@@ -93,6 +96,16 @@ export const MainHeading = styled.h1`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    em {
+      display: inline;
+      font-size: 8.2rem;
+      font-style: normal;
+    }
+    line-height: 4.5rem;
+    font-size: 3.1rem;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     em {
       font-size: 8.7rem;
       font-style: normal;
@@ -146,6 +159,7 @@ export const Video = styled.div`
     left: -2px;
     width: 100%;
     height: auto;
+    max-width: 100%;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
@@ -157,27 +171,30 @@ export const Video = styled.div`
     top: 0;
     right: 0;
     z-index: -1;
-    width: 100%;
-    height: 635px;
+    height: 505px;
     width: 77vw;
-    left: 286px;
+    left: 277px;
 
     video {
-      transform: scale(1.3);
-      left: -17%;
-      top: 10%;
+      left: -2px;
+      top: 5%;
     }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
-    left: 295px;
+    left: 286px;
     height: 650px;
+    margin: 0;
 
     video {
       width: 100%;
-      height: auto;
-      transform: scale(1);
-      left: -2px;
+      height: 635px;
+      top: 10%;
+      left: -62px;
+    }
+
+    &:after {
+      right: 122px;
     }
   }
 `;
@@ -194,6 +211,10 @@ export const IntroFooter = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    margin-top: 55px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     margin-top: 115px;
   }
 `;

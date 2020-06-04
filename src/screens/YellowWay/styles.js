@@ -171,3 +171,8 @@ export const TextHolder = styled.div`
     }
   }
 `;
+
+export const ButtonHolder = styled.div`
+  display: flex;
+  justify-content: center;
+`;

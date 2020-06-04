@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Header, Footer, Container, Backdrop } from '@components';
-import RootProvider from '@providers';
 
 const DefaultLayoutRoot = styled.div`
   position: relative;
@@ -9,18 +8,16 @@ const DefaultLayoutRoot = styled.div`
 
 export default function DefaultLayout({ children }) {
   return (
-    <RootProvider>
-      <Container id="page-top" fluid padding="0" paddingOnLarge="0">
-        <DefaultLayoutRoot>
-          <Header />
+    <Container id="page-top" fluid padding="0" paddingOnLarge="0">
+      <DefaultLayoutRoot>
+        <Header />
 
-          {children}
+        {children}
 
-          <Footer />
+        <Footer />
 
-          <Backdrop />
-        </DefaultLayoutRoot>
-      </Container>
-    </RootProvider>
+        <Backdrop />
+      </DefaultLayoutRoot>
+    </Container>
   );
 }

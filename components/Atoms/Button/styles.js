@@ -49,6 +49,7 @@ const hoverStyles = css`
 const main = css`
   display: flex;
   align-items: center;
+  justify-content: center;
   color: ${({ theme }) => theme.colors.black};
   font-size: ${({ fontSize = '2rem' }) => fontSize};
   border: 0 none;

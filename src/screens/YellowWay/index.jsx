@@ -21,6 +21,7 @@ import {
   Top,
   Container,
   TextHolder,
+  ButtonHolder,
 } from './styles';
 
 export const YellowWay = () => {
@@ -73,7 +74,9 @@ export const YellowWay = () => {
           #YELLOW<strong>TEAM</strong>
         </HashtagHeading>
 
-        <Button variant="black">Cadastrar</Button>
+        <ButtonHolder>
+          <Button variant="black">Cadastrar</Button>
+        </ButtonHolder>
       </YellowSection>
     </DefaultLayout>
   );
