@@ -4,7 +4,7 @@ import { Container, Text } from '@components';
 
 export const ContainerWithPadding = styled.div`
   padding: 0 0;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     padding: ${({ theme }) => `0 ${theme.spaces.hg}`};
   }
 `;
@@ -15,7 +15,7 @@ export const Section = styled.section`
   padding: 110px;
   margin: 0 8px;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     margin: 0 35px;
   }
 `;
@@ -27,22 +27,16 @@ export const CustomText = styled(Text)`
 `;
 
 export const ColImgSVGContainer = styled.div`
-  display: flex;
+  display: none;
   height: 100%;
   svg {
     width: 7.5% !important;
     position: absolute;
     top: -7.5%;
-    /* right: 12%; */
-    @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-      width: 10% !important;
-      /* right: 12%; */
-      /* top: -5%; */
-    }
-    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-      /* width: 10% !important; */
-      /* right: 12%; */
-    }
+  }
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    display: flex;
+    padding-right: 7.5%;
   }
 `;
 
@@ -81,7 +75,7 @@ export const BlogTopContainer = styled(Container)`
     `${theme.spaces.md} ${theme.spaces.sm} ${theme.spaces.sm} ${theme.spaces.sm}`};
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     justify-content: space-between;
-    padding: ${({ theme }) => `${theme.spaces.lg} 1% ${theme.spaces.sm} 1%`};
+    padding: ${({ theme }) => `${theme.spaces.xlg} 1% ${theme.spaces.lg} 1%`};
   }
 `;
 
@@ -112,17 +106,18 @@ export const BlogColResponsive = styled(Column)`
 export const BlogColImage = styled.div`
   display: none;
   align-items: center;
+  justify-content: flex-end;
   position: relative;
   p {
     text-align: center;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    /* padding-right: ${({ theme }) => theme.spaces.sm}; */
+    padding-right: ${({ theme }) => theme.spaces.sm};
     margin: 0;
     display: flex;
-    width: 33.33%;
+    width: 27.5%;
   }
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
     margin: ${({ theme }) => 0};
   }
 `;
@@ -155,8 +150,8 @@ export const FilterContainer = styled(Container)`
   flex-direction: row;
   justify-content: flex-start;
   padding: 0;
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    margin-top: 0px;
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    margin: 0 1%;
   }
 `;
 

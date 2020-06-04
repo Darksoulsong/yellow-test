@@ -79,7 +79,7 @@ export const Blog = () => {
           <BlogColImage>
             <Card
               width="100%"
-              mdWidth="80%"
+              mdWidth="100%"
               text="A dinâmica de comunicação"
               img="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg"
             />
