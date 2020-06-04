@@ -47,10 +47,12 @@ import {
   HomeRoot,
   CirclesContainer,
   HighlightsMobileArrowHolder,
-  ProductsMobileCarouselHolder,
-  ProductsDesktopHolder,
   IntroFooterImageDesktop,
   IntroFooterImageSmallerThanDesktop,
+  ShowOnMobileOnly,
+  ShowOnMobile,
+  ShowOnTabletOnly,
+  ShowOnDesktop,
 } from './styles';
 import 'aos/dist/aos.css';
 
@@ -144,17 +146,17 @@ const HomeScreen = () => {
 
         <TimelineSection>
           <SubHeading1>
-            <MediaQuery screenSize="mobile">
+            <ShowOnMobileOnly>
               Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
               não é <br /> fácil e contratações erradas <br />
               <strong>geram prejuízos</strong>
-            </MediaQuery>
+            </ShowOnMobileOnly>
 
-            <MediaQuery screenSize="tablet">
+            <ShowOnMobile>
               Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
               não é fácil e <br />
               contratações erradas <strong>geram prejuízos</strong>
-            </MediaQuery>
+            </ShowOnMobile>
           </SubHeading1>
 
           <TimelineWrapper>
@@ -267,13 +269,13 @@ const HomeScreen = () => {
             <AnimatedScratches />
           </SubHeading1>
 
-          <ProductsDesktopHolder>
+          <ShowOnDesktop>
             <Products />
-          </ProductsDesktopHolder>
+          </ShowOnDesktop>
 
-          <ProductsMobileCarouselHolder>
+          <ShowOnTabletOnly>
             <ProductsCarousel />
-          </ProductsMobileCarouselHolder>
+          </ShowOnTabletOnly>
 
           <ProductsAnchor>
             <a href="/link">Entenda mais os produtos</a>
