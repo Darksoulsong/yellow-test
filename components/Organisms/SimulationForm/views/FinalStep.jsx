@@ -8,7 +8,9 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: ${({ theme }) => `0 ${theme.spaces.lg}`};
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: ${({ theme }) => `0 ${theme.spaces.lg}`};
+  }
 `;
 
 export const FinalStep = () => (
@@ -22,7 +24,11 @@ export const FinalStep = () => (
       <FormHeading>
         <span style={{ fontWeight: '300' }}>#YELLOW</span>TEAM
       </FormHeading>
-      <SVG />
+      <div>
+        <div>
+          <SVG />
+        </div>
+      </div>
     </Container>
   </>
 );

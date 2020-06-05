@@ -16,7 +16,7 @@ const list = [
       'É uma substituição, mas o profissional ainda não foi comunicado por isso precisamos de sigilo máximo.',
   },
   { text: 'Estamos crescendo nosso time!' },
-  { text: 'Está é uma vaga recorrente.' },
+  { text: 'Esta é uma vaga recorrente.' },
 ];
 
 export const OpeningStep = () => {

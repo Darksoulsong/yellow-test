@@ -18,7 +18,9 @@ export const ModalContainer = styled.div`
   flex-direction: column;
   z-index: 999;
   background-color: ${({ backgroundColor }) => backgroundColor};
-  margin-top: 30px;
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    margin-top: 30px;
+  }
 `;
 
 export const ModalCloseButton = styled.button`
@@ -37,7 +39,10 @@ export const ModalHead = styled.div`
   justify-content: space-between;
   padding: 0 16px;
   height: 64px;
-  align-items: center;
+  align-items: flex-end;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    align-items: center;
+  }
 `;
 
 export const ModalBody = styled.div``;

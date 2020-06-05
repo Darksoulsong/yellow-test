@@ -2,10 +2,9 @@ import styled from 'styled-components';
 
 export const FormRoot = styled.div`
   display: flex;
-  justify-content: ${({ justify = 'flex-start' }) => justify};
+  justify-content: ${({ justify = 'space-between' }) => justify};
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.grayLightest};
-  padding: 60px 120px;
   padding: 0 30px 50px;
   width: 100vw;
   height: 100vh;
@@ -103,7 +102,7 @@ export const FormFooter = styled.div``;
 export const ResponsiveContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => `0 ${theme.spaces.md}`};
+  /* padding: ${({ theme }) => `0 ${theme.spaces.md}`}; */
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     flex-direction: row;
     padding: 0;
