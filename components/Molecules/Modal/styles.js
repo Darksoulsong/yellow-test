@@ -6,10 +6,12 @@ export const ModalRoot = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  height: 100%;
   z-index: 999;
   top: 0;
   left: 0;
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    height: 100%;
+  }
 `;
 
 export const ModalContainer = styled.div`
@@ -38,10 +40,10 @@ export const ModalHead = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 16px;
-  height: 64px;
-  align-items: flex-end;
+  height: 32px;
+  align-items: center;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    align-items: center;
+    height: 64px;
   }
 `;
 
