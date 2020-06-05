@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const FinalStep = () => (
   <>
-    <FormHeading>Obrigado!</FormHeading>
+    <FormHeading style={{ fontSize: '2.4rem' }}>Obrigado!</FormHeading>
     <Container>
       <FormHeading style={{ fontWeight: '300' }}>
         Recebemos as informações sobre sua vaga e iremos entrar em contato o

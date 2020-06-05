@@ -20,5 +20,6 @@ export const useScreenWidth = () => {
   return {
     ...screenWidthObject,
     isMedium: screenWidthObject.screenWidth > intBreakpoints.medium,
+    isLarge: screenWidthObject.screenWidth > intBreakpoints.large,
   };
 };

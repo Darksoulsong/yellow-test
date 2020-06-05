@@ -5,19 +5,20 @@ import styled from 'styled-components';
 const Row = styled.div`
   display: flex;
   user-select: none;
-  padding: ${({ padding = '10px 0' }) => padding};
+  padding: ${({ padding = '12.5px 0' }) => padding};
   align-items: center;
   border-bottom: ${({ border, theme }) =>
-    border ? `1px solid ${theme.colors.grayLight}` : 'unset'};
+    border ? `1px solid ${theme.colors.gray}` : 'unset'};
 `;
 
-const Circle = styled.div`
+const Circle = styled.button`
   cursor: pointer;
   display: flex;
+  font-size: 1.5rem;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   font-weight: 600;
   background-color: ${({ theme, active }) =>
@@ -29,12 +30,13 @@ const Circle = styled.div`
 
 const Label = styled(Text)`
   cursor: pointer;
+  font-size: 1.5rem;
 `;
 
 export const CircleRow = ({ id, active, text, padding, border, onClick }) => (
   <Row padding={padding} border={border}>
     <div>
-      <Circle onClick={onClick} active={active}>
+      <Circle active={active} onClick={onClick}>
         {id}
       </Circle>
     </div>

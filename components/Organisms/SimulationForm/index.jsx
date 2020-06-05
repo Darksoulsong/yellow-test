@@ -14,9 +14,10 @@ const FormWrapper = props => {
   }, [props.currentStep]);
 
   return (
-    <FormRoot>
+    <FormRoot justify={steps[activeStep].justify}>
       {props.children}
-      {!steps[activeStep].removeControls && (
+      {(!steps[activeStep].removeControls ||
+        !steps[activeStep].removeSteps) && (
         <FormActions>
           <FormSteps
             proportion="15px"
@@ -24,6 +25,9 @@ const FormWrapper = props => {
             totalItems={steps.length}
             onStepForward={handleGoForward}
             onStepBack={props.goToPreviousStep}
+            removeControls={steps[activeStep].removeControls}
+            removeSteps={steps[activeStep].removeSteps}
+            removeBackwards={steps[activeStep].removeBackwards}
           />
         </FormActions>
       )}
