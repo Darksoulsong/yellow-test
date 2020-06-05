@@ -30,6 +30,7 @@ const FormWrapper = props => {
             onStepBack={props.goToPreviousStep}
             removeControls={steps[activeStep].removeControls}
             removeSteps={steps[activeStep].removeSteps}
+            removeForward={steps[activeStep].removeForward}
             removeBackwards={steps[activeStep].removeBackwards}
             sliceInit={INIT_OF_STEPS}
             sliceEnd={END_OF_STEPS}

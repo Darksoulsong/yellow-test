@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import { FormActions } from '@components';
 
 export const FormRoot = styled.div`
   display: flex;
-  justify-content: ${({ justify = 'space-between' }) => justify};
   flex-direction: column;
+  justify-content: ${({ justify = 'flex-start' }) => justify};
   background-color: ${({ theme }) => theme.colors.grayLightest};
   padding: 0 30px 50px;
   width: 100vw;
   height: 100vh;
   overflow: auto;
-
+  position: relative;
   form {
     flex: 1;
     display: flex;
@@ -17,6 +18,7 @@ export const FormRoot = styled.div`
     justify-content: space-between;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    justify-content: ${({ justify = 'space-between' }) => justify};
     min-height: 430px;
     max-height: 485px;
     width: 700px;
@@ -123,5 +125,14 @@ export const CustomContainer = styled.div`
       variant === 'default'
         ? `0 ${theme.spaces.lgh}`
         : `0 ${theme.spaces[variant]}`};
+  }
+`;
+
+export const CustomFormActions = styled(FormActions)`
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  button {
+    width: fit-content;
   }
 `;

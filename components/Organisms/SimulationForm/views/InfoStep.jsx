@@ -1,9 +1,14 @@
 import React from 'react';
 import { useFormikContext } from 'formik';
-import { FormControl, Field } from '@components';
+import { FormControl, Field, Button } from '@components';
 import { fieldHasError } from '@utils';
 import { spaces } from '@components/Organisms/Theme/sizes';
-import { FormHolder, FormHeading, CustomContainer } from '../styles';
+import {
+  FormHolder,
+  FormHeading,
+  CustomContainer,
+  CustomFormActions,
+} from '../styles';
 
 export default function InfoStep() {
   const {
@@ -65,6 +70,11 @@ export default function InfoStep() {
           />
         </FormControl>
       </FormHolder>
+      <CustomFormActions style={{ marginTop: '20px' }}>
+        <Button type="submit" variant="primary" version="rounded">
+          Concluir
+        </Button>
+      </CustomFormActions>
     </CustomContainer>
   );
 }

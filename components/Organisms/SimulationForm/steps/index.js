@@ -23,10 +23,10 @@ export default [
     id: 'InitialInfoStep',
     component: InitialInfoStep,
     initialValues: {
-      name: 'Jore',
-      email: 'jorg@as.com',
-      telephone: '1231231231',
-      company: 'saddsa',
+      name: '',
+      email: '',
+      telephone: '',
+      company: '',
     },
     validationSchema: Yup.object().shape({
       name: Yup.string().required('Campo obrigatório'),
@@ -116,6 +116,7 @@ export default [
       upperLimit: Yup.string().required('Campo obrigatório'),
       lowerLimit: Yup.string().required('Campo obrigatório'),
     }),
+    removeForward: true,
   },
   {
     id: 'FinalStep',
