@@ -1,15 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
-import { FormActions, Button } from '@components';
-import { FormHeading, FormHolder, CustomContainer } from '../styles';
-
-const CustomFormActions = styled(FormActions)`
-  align-items: center;
-  margin: 0;
-  button {
-    width: fit-content;
-  }
-`;
+import { Button } from '@components';
+import {
+  FormHeading,
+  FormHolder,
+  CustomContainer,
+  CustomFormActions,
+} from '../styles';
 
 export const InitialStep = () => (
   <CustomContainer>

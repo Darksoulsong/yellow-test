@@ -18,6 +18,7 @@ const FormSteps = ({
   removeControls = false,
   removeBackwards = false,
   removeSteps = false,
+  removeForward = false,
   sliceInit = 0,
   sliceEnd = null,
 }) => {
@@ -53,7 +54,9 @@ const FormSteps = ({
       )}
 
       <FormStepButtonHolder
-        visible={activeStep + 1 !== totalItems && !removeControls}
+        visible={
+          activeStep + 1 !== totalItems && !removeControls && !removeForward
+        }
       >
         <Button
           type="submit"

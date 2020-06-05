@@ -24,11 +24,11 @@ export const FinalStep = () => (
       <FormHeading>
         <span style={{ fontWeight: '300' }}>#YELLOW</span>TEAM
       </FormHeading>
-      <div>
-        <div>
+      <Container>
+        <div style={{ position: 'absolute', bottom: '20px' }}>
           <SVG />
         </div>
-      </div>
+      </Container>
     </Container>
   </>
 );
