@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormikContext } from 'formik';
 import { FormControl, Field } from '@components';
 import { fieldHasError } from '@utils';
-import { FormHolder, FormHeading } from '../styles';
+import { FormHolder, FormHeading, CustomContainer } from '../styles';
 
 export default function InfoStep() {
   const {
@@ -14,7 +14,7 @@ export default function InfoStep() {
   } = useFormikContext();
 
   return (
-    <>
+    <CustomContainer variant="md">
       <FormHeading>
         Em uma publicação, qual seria o título desta vaga?
       </FormHeading>
@@ -64,6 +64,6 @@ export default function InfoStep() {
           />
         </FormControl>
       </FormHolder>
-    </>
+    </CustomContainer>
   );
 }

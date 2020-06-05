@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { uid } from 'react-uid';
+import { useFormikContext } from 'formik';
 import { CircleRow } from '@components';
-import { FormHeading, ResponsiveContainer, ResponsiveColumn } from '../styles';
+import { useScreenWidth } from '@hooks';
+import {
+  FormHeading,
+  ResponsiveContainer,
+  ResponsiveColumn,
+  CustomContainer,
+} from '../styles';
 
 const column1 = [
   {
@@ -30,9 +37,16 @@ const column2 = [
 ];
 
 export const AreaStep = () => {
-  const [active, setActive] = useState(-1);
+  const { values, setFieldValue, submitForm } = useFormikContext();
+  const { isLarge } = useScreenWidth();
+  const lastElementFirstColumnIndex = column1.length - 1;
+  const lastElementSecondColumnIndex = column2.length - 1;
+  const handleChangeValue = async value => {
+    await setFieldValue('area', value, false);
+    submitForm();
+  };
   return (
-    <>
+    <CustomContainer variant="md">
       <FormHeading>
         Esse profissional estará em qual área da empresa?
       </FormHeading>
@@ -42,9 +56,10 @@ export const AreaStep = () => {
             <CircleRow
               key={uid(item)}
               id={key + 1}
-              active={active === key}
+              active={values.area === item.text}
               text={item.text}
-              onClick={() => setActive(key)}
+              onClick={() => handleChangeValue(item.text)}
+              border={lastElementFirstColumnIndex !== key || !isLarge}
             />
           ))}
         </ResponsiveColumn>
@@ -53,13 +68,14 @@ export const AreaStep = () => {
             <CircleRow
               key={uid(item)}
               id={column1.length + key + 1}
-              active={active === key + column1.length + 1}
+              active={values.area === item.text}
               text={item.text}
-              onClick={() => setActive(key + column1.length + 1)}
+              onClick={() => handleChangeValue(item.text)}
+              border={isLarge || lastElementSecondColumnIndex !== key}
             />
           ))}
         </ResponsiveColumn>
       </ResponsiveContainer>
-    </>
+    </CustomContainer>
   );
 };

@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useFormikContext } from 'formik';
 import { uid } from 'react-uid';
+import { useScreenWidth } from '@hooks';
 import { CircleRow } from '@components';
-import { FormHeading, ResponsiveContainer, ResponsiveColumn } from '../styles';
+import {
+  FormHeading,
+  ResponsiveContainer,
+  ResponsiveColumn,
+  CustomContainer,
+} from '../styles';
 
 const column1 = [
   {
@@ -30,9 +37,16 @@ const column2 = [
 ];
 
 export const LevelStep = () => {
-  const [active, setActive] = useState(-1);
+  const { values, setFieldValue, submitForm } = useFormikContext();
+  const { isLarge } = useScreenWidth();
+  const handleChangeValue = async value => {
+    await setFieldValue('seniorityLevel', value);
+    submitForm();
+  };
+  const lastElementFirstColumnIndex = column1.length - 1;
+  const lastElementSecondColumnIndex = column2.length - 1;
   return (
-    <>
+    <CustomContainer variant="md">
       <FormHeading>
         Qual o nível de senioridade mais adequado para posição
       </FormHeading>
@@ -42,9 +56,10 @@ export const LevelStep = () => {
             <CircleRow
               key={uid(item)}
               id={key + 1}
-              active={active === key}
+              active={values.seniorityLevel === item.text}
               text={item.text}
-              onClick={() => setActive(key)}
+              onClick={() => handleChangeValue(item.text)}
+              border={lastElementFirstColumnIndex !== key || !isLarge}
             />
           ))}
         </ResponsiveColumn>
@@ -53,13 +68,14 @@ export const LevelStep = () => {
             <CircleRow
               key={uid(item)}
               id={column1.length + key + 1}
-              active={active === key + column1.length + 1}
+              active={values.seniorityLevel === item.text}
               text={item.text}
-              onClick={() => setActive(key + column1.length + 1)}
+              onClick={() => handleChangeValue(item.text)}
+              border={isLarge || lastElementSecondColumnIndex !== key}
             />
           ))}
         </ResponsiveColumn>
       </ResponsiveContainer>
-    </>
+    </CustomContainer>
   );
 };

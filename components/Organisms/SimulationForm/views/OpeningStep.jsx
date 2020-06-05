@@ -1,6 +1,7 @@
 import React from 'react';
 import { DefaultCircledRowModal } from '../components/DefaultCircledRowModal';
-
+import { useFormikContext } from 'formik';
+import { CustomContainer } from '../styles';
 const list = [
   {
     text:
@@ -18,9 +19,21 @@ const list = [
   { text: 'Está é uma vaga recorrente.' },
 ];
 
-export const OpeningStep = () => (
-  <DefaultCircledRowModal
-    list={list}
-    title="Por que você está abrindo uma vaga?"
-  />
-);
+export const OpeningStep = () => {
+  const { values, setFieldValue, submitForm } = useFormikContext();
+  const handleChangeValue = async value => {
+    await setFieldValue('reasonToOpen', value);
+    submitForm();
+  };
+
+  return (
+    <CustomContainer variant="md">
+      <DefaultCircledRowModal
+        list={list}
+        active={values.reasonToOpen}
+        setActive={handleChangeValue}
+        title="Por que você está abrindo uma vaga?"
+      />
+    </CustomContainer>
+  );
+};

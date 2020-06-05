@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormikContext } from 'formik';
 import { FormControl, Field } from '@components';
 import { fieldHasError } from '@utils';
-import { FormHolder, FormHeading } from '../styles';
+import { FormHolder, FormHeading, CustomContainer } from '../styles';
 
 export default function LocationStep() {
   const {
@@ -14,7 +14,7 @@ export default function LocationStep() {
   } = useFormikContext();
 
   return (
-    <>
+    <CustomContainer variant="md">
       <FormHeading>
         Por favor, complete seus dados antes de iniciar a simulação
       </FormHeading>
@@ -73,6 +73,6 @@ export default function LocationStep() {
           />
         </FormControl>
       </FormHolder>
-    </>
+    </CustomContainer>
   );
 }

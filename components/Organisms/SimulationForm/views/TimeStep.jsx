@@ -1,6 +1,7 @@
 import React from 'react';
+import { useFormikContext } from 'formik';
 import { DefaultCircledRowModal } from '../components/DefaultCircledRowModal';
-
+import { CustomContainer } from '../styles';
 const list = [
   {
     text: 'Vaga nova',
@@ -13,9 +14,21 @@ const list = [
       'Já estamos buscando este profissional a meses, até agora não encontramos',
   },
 ];
-export const TimeStep = () => (
-  <DefaultCircledRowModal
-    list={list}
-    title="Há quanto tempo vocês estão buscando por esse profissional?"
-  />
-);
+export const TimeStep = () => {
+  const { values, setFieldValue, submitForm } = useFormikContext();
+  const handleChangeValue = value => {
+    setFieldValue('timeOpen', value, false);
+    submitForm();
+  };
+
+  return (
+    <CustomContainer variant="md">
+      <DefaultCircledRowModal
+        list={list}
+        active={values.timeOpen}
+        setActive={handleChangeValue}
+        title="Há quanto tempo vocês estão buscando por esse profissional?"
+      />
+    </CustomContainer>
+  );
+};

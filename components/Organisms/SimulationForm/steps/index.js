@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 import { default as LocationStep } from '../views/LocationStep';
-import { default as InitialStep } from '../views/InitialStep';
+import { InitialStep } from '../views/InitialStep';
 import { default as InfoStep } from '../views/InfoStep';
 import { default as InitialInfoStep } from '../views/InitialInfoStep';
 import { FinalStep } from '../views/FinalStep';
@@ -15,16 +15,18 @@ export default [
   {
     id: 'InitialStep',
     component: InitialStep,
+    removeSteps: true,
     removeControls: true,
+    justify: 'center',
   },
   {
     id: 'InitialInfoStep',
     component: InitialInfoStep,
     initialValues: {
-      name: '',
-      email: '',
-      telephone: '',
-      company: '',
+      name: 'Jore',
+      email: 'jorg@as.com',
+      telephone: '1231231231',
+      company: 'saddsa',
     },
     validationSchema: Yup.object().shape({
       name: Yup.string().required('Campo obrigatório'),
@@ -32,22 +34,48 @@ export default [
       telephone: Yup.string().required('Campo obrigatório'),
       company: Yup.string().required('Campo obrigatório'),
     }),
+    removeSteps: true,
+    removeBackwards: true,
   },
   {
     id: 'OpeningStep',
     component: OpeningStep,
+    initialValues: {
+      reasonToOpen: '',
+    },
+    validationSchema: Yup.object().shape({
+      reasonToOpen: Yup.string().required('Campo obrigatório'),
+    }),
   },
   {
     id: 'LevelStep',
     component: LevelStep,
+    initialValues: {
+      seniorityLevel: '',
+    },
+    validationSchema: Yup.object().shape({
+      seniorityLevel: Yup.string().required('Campo obrigatório'),
+    }),
   },
   {
     id: 'AreaStep',
     component: AreaStep,
+    initialValues: {
+      area: '',
+    },
+    validationSchema: Yup.object().shape({
+      area: Yup.string().required('Campo obrigatório'),
+    }),
   },
   {
     id: 'UrgencyStep',
     component: UrgencyStep,
+    initialValues: {
+      urgencyLevel: '',
+    },
+    validationSchema: Yup.object().shape({
+      urgencyLevel: Yup.string().required('Campo obrigatório'),
+    }),
   },
   {
     id: 'LocationStep',
@@ -68,6 +96,12 @@ export default [
   {
     id: 'TimeStep',
     component: TimeStep,
+    initialValues: {
+      timeOpen: '',
+    },
+    validationSchema: Yup.object().shape({
+      timeOpen: Yup.string().required('Campo obrigatório'),
+    }),
   },
   {
     id: 'InfoStep',
@@ -87,5 +121,7 @@ export default [
     id: 'FinalStep',
     component: FinalStep,
     removeControls: true,
+    removeSteps: true,
+    justify: 'center',
   },
 ];

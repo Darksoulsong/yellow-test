@@ -7,6 +7,7 @@ import {
   CheckboxHolder,
   CheckboxCustomLabel,
   FormHeading,
+  CustomContainer,
 } from '../styles';
 
 export default function LocationStep() {
@@ -19,7 +20,7 @@ export default function LocationStep() {
   } = useFormikContext();
 
   return (
-    <>
+    <CustomContainer variant="md">
       <FormHeading>
         Onde será o local de trabalho desse profissional?
       </FormHeading>
@@ -101,6 +102,6 @@ export default function LocationStep() {
           </CheckboxHolder>
         </FormControl>
       </FormHolder>
-    </>
+    </CustomContainer>
   );
 }

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const FormRoot = styled.div`
   display: flex;
+  justify-content: ${({ justify = 'flex-start' }) => justify};
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.grayLightest};
   padding: 60px 120px;
@@ -18,14 +19,14 @@ export const FormRoot = styled.div`
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     min-height: 430px;
-    width: 600px;
-    height: unset;
-    padding: 0 30px 20px;
+    max-height: 485px;
+    width: 700px;
+    padding: 0 30px 0px;
   }
 `;
 
 export const FormHeading = styled.h2`
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   text-align: center;
   margin-bottom: ${({ theme }) => theme.spaces.md};
 `;
@@ -59,9 +60,9 @@ export const FormHolder = styled.div`
   width: 320px;
   height: fit-content;
   margin: 0 auto;
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+  /* @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     height: 100%;
-  }
+  } */
 `;
 
 export const FormIconHolder = styled.span`
@@ -105,12 +106,23 @@ export const ResponsiveContainer = styled.div`
   padding: ${({ theme }) => `0 ${theme.spaces.md}`};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     flex-direction: row;
+    padding: 0;
+    justify-content: space-between;
   }
 `;
 
 export const ResponsiveColumn = styled.div`
   width: 100%;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    width: 45%;
+    width: 47%;
+  }
+`;
+
+export const CustomContainer = styled.div`
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: ${({ theme, variant = 'default' }) =>
+      variant === 'default'
+        ? `0 ${theme.spaces.lgh}`
+        : `0 ${theme.spaces[variant]}`};
   }
 `;

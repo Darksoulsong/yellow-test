@@ -15,6 +15,9 @@ const FormSteps = ({
   onStepForward,
   onStepBack,
   proportion = '30px',
+  removeControls = false,
+  removeBackwards = false,
+  removeSteps = false,
 }) => {
   const items = React.useRef(null);
 
@@ -22,7 +25,9 @@ const FormSteps = ({
 
   return (
     <FormStepsRoot>
-      <FormStepButtonHolder visible={activeStep > 0}>
+      <FormStepButtonHolder
+        visible={activeStep > 0 && !removeControls && !removeBackwards}
+      >
         <Button
           type="button"
           version="tiny"
@@ -33,17 +38,21 @@ const FormSteps = ({
         </Button>
       </FormStepButtonHolder>
 
-      <FormStepsHolder>
-        {items.current.map((item, index) => (
-          <FormStep
-            proportion={proportion}
-            key={uid(index)}
-            active={index <= activeStep}
-          />
-        ))}
-      </FormStepsHolder>
+      {!removeSteps && (
+        <FormStepsHolder>
+          {items.current.map((item, index) => (
+            <FormStep
+              proportion={proportion}
+              key={uid(index)}
+              active={index <= activeStep}
+            />
+          ))}
+        </FormStepsHolder>
+      )}
 
-      <FormStepButtonHolder visible={activeStep + 1 !== totalItems}>
+      <FormStepButtonHolder
+        visible={activeStep + 1 !== totalItems && !removeControls}
+      >
         <Button
           type="submit"
           version="tiny"
