@@ -16,8 +16,8 @@ const list = [
 ];
 export const TimeStep = () => {
   const { values, setFieldValue, submitForm } = useFormikContext();
-  const handleChangeValue = value => {
-    setFieldValue('timeOpen', value, false);
+  const handleChangeValue = async value => {
+    await setFieldValue('timeOpen', value, false);
     submitForm();
   };
 

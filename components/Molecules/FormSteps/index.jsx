@@ -18,10 +18,12 @@ const FormSteps = ({
   removeControls = false,
   removeBackwards = false,
   removeSteps = false,
+  sliceInit = 0,
+  sliceEnd = null,
 }) => {
   const items = React.useRef(null);
-
   items.current = new Array(totalItems).fill('');
+  const sliceLimit = sliceEnd || items.current.length;
 
   return (
     <FormStepsRoot>
@@ -40,11 +42,11 @@ const FormSteps = ({
 
       {!removeSteps && (
         <FormStepsHolder>
-          {items.current.map((item, index) => (
+          {items.current.slice(sliceInit, sliceLimit).map((item, index) => (
             <FormStep
               proportion={proportion}
               key={uid(index)}
-              active={index <= activeStep}
+              active={index <= activeStep - sliceInit}
             />
           ))}
         </FormStepsHolder>

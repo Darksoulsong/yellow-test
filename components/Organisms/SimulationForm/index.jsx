@@ -4,6 +4,9 @@ import { FormActions, FormSteps } from '@components';
 import steps from './steps';
 import { FormRoot } from './styles';
 
+const INIT_OF_STEPS = 2;
+const END_OF_STEPS = 9;
+
 const FormWrapper = props => {
   const handleGoForward = () => {};
 
@@ -20,7 +23,7 @@ const FormWrapper = props => {
         !steps[activeStep].removeSteps) && (
         <FormActions>
           <FormSteps
-            proportion="15px"
+            proportion="20px"
             activeStep={activeStep}
             totalItems={steps.length}
             onStepForward={handleGoForward}
@@ -28,6 +31,8 @@ const FormWrapper = props => {
             removeControls={steps[activeStep].removeControls}
             removeSteps={steps[activeStep].removeSteps}
             removeBackwards={steps[activeStep].removeBackwards}
+            sliceInit={INIT_OF_STEPS}
+            sliceEnd={END_OF_STEPS}
           />
         </FormActions>
       )}

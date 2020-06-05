@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormikContext } from 'formik';
 import { FormControl, Field } from '@components';
 import { fieldHasError } from '@utils';
+import { spaces } from '@components/Organisms/Theme/sizes';
 import { FormHolder, FormHeading, CustomContainer } from '../styles';
 
 export default function InfoStep() {
@@ -18,7 +19,7 @@ export default function InfoStep() {
       <FormHeading>
         Em uma publicação, qual seria o título desta vaga?
       </FormHeading>
-      <FormHolder>
+      <FormHolder style={{ paddingBottom: `${spaces.sm}` }}>
         <FormControl>
           <Field
             autoComplete="off"
