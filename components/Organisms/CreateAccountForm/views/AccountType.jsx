@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { spaces } from '@components/Organisms/Theme/sizes';
 import { FormActions, Button } from '@components';
 import { FormHeading, FormHolder } from '../styles';
 
 const CustomHeading = styled.h2`
   font-size: 2.6rem;
   text-align: center;
-  margin: ${({ theme }) => `${theme.spaces.md} 0`};
+  margin: ${({ theme }) => `${theme.spaces.sm} 0`};
 `;
 
 const CustomFormActions = styled(FormActions)`
@@ -23,8 +24,12 @@ export default function AccountType({ onAccountTypeSelect }) {
 
   return (
     <FormHolder>
-      <FormHeading>Você é</FormHeading>
-      <CustomFormActions direction="column" align="center">
+      <FormHeading style={{ marginBottom: 0 }}>Você é</FormHeading>
+      <CustomFormActions
+        style={{ margin: `${spaces.sm} 0 0` }}
+        direction="column"
+        align="center"
+      >
         <Button
           type="button"
           onClick={() => handleClick('company')}

@@ -4,9 +4,9 @@ export const FormControl = styled.div`
   display: flex;
   justify-content: ${({ align = 'space-between' }) => align};
   flex-direction: ${({ direction = 'row' }) => direction};
-  margin-bottom: 17px;
+  margin-bottom: ${({ theme }) => theme.spaces.sm};
 `;
 
 export const FormActions = styled(FormControl)`
-  margin-top: 33px;
+  margin-top: ${({ theme }) => theme.spaces.sm};
 `;

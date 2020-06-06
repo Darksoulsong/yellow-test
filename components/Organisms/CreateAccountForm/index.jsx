@@ -2,21 +2,19 @@ import React from 'react';
 import FormikWizard from 'formik-wizard';
 import { FormActions, FormSteps } from '@components';
 import AccountTypeView from '@components/Organisms/CreateAccountForm/views/AccountType';
-import steps from './steps';
-import { FormRoot, FormHeading } from './styles';
+import { stepsCandidate, stepsCompany } from './steps';
+import { FormRoot, FormHeading, CustomTitle } from './styles';
 
-const getActiveStep = step => {
-  return steps.findIndex(item => {
-    return item.id === step;
-  });
-};
+const getActiveStep = (step, steps) =>
+  steps.findIndex(item => item === step || item.id === step);
 
-const FormContainer = ({ children, renderActions }) => {
+const FormContainer = ({ children, renderActions, renderHeading }) => {
   return (
     <FormRoot>
-      <FormHeading>Criar sua conta</FormHeading>
-
-      {children}
+      <div>
+        {renderHeading || <FormHeading>Criar sua conta</FormHeading>}
+        {children}
+      </div>
 
       {renderActions && renderActions()}
     </FormRoot>
@@ -29,8 +27,8 @@ const FormWrapper = props => {
   const renderActions = () => (
     <FormActions>
       <FormSteps
-        activeStep={getActiveStep(props.currentStep)}
-        totalItems={steps.length}
+        activeStep={getActiveStep(props.currentStep, props.steps)}
+        totalItems={props.steps.length}
         onStepForward={handleGoForward}
         onStepBack={props.goToPreviousStep}
       />
@@ -44,47 +42,77 @@ const FormWrapper = props => {
   );
 };
 
-const MemoizedFormWrapper = React.memo(FormWrapper, (prev, next) => {
+const MemoizedFormCandidateWrapper = React.memo(FormWrapper, (prev, next) => {
+  return prev.currentStep === next.currentStep;
+});
+
+const MemoizedFormCompanyWrapper = React.memo(FormWrapper, (prev, next) => {
   return prev.currentStep === next.currentStep;
 });
 
 export default function CreateAccountForm({ onNextStep }) {
-  const [showForm, setShowForm] = React.useState(false);
+  const [showForm, setShowForm] = React.useState({ form: null, steps: null });
 
-  const handleSubmit = React.useCallback(values => {
+  const handleSubmit = values => {
     console.log('full values:', values);
-  }, []);
+    setShowForm({ form: null, steps: null });
+  };
 
-  const handleAccountTypeSelect = React.useCallback(() => {
-    setShowForm(true);
+  const handleAccountTypeSelect = type => {
+    setShowForm({
+      form: type,
+      steps: type === 'candidate' ? stepsCandidate : stepsCompany,
+    });
     onNextStep();
-  }, [setShowForm]);
+  };
 
   const onNext = props => {
-    const activeStep = getActiveStep(props.step.id);
-
+    const activeStep = getActiveStep(props.step.id, showForm.steps);
     if (activeStep !== -1) {
       onNextStep(activeStep);
       props.push();
     }
   };
 
+  const renderWizard = () => {
+    switch (showForm.form) {
+      case 'candidate':
+        return (
+          <FormikWizard
+            steps={stepsCandidate}
+            onSubmit={handleSubmit}
+            render={MemoizedFormCandidateWrapper}
+            albusProps={{ onNext }}
+          />
+        );
+      case 'company':
+        return (
+          <FormikWizard
+            steps={stepsCompany}
+            onSubmit={handleSubmit}
+            render={MemoizedFormCompanyWrapper}
+            albusProps={{ onNext }}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
-      {!showForm && (
-        <FormContainer>
+      {!showForm.form && (
+        <FormContainer
+          renderHeading={
+            <CustomTitle>
+              CRIAR SUA <strong>CONTA</strong>
+            </CustomTitle>
+          }
+        >
           <AccountTypeView onAccountTypeSelect={handleAccountTypeSelect} />
         </FormContainer>
       )}
-
-      {showForm && (
-        <FormikWizard
-          steps={steps}
-          onSubmit={handleSubmit}
-          render={MemoizedFormWrapper}
-          albusProps={{ onNext }}
-        />
-      )}
+      {renderWizard()}
     </>
   );
 }

@@ -4,11 +4,10 @@ export const FormRoot = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.grayLightest};
-  padding: 60px 120px;
-  padding: 0 30px 20px;
+  padding: 0 30px 50px;
   width: 100vw;
-  min-height: 100vh;
-
+  height: 100vh;
+  justify-content: ${({ justify = 'flex-start' }) => justify};
   form {
     flex: 1;
     display: flex;
@@ -16,7 +15,10 @@ export const FormRoot = styled.div`
     justify-content: space-between;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    min-height: 430px;
+    padding: 0 30px 0px;
+    justify-content: ${({ justify = 'space-between' }) => justify};
+    /* min-height: 430px; */
+    max-height: 455px;
     width: 600px;
   }
 `;
@@ -86,3 +88,10 @@ export const CheckboxLabel = styled.span`
 `;
 
 export const FormFooter = styled.div``;
+
+export const CustomTitle = styled.div`
+  font-size: 3.4rem;
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 45px;
+`;
