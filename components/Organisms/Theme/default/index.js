@@ -21,13 +21,7 @@ const Global = createGlobalStyle`
     box-sizing: border-box;                
     outline: 0 none;    
   }
-  
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus, 
-  input:-webkit-autofill:active  {
-      -webkit-box-shadow: 0 0 0 30px white inset !important;
-  }
+
 
   html,
   body {
@@ -81,6 +75,8 @@ const Global = createGlobalStyle`
   ::-webkit-scrollbar-corner {
     background: transparent;
   }
+
+  -webkit-overflow-scrolling: auto !important;
 
   /* webkit autofill hack */
   @-webkit-keyframes autofill {

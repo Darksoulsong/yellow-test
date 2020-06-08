@@ -50,12 +50,13 @@ const MemoizedFormCompanyWrapper = React.memo(FormWrapper, (prev, next) => {
   return prev.currentStep === next.currentStep;
 });
 
-export default function CreateAccountForm({ onNextStep }) {
+export default function CreateAccountForm({ onNextStep, onSubmit }) {
   const [showForm, setShowForm] = React.useState({ form: null, steps: null });
 
   const handleSubmit = values => {
     console.log('full values:', values);
     setShowForm({ form: null, steps: null });
+    onSubmit();
   };
 
   const handleAccountTypeSelect = type => {
