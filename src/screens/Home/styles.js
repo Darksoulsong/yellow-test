@@ -329,7 +329,6 @@ export const IntroFooterActions = styled.div`
 export const SubHeading1 = styled.h2`
   font-weight: 300;
   text-align: center;
-  /* font-size: 2.9rem; */
   font-size: 1.7rem;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
