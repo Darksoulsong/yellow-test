@@ -4,19 +4,8 @@ import { Container, Text } from '@components';
 
 export const ContainerWithPadding = styled.div`
   padding: 0 0;
-  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     padding: ${({ theme }) => `0 ${theme.spaces.hg}`};
-  }
-`;
-
-export const Section = styled.section`
-  transition: 0.3s ease-in-out;
-  transition-property: margin, padding;
-  padding: 110px;
-  margin: 0 8px;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
-    margin: 0 35px;
   }
 `;
 
@@ -34,9 +23,8 @@ export const ColImgSVGContainer = styled.div`
     position: absolute;
     top: -7.5%;
   }
-  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     display: flex;
-    padding-right: 7.5%;
   }
 `;
 
@@ -117,7 +105,7 @@ export const BlogColImage = styled.div`
     display: flex;
     width: 27.5%;
   }
-  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: ${({ theme }) => 0};
   }
 `;

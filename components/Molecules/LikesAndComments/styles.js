@@ -36,6 +36,7 @@ export const CommentsContainer = styled.div`
   min-height: 50px;
   max-height: 90px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: auto !important;
   margin-bottom: ${({ theme }) => theme.spaces.lg};
 `;
 

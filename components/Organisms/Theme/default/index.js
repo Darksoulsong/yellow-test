@@ -22,6 +22,7 @@ const Global = createGlobalStyle`
     outline: 0 none;    
   }
 
+
   html,
   body {
     font-family: 'Roboto', sans-serif;
@@ -74,6 +75,8 @@ const Global = createGlobalStyle`
   ::-webkit-scrollbar-corner {
     background: transparent;
   }
+
+  -webkit-overflow-scrolling: auto !important;
 
   /* webkit autofill hack */
   @-webkit-keyframes autofill {

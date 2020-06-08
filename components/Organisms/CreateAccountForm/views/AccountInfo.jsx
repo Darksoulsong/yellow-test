@@ -79,12 +79,7 @@ export default function AccountInfo() {
         </CheckboxHolder>
       </FormControl>
       <FormActions align="center">
-        <Button
-          type="submit"
-          variant="primary"
-          version="rounded"
-          // disabled={loading}
-        >
+        <Button type="submit" variant="primary" version="rounded">
           Concluir
         </Button>
       </FormActions>

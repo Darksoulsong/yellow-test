@@ -43,7 +43,7 @@ export const ModalHead = styled.div`
   height: 32px;
   align-items: center;
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    height: 64px;
+    height: 48px;
   }
 `;
 

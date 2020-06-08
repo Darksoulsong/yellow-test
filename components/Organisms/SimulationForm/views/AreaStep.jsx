@@ -39,8 +39,11 @@ const column2 = [
 export const AreaStep = () => {
   const { values, setFieldValue, submitForm } = useFormikContext();
   const { isLarge } = useScreenWidth();
+
   const lastElementFirstColumnIndex = column1.length - 1;
   const lastElementSecondColumnIndex = column2.length - 1;
+  const secondColumnFirstIndex = column1.length + 1;
+
   const handleChangeValue = async value => {
     await setFieldValue('area', value, false);
     submitForm();
@@ -52,26 +55,26 @@ export const AreaStep = () => {
       </FormHeading>
       <ResponsiveContainer>
         <ResponsiveColumn>
-          {column1.map((item, key) => (
+          {column1.map((item, index) => (
             <CircleRow
               key={uid(item)}
-              id={key + 1}
+              id={index + 1}
               active={values.area === item.text}
               text={item.text}
               onClick={() => handleChangeValue(item.text)}
-              border={lastElementFirstColumnIndex !== key || !isLarge}
+              border={lastElementFirstColumnIndex !== index || !isLarge}
             />
           ))}
         </ResponsiveColumn>
         <ResponsiveColumn>
-          {column2.map((item, key) => (
+          {column2.map((item, index) => (
             <CircleRow
               key={uid(item)}
-              id={column1.length + key + 1}
+              id={secondColumnFirstIndex + index}
               active={values.area === item.text}
               text={item.text}
               onClick={() => handleChangeValue(item.text)}
-              border={isLarge || lastElementSecondColumnIndex !== key}
+              border={isLarge || lastElementSecondColumnIndex !== index}
             />
           ))}
         </ResponsiveColumn>

@@ -63,7 +63,12 @@ export const FormModalProvider = ({ children }) => {
 
     switch (showModal) {
       case 'create':
-        return <CreateAccountForm onNextStep={onCreateAccountFormNextStep} />;
+        return (
+          <CreateAccountForm
+            onNextStep={onCreateAccountFormNextStep}
+            onSubmit={handleOnCloseModal}
+          />
+        );
       case 'forgot':
         return (
           <ForgotPasswordForm

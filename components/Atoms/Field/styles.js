@@ -30,6 +30,23 @@ const RoundElementBase = css`
   &:focus-within {
     background-color: ${({ theme }) => theme.colors.fieldBackgroundFocused};
   }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:active {
+    transition: 0.3s ease-in-out;
+    -webkit-box-shadow: ${({ theme }) =>
+      `0 0 0 30px ${theme.colors.fieldBackground} inset !important`};
+    box-shadow: ${({ theme }) =>
+      `0 0 0 30px ${theme.colors.fieldBackground} inset !important`};
+  }
+  input:-webkit-autofill:focus {
+    transition: 0.3s ease-in-out;
+    -webkit-box-shadow: ${({ theme }) =>
+      `0 0 0 30px ${theme.colors.fieldBackgroundFocused} inset !important`};
+    box-shadow: ${({ theme }) =>
+      `0 0 0 30px ${theme.colors.fieldBackgroundFocused} inset !important`};
+  }
 `;
 
 export const Input = styled.input`

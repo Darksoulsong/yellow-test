@@ -1,10 +1,11 @@
 import * as Yup from 'yup';
 
 import { default as PersonalInfoOne } from '../views/PersonalInfoOne';
+import { default as CompanyInfoOne } from '../views/CompanyInfoOne';
 import { default as PersonalInfoTwo } from '../views/PersonalInfoTwo';
 import { default as AccountInfo } from '../views/AccountInfo';
 
-export default [
+export const stepsCandidate = [
   {
     id: 'PersonalInfoOne',
     component: PersonalInfoOne,
@@ -47,6 +48,51 @@ export default [
       linkedin: Yup.string().url(
         'Forneça um endereço válido (ex.: http://link.com.br)'
       ),
+    }),
+  },
+  {
+    id: 'AccountInfo',
+    component: AccountInfo,
+    initialValues: {
+      username: '',
+      password: '',
+      confirmPassword: '',
+      terms: false,
+    },
+    validationSchema: Yup.object().shape({
+      username: Yup.string().required('Campo obrigatório'),
+      password: Yup.string()
+        .min(8, 'Mínimo de 8 caracteres')
+        .required('Campo obrigatório'),
+      confirmPassword: Yup.mixed()
+        .test('match', 'As senhas não coincidem', function matchPassword(
+          password
+        ) {
+          return password === this.parent.password;
+        })
+        .required('Confirme a senha'),
+      terms: Yup.bool().oneOf([true], 'Campo obrigatório'),
+    }),
+  },
+];
+
+export const stepsCompany = [
+  {
+    id: 'CompanyInfoOne',
+    component: CompanyInfoOne,
+    initialValues: {
+      email: '',
+      fullname: '',
+      company: '',
+      position: '',
+    },
+    validationSchema: Yup.object().shape({
+      email: Yup.string()
+        .email('Endereço de email inválido')
+        .required('Campo obrigatório'),
+      fullname: Yup.string().required('Campo obrigatório'),
+      company: Yup.string().required('Campo obrigatório'),
+      position: Yup.string().required('Campo obrigatório'),
     }),
   },
   {
