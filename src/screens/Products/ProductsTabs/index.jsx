@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tabs, SVG, Text, Button } from '@components';
+import { useFormModal } from '@providers/FormModal';
 import {
   TabHead,
   TabContent,
@@ -25,6 +26,11 @@ const ProductIconAlt = ({ variant }) => {
 };
 
 export default function ProductsTabs() {
+  const { openFormModal } = useFormModal();
+
+  const handleOpenSimulate = () => {
+    openFormModal('simulate');
+  };
   return (
     <Tabs>
       <Tabs.Tab
@@ -66,7 +72,11 @@ export default function ProductsTabs() {
           </ProductTabText>
 
           <ProductTabFooter>
-            <Button type="button" variant="primary">
+            <Button
+              type="button"
+              variant="primary"
+              onClick={handleOpenSimulate}
+            >
               SIMULE SUA VAGA
             </Button>
           </ProductTabFooter>
@@ -112,7 +122,11 @@ export default function ProductsTabs() {
           </ProductTabText>
 
           <ProductTabFooter>
-            <Button type="button" variant="primary">
+            <Button
+              type="button"
+              variant="primary"
+              onClick={handleOpenSimulate}
+            >
               SIMULE SUA VAGA
             </Button>
           </ProductTabFooter>
@@ -158,7 +172,11 @@ export default function ProductsTabs() {
           </ProductTabText>
 
           <ProductTabFooter>
-            <Button type="button" variant="primary">
+            <Button
+              type="button"
+              variant="primary"
+              onClick={handleOpenSimulate}
+            >
               SIMULE SUA VAGA
             </Button>
           </ProductTabFooter>
@@ -204,7 +222,11 @@ export default function ProductsTabs() {
           </ProductTabText>
 
           <ProductTabFooter>
-            <Button type="button" variant="primary">
+            <Button
+              type="button"
+              variant="primary"
+              onClick={handleOpenSimulate}
+            >
               SIMULE SUA VAGA
             </Button>
           </ProductTabFooter>

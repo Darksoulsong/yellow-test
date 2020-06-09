@@ -57,10 +57,10 @@ import {
 import 'aos/dist/aos.css';
 
 const HomeScreen = () => {
-  const props = useFormModal();
+  const { openFormModal } = useFormModal();
 
   const handleOpenSimulate = () => {
-    props.openFormModal('simulate');
+    openFormModal('simulate');
   };
 
   React.useEffect(() => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, Button } from '@components';
+import { routeTo } from '@utils';
 import {
   ProductsNetworkRoot,
   ProductsNetworkHeader,
@@ -27,7 +28,9 @@ export default function ProductsNetwork() {
       </ProductsNetworkContent>
 
       <ProductsNetworkFooter>
-        <Button variant="primary">QUERO CONTRATAR</Button>
+        <Button variant="primary" onClick={() => routeTo('/contato#contratar')}>
+          QUERO CONTRATAR
+        </Button>
       </ProductsNetworkFooter>
     </ProductsNetworkRoot>
   );

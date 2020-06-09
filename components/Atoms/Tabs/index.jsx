@@ -60,24 +60,6 @@ export default function Tabs({ children }) {
                 </TabsHeaderItem>
               );
             })}
-          {/* {headerItems &&
-            headerItems.map((item, itemIndex) => {
-              debugger;
-              const number = headerItems.length - 1 + itemIndex * -1;
-              const isActive = activeItemIndex === item.index;
-              const zIndex = isActive ? headerItems.length - 1 : number;
-              return (
-                <TabsHeaderItem
-                  zIndex={zIndex}
-                  data-zindex={zIndex}
-                  key={item.index}
-                  onClick={() => setActiveItemIndex(item.index)}
-                >
-                  {typeof item.renderTabHeader === 'function' &&
-                    item.renderTabHeader(isActive)}
-                </TabsHeaderItem>
-              );
-            })} */}
         </TabsHeader>
 
         {children}
