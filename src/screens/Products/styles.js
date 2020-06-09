@@ -111,7 +111,7 @@ export const ProductsSectionMain = styled(ProductsSection)`
   flex-direction: column;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding-top: ${({ theme }) => theme.spaces.md};
+    padding-top: ${({ theme }) => theme.spaces.lg};
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
