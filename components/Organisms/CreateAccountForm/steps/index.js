@@ -1,6 +1,4 @@
-import * as Yup from 'yup';
-
-import { isCorporateEmail } from '@utils';
+import { Yup } from '@components';
 import { default as PersonalInfoOne } from '../views/PersonalInfoOne';
 import { default as CompanyInfoOne } from '../views/CompanyInfoOne';
 import { default as PersonalInfoTwo } from '../views/PersonalInfoTwo';
@@ -20,11 +18,7 @@ export const stepsCandidate = [
     },
     validationSchema: Yup.object().shape({
       email: Yup.mixed()
-        .test(
-          'match',
-          'Informe um endereço de email empresarial',
-          isCorporateEmail
-        )
+        .ensureEmailIsCorporate('Informe um endereço de email empresarial')
         .required('Campo obrigatório'),
       fullname: Yup.string().required('Campo obrigatório'),
       birthDate: Yup.string()

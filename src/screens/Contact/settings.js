@@ -1,10 +1,9 @@
-import * as Yup from 'yup';
-import { isCorporateEmail } from '@utils';
+import { Yup } from '@components';
 
 export const schema = {
-  email: Yup.mixed()
-    .test('match', 'Informe um endereço de email empresarial', isCorporateEmail)
-    .required('Campo obrigatório'),
+  email: Yup.string().ensureEmailIsCorporate(
+    'Informe um endereço de email empresarial'
+  ),
   name: Yup.string().required('Informe o nome'),
   company: Yup.string().required('Informe a empresa'),
   telf: Yup.string().required('Informe o telefone'),
