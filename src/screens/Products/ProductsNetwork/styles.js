@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const ProductsNetworkRoot = styled.div``;
 
 export const ProductsNetworkHeading = styled.h2`
+  position: relative;
+  z-index: 1;
   font-weight: 300;
   font-size: 3rem;
 
@@ -36,7 +38,8 @@ export const ProductsNetworkHeader = styled.div`
     width: 100%;
     height: 100%;
     background: url('images/products-background-detail.png') no-repeat 0 0;
-    background-size: 100%;
+    /* background-size: 95%; */
+    background-size: contain;
   }
 
   &:before {
@@ -54,11 +57,6 @@ export const ProductsNetworkHeader = styled.div`
       top: 0;
       transform: scaleX(-1);
     }
-
-    &:before,
-    &:after {
-      background-size: 42%;
-    }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -66,12 +64,12 @@ export const ProductsNetworkHeader = styled.div`
     position: relative;
     width: calc(100% + 120px);
     left: -60px;
-    height: 368px;
+    height: 300px;
+  }
 
-    &:before,
-    &:after {
-      background-size: 37%;
-    }
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    left: -60px;
+    height: 368px;
   }
 `;
 

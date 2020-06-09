@@ -1,4 +1,5 @@
 import React from 'react';
+import AOS from 'aos';
 import {
   DefaultLayout,
   ProductsIntroImage,
@@ -10,7 +11,6 @@ import ProductsList from './ProductsList';
 import ProductsNetwork from './ProductsNetwork';
 import {
   ProductsRoot,
-  Heading,
   YellowProductsHeading,
   YellowPlusHeading,
   ProductsSection,
@@ -18,13 +18,19 @@ import {
 } from './styles';
 
 export const Products = () => {
+  React.useEffect(() => {
+    AOS.init({
+      duration: 500,
+    });
+  }, []);
+
   return (
     <DefaultLayout>
       <ProductsRoot>
         <ProductsSectionMain>
           <YellowProductsHeading>
             YELLOW <strong>PRODUTOS</strong>
-            <AnimatedScratches />
+            <AnimatedScratches animationOffset={100} strokeColor="#000" />
           </YellowProductsHeading>
 
           <ProductsIntroImage />

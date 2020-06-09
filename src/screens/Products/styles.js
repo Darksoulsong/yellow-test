@@ -29,15 +29,15 @@ export const Heading = styled.h2`
 
   svg {
     width: 20px;
-
-    path {
-      stroke: ${({ theme }) => theme.colors.black} !important;
-    }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 4.9rem;
     margin-bottom: ${({ theme }) => theme.spaces.xlg};
+
+    svg {
+      width: 20px;
+    }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -46,8 +46,22 @@ export const Heading = styled.h2`
 `;
 
 export const YellowProductsHeading = styled(Heading)`
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    svg {
+      position: relative;
+      width: 25px;
+      top: -15px;
+      left: -5px;
+    }
+  }
+
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin-bottom: -30px;
+    margin-bottom: -${({ theme }) => theme.spaces.md};
+
+    svg {
+      width: 40px;
+      top: -25px;
+    }
   }
 `;
 
@@ -63,6 +77,14 @@ export const YellowPlusHeading = styled(Heading)`
 
     path {
       stroke: none !important;
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    svg {
+      width: 150px;
+      height: 150px;
+      transform: translate(-108px, -50px);
     }
   }
 
@@ -87,6 +109,10 @@ export const ProductsSectionMain = styled(ProductsSection)`
   display: flex;
   width: 100%;
   flex-direction: column;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    padding-top: ${({ theme }) => theme.spaces.md};
+  }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     flex-direction: column-reverse;
