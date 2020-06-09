@@ -10,6 +10,17 @@ import ExecIcon from '../../../public/images/exec-icon.svg';
 import ExpressIcon from '../../../public/images/express-icon.svg';
 import RPOIcon from '../../../public/images/rpo-icon.svg';
 import TechIcon from '../../../public/images/tech-icon.svg';
+
+import ExecIconAlt from '../../../public/images/exec-icon-alt.svg';
+import ExpressIconAlt from '../../../public/images/express-icon-alt.svg';
+import RPOIconAlt from '../../../public/images/rpo-icon-alt.svg';
+import TechIconAlt from '../../../public/images/tech-icon-alt.svg';
+
+import ExecText from '../../../public/images/exec-text.svg';
+import ExpressText from '../../../public/images/express-text.svg';
+import RPOText from '../../../public/images/rpo-text.svg';
+import TechText from '../../../public/images/tech-text.svg';
+
 import BubblesIcon from '../../../public/images/bubbles-icon.svg';
 import ArrowIcon from '../../../public/images/arrow-icon.svg';
 import ArrowIconInverted from '../../../public/images/arrow-icon-inverted.svg';
@@ -74,6 +85,12 @@ import InteractLike from '../../../public/images/interact-like-icon.svg';
 import InteractShare from '../../../public/images/interact-share-icon.svg';
 import InteractComment from '../../../public/images/interact-comment-icon.svg';
 import CaretIcon from '../../../public/images/caret-icon.svg';
+import Team2Icon from '../../../public/images/team2-icon.svg';
+import TurnOnIcon from '../../../public/images/turn-on-icon.svg';
+import DeliveryIcon from '../../../public/images/delivery-icon.svg';
+import DocumentIcon from '../../../public/images/document-icon.svg';
+import PlusCircleIcon from '../../../public/images/plus-circle-icon.svg';
+import PlusSignalsIcon from '../../../public/images/plus-signals-icon.svg';
 
 const getStyles = (size, invert) => {
   const style = {};
@@ -90,7 +107,7 @@ const getStyles = (size, invert) => {
   return style;
 };
 
-const getImage = name => {
+const getComponent = name => {
   switch (name) {
     case 'handdrawn-arrow':
       return HanddrawnArrow;
@@ -100,6 +117,16 @@ const getImage = name => {
       return HanddrawnScratches;
     case 'handdrawn-circle':
       return HanddrawnCircle;
+
+    case 'exec-icon-alt':
+      return ExecIconAlt;
+    case 'express-icon-alt':
+      return ExpressIconAlt;
+    case 'rpo-icon-alt':
+      return RPOIconAlt;
+    case 'tech-icon-alt':
+      return TechIconAlt;
+
     case 'exec-icon':
       return ExecIcon;
     case 'express-icon':
@@ -108,6 +135,14 @@ const getImage = name => {
       return RPOIcon;
     case 'tech-icon':
       return TechIcon;
+    case 'exec-text':
+      return ExecText;
+    case 'express-text':
+      return ExpressText;
+    case 'rpo-text':
+      return RPOText;
+    case 'tech-text':
+      return TechText;
     case 'bubbles-icon':
       return BubblesIcon;
     case 'arrow-icon':
@@ -240,14 +275,25 @@ const getImage = name => {
       return InteractShare;
     case 'caret-icon':
       return CaretIcon;
+    case 'team2-icon':
+      return Team2Icon;
+    case 'turn-on-icon':
+      return TurnOnIcon;
+    case 'delivery-icon':
+      return DeliveryIcon;
+    case 'document-icon':
+      return DocumentIcon;
+    case 'plus-circle-icon':
+      return PlusCircleIcon;
+    case 'plus-signals-icon':
+      return PlusSignalsIcon;
     case 'logo':
     default:
       return Logo;
   }
 };
 
-export default React.memo(function SVG({ name, size, invert, ...rest }) {
-  const Component = getImage(name);
-
+export default function SVG({ name, size, invert, ...rest }) {
+  const Component = getComponent(name);
   return <Component {...rest} style={getStyles(size, invert)} />;
-});
+}

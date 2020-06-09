@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="281.46mm" height="147.89mm" version="1.1" viewBox="0 0 281.46 147.89" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <style>.a{fill:none;stroke:#221f1f;stroke-miterlimit:10;stroke-width:2px;}</style>
+ </defs>
+ <g transform="translate(36.376 -46.697)">
+  <path transform="matrix(.26458 0 0 .26458 -36.376 46.697)" d="m7 0.56641a6.4331 6.4331 0 0 0-6.4336 6.4336 6.4331 6.4331 0 0 0 6.4336 6.4336 6.4331 6.4331 0 0 0 6.3477-5.4453h304.68a6.4331 6.4331 0 0 0 6.3535 5.4746 6.4331 6.4331 0 0 0 6.3535-5.4746h146.28c12.849 2.495e-4 25.166 5.1023 34.252 14.187l106.54 106.54c9.0857 9.085 14.188 21.403 14.188 34.252v173.94a6.4331 6.4331 0 0 0-5.5625 6.3672 6.4331 6.4331 0 0 0 5.5625 6.3672v92.275c-1.5e-4 9.6518 3.835 18.91 10.66 25.734l75.812 75.811c6.062 6.0615 14.281 9.4696 22.854 9.4707h309.1a6.4331 6.4331 0 0 0 6.3574 5.4805 6.4331 6.4331 0 0 0 6.4316-6.4336 6.4331 6.4331 0 0 0-6.4316-6.4316 6.4331 6.4331 0 0 0-6.3398 5.3848h-309.12c-8.0431-0.00106-15.756-3.1938-21.443-8.8809l-75.805-75.818c-6.4506-6.4501-10.076-15.194-10.076-24.316v-92.311a6.4331 6.4331 0 0 0 5.3027-6.332 6.4331 6.4331 0 0 0-5.3027-6.3262v-173.98c3.7e-4 -13.378-5.319-26.208-14.779-35.668l-106.53-106.53c-9.4602-9.4597-22.292-14.777-35.67-14.777h-146.29a6.4331 6.4331 0 0 0-6.3457-5.3906 6.4331 6.4331 0 0 0-6.3398 5.3906h-304.7a6.4331 6.4331 0 0 0-6.3496-5.4219z" color="#000000" color-rendering="auto" dominant-baseline="auto" fill="#221f1f" image-rendering="auto" shape-rendering="auto" solid-color="#000000" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+  <g stroke="#000" stroke-dashoffset="18.743" stroke-linejoin="bevel" stroke-width=".3">
+   <circle cx="112.66" cy="65.82" r="1.7021" style="paint-order:normal"/>
+  </g>
+ </g>
+</svg>

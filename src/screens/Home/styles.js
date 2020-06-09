@@ -1,15 +1,52 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { getDesktopFirstMediaQuery } from '@utils';
 
 export const HomeRoot = styled.div`
   button,
   a[role='button'] {
-    @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
       font-size: 1.2rem;
       height: 49px;
       padding: 0 20px;
       letter-spacing: 0.118rem;
     }
+  }
+`;
+
+export const ShowOnMobileOnly = styled.div`
+  @media (min-width: ${({ theme }) =>
+      theme.intBreakpoints.smaller + 1 + 'px'}) {
+    display: none;
+  }
+`;
+
+export const ShowOnMobile = styled.div`
+  display: none;
+  @media (min-width: ${({ theme }) =>
+      theme.intBreakpoints.smaller + 1 + 'px'}) {
+    display: block;
+  }
+`;
+
+export const ShowOnTablet = styled.div`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    display: block;
+  }
+`;
+
+export const ShowOnTabletOnly = styled.div`
+  @media (min-width: ${({ theme }) => theme.intBreakpoints.large + 1 + 'px'}) {
+    display: none;
+  }
+`;
+
+export const ShowOnDesktop = styled.div`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: block;
   }
 `;
 
@@ -27,21 +64,33 @@ export const Intro = styled.section`
     margin-bottom: 126px;
     padding: 0 128px;
   }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
+    width: 1210px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 export const IntroHolder = styled.div`
   padding-top: 25px;
-  margin: 0 auto;
-  margin-bottom: 25px;
+  margin: 0 auto 25px;
+  height: 206px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    height: 320px;
+  }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    position: absolute;
     width: 465px;
+    height: auto;
     margin: 0;
-    padding-top: 70px;
+    padding-top: 78px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
-    padding-top: 100px;
+    padding-top: 108px;
   }
 `;
 
@@ -61,6 +110,14 @@ export const IntroHolderContent = styled.div`
     &:last-child {
       width: 181px;
     }
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    justify-content: space-evenly;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    justify-content: space-between;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -101,7 +158,7 @@ export const MainHeading = styled.h1`
       font-size: 8.2rem;
       font-style: normal;
     }
-    line-height: 4.5rem;
+    line-height: 4.2rem;
     font-size: 3.1rem;
   }
 
@@ -140,15 +197,16 @@ export const Video = styled.div`
   position: relative;
   display: flex;
   overflow: hidden;
-  width: 100%;
-  height: 185px;
+  max-width: 923px;
+  width: 92vw;
+  height: 49.4vw;
   margin: 0 auto;
 
   &:after {
     content: '';
     width: 4px;
     height: 100%;
-    right: 0;
+    right: -1px;
     top: 0;
     background-color: ${({ theme }) => theme.colors.white};
     position: absolute;
@@ -159,42 +217,40 @@ export const Video = styled.div`
     left: -2px;
     width: 100%;
     height: auto;
-    max-width: 100%;
+    max-width: 1024px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 84vw;
     height: 385px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    position: absolute;
     top: 0;
     right: 0;
     z-index: -1;
-    height: 505px;
-    width: 77vw;
-    left: 277px;
+    height: 550px;
+    left: 150px;
 
     video {
-      left: -2px;
-      top: 5%;
+      left: unset;
+      right: 7%;
+      width: 100%;
+      top: 0;
+    }
+
+    &:after {
+      content: '';
     }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
-    left: 286px;
+    left: 158px;
     height: 650px;
     margin: 0;
 
     video {
-      width: 100%;
-      height: 635px;
-      top: 10%;
-      left: -62px;
-    }
-
-    &:after {
-      right: 122px;
+      right: 1px;
     }
   }
 `;
@@ -211,11 +267,11 @@ export const IntroFooter = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    margin-top: 55px;
+    margin-top: -43px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.larger}) {
-    margin-top: 115px;
+    margin-top: -60px;
   }
 `;
 
@@ -281,12 +337,7 @@ export const IntroFooterActions = styled.div`
 export const SubHeading1 = styled.h2`
   font-weight: 300;
   text-align: center;
-  font-size: 2.9rem;
-
-  em {
-    font-style: normal;
-    border-bottom: 3px solid ${({ theme }) => theme.colors.yellow};
-  }
+  font-size: 1.7rem;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 4.9rem;
@@ -338,11 +389,10 @@ export const TimelineSection = styled(GrayedSection)`
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
     ${SubHeading1} {
       width: 90%;
-      font-size: 2.8rem;
     }
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     ${SubHeading1} {
       font-size: 3.6rem;
     }
@@ -379,6 +429,12 @@ export const HighlightsSection = styled(Section)`
     }
   }
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    ${SubHeading1} {
+      font-size: 3.3rem;
+    }
+  }
+
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     ${SubHeading1} {
       font-size: 5rem;
@@ -400,16 +456,16 @@ export const HighlightsMobileArrowHolder = styled.div`
   display: none;
   height: 60px;
 
-  svg {
-    display: block;
-    margin: 0 auto;
-    width: 50px;
-    transform: scaleX(-1) rotate(75deg) translateX(-24px);
-  }
-
   @media (max-width: ${({ theme }) =>
       getDesktopFirstMediaQuery(theme.breakpoints.large)}) {
     display: block;
+
+    svg {
+      display: block;
+      margin: 0 auto;
+      width: 50px;
+      transform: scaleX(-1) rotate(75deg) translateX(-24px);
+    }
   }
 `;
 
@@ -553,10 +609,6 @@ export const TimelineWrapper = styled.div`
   margin: 60px 0 35px;
   height: 335px;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
-    height: 600px;
-  }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     height: auto;
   }
@@ -580,7 +632,7 @@ export const ProductsSection = styled(Section)`
     }
   }
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     ${SubHeading1} {
       font-size: 4.9rem;
 
@@ -597,23 +649,6 @@ export const ProductsSection = styled(Section)`
     padding-left: inherit;
     padding-right: inherit;
     margin-top: 80px;
-  }
-`;
-
-export const ProductsMobileCarouselHolder = styled.div`
-  display: none;
-
-  @media (max-width: ${({ theme }) =>
-      getDesktopFirstMediaQuery(theme.breakpoints.large)}) {
-    display: block;
-  }
-`;
-
-export const ProductsDesktopHolder = styled.div`
-  display: none;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    display: block;
   }
 `;
 
@@ -663,40 +698,11 @@ export const ExperienceSection = styled(Section)`
     margin-bottom: 37px;
   }
 
-  .slider-control-left,
-  .slider-control-right {
-    width: 40px;
-    height: 49px;
-
-    svg {
-      width: 16px;
-      height: 49px;
-    }
-  }
-
-  .slider-control-left {
-    left: -80px;
-  }
-
-  .slider-control-right {
-    right: -80px;
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    padding-bottom: 85px;
     ${SubHeading1} {
       font-size: 4.9rem;
       letter-spacing: 0.16rem;
-    }
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding-bottom: 85px;
-    .slider-control-left {
-      left: -87px;
-    }
-
-    .slider-control-right {
-      right: -87px;
     }
   }
 
@@ -777,60 +783,4 @@ export const BubbleContent = styled.div`
     font-size: 2.5rem;
     line-height: 3rem;
   }
-`;
-
-const bounce = keyframes`
-  from {
-    margin-top: -5px;
-  }
-  to {
-    margin-top: 0px;
-  }
-`;
-
-export const ControlLeft = styled.button`
-  transition: 0.3s ease-in-out;
-  transition-property: opacity, top;
-  position: absolute;
-  left: -87px;
-  background-color: transparent;
-  border: 0 none;
-  cursor: pointer;
-
-  top: calc(50% - 17px);
-  width: 16px;
-  height: 35px;
-
-  ${({ show }) =>
-    show
-      ? `
-        opacity: 1;        
-      `
-      : `
-        opacity: 0;        
-        top: calc(50% - 2px);
-        pointer-events: none;
-    `}
-
-  svg {
-    fill: ${({ theme }) => theme.colors.black};
-    stroke-width: 2px;
-    width: 16px;
-    height: 100%;
-  }
-
-  &:hover {
-    animation: ${bounce} 0.3s infinite alternate;
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
-    height: 65px;
-    top: calc(50% - 32px);
-  }
-`;
-
-export const ControlRight = styled(ControlLeft)`
-  left: unset;
-  right: -87px;
-  transform: rotate(180deg);
 `;
