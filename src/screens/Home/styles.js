@@ -37,7 +37,7 @@ export const ShowOnTablet = styled.div`
 `;
 
 export const ShowOnTabletOnly = styled.div`
-  @media (min-width: ${({ theme }) => theme.intBreakpoints.large + 1 + 'px'}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     display: none;
   }
 `;

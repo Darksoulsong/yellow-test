@@ -17,3 +17,33 @@ export const breakpointValue = (breakpoint, invert) => {
 
   return { [rule]: mediaQueryValue };
 };
+
+export function isCorporateEmail(emailAddress) {
+  let isCorporate = true;
+  const emailDomain = emailAddress.split('@')[1];
+  const domainsBlacklist = [
+    'yahoo.com',
+    'gmail.com',
+    'outlook.com',
+    'bol.com',
+    'uol.com',
+    'outlook.com',
+    'live.com',
+    'globo.com',
+  ];
+
+  if (!emailDomain) {
+    return false;
+  }
+
+  for (let index = 0; index < domainsBlacklist.length; index++) {
+    const domain = domainsBlacklist[index];
+
+    if (emailDomain.includes(domain)) {
+      isCorporate = false;
+      break;
+    }
+  }
+
+  return isCorporate;
+}

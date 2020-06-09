@@ -27,10 +27,14 @@ export default function Footer() {
             <FooterHeading>Para empresas</FooterHeading>
           </FooterItem>
           <FooterItem>
-            <Link href="/">Produtos</Link>
+            <Link href="/">
+              <a>Produtos</a>
+            </Link>
           </FooterItem>
           <FooterItem>
-            <Link href="/contato">Contato</Link>
+            <Link href="/contato">
+              <a>Contato</a>
+            </Link>
           </FooterItem>
         </FooterBlockCompanies>
 
@@ -39,10 +43,14 @@ export default function Footer() {
             <FooterHeading>Para pessoas</FooterHeading>
           </FooterItem>
           <FooterItem>
-            <Link href="/">Nossas Vagas</Link>
+            <Link href="/">
+              <a>Nossas Vagas</a>
+            </Link>
           </FooterItem>
           <FooterItem>
-            <Link href="/">Dicas de Entrevista</Link>
+            <Link href="/">
+              <a>Dicas de Entrevista</a>
+            </Link>
           </FooterItem>
         </FooterBlockPeople>
 
@@ -51,13 +59,19 @@ export default function Footer() {
             <FooterHeading>Yellow way</FooterHeading>
           </FooterItem>
           <FooterItem>
-            <Link href="/cultura">Cultura</Link>
+            <Link href="/cultura">
+              <a>Cultura</a>
+            </Link>
           </FooterItem>
           <FooterItem>
-            <Link href="/quem-somos">Quem somos</Link>
+            <Link href="/quem-somos">
+              <a>Quem somos</a>
+            </Link>
           </FooterItem>
           <FooterItem>
-            <Link href="/blog">Blog</Link>
+            <Link href="/blog">
+              <a>Blog</a>
+            </Link>
           </FooterItem>
         </FooterBlockYellowWay>
 

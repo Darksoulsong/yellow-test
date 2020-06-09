@@ -1,5 +1,4 @@
-import * as Yup from 'yup';
-
+import { Yup } from '@components';
 import { default as PersonalInfoOne } from '../views/PersonalInfoOne';
 import { default as CompanyInfoOne } from '../views/CompanyInfoOne';
 import { default as PersonalInfoTwo } from '../views/PersonalInfoTwo';
@@ -19,7 +18,7 @@ export const stepsCandidate = [
     },
     validationSchema: Yup.object().shape({
       email: Yup.string()
-        .email('Endereço de email inválido')
+        .email('Email inválido')
         .required('Campo obrigatório'),
       fullname: Yup.string().required('Campo obrigatório'),
       birthDate: Yup.string()
@@ -88,7 +87,8 @@ export const stepsCompany = [
     },
     validationSchema: Yup.object().shape({
       email: Yup.string()
-        .email('Endereço de email inválido')
+        .email('Email inválido')
+        .ensureEmailIsCorporate('Informe um endereço de email empresarial')
         .required('Campo obrigatório'),
       fullname: Yup.string().required('Campo obrigatório'),
       company: Yup.string().required('Campo obrigatório'),
