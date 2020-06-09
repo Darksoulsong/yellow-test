@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-
+import { isCorporateEmail } from '@utils';
 import { default as LocationStep } from '../views/LocationStep';
 import { InitialStep } from '../views/InitialStep';
 import { default as InfoStep } from '../views/InfoStep';
@@ -30,7 +30,11 @@ export default [
     },
     validationSchema: Yup.object().shape({
       name: Yup.string().required('Campo obrigatório'),
-      email: Yup.string().required('Campo obrigatório'),
+      email: Yup.mixed().test(
+        'match',
+        'Informe um endereço de email empresarial',
+        isCorporateEmail
+      ),
       telephone: Yup.string().required('Campo obrigatório'),
       company: Yup.string().required('Campo obrigatório'),
     }),
