@@ -17,8 +17,8 @@ export const stepsCandidate = [
       city: '',
     },
     validationSchema: Yup.object().shape({
-      email: Yup.mixed()
-        .ensureEmailIsCorporate('Informe um endereço de email empresarial')
+      email: Yup.string()
+        .email('Email inválido')
         .required('Campo obrigatório'),
       fullname: Yup.string().required('Campo obrigatório'),
       birthDate: Yup.string()
@@ -87,7 +87,8 @@ export const stepsCompany = [
     },
     validationSchema: Yup.object().shape({
       email: Yup.string()
-        .email('Endereço de email inválido')
+        .email('Email inválido')
+        .ensureEmailIsCorporate('Informe um endereço de email empresarial')
         .required('Campo obrigatório'),
       fullname: Yup.string().required('Campo obrigatório'),
       company: Yup.string().required('Campo obrigatório'),
