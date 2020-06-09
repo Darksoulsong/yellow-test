@@ -76,34 +76,32 @@ const HomeScreen = () => {
           <IntroHolder>
             <IntroHolderContent>
               <IntroHolderBlock>
-                <div>
-                  <MediaQuery screenSize="smallerThanDesktop">
-                    <MainHeading>
-                      <em>Olá,</em>
-                      Lorem ipsum dolor sit <br />
-                      amet, adipiscing elit, <br />
-                      sed diam nonummy <br />
-                      nibh eusmod <br />
-                      tincidunt ut laoreet <br />
-                      dolore magna <br />
-                      aliquam erat volutpat. <br />
-                      <strong>Yellow.</strong>
-                    </MainHeading>
-                  </MediaQuery>
+                <MediaQuery screenSize="smallerThanDesktop">
+                  <MainHeading>
+                    <em>Olá,</em>
+                    Lorem ipsum dolor sit <br />
+                    amet, adipiscing elit, <br />
+                    sed diam nonummy <br />
+                    nibh eusmod <br />
+                    tincidunt ut laoreet <br />
+                    dolore magna <br />
+                    aliquam erat volutpat. <br />
+                    <strong>Yellow.</strong>
+                  </MainHeading>
+                </MediaQuery>
 
-                  <MediaQuery screenSize="desktop">
-                    <MainHeading>
-                      <em>Olá,</em>
-                      Lorem ipsum <br />
-                      dolor sit amet, adipiscing <br />
-                      elit, sed diam nonummy <br />
-                      nibh eusmod tincidunt ut <br />
-                      laoreet dolore magna <br />
-                      aliquam erat volutpat. <br />
-                      <strong>Yellow.</strong>
-                    </MainHeading>
-                  </MediaQuery>
-                </div>
+                <MediaQuery screenSize="desktop">
+                  <MainHeading>
+                    <em>Olá,</em>
+                    Lorem ipsum <br />
+                    dolor sit amet, adipiscing <br />
+                    elit, sed diam nonummy <br />
+                    nibh eusmod tincidunt ut <br />
+                    laoreet dolore magna <br />
+                    aliquam erat volutpat. <br />
+                    <strong>Yellow.</strong>
+                  </MainHeading>
+                </MediaQuery>
               </IntroHolderBlock>
               <IntroHolderBlock>
                 <IntroFooterImageSmallerThanDesktop>

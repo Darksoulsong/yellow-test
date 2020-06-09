@@ -4,7 +4,7 @@ import { getDesktopFirstMediaQuery } from '@utils';
 export const HomeRoot = styled.div`
   button,
   a[role='button'] {
-    @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
       font-size: 1.2rem;
       height: 49px;
       padding: 0 20px;
@@ -37,7 +37,7 @@ export const ShowOnTablet = styled.div`
 `;
 
 export const ShowOnTabletOnly = styled.div`
-  @media (min-width: ${({ theme }) => theme.intBreakpoints.medium + 1 + 'px'}) {
+  @media (min-width: ${({ theme }) => theme.intBreakpoints.large + 1 + 'px'}) {
     display: none;
   }
 `;
@@ -75,10 +75,16 @@ export const Intro = styled.section`
 export const IntroHolder = styled.div`
   padding-top: 25px;
   margin: 0 auto 25px;
+  height: 206px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    height: 320px;
+  }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     position: absolute;
     width: 465px;
+    height: auto;
     margin: 0;
     padding-top: 78px;
   }
@@ -191,16 +197,16 @@ export const Video = styled.div`
   position: relative;
   display: flex;
   overflow: hidden;
-  width: 100%;
   max-width: 923px;
-  height: 185px;
+  width: 92vw;
+  height: 49.4vw;
   margin: 0 auto;
 
   &:after {
     content: '';
     width: 4px;
     height: 100%;
-    right: 0;
+    right: -1px;
     top: 0;
     background-color: ${({ theme }) => theme.colors.white};
     position: absolute;
@@ -215,6 +221,7 @@ export const Video = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+    width: 84vw;
     height: 385px;
   }
 
@@ -226,8 +233,9 @@ export const Video = styled.div`
     left: 150px;
 
     video {
-      left: -93px;
-      width: 114%;
+      left: unset;
+      right: 7%;
+      width: 100%;
       top: 0;
     }
 
@@ -242,7 +250,7 @@ export const Video = styled.div`
     margin: 0;
 
     video {
-      left: -70px;
+      right: 1px;
     }
   }
 `;

@@ -23,6 +23,7 @@ export const TabHead = styled.div`
   justify-content: center;
   align-items: center;
   height: 15px;
+  cursor: pointer;
 
   svg {
     margin-top: ${({ theme }) => theme.spaces.xsm};
