@@ -9,6 +9,12 @@ const bounce = keyframes`
   }
 `;
 
+export const SliderHomeRoot = styled.div`
+  .slider-control-bottomcenter {
+    display: none;
+  }
+`;
+
 export const ControlLeft = styled.button`
   transition: 0.3s ease-in-out;
   transition-property: opacity, top;
