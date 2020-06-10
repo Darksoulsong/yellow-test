@@ -12,39 +12,36 @@ import {
 export default function HomeSlider() {
   const isTablet = useMediaQuery({ minWidth: intBreakpoints.medium });
 
-  const getControlsContainerStyles = React.useCallback(
-    key => {
-      switch (key) {
-        case 'CenterLeft':
-          return {
-            top: isTablet ? '40%' : '40%',
-            left: isTablet ? '-24%' : '-38%',
-          };
-        default:
-          return {
-            top: isTablet ? '40%' : '40%',
-            right: isTablet ? '-24%' : '-38%',
-          };
-      }
-    },
-    [isTablet]
-  );
+  const getControlsContainerStyles = key => {
+    switch (key) {
+      case 'CenterLeft':
+        return {
+          top: isTablet ? '40%' : '40%',
+          left: isTablet ? '-24%' : '-38%',
+        };
+      default:
+        return {
+          top: isTablet ? '40%' : '40%',
+          right: isTablet ? '-24%' : '-38%',
+        };
+    }
+  };
 
-  const renderCenterLeftControls = React.useCallback(({ previousSlide }) => {
+  const renderCenterLeftControls = ({ previousSlide }) => {
     return (
       <ControlLeft type="button" onClick={previousSlide} show={true}>
         <SVG name="arrow-icon" />
       </ControlLeft>
     );
-  }, []);
+  };
 
-  const renderCenterRightControls = React.useCallback(({ nextSlide }) => {
+  const renderCenterRightControls = ({ nextSlide }) => {
     return (
       <ControlRight type="button" onClick={nextSlide} show={true}>
         <SVG name="arrow-icon" />
       </ControlRight>
     );
-  }, []);
+  };
 
   return (
     <SliderHomeRoot>
