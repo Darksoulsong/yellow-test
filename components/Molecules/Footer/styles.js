@@ -149,4 +149,8 @@ export const MobileGrayedSection = styled(GrayedSection)`
       width: 30px;
     }
   }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+    padding-top: 0;
+  }
 `;

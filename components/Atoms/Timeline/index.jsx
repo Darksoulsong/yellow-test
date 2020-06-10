@@ -1,7 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { breakpoints } from '@components';
-import { MediaQuery } from '@components';
+import { breakpoints, ShowOnTabletOnly, ShowOnDesktop } from '@components';
 import { TimelineRoot, Item, Circle, Label } from './styles';
 
 export default function Timeline() {
@@ -10,25 +9,23 @@ export default function Timeline() {
 
   return (
     <TimelineRoot>
-      <Item className="first">
+      <Item
+        className="first"
+        data-aos={isDesktop && 'fade-in'}
+        data-aos-offset="200"
+      >
         <Label alignRight>
-          <span
-            data-aos={isDesktop && 'fade-in'}
-            data-aos-offset="50"
-            data-aos-delay="100"
-          >
-            <MediaQuery screenSize="smallerThanDesktop">
-              O salário de um <br />
-              profissional, pode ser <br />
-              o custo de um <br />
-              <strong>erro na contratação</strong>
-            </MediaQuery>
+          <ShowOnTabletOnly>
+            O salário de um <br />
+            profissional, pode ser <br />
+            o custo de um <br />
+            <strong>erro na contratação</strong>
+          </ShowOnTabletOnly>
 
-            <MediaQuery screenSize="desktop">
-              O salário de um profissional, pode ser o custo de um{' '}
-              <strong>erro na contratação</strong>
-            </MediaQuery>
-          </span>
+          <ShowOnDesktop>
+            O salário de um profissional, pode ser o custo de um{' '}
+            <strong>erro na contratação</strong>
+          </ShowOnDesktop>
         </Label>
       </Item>
       <Item
@@ -56,7 +53,7 @@ export default function Timeline() {
       </Item>
       <Item data-aos={isDesktop && 'fade-in'} data-aos-offset="200">
         <Label>
-          <MediaQuery screenSize="smallerThanDesktop">
+          <ShowOnTabletOnly>
             das contratações <br />
             <strong>
               terminam em <br /> demissões
@@ -64,11 +61,11 @@ export default function Timeline() {
             , por <br />
             erros na seleção de <br />
             candidatos
-          </MediaQuery>
-          <MediaQuery screenSize="desktop">
+          </ShowOnTabletOnly>
+          <ShowOnDesktop>
             das contratações <strong>terminam em demissões</strong>, por erros
             na seleção de candidatos
-          </MediaQuery>
+          </ShowOnDesktop>
         </Label>
       </Item>
 
@@ -78,16 +75,16 @@ export default function Timeline() {
         className="last"
       >
         <Label alignRight>
-          <MediaQuery screenSize="smallerThanDesktop">
+          <ShowOnTabletOnly>
             dos profissionais <br />
             <strong>desistem</strong> durante o <br />
             processo de <br />
             recrutamento
-          </MediaQuery>
-          <MediaQuery screenSize="desktop">
+          </ShowOnTabletOnly>
+          <ShowOnDesktop>
             dos profissionais <strong>desistem</strong> durante o processo de
             recrutamento
-          </MediaQuery>
+          </ShowOnDesktop>
         </Label>
       </Item>
       <Item
