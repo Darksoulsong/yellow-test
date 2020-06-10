@@ -6,7 +6,7 @@ export const schema = {
   ),
   name: Yup.string().required('Informe o nome'),
   company: Yup.string().required('Informe a empresa'),
-  telf: Yup.string().required('Informe o telefone'),
+  telephone: Yup.string().required('Informe o telefone'),
   product: Yup.string(),
   comment: Yup.string(),
 };
@@ -15,14 +15,14 @@ export const initialValues = {
   name: '',
   email: '',
   company: '',
-  telf: '',
-  product: 'tech',
+  telephone: '',
+  product: 'Tech',
   comment: '',
 };
 
 export const radioButtons = [
-  { label: 'Tech', value: 'tech' },
-  { label: 'Exec', value: 'exec' },
-  { label: 'Express', value: 'express' },
-  { label: 'RPO', value: 'rpo' },
+  { label: 'Tech', value: 'Tech' },
+  { label: 'Exec', value: 'Exec' },
+  { label: 'Express', value: 'Express' },
+  { label: 'RPO', value: 'RPO' },
 ];
