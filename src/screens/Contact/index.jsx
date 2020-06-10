@@ -15,7 +15,10 @@ import {
   RadioButtons,
   Field,
   FormControl,
+  Loader,
 } from '@components';
+
+import { postContactEmailCall } from '@services';
 
 import {
   VacantSection,
@@ -36,7 +39,22 @@ export const Contact = () => {
   const [sent, setSent] = useState(false);
   const formRef = useRef(null);
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [response, setResponse] = useState({ error: null, message: '' });
 
+  const sendContact = async values => {
+    setLoading(true);
+    const data = await postContactEmailCall(values);
+    setLoading(false);
+    if (data.error) {
+      setResponse({ error: true, message: data.error });
+      return;
+    }
+    setResponse({
+      error: false,
+      message: 'Obrigado pelo seu contato, iremos retornar em breve!',
+    });
+  };
   const {
     values,
     errors,
@@ -44,13 +62,17 @@ export const Contact = () => {
     handleSubmit,
     handleChange,
     touched,
+    resetForm,
   } = useFormik({
     initialValues,
     validationSchema: Yup.object(schema),
     validateOnChange: false,
-    validateOnBlur: true,
-    onSubmit: () => {
-      setSent(true);
+    validateOnBluresponser: true,
+    onSubmit: async () => {
+      await sendContact(values);
+      if (!response.error) {
+        resetForm();
+      }
     },
   });
 
@@ -111,7 +133,7 @@ export const Contact = () => {
         <Form onSubmit={handleSubmit}>
           <FormControl>
             <Field
-              disabled={sent}
+              disabled={loading}
               placeholder="nome"
               name="name"
               onBlur={handleBlur}
@@ -123,7 +145,7 @@ export const Contact = () => {
           </FormControl>
           <FormControl>
             <Field
-              disabled={sent}
+              disabled={loading}
               placeholder="email"
               name="email"
               type="email"
@@ -136,7 +158,7 @@ export const Contact = () => {
           </FormControl>
           <FormControl>
             <Field
-              disabled={sent}
+              disabled={loading}
               placeholder="empresa"
               name="company"
               onBlur={handleBlur}
@@ -148,15 +170,15 @@ export const Contact = () => {
           </FormControl>
           <FormControl>
             <Field
-              disabled={sent}
+              disabled={loading}
               placeholder="telefone"
-              name="telf"
+              name="telephone"
               mask="cellphone"
               onBlur={handleBlur}
               onChange={handleChange}
-              value={values.telf}
-              hasError={fieldHasError('telf', touched, errors)}
-              validationMessage={errors.telf}
+              value={values.telephone}
+              hasError={fieldHasError('telephone', touched, errors)}
+              validationMessage={errors.telephone}
             />
           </FormControl>
           <FormQuestion>
@@ -168,11 +190,11 @@ export const Contact = () => {
             radioButtons={radioButtons}
             name="product"
             selected={values.product}
-            setSelected={!sent ? handleChange : () => {}}
+            setSelected={!loading ? handleChange : () => {}}
           />
           <SimpleContainer margin={`${spaces.sm} 0 0 0 `}>
             <Field
-              disabled={sent}
+              disabled={loading}
               type="textarea"
               name="comment"
               onBlur={handleBlur}
@@ -182,21 +204,26 @@ export const Contact = () => {
             />
           </SimpleContainer>
           <SimpleContainer direction="column" margin={`${spaces.lg} 0 0 0`}>
-            <Button
-              width="fit-content"
-              type="submit"
-              variant={sent ? 'primary' : 'black'}
-              fontSize="1em"
-              height="40px"
-            >
-              ENVIAR
-            </Button>
+            {loading ? (
+              <Loader />
+            ) : (
+              <Button
+                width="fit-content"
+                type="submit"
+                variant="black"
+                fontSize="1em"
+                height="40px"
+              >
+                ENVIAR
+              </Button>
+            )}
 
-            {sent && (
+            {response.message && (
               <CustomText
                 align="center"
                 margin={`${spaces.sm} 0 0 0`}
                 style={{ fontSize: '1.75rem', opacity: '0.75' }}
+                error={response.error}
               >
                 Obrigado pelo seu contato, iremos retornar em breve!
               </CustomText>

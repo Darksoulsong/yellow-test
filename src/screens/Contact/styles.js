@@ -18,6 +18,8 @@ export const HugeTitle = styled(MediumTitle)`
 export const CustomText = styled(Text)`
   font-size: 1.75rem;
   margin: ${({ theme, margin }) => margin || theme.spaces.xsm};
+  color: ${({ error, theme }) =>
+    error ? theme.colors.red : theme.colors.black};
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     font-size: 2.5rem;
   }

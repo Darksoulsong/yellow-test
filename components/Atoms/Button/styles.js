@@ -67,7 +67,8 @@ const main = css`
 
   &:hover,
   &:visited {
-    color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme, variant }) =>
+      variant === 'black' ? theme.colors.white : theme.colors.black};
   }
 
   ${({ theme, variant }) => getButtonVariant(variant, theme.colors)}

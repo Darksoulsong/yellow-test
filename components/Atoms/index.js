@@ -20,6 +20,7 @@ export { default as Field, FieldGroup } from './Field';
 export { default as FileUploadField } from './FileUploadField';
 export * from './Form';
 export { PageButton } from './PageButton';
+export { Loader } from './Loader';
 export { default as Backdrop, BackdropProvider, useBackdrop } from './Backdrop';
 export { Hashtag } from './Hashtag';
 export { Card } from './Card';
