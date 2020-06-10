@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Logo, SVG, MediaQuery } from '@components';
+import { Logo, SVG, ShowOnDesktop, ShowOnTabletOnly } from '@components';
 import {
   FooterRoot,
   FooterItem,
@@ -75,7 +75,7 @@ export default function Footer() {
           </FooterItem>
         </FooterBlockYellowWay>
 
-        <MediaQuery screenSize="desktop">
+        <ShowOnDesktop>
           <FooterBlockSocial>
             <FooterItem>
               <FooterHeading>Social</FooterHeading>
@@ -108,10 +108,10 @@ export default function Footer() {
               </a>
             </FooterItem>
           </FooterBlockSocial>
-        </MediaQuery>
+        </ShowOnDesktop>
       </GrayedSection>
 
-      <MediaQuery screenSize="smallerThanDesktop">
+      <ShowOnTabletOnly screenSize="smallerThanDesktop">
         <MobileGrayedSection>
           <FooterBlockSocial>
             <FooterItem>
@@ -131,7 +131,7 @@ export default function Footer() {
             </FooterItem>
           </FooterBlockSocial>
         </MobileGrayedSection>
-      </MediaQuery>
+      </ShowOnTabletOnly>
     </FooterRoot>
   );
 }
