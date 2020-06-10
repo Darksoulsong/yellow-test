@@ -10,12 +10,12 @@ export default function AnimatedScratchedCircle({ className }) {
       <SVG
         data-aos="animate-circle"
         className="circle"
-        data-aos-offset={isDesktop ? 1000 : 0}
+        data-aos-offset={isDesktop ? 800 : 0}
         name="handdrawn-circle"
       />
       <CircledScratchesIcon
         data-aos="animate-circle-scratches"
-        data-aos-offset={isDesktop ? 1000 : 0}
+        data-aos-offset={isDesktop ? 800 : 0}
         className="scratches"
       />
     </AnimatedScratchedCircleRoot>

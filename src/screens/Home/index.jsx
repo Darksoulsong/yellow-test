@@ -47,18 +47,20 @@ import {
   HomeRoot,
   CirclesContainer,
   HighlightsMobileArrowHolder,
-  ProductsMobileCarouselHolder,
-  ProductsDesktopHolder,
   IntroFooterImageDesktop,
   IntroFooterImageSmallerThanDesktop,
+  ShowOnMobileOnly,
+  ShowOnMobile,
+  ShowOnTabletOnly,
+  ShowOnDesktop,
 } from './styles';
 import 'aos/dist/aos.css';
 
 const HomeScreen = () => {
-  const props = useFormModal();
+  const { openFormModal } = useFormModal();
 
   const handleOpenSimulate = () => {
-    props.openFormModal('simulate');
+    openFormModal('simulate');
   };
 
   React.useEffect(() => {
@@ -74,34 +76,32 @@ const HomeScreen = () => {
           <IntroHolder>
             <IntroHolderContent>
               <IntroHolderBlock>
-                <div>
-                  <MediaQuery screenSize="smallerThanDesktop">
-                    <MainHeading>
-                      <em>Olá,</em>
-                      Lorem ipsum dolor sit <br />
-                      amet, adipiscing elit, <br />
-                      sed diam nonummy <br />
-                      nibh eusmod <br />
-                      tincidunt ut laoreet <br />
-                      dolore magna <br />
-                      aliquam erat volutpat. <br />
-                      <strong>Yellow.</strong>
-                    </MainHeading>
-                  </MediaQuery>
+                <MediaQuery screenSize="smallerThanDesktop">
+                  <MainHeading>
+                    <em>Olá,</em>
+                    Lorem ipsum dolor sit <br />
+                    amet, adipiscing elit, <br />
+                    sed diam nonummy <br />
+                    nibh eusmod <br />
+                    tincidunt ut laoreet <br />
+                    dolore magna <br />
+                    aliquam erat volutpat. <br />
+                    <strong>Yellow.</strong>
+                  </MainHeading>
+                </MediaQuery>
 
-                  <MediaQuery screenSize="desktop">
-                    <MainHeading>
-                      <em>Olá,</em>
-                      Lorem ipsum <br />
-                      dolor sit amet, adipiscing <br />
-                      elit, sed diam nonummy <br />
-                      nibh eusmod tincidunt ut <br />
-                      laoreet dolore magna <br />
-                      aliquam erat volutpat. <br />
-                      <strong>Yellow.</strong>
-                    </MainHeading>
-                  </MediaQuery>
-                </div>
+                <MediaQuery screenSize="desktop">
+                  <MainHeading>
+                    <em>Olá,</em>
+                    Lorem ipsum <br />
+                    dolor sit amet, adipiscing <br />
+                    elit, sed diam nonummy <br />
+                    nibh eusmod tincidunt ut <br />
+                    laoreet dolore magna <br />
+                    aliquam erat volutpat. <br />
+                    <strong>Yellow.</strong>
+                  </MainHeading>
+                </MediaQuery>
               </IntroHolderBlock>
               <IntroHolderBlock>
                 <IntroFooterImageSmallerThanDesktop>
@@ -144,17 +144,17 @@ const HomeScreen = () => {
 
         <TimelineSection>
           <SubHeading1>
-            <MediaQuery screenSize="mobile">
+            <ShowOnMobileOnly>
               Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
               não é <br /> fácil e contratações erradas <br />
               <strong>geram prejuízos</strong>
-            </MediaQuery>
+            </ShowOnMobileOnly>
 
-            <MediaQuery screenSize="tablet">
+            <ShowOnMobile>
               Encontrar o <AnimatedUnderline>candidato ideal</AnimatedUnderline>{' '}
               não é fácil e <br />
               contratações erradas <strong>geram prejuízos</strong>
-            </MediaQuery>
+            </ShowOnMobile>
           </SubHeading1>
 
           <TimelineWrapper>
@@ -267,13 +267,13 @@ const HomeScreen = () => {
             <AnimatedScratches />
           </SubHeading1>
 
-          <ProductsDesktopHolder>
+          <ShowOnDesktop>
             <Products />
-          </ProductsDesktopHolder>
+          </ShowOnDesktop>
 
-          <ProductsMobileCarouselHolder>
+          <ShowOnTabletOnly>
             <ProductsCarousel />
-          </ProductsMobileCarouselHolder>
+          </ShowOnTabletOnly>
 
           <ProductsAnchor>
             <a href="/link">Entenda mais os produtos</a>

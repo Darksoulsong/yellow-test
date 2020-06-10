@@ -35,6 +35,11 @@ export const colors = {
   fieldColor: grayDarkest,
   fieldPlaceholder: grayDarker,
 
+  tabsColor1: '#cfd1d2',
+  tabsColor2: '#babcbe',
+  tabsColor3: '#a5a7aa ',
+  tabsColor4: '#919396 ',
+
   black,
   white,
   yellow,

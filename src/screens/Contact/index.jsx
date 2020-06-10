@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
-import * as Yup from 'yup';
-import { useFormik } from 'formik';
-
-import { schema, radioButtons, initialValues } from './settings';
-import { fieldHasError } from '@utils';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { Yup } from '@components';
 import { spaces } from '@components/Organisms/Theme/sizes';
+import { useFormik } from 'formik';
+import { fieldHasError } from '@utils';
+import { schema, radioButtons, initialValues } from './settings';
 
 import {
   DefaultLayout,

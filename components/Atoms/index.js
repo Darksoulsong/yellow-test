@@ -34,3 +34,6 @@ export { default as Checkbox } from './Checkbox';
 export { default as Collapsible } from './Collapsible';
 export { default as MediaQuery } from './MediaQuery';
 export { default as HomeSlider } from './HomeSlider';
+export { default as ProductsIntroImage } from './ProductsIntroImage';
+export { default as Tabs } from './Tabs';
+export { default as Yup } from './Yup';

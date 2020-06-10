@@ -83,11 +83,6 @@ export const TimelineRoot = styled.div`
   width: 210%;
   transform-origin: left;
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
-    transform: scale(0.77) translateY(-142px);
-    width: 130%;
-  }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: 100%;
     transform: unset;
