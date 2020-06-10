@@ -54,13 +54,7 @@ export default function HomeSlider() {
           wrapAround
           renderCenterLeftControls={renderCenterLeftControls}
           renderCenterRightControls={renderCenterRightControls}
-          getControlsContainerStyles={y => {
-            const styles = getControlsContainerStyles(y);
-
-            console.log(y, styles);
-
-            return styles;
-          }}
+          getControlsContainerStyles={getControlsContainerStyles}
           defaultControlsConfig={{
             pagingDotsStyle: {
               display: 'none',
