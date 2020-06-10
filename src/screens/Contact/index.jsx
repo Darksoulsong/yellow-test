@@ -37,7 +37,6 @@ import {
 } from './styles';
 
 export const Contact = () => {
-  const [sent, setSent] = useState(false);
   const formRef = useRef(null);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -45,6 +44,7 @@ export const Contact = () => {
 
   const sendContact = async values => {
     setLoading(true);
+    setResponse({ error: null, message: '' });
     const data = await postContactEmailCall(values);
     setLoading(false);
     if (data.error) {
@@ -226,7 +226,7 @@ export const Contact = () => {
                 style={{ fontSize: '1.75rem', opacity: '0.75' }}
                 error={response.error}
               >
-                Obrigado pelo seu contato, iremos retornar em breve!
+                {response.message}
               </CustomText>
             )}
           </SimpleContainer>
