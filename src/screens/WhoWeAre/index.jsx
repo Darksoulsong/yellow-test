@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { uid } from 'react-uid';
 import { useScreenWidth } from '@hooks';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 import { routeTo } from '@utils';
 

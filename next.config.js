@@ -1,15 +1,10 @@
-const aliases = require('./alias-config');
-const withCSS = require('@zeit/next-css');
-
-const webpack = require('webpack');
-
-module.exports = withCSS({
+module.exports = {
+  target: 'serverless',
   webpack: (config, { dev }) => {
-    const { alias } = config.resolve;
-    config.resolve.alias = {
-      ...alias,
-      ...aliases,
-    };
+    config.module.rules.push({
+      test: /\.md$/,
+      use: 'raw-loader',
+    });
 
     if (dev) {
       config.module.rules.push({
@@ -25,4 +20,4 @@ module.exports = withCSS({
     }
     return config;
   },
-});
+};

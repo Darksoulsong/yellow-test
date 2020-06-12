@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { uid } from 'react-uid';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 import {
   SVG,
@@ -34,7 +33,7 @@ import {
   LinkText,
 } from './styles';
 
-export const BlogArticle = () => {
+export const BlogArticle = ({ post, posts }) => {
   const [cardsShownAtSlider, setCardsShownAtSlider] = useState(2);
   const { screenWidth } = useScreenWidth();
 
@@ -63,10 +62,11 @@ export const BlogArticle = () => {
           </BlogLogo>
           <BlogCol>
             <CustomTitle>
-              A DINÂMICA DE <strong>COMUNICAÇÃO</strong>
+              {post.title}
+              {/* A DINÂMICA DE <strong>COMUNICAÇÃO</strong> */}
             </CustomTitle>
             <CustomText margin={`${spaces.xsm} 0 0 0`}>
-              Daniel Monteiro
+              {post.author}
             </CustomText>
           </BlogCol>
         </BlogTopContainer>
@@ -81,7 +81,7 @@ export const BlogArticle = () => {
           <Image src="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg" />
         </BlogColImage>
 
-        <ContentContainer dangerouslySetInnerHTML={{ __html: mockedHTML }} />
+        <ContentContainer>{post.body}</ContentContainer>
 
         <LikesAndComments />
 
@@ -90,14 +90,15 @@ export const BlogArticle = () => {
             itemsShowing={cardsShownAtSlider}
             specialLgMargin="0 -1%"
           >
-            {articles.map((item, index) => (
+            {posts.map((item, index) => (
               <Card
                 padding="0 1%"
                 width="50%"
                 mdWidth="33.33%"
                 key={uid(item, index)}
-                text={item.text}
+                text={item.title}
                 img={item.image}
+                slug={item.slug}
               />
             ))}
           </SliderMultiple>

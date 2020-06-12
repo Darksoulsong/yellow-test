@@ -44,3 +44,4 @@ export { default as HomeSlider } from './HomeSlider';
 export { default as ProductsIntroImage } from './ProductsIntroImage';
 export { default as Tabs } from './Tabs';
 export { default as Yup } from './Yup';
+export { default as DocumentTitle } from './DocumentTitle';

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { uid } from 'react-uid';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 import {
   SVG,
@@ -14,10 +13,8 @@ import {
   DefaultLayout,
 } from '@components';
 
-import { articles, filters } from './mocked';
 import { spaces } from '@components/Organisms/Theme/sizes';
 import { useScreenWidth } from '@hooks';
-
 import {
   BlogColText,
   BlogColResponsive,
@@ -33,9 +30,11 @@ import {
   ColImgSVGContainer,
 } from './styles';
 
-export const Blog = () => {
+export const Blog = ({ posts, categories, featuredList }) => {
   const { isMedium } = useScreenWidth();
-  const cards = !isMedium ? articles.slice(0, 8) : articles;
+  const cards = !isMedium ? posts.slice(0, 8) : posts;
+  const featuredPost = featuredList[0];
+
   useEffect(() => {
     AOS.init({
       duration: 500,
@@ -80,8 +79,9 @@ export const Blog = () => {
             <Card
               width="100%"
               mdWidth="100%"
-              text="A dinâmica de comunicação"
-              img="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg"
+              text={featuredPost.title}
+              img={featuredPost.image}
+              slug={featuredPost.slug}
             />
             <ColImgSVGContainer>
               <SVG name="three-line-thicker-icon" />
@@ -90,9 +90,9 @@ export const Blog = () => {
         </BlogTopContainer>
 
         <FilterContainer>
-          <Carousel carouselNumberOfItems={filters.length}>
-            {filters.map(filter => (
-              <CircledFilter key={uid(filter)} text={filter.text} />
+          <Carousel carouselNumberOfItems={categories.length}>
+            {categories.map(category => (
+              <CircledFilter key={uid(category)} text={category} />
             ))}
           </Carousel>
         </FilterContainer>
@@ -105,8 +105,9 @@ export const Blog = () => {
               padding={`${spaces.xsm}`}
               paddingDesktop={`${spaces.xsm} 1%`}
               key={uid(item, index)}
-              text={item.text}
+              text={item.title}
               img={item.image}
+              slug={item.slug}
             />
           ))}
         </CardsContainer>

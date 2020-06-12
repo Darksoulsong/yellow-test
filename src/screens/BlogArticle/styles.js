@@ -32,6 +32,7 @@ export const CustomTitle = styled(MediumTitle)`
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
+  text-transform: uppercase;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 2.5rem;
