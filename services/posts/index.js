@@ -1,25 +1,30 @@
 import matter from 'gray-matter';
 
-const iterator = (context, callback) => {
+const contextIterator = (context, callback) => {
   const keys = context.keys();
   const values = keys.map(context);
 
-  keys.forEach((key, index) => callback(key, values[index].default));
+  for (let index = 0; index < keys.length; index++) {
+    const key = keys[index];
+    const document = matter(values[index].default);
+    const shouldBreak = callback(key, document);
+
+    if (shouldBreak) {
+      break;
+    }
+  }
 };
 
 export const getCategoryNameByCategorySlug = (context, slug) => {
   let name = '';
 
-  iterator(context, (key, value) => {
-    const document = matter(value);
+  contextIterator(context, (key, document) => {
     const { categorySlug, category } = document.data;
-
-    if (name) {
-      return;
-    }
 
     if (slug === categorySlug) {
       name = category;
+
+      return true;
     }
   });
 
@@ -33,8 +38,7 @@ export const getPostsData = context => {
   const categories = [];
   const featuredList = [];
 
-  iterator(context, (key, value) => {
-    const document = matter(value);
+  contextIterator(context, (key, document) => {
     const {
       title,
       author,
@@ -83,8 +87,7 @@ export const getPostsData = context => {
 export const getPostsFromCategory = (context, categoryName) => {
   const categoryPosts = [];
 
-  iterator(context, (key, value) => {
-    const document = matter(value);
+  contextIterator(context, (key, document) => {
     const {
       title,
       author,
@@ -120,8 +123,7 @@ export const getPostsFromCategory = (context, categoryName) => {
 export const getCategories = context => {
   const categories = [];
 
-  iterator(context, (key, value) => {
-    const document = matter(value);
+  contextIterator(context, (key, document) => {
     const { categorySlug } = document.data;
 
     if (categories.indexOf(categorySlug) === -1) {
@@ -135,10 +137,8 @@ export const getCategories = context => {
 export const getSlugs = context => {
   const slugs = [];
 
-  iterator(context, (key, value) => {
-    const document = matter(value);
-    const { slug } = document.data;
-    slugs.push(slug);
+  contextIterator(context, (key, document) => {
+    slugs.push(document.data.slug);
   });
 
   return slugs;
@@ -147,13 +147,10 @@ export const getSlugs = context => {
 export const resolveFileNameBySlug = (slug, context) => {
   let filename = '';
 
-  iterator(context, (key, value) => {
-    const document = matter(value);
-
-    if (filename) return;
-
+  contextIterator(context, (key, document) => {
     if (document.data.slug === slug) {
       filename = getFilename(key);
+      return true;
     }
   });
 
