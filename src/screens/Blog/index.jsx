@@ -33,7 +33,7 @@ import {
 export const Blog = ({ posts, categories, featuredList }) => {
   const { isMedium } = useScreenWidth();
   const cards = !isMedium ? posts.slice(0, 8) : posts;
-  const featuredPost = featuredList[0];
+  const featuredPost = featuredList && featuredList[0];
 
   useEffect(() => {
     AOS.init({
@@ -75,27 +75,39 @@ export const Blog = ({ posts, categories, featuredList }) => {
               Conteúdo relevante em textos pequenos e de fácil navegacão.
             </CustomText>
           </BlogColText>
+
           <BlogColImage>
-            <Card
-              width="100%"
-              mdWidth="100%"
-              text={featuredPost.title}
-              img={featuredPost.image}
-              slug={featuredPost.slug}
-            />
-            <ColImgSVGContainer>
-              <SVG name="three-line-thicker-icon" />
-            </ColImgSVGContainer>
+            {featuredPost && (
+              <>
+                <Card
+                  width="100%"
+                  mdWidth="100%"
+                  text={featuredPost.title}
+                  img={featuredPost.image}
+                  slug={featuredPost.slug}
+                />
+
+                <ColImgSVGContainer>
+                  <SVG name="three-line-thicker-icon" />
+                </ColImgSVGContainer>
+              </>
+            )}
           </BlogColImage>
         </BlogTopContainer>
 
-        <FilterContainer>
-          <Carousel carouselNumberOfItems={categories.length}>
-            {categories.map(category => (
-              <CircledFilter key={uid(category)} text={category} />
-            ))}
-          </Carousel>
-        </FilterContainer>
+        {categories && (
+          <FilterContainer>
+            <Carousel carouselNumberOfItems={categories.length}>
+              {categories.map(category => (
+                <CircledFilter
+                  key={uid(category)}
+                  text={category.category}
+                  slug={category.categorySlug}
+                />
+              ))}
+            </Carousel>
+          </FilterContainer>
+        )}
 
         <CardsContainer>
           {cards.map((item, index) => (

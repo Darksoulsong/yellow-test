@@ -5,6 +5,8 @@ featured: false
 category: 'Carreira'
 publishDate: '2020-05-9T11:26:17.668Z'
 image: '/images/placeholder.jpg'
+slug: 'tbh-adaptogen-exercitation'
+categorySlug: 'carreira'
 ---
 
 I'm baby brunch excepteur scenester, affogato iPhone XOXO echo park kitsch incididunt. Brooklyn VHS vinyl occupy bushwick squid. Tbh adaptogen exercitation keffiyeh green juice banjo. Asymmetrical eiusmod squid kickstarter edison bulb.

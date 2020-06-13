@@ -13,7 +13,6 @@ import {
 } from '@components';
 import { useScreenWidth } from '@hooks';
 
-import { articles, mockedHTML } from './mocked';
 import { spaces } from '@components/Organisms/Theme/sizes';
 import { intBreakpoints } from '@components/Organisms/Theme/breakpoints';
 
@@ -61,10 +60,7 @@ export const BlogArticle = ({ post, posts }) => {
             </Circle>
           </BlogLogo>
           <BlogCol>
-            <CustomTitle>
-              {post.title}
-              {/* A DINÂMICA DE <strong>COMUNICAÇÃO</strong> */}
-            </CustomTitle>
+            <CustomTitle>{post.title}</CustomTitle>
             <CustomText margin={`${spaces.xsm} 0 0 0`}>
               {post.author}
             </CustomText>
@@ -78,7 +74,7 @@ export const BlogArticle = ({ post, posts }) => {
             </Link>
           </BlogBack>
           <SVG name="three-line-thicker-icon" />
-          <Image src="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg" />
+          <Image src={post.image} />
         </BlogColImage>
 
         <ContentContainer>{post.body}</ContentContainer>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { getPostsData } from '@services';
 import { DocumentTitle } from '@components';
-import { Blog } from '../../src/screens';
+import { Blog } from '@screens';
 
-const BlogTest = ({ posts, categories, featuredList }) => {
+const BlogPage = ({ posts, categories, featuredList }) => {
   return (
     <>
       <DocumentTitle>Blog</DocumentTitle>
@@ -12,7 +12,7 @@ const BlogTest = ({ posts, categories, featuredList }) => {
   );
 };
 
-export default BlogTest;
+export default BlogPage;
 
 export async function getStaticProps() {
   const { posts, categories, featuredList } = getPostsData(

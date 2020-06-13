@@ -1,20 +1,17 @@
 import React from 'react';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-import { getSlugs, getPostsData } from '@services';
-import { BlogArticle } from '../../src/screens';
+import { getSlugs, getPostsData, resolveFileNameBySlug } from '@services';
+import { BlogArticle } from '@screens';
 
 const Post = props => {
-  const { title, author, markdownBody, posts } = props;
-
-  if (!markdownBody) {
-    return null;
-  }
+  const { title, author, image, markdownBody, posts } = props;
 
   const post = {
     title,
     author,
     body: <ReactMarkdown source={markdownBody} />,
+    image,
   };
 
   return <BlogArticle post={post} posts={posts} />;
@@ -22,8 +19,10 @@ const Post = props => {
 
 export async function getStaticProps(ctx) {
   const { slug } = ctx.params;
-  const markdown = await import(`../../posts/${slug}.md`);
-  const { posts } = getPostsData(require.context('../../posts', true, /\.md$/));
+  const rawFiles = require.context('../../posts', true, /\.md$/);
+  const filename = resolveFileNameBySlug(slug, rawFiles);
+  const markdown = await import(`../../posts/${filename}.md`);
+  const { posts } = getPostsData(rawFiles);
   const document = matter(markdown.default);
 
   const {

@@ -15,7 +15,8 @@
       "@public/*": ["public/*"],
       "@public": ["public/index"],
       "@services/*": ["services/*"],
-      "@services": ["services/index"]
+      "@services": ["services/index"],
+      "@screens": ["src/screens/index"]
     }
   }
 }
