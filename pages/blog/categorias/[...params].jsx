@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import {
-  getPostsFromCategory,
+  filterPostsByCategory,
   getCategories,
   getCategoryNameByCategorySlug,
 } from '@services';
@@ -10,11 +10,8 @@ import { Blog } from '@screens';
 
 const CategoryPosts = ({ posts }) => {
   const router = useRouter();
-  const categorySlug = router.query.categorySlug[0];
-  const categoryName = getCategoryNameByCategorySlug(
-    require.context('../../../posts', true, /\.md$/),
-    categorySlug
-  );
+  const categorySlug = router.query.params[0];
+  const categoryName = getCategoryNameByCategorySlug(categorySlug);
   const pageTitle = `Artigos da categoria "${categoryName}"`;
 
   return (
@@ -28,11 +25,8 @@ const CategoryPosts = ({ posts }) => {
 export default CategoryPosts;
 
 export async function getStaticProps(ctx) {
-  const { categorySlug } = ctx.params;
-  const posts = getPostsFromCategory(
-    require.context('../../../posts', true, /\.md$/),
-    categorySlug[0]
-  );
+  const { params } = ctx.params;
+  const posts = filterPostsByCategory(params[0]);
 
   return {
     props: {
@@ -42,10 +36,10 @@ export async function getStaticProps(ctx) {
 }
 
 export async function getStaticPaths() {
-  const blogCategories = getCategories(
-    require.context('../../../posts', true, /\.md$/)
+  const blogCategories = getCategories();
+  const paths = blogCategories.map(
+    item => `/blog/categorias/${item.categorySlug}`
   );
-  const paths = blogCategories.map(category => `/blog/categorias/${category}`);
 
   return {
     paths,

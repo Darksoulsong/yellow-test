@@ -1,9 +1,9 @@
 import React from 'react';
-import { getPostsData } from '@services';
+import { getBlogIndexData } from '@services';
 import { DocumentTitle } from '@components';
 import { Blog } from '@screens';
 
-const BlogPage = ({ posts, categories, featuredList }) => {
+const BlogIndex = ({ posts, categories, featuredList }) => {
   return (
     <>
       <DocumentTitle>Blog</DocumentTitle>
@@ -12,12 +12,10 @@ const BlogPage = ({ posts, categories, featuredList }) => {
   );
 };
 
-export default BlogPage;
+export default BlogIndex;
 
 export async function getStaticProps() {
-  const { posts, categories, featuredList } = getPostsData(
-    require.context('../../posts', true, /\.md$/)
-  );
+  const { posts, categories, featuredList } = getBlogIndexData();
 
   return {
     props: {

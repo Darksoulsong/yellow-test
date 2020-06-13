@@ -1,24 +1,14 @@
-import matter from 'gray-matter';
+import {
+  contextIterator,
+  getDocument,
+  getFilename,
+  readPostsDirectory,
+} from './utils';
 
-const contextIterator = (context, callback) => {
-  const keys = context.keys();
-  const values = keys.map(context);
-
-  for (let index = 0; index < keys.length; index++) {
-    const key = keys[index];
-    const document = matter(values[index].default);
-    const shouldBreak = callback(key, document);
-
-    if (shouldBreak) {
-      break;
-    }
-  }
-};
-
-export const getCategoryNameByCategorySlug = (context, slug) => {
+export const getCategoryNameByCategorySlug = slug => {
   let name = '';
 
-  contextIterator(context, (key, document) => {
+  contextIterator(document => {
     const { categorySlug, category } = document.data;
 
     if (slug === categorySlug) {
@@ -31,14 +21,12 @@ export const getCategoryNameByCategorySlug = (context, slug) => {
   return name;
 };
 
-const getFilename = key => key.replace(/^.*[\\/]/, '').slice(0, -3);
-
-export const getPostsData = context => {
+export const getBlogIndexData = () => {
   const posts = [];
   const categories = [];
   const featuredList = [];
 
-  contextIterator(context, (key, document) => {
+  contextIterator(document => {
     const {
       title,
       author,
@@ -84,10 +72,20 @@ export const getPostsData = context => {
   };
 };
 
-export const getPostsFromCategory = (context, categoryName) => {
-  const categoryPosts = [];
+export const getPost = async (slug, ctx) => {
+  const context = ctx || readPostsDirectory();
+  const filename = resolveFileNameBySlug(slug, context);
+  const markdownFile = await import(`../../posts/${filename}.md`);
+  const document = getDocument(markdownFile.default);
 
-  contextIterator(context, (key, document) => {
+  return {
+    ...document.data,
+    markdownBody: document.content,
+  };
+};
+
+export const getPosts = () => {
+  return contextIterator(document => {
     const {
       title,
       author,
@@ -99,57 +97,40 @@ export const getPostsFromCategory = (context, categoryName) => {
       categorySlug,
     } = document.data;
 
-    if (categoryName !== categorySlug) {
-      return;
-    }
-
-    const post = {
+    return {
       title,
       author,
       featured,
       category,
       publishDate,
       image,
-      markdownBody: document.content,
       slug,
+      categorySlug,
     };
-
-    categoryPosts.push(post);
   });
-
-  return categoryPosts;
 };
 
-export const getCategories = context => {
-  const categories = [];
+export const filterPostsByCategory = categorySlug =>
+  getPosts().filter(post => categorySlug === post.categorySlug, []);
 
-  contextIterator(context, (key, document) => {
-    const { categorySlug } = document.data;
+export const getCategories = () => {
+  return contextIterator((document, index, array) => {
+    const { categorySlug, category } = document.data;
 
-    if (categories.indexOf(categorySlug) === -1) {
-      categories.push(categorySlug);
+    if (!array.find(item => item.category === category)) {
+      return { category, categorySlug };
     }
   });
-
-  return categories;
 };
 
-export const getSlugs = context => {
-  const slugs = [];
+export const getSlugs = () => contextIterator(document => document.data.slug);
 
-  contextIterator(context, (key, document) => {
-    slugs.push(document.data.slug);
-  });
-
-  return slugs;
-};
-
-export const resolveFileNameBySlug = (slug, context) => {
+export const resolveFileNameBySlug = slug => {
   let filename = '';
 
-  contextIterator(context, (key, document) => {
+  contextIterator((document, index, array, documentName) => {
     if (document.data.slug === slug) {
-      filename = getFilename(key);
+      filename = getFilename(documentName);
       return true;
     }
   });

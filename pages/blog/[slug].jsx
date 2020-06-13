@@ -1,7 +1,6 @@
 import React from 'react';
-import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-import { getSlugs, getPostsData, resolveFileNameBySlug } from '@services';
+import { getSlugs, getBlogIndexData, getPost } from '@services';
 import { BlogArticle } from '@screens';
 
 const Post = props => {
@@ -19,32 +18,14 @@ const Post = props => {
 
 export async function getStaticProps(ctx) {
   const { slug } = ctx.params;
-  const rawFiles = require.context('../../posts', true, /\.md$/);
-  const filename = resolveFileNameBySlug(slug, rawFiles);
-  const markdown = await import(`../../posts/${filename}.md`);
-  const { posts } = getPostsData(rawFiles);
-  const document = matter(markdown.default);
+  const context = require.context('../../posts', true, /\.md$/);
+  const post = await getPost(slug, context);
+  const { posts } = getBlogIndexData(context);
 
-  const {
-    title,
-    author,
-    featured,
-    category,
-    publishDate,
-    image,
-  } = document.data;
+  post.posts = posts;
 
   return {
-    props: {
-      title,
-      author,
-      featured,
-      category,
-      publishDate,
-      image,
-      markdownBody: document.content,
-      posts,
-    },
+    props: post,
   };
 }
 
