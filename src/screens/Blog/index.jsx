@@ -33,6 +33,26 @@ import {
   ColImgSVGContainer,
 } from './styles';
 
+const sortCategories = (list, categorySlug) => {
+  let sortedList = list.sort((a, b) => {
+    if (a.categorySlug < b.categorySlug) {
+      return -1;
+    }
+    if (a.categorySlug > b.categorySlug) {
+      return 1;
+    }
+    return 0;
+  });
+
+  if (categorySlug) {
+    const activeItem = list.find(item => item.categorySlug === categorySlug);
+    sortedList = list.filter(item => item.categorySlug !== categorySlug);
+    sortedList.unshift(activeItem);
+  }
+
+  return sortedList;
+};
+
 export const Blog = ({
   posts,
   totalPosts,
@@ -45,11 +65,15 @@ export const Blog = ({
   const { isMedium } = useScreenWidth();
   const cards = !isMedium ? posts.slice(0, 8) : posts;
   const featuredPost = featuredList && featuredList[0];
+  const paginationTotalPages = Math.ceil(
+    totalPosts / PAGINATION_ITEMS_PER_PAGE
+  );
+  const sortedCategories = sortCategories(categories, categorySlug);
 
   const onPaginationClick = nextPage => {
     let route = '/blog';
     if (categorySlug) {
-      route += `/${categorySlug}/${nextPage}`;
+      route += `/categorias/${categorySlug}/${nextPage}`;
     } else {
       route += `/${nextPage}`;
     }
@@ -120,14 +144,15 @@ export const Blog = ({
           </BlogColImage>
         </BlogTopContainer>
 
-        {categories && (
+        {sortedCategories && (
           <FilterContainer>
-            <Carousel carouselNumberOfItems={categories.length}>
-              {categories.map(category => (
+            <Carousel carouselNumberOfItems={sortedCategories.length}>
+              {sortedCategories.map(item => (
                 <CircledFilter
-                  key={uid(category)}
-                  text={category.category}
-                  slug={category.categorySlug}
+                  key={uid(item)}
+                  text={item.category}
+                  slug={item.categorySlug}
+                  active={categorySlug === item.categorySlug}
                 />
               ))}
             </Carousel>
@@ -149,12 +174,14 @@ export const Blog = ({
           ))}
         </CardsContainer>
 
-        <Pagination
-          pages={Math.ceil(totalPosts / PAGINATION_ITEMS_PER_PAGE)}
-          currentPage={+pageNumber}
-          onClick={onPaginationClick}
-          setCurrentPage={() => {}}
-        />
+        {paginationTotalPages > 1 && (
+          <Pagination
+            pages={paginationTotalPages}
+            currentPage={+pageNumber}
+            onClick={onPaginationClick}
+            setCurrentPage={() => {}}
+          />
+        )}
 
         <Suscribe padding={`${spaces.sm} 0 ${spaces.md} 0`} />
       </ContainerWithPadding>

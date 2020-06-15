@@ -14,7 +14,8 @@ export const Circle = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.yellow};
+  background-color: ${({ theme, active }) =>
+    active ? theme.colors.black : theme.colors.yellow};
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     width: 60px;
     height: 60px;

@@ -129,6 +129,7 @@ export const CardsContainer = styled(Container)`
   flex-direction: row;
   padding: 0 10px;
   margin-top: ${({ theme }) => theme.spaces.sm};
+  justify-content: flex-start;
   @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
     padding: 0px;
   }

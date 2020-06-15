@@ -24,27 +24,12 @@ export const handleBlogIndexPage = (page = 1) => {
   const featuredList = [];
 
   contextIterator(document => {
-    const {
-      title,
-      author,
-      featured,
-      category,
-      publishDate,
-      image,
-      slug,
-      categorySlug,
-    } = document.data;
-
     const post = {
-      title,
-      author,
-      featured,
-      category,
-      publishDate,
-      image,
+      ...document.data,
       markdownBody: document.content,
-      slug,
     };
+
+    const { category, categorySlug } = post;
 
     posts.push(post);
 
@@ -109,6 +94,48 @@ export const handleBlogCategoriesPage = (categorySlugParam, page = 1) => {
     posts,
     totalPosts,
     categories,
+  };
+};
+
+export const handleBlogCategoriesPagePaths = () => {
+  const categories = getCategories();
+  const posts = [];
+
+  contextIterator(document => {
+    const post = {
+      ...document.data,
+    };
+
+    posts.push(post);
+
+    const hasCategory = categories.find(
+      item => item.category === post.category
+    );
+
+    if (!hasCategory) {
+      categories.push({
+        category: post.category,
+        categorySlug: post.categorySlug,
+      });
+    }
+  });
+
+  let paths = categories.map(item => {
+    const path = `/blog/categorias/${item.categorySlug}`;
+    const postsByCategory = posts.filter(
+      post => post.categorySlug === item.categorySlug
+    );
+    const pathsArray = postsByCategory.map(
+      (_, index) => `${path}/${index + 1}`
+    );
+    pathsArray.unshift(path);
+    return pathsArray;
+  });
+
+  paths = [].concat(...paths);
+
+  return {
+    paths,
   };
 };
 
