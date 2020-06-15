@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { uid } from 'react-uid';
 import AOS from 'aos';
+import { DocumentTitle } from '@components';
 
 import {
   SVG,
@@ -32,7 +33,7 @@ import {
   LinkText,
 } from './styles';
 
-export const BlogArticle = ({ post, posts }) => {
+export const BlogArticle = ({ post, posts, documentTitle }) => {
   const [cardsShownAtSlider, setCardsShownAtSlider] = useState(2);
   const { screenWidth } = useScreenWidth();
 
@@ -52,6 +53,7 @@ export const BlogArticle = ({ post, posts }) => {
 
   return (
     <DefaultLayout>
+      <DocumentTitle>{documentTitle}</DocumentTitle>
       <ContainerWithPadding>
         <BlogTopContainer>
           <BlogLogo>

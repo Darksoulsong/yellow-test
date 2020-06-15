@@ -1,27 +1,28 @@
 import React from 'react';
-import { getBlogIndexData } from '@services';
-import { DocumentTitle } from '@components';
+import { handleBlogIndexPage } from '@services';
 import { Blog } from '@screens';
 
-const BlogIndex = ({ posts, categories, featuredList }) => {
-  return (
-    <>
-      <DocumentTitle>Blog</DocumentTitle>
-      <Blog posts={posts} categories={categories} featuredList={featuredList} />
-    </>
-  );
+const BlogIndex = params => {
+  return <Blog {...params} />;
 };
 
 export default BlogIndex;
 
-export async function getStaticProps() {
-  const { posts, categories, featuredList } = getBlogIndexData();
+export async function getStaticProps({ params }) {
+  const pageNumber = params ? params.params[0] : 1;
+  const categorySlug = (params && params.params[1]) || null;
+  const { posts, categories, featuredList, totalPosts } = handleBlogIndexPage(
+    pageNumber
+  );
 
   return {
     props: {
       posts,
+      totalPosts,
       categories,
       featuredList,
+      pageNumber,
+      categorySlug,
     },
   };
 }

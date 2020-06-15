@@ -1,4 +1,6 @@
 import matter from 'gray-matter';
+import { splitArrayIntoChunks } from '@utils';
+import { PAGINATION_ITEMS_PER_PAGE } from '@config';
 
 export const getDocument = value => matter(value);
 
@@ -31,3 +33,13 @@ export const readPostsDirectory = () => {
 };
 
 export const getFilename = key => key.replace(/^.*[\\/]/, '').slice(0, -3);
+
+export const getPaginatedPosts = (items, page = 1) => {
+  return splitArrayIntoChunks(items, PAGINATION_ITEMS_PER_PAGE)[page - 1] || [];
+};
+
+export const createBlogPaginationPaths = (path, length = 100) => {
+  return Array.from({ length }).map((item, index) => {
+    return path + (index + 1);
+  });
+};

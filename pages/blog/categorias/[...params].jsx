@@ -1,45 +1,57 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import {
-  filterPostsByCategory,
   getCategories,
   getCategoryNameByCategorySlug,
+  createBlogPaginationPaths,
+  handleBlogCategoriesPage,
 } from '@services';
-import { DocumentTitle } from '@components';
 import { Blog } from '@screens';
 
-const CategoryPosts = ({ posts }) => {
+const CategoryPosts = params => {
   const router = useRouter();
   const categorySlug = router.query.params[0];
   const categoryName = getCategoryNameByCategorySlug(categorySlug);
-  const pageTitle = `Artigos da categoria "${categoryName}"`;
+  const pageParams = {
+    ...params,
+    documentTitle: `Artigos da categoria "${categoryName}"`,
+  };
 
-  return (
-    <>
-      <DocumentTitle>{pageTitle}</DocumentTitle>
-      <Blog posts={posts} />
-    </>
-  );
+  return <Blog {...pageParams} />;
 };
 
 export default CategoryPosts;
 
 export async function getStaticProps(ctx) {
   const { params } = ctx.params;
-  const posts = filterPostsByCategory(params[0]);
+  const category = params[0];
+  const pageNumber = params[1];
+  const { posts, totalPosts, categories } = handleBlogCategoriesPage(
+    category,
+    pageNumber
+  );
 
   return {
     props: {
       posts,
+      totalPosts,
+      categories,
     },
   };
 }
 
 export async function getStaticPaths() {
   const blogCategories = getCategories();
-  const paths = blogCategories.map(
-    item => `/blog/categorias/${item.categorySlug}`
-  );
+  let paths = blogCategories.map(item => {
+    const path = `/blog/categorias/${item.categorySlug}`;
+    const paginationPaths = createBlogPaginationPaths(path + '/');
+
+    paginationPaths.unshift(path);
+
+    return paginationPaths;
+  });
+
+  paths = [].concat(...paths);
 
   return {
     paths,

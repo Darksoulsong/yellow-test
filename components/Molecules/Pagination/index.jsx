@@ -38,9 +38,14 @@ export const constructPagesArray = (pages, currentPage) => {
 
 export const Pagination = ({ pages, currentPage, setCurrentPage, onClick }) => {
   const buttonPages = constructPagesArray(pages, +currentPage);
+  const actualPage = +currentPage;
 
   const alterCurrentPage = index => {
-    let page = currentPage;
+    if (!buttonPages[index]) {
+      return;
+    }
+
+    let page = actualPage;
     if (buttonPages[index] !== '...') {
       page = +buttonPages[index];
       setCurrentPage(page);
@@ -57,19 +62,24 @@ export const Pagination = ({ pages, currentPage, setCurrentPage, onClick }) => {
   return (
     <PaginationList>
       <Arrow>
-        <SVG onClick={() => {}} name="arrow-icon" />
+        <SVG
+          onClick={() => {
+            alterCurrentPage(actualPage - 2);
+          }}
+          name="arrow-icon"
+        />
       </Arrow>
       {buttonPages.map((item, index) => (
         <PageButton
           size="small"
           onClick={() => alterCurrentPage(index)}
-          config={item === currentPage ? 'active' : ''}
+          active={item === actualPage}
           text={`${item}`}
           key={uid(item, index)}
         />
       ))}
       <Arrow rotate>
-        <SVG onClick={() => {}} name="arrow-icon" />
+        <SVG onClick={() => alterCurrentPage(actualPage)} name="arrow-icon" />
       </Arrow>
     </PaginationList>
   );

@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { uid } from 'react-uid';
 import AOS from 'aos';
+import { PAGINATION_ITEMS_PER_PAGE } from '@config';
+import { DocumentTitle } from '@components';
+import { routeTo } from '@utils';
 
 import {
   SVG,
@@ -30,10 +33,31 @@ import {
   ColImgSVGContainer,
 } from './styles';
 
-export const Blog = ({ posts, categories, featuredList }) => {
+export const Blog = ({
+  posts,
+  totalPosts,
+  categories,
+  featuredList,
+  documentTitle,
+  pageNumber,
+  categorySlug,
+}) => {
   const { isMedium } = useScreenWidth();
   const cards = !isMedium ? posts.slice(0, 8) : posts;
   const featuredPost = featuredList && featuredList[0];
+
+  const onPaginationClick = nextPage => {
+    let route = '/blog';
+    if (categorySlug) {
+      route += `/${categorySlug}/${nextPage}`;
+    } else {
+      route += `/${nextPage}`;
+    }
+
+    if (nextPage !== pageNumber) {
+      routeTo(route);
+    }
+  };
 
   useEffect(() => {
     AOS.init({
@@ -43,6 +67,7 @@ export const Blog = ({ posts, categories, featuredList }) => {
 
   return (
     <DefaultLayout>
+      <DocumentTitle>{documentTitle}</DocumentTitle>
       <ContainerWithPadding>
         <BlogTopContainer>
           <BlogLogo>
@@ -125,9 +150,9 @@ export const Blog = ({ posts, categories, featuredList }) => {
         </CardsContainer>
 
         <Pagination
-          pages={10}
-          currentPage={1}
-          onClick={() => {}}
+          pages={Math.ceil(totalPosts / PAGINATION_ITEMS_PER_PAGE)}
+          currentPage={+pageNumber}
+          onClick={onPaginationClick}
           setCurrentPage={() => {}}
         />
 
@@ -135,4 +160,8 @@ export const Blog = ({ posts, categories, featuredList }) => {
       </ContainerWithPadding>
     </DefaultLayout>
   );
+};
+
+Blog.defaultProps = {
+  documentTitle: 'Blog',
 };

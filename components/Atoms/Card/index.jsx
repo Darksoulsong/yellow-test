@@ -13,7 +13,7 @@ import {
 
 // Temporary code
 const routeToContent = slug => {
-  routeTo(`/blog/${slug}`);
+  routeTo(`/blog/artigos/${slug}`);
 };
 
 export const Card = ({

@@ -1,9 +1,5 @@
-import {
-  contextIterator,
-  getDocument,
-  getFilename,
-  readPostsDirectory,
-} from './utils';
+export { createBlogPaginationPaths } from './utils';
+import { contextIterator, getFilename, getPaginatedPosts } from './utils';
 
 export const getCategoryNameByCategorySlug = slug => {
   let name = '';
@@ -21,8 +17,9 @@ export const getCategoryNameByCategorySlug = slug => {
   return name;
 };
 
-export const getBlogIndexData = () => {
-  const posts = [];
+export const handleBlogIndexPage = (page = 1) => {
+  let posts = [];
+  let totalPosts = 0;
   const categories = [];
   const featuredList = [];
 
@@ -65,47 +62,73 @@ export const getBlogIndexData = () => {
     }
   });
 
+  totalPosts = posts.length;
+
+  posts = getPaginatedPosts(posts, page);
+
   return {
     posts,
+    totalPosts,
     categories,
     featuredList,
   };
 };
 
-export const getPost = async (slug, ctx) => {
-  const context = ctx || readPostsDirectory();
-  const filename = resolveFileNameBySlug(slug, context);
-  const markdownFile = await import(`../../posts/${filename}.md`);
-  const document = getDocument(markdownFile.default);
+export const handleBlogCategoriesPage = (categorySlugParam, page = 1) => {
+  let posts = [];
+  let totalPosts = 0;
+  const categories = [];
+
+  contextIterator(document => {
+    const post = {
+      ...document.data,
+      markdownBody: document.content,
+    };
+
+    if (categorySlugParam === post.categorySlug) {
+      posts.push(post);
+    }
+
+    const hasCategory = categories.find(
+      item => item.category === post.category
+    );
+
+    if (!hasCategory) {
+      categories.push({
+        category: post.category,
+        categorySlug: post.categorySlug,
+      });
+    }
+  });
+
+  totalPosts = posts.length;
+
+  posts = getPaginatedPosts(posts, page);
 
   return {
-    ...document.data,
-    markdownBody: document.content,
+    posts,
+    totalPosts,
+    categories,
+  };
+};
+
+export const handleBlogSingle = async slug => {
+  let posts = getPosts();
+  const post = posts.find(item => item.slug === slug);
+
+  posts = posts.filter(item => item.slug !== post.slug);
+
+  return {
+    ...post,
+    posts,
   };
 };
 
 export const getPosts = () => {
   return contextIterator(document => {
-    const {
-      title,
-      author,
-      featured,
-      category,
-      publishDate,
-      image,
-      slug,
-      categorySlug,
-    } = document.data;
-
     return {
-      title,
-      author,
-      featured,
-      category,
-      publishDate,
-      image,
-      slug,
-      categorySlug,
+      ...document.data,
+      markdownBody: document.content,
     };
   });
 };
@@ -114,7 +137,7 @@ export const filterPostsByCategory = categorySlug =>
   getPosts().filter(post => categorySlug === post.categorySlug, []);
 
 export const getCategories = () => {
-  return contextIterator((document, index, array) => {
+  return contextIterator((document, _, array) => {
     const { categorySlug, category } = document.data;
 
     if (!array.find(item => item.category === category)) {
