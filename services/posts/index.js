@@ -17,7 +17,7 @@ export const getCategoryNameByCategorySlug = slug => {
   return name;
 };
 
-export const handleBlogIndexPage = (page = 1) => {
+export const handleBlogIndexPage = (page = 1, categorySlugParam) => {
   let posts = [];
   let totalPosts = 0;
   const categories = [];
@@ -31,7 +31,13 @@ export const handleBlogIndexPage = (page = 1) => {
 
     const { category, categorySlug } = post;
 
-    posts.push(post);
+    if (categorySlugParam) {
+      if (categorySlugParam === post.categorySlug) {
+        posts.push(post);
+      }
+    } else {
+      posts.push(post);
+    }
 
     const hasCategory = categories.find(item => item.category === category);
 
@@ -56,44 +62,6 @@ export const handleBlogIndexPage = (page = 1) => {
     totalPosts,
     categories,
     featuredList,
-  };
-};
-
-export const handleBlogCategoriesPage = (categorySlugParam, page = 1) => {
-  let posts = [];
-  let totalPosts = 0;
-  const categories = [];
-
-  contextIterator(document => {
-    const post = {
-      ...document.data,
-      markdownBody: document.content,
-    };
-
-    if (categorySlugParam === post.categorySlug) {
-      posts.push(post);
-    }
-
-    const hasCategory = categories.find(
-      item => item.category === post.category
-    );
-
-    if (!hasCategory) {
-      categories.push({
-        category: post.category,
-        categorySlug: post.categorySlug,
-      });
-    }
-  });
-
-  totalPosts = posts.length;
-
-  posts = getPaginatedPosts(posts, page);
-
-  return {
-    posts,
-    totalPosts,
-    categories,
   };
 };
 

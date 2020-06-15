@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import {
   getCategoryNameByCategorySlug,
-  handleBlogCategoriesPage,
+  handleBlogIndexPage,
   handleBlogCategoriesPagePaths,
 } from '@services';
 import { Blog } from '@screens';
@@ -26,9 +26,9 @@ export async function getStaticProps(ctx) {
   const { params } = ctx.params;
   const category = params[0];
   const pageNumber = params[1];
-  const { posts, totalPosts, categories } = handleBlogCategoriesPage(
-    category,
-    pageNumber
+  const { posts, totalPosts, categories, featuredList } = handleBlogIndexPage(
+    pageNumber,
+    category
   );
 
   return {
@@ -36,6 +36,7 @@ export async function getStaticProps(ctx) {
       posts,
       totalPosts,
       categories,
+      featuredList,
     },
   };
 }
