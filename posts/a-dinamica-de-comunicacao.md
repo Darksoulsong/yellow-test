@@ -3,10 +3,11 @@ title: 'A dinâmica de comunicação'
 author: 'Daniel Monteiro'
 featured: true
 category: 'Carreira'
-publishDate: '2020-05-9T11:26:17.668Z'
+publishDate: '2020-05-01T11:26:17.668Z'
 image: 'https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg'
 slug: 'a-dinamica-de-comunicacao'
 categorySlug: 'carreira'
+highlighted: true
 ---
 
 O período de distanciamento social trouxe uma série de desafios para equipes de empresas das mais variadas áreas de atuação. Seja na adaptaçãoao regime de home office, seja numa nova dinâmica de relação familiar, estamos em um período sem precedentes do mundo contemporâneo. E como nãopoderia deixar de ser, essas mudanças afetam diretamente a liderança dasorganizações.

@@ -33,7 +33,7 @@ import {
   LinkText,
 } from './styles';
 
-export const BlogArticle = ({ post, posts, documentTitle }) => {
+export const BlogArticle = ({ post, highlights, documentTitle }) => {
   const [cardsShownAtSlider, setCardsShownAtSlider] = useState(2);
   const { screenWidth } = useScreenWidth();
 
@@ -88,7 +88,7 @@ export const BlogArticle = ({ post, posts, documentTitle }) => {
             itemsShowing={cardsShownAtSlider}
             specialLgMargin="0 -1%"
           >
-            {posts.map((item, index) => (
+            {highlights.map((item, index) => (
               <Card
                 padding="0 1%"
                 width="50%"

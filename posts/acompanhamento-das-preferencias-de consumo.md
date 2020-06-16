@@ -3,10 +3,11 @@ title: 'Acompanhamento das preferências de consumo'
 author: 'John Doe'
 featured: false
 category: 'Entrevista'
-publishDate: '2020-05-9T11:26:17.668Z'
+publishDate: '2020-05-02T11:26:17.668Z'
 image: '/images/placeholder.jpg'
 slug: 'acompanhamento-das-preferencias-de consumo'
 categorySlug: 'entrevista'
+highlighted: false
 ---
 
 No mundo atual, o novo modelo estrutural aqui preconizado deve passar por modificações independentemente das regras de conduta **normativas**. Ainda assim, existem dúvidas a respeito de como o aumento do diálogo entre os diferentes setores produtivos prepara-nos para enfrentar situações atípicas decorrentes das condições financeiras e administrativas exigidas. Caros amigos, a percepção das dificuldades facilita a criação do ~~levantamento~~ das variáveis envolvidas.

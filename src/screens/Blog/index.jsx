@@ -3,7 +3,7 @@ import { uid } from 'react-uid';
 import { useRouter } from 'next/router';
 import AOS from 'aos';
 import { PAGINATION_ITEMS_PER_PAGE } from '@config';
-import { DocumentTitle, Loader } from '@components';
+import { DocumentTitle } from '@components';
 import { routeTo } from '@utils';
 
 import {
@@ -61,18 +61,18 @@ const sortCategories = (list, categorySlug) => {
 };
 
 export const Blog = ({
-  posts,
   totalPosts,
   categories,
-  featuredList,
+  features,
+  highlights,
   documentTitle,
   pageNumber,
   categorySlug,
 }) => {
   const router = useRouter();
   const { isMedium } = useScreenWidth();
-  const cards = !isMedium ? posts.slice(0, 8) : posts;
-  const featuredPost = featuredList && featuredList[0];
+  const cards = !isMedium ? highlights.slice(0, 8) : highlights;
+  const featuresPost = features && features[0];
   const paginationTotalPages = Math.ceil(
     totalPosts / PAGINATION_ITEMS_PER_PAGE
   );
@@ -134,14 +134,14 @@ export const Blog = ({
           </BlogColText>
 
           <BlogColImage>
-            {featuredPost && (
+            {featuresPost && (
               <>
                 <Card
                   width="100%"
                   mdWidth="100%"
-                  text={featuredPost.title}
-                  img={featuredPost.image}
-                  slug={featuredPost.slug}
+                  text={featuresPost.title}
+                  img={featuresPost.image}
+                  slug={featuresPost.slug}
                 />
 
                 <ColImgSVGContainer>
@@ -201,7 +201,7 @@ Blog.defaultProps = {
   posts: [],
   totalPosts: 0,
   categories: [],
-  featuredList: [],
+  features: [],
   documentTitle: 'Blog',
   pageNumber: 1,
   categorySlug: null,

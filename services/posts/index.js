@@ -1,5 +1,10 @@
 export { createBlogPaginationPaths } from './utils';
-import { contextIterator, getFilename, getPaginatedPosts } from './utils';
+import {
+  contextIterator,
+  getFilename,
+  getPaginatedPosts,
+  sortPostsByPublishDateDesc,
+} from './utils';
 
 export const getCategoryNameByCategorySlug = slug => {
   let name = '';
@@ -21,7 +26,9 @@ export const handleBlogIndexPage = (page = 1, categorySlugParam) => {
   let posts = [];
   let totalPosts = 0;
   const categories = [];
-  const featuredList = [];
+  const features = [];
+  const highlights = [];
+  const isCategoriesPage = !!categorySlugParam;
 
   contextIterator(document => {
     const post = {
@@ -31,7 +38,7 @@ export const handleBlogIndexPage = (page = 1, categorySlugParam) => {
 
     const { category, categorySlug } = post;
 
-    if (categorySlugParam) {
+    if (isCategoriesPage) {
       if (categorySlugParam === post.categorySlug) {
         posts.push(post);
       }
@@ -49,19 +56,24 @@ export const handleBlogIndexPage = (page = 1, categorySlugParam) => {
     }
 
     if (document.data.featured) {
-      featuredList.push(post);
+      features.push(post);
+    }
+
+    if (document.data.highlighted) {
+      highlights.push(post);
     }
   });
 
   totalPosts = posts.length;
 
-  posts = getPaginatedPosts(posts, page);
+  posts = getPaginatedPosts(posts, page).sort(sortPostsByPublishDateDesc);
 
   return {
     posts,
     totalPosts,
     categories,
-    featuredList,
+    features,
+    highlights,
   };
 };
 
@@ -113,58 +125,17 @@ export const handleBlogCategoriesPagePaths = (forceLimitLength = 10) => {
   return paths;
 };
 
-export const handleBlogCategoriesPagePathsFallback = () => {
-  const categories = getCategories();
-  const posts = [];
-
-  contextIterator(document => {
-    const post = {
-      ...document.data,
-    };
-
-    posts.push(post);
-
-    const hasCategory = categories.find(
-      item => item.category === post.category
-    );
-
-    if (!hasCategory) {
-      categories.push({
-        category: post.category,
-        categorySlug: post.categorySlug,
-      });
-    }
-  });
-
-  let paths = categories.map(item => {
-    const path = `/blog/categorias/${item.categorySlug}`;
-    const postsByCategory = posts.filter(
-      post => post.categorySlug === item.categorySlug
-    );
-
-    const pathsArray = postsByCategory.map(
-      (_, index) => `${path}/${index + 1}`
-    );
-    pathsArray.unshift(path);
-    return pathsArray;
-  });
-
-  paths = [].concat(...paths);
-
-  return {
-    paths,
-  };
-};
-
 export const handleBlogSingle = async slug => {
-  let posts = getPosts();
+  const posts = getPosts();
   const post = posts.find(item => item.slug === slug);
 
-  posts = posts.filter(item => item.slug !== post.slug);
+  const highlights = posts.filter(
+    item => item.slug !== post.slug && item.highlighted === true
+  );
 
   return {
     ...post,
-    posts,
+    highlights,
   };
 };
 

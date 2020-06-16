@@ -43,3 +43,6 @@ export const createBlogPaginationPaths = (path, length = 100) => {
     return path + (index + 1);
   });
 };
+
+export const sortPostsByPublishDateDesc = (a, b) =>
+  new Date(b.publishDate).getTime() - new Date(a.publishDate);

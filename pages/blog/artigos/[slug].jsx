@@ -3,12 +3,8 @@ import ReactMarkdown from 'react-markdown';
 import { getSlugs, handleBlogSingle } from '@services';
 import { BlogArticle } from '@screens';
 
-/**
- * @todo sorting, netlify integration, auth, comments & likes
- */
-
 const BlogSingle = props => {
-  const { title, author, image, markdownBody, posts } = props;
+  const { title, author, image, markdownBody, highlights } = props;
   const params = {
     post: {
       title,
@@ -16,7 +12,7 @@ const BlogSingle = props => {
       body: <ReactMarkdown source={markdownBody} />,
       image,
     },
-    posts,
+    highlights,
     documentTitle: `${title} - Blog`,
   };
 
@@ -25,10 +21,10 @@ const BlogSingle = props => {
 
 export async function getStaticProps(ctx) {
   const { slug } = ctx.params;
-  const blogSingleData = await handleBlogSingle(slug);
+  const props = await handleBlogSingle(slug);
 
   return {
-    props: blogSingleData,
+    props,
   };
 }
 
