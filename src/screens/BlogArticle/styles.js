@@ -159,13 +159,23 @@ export const SliderContainer = styled.div`
 export const ContentContainer = styled.div`
   margin: ${({ theme }) => `${theme.spaces.md} 0`};
   padding: ${({ theme }) => ` 0 ${theme.spaces.sm}`};
-  * {
-    font-family: Roboto, sans-serif;
-    font-weight: 300;
-    text-align: justify;
-    line-height: 1.5;
-    font-size: 1.5rem;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  text-align: justify;
+  line-height: 1.5;
+  font-size: 1.5rem;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: left;
+    font-weight: 700;
+    margin-top: ${({ theme }) => theme.spaces.sm};
   }
+
   h1 {
     text-align: left;
     text-transform: uppercase;
@@ -184,12 +194,27 @@ export const ContentContainer = styled.div`
     margin: ${({ theme }) => `${theme.spaces.sm} 0 ${theme.spaces.xsm}`};
   }
 
+  del {
+    text-decoration: line-through;
+  }
+
   ul {
     padding-top: ${({ theme }) => `${theme.spaces.sm}`};
+    margin-bottom: ${({ theme }) => `${theme.spaces.md}`};
 
     li {
+      list-style-type: disc;
+      list-style-position: inside;
       padding: ${({ theme }) => `${theme.spaces.xsm} 0 0 ${theme.spaces.sm}`};
     }
+  }
+
+  blockquote {
+    margin: ${({ theme }) => `${theme.spaces.sm} 0`};
+    padding: ${({ theme }) =>
+      `${theme.spaces.sm} ${theme.spaces.sm} ${theme.spaces.sm} ${theme.spaces.md}`};
+    background-color: ${({ theme }) => `${theme.colors.grayLighter}`};
+    border-left: 3px solid ${({ theme }) => `${theme.colors.yellow}`};
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {

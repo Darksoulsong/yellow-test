@@ -91,8 +91,6 @@ export const Blog = ({
     }
   };
 
-  console.log({ pageNumber });
-
   useEffect(() => {
     AOS.init({
       duration: 500,
