@@ -65,7 +65,55 @@ export const handleBlogIndexPage = (page = 1, categorySlugParam) => {
   };
 };
 
-export const handleBlogCategoriesPagePaths = () => {
+export const handleBlogCategoriesPagePaths = (forceLimitLength = 10) => {
+  const categories = getCategories();
+  const posts = [];
+
+  contextIterator(document => {
+    const post = {
+      ...document.data,
+    };
+
+    posts.push(post);
+
+    const hasCategory = categories.find(
+      item => item.category === post.category
+    );
+
+    if (!hasCategory) {
+      categories.push({
+        category: post.category,
+        categorySlug: post.categorySlug,
+      });
+    }
+  });
+
+  let paths = categories.map(item => {
+    const path = `/blog/categorias/${item.categorySlug}`;
+    const categoryPosts = posts.filter(
+      post => post.categorySlug === item.categorySlug
+    );
+    let pathsArray = [];
+    let limit = categoryPosts.length;
+
+    if (forceLimitLength && categoryPosts.length > forceLimitLength) {
+      limit = forceLimitLength;
+    }
+
+    for (let index = 0; index < limit; index++) {
+      pathsArray.push(`${path}/${index + 1}`);
+    }
+
+    pathsArray.unshift(path);
+    return pathsArray;
+  });
+
+  paths = [].concat(...paths);
+
+  return paths;
+};
+
+export const handleBlogCategoriesPagePathsFallback = () => {
   const categories = getCategories();
   const posts = [];
 
@@ -93,6 +141,7 @@ export const handleBlogCategoriesPagePaths = () => {
     const postsByCategory = posts.filter(
       post => post.categorySlug === item.categorySlug
     );
+
     const pathsArray = postsByCategory.map(
       (_, index) => `${path}/${index + 1}`
     );

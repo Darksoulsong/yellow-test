@@ -9,9 +9,9 @@ export const Container = styled.div`
   justify-content: center;
   margin: ${({ theme }) => `0 ${theme.spaces.xsm}`};
   background: ${({ theme, active }) =>
-    active ? theme.colors.white : theme.colors.yellow};
+    active ? theme.colors.yellow : theme.colors.white};
   color: ${({ theme, active }) =>
-    active ? theme.colors.yellow : theme.colors.black};
+    active ? theme.colors.black : theme.colors.yellow};
   font-weight: 700;
   user-select: none;
   border: 1px solid ${({ theme }) => `${theme.colors.yellow}`};

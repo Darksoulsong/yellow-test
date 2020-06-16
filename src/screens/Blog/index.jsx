@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { uid } from 'react-uid';
+import { useRouter } from 'next/router';
 import AOS from 'aos';
 import { PAGINATION_ITEMS_PER_PAGE } from '@config';
-import { DocumentTitle } from '@components';
+import { DocumentTitle, Loader } from '@components';
 import { routeTo } from '@utils';
 
 import {
@@ -34,6 +35,10 @@ import {
 } from './styles';
 
 const sortCategories = (list, categorySlug) => {
+  if (!list.length) {
+    return [];
+  }
+
   let sortedList = list.sort((a, b) => {
     if (a.categorySlug < b.categorySlug) {
       return -1;
@@ -45,9 +50,11 @@ const sortCategories = (list, categorySlug) => {
   });
 
   if (categorySlug) {
-    const activeItem = list.find(item => item.categorySlug === categorySlug);
+    const activeCategory = list.find(
+      item => item.categorySlug === categorySlug
+    );
     sortedList = list.filter(item => item.categorySlug !== categorySlug);
-    sortedList.unshift(activeItem);
+    sortedList.unshift(activeCategory);
   }
 
   return sortedList;
@@ -62,6 +69,7 @@ export const Blog = ({
   pageNumber,
   categorySlug,
 }) => {
+  const router = useRouter();
   const { isMedium } = useScreenWidth();
   const cards = !isMedium ? posts.slice(0, 8) : posts;
   const featuredPost = featuredList && featuredList[0];
@@ -83,6 +91,8 @@ export const Blog = ({
     }
   };
 
+  console.log({ pageNumber });
+
   useEffect(() => {
     AOS.init({
       duration: 500,
@@ -90,7 +100,7 @@ export const Blog = ({
   }, []);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout isLoading={router.isFallback}>
       <DocumentTitle>{documentTitle}</DocumentTitle>
       <ContainerWithPadding>
         <BlogTopContainer>
@@ -190,5 +200,11 @@ export const Blog = ({
 };
 
 Blog.defaultProps = {
+  posts: [],
+  totalPosts: 0,
+  categories: [],
+  featuredList: [],
   documentTitle: 'Blog',
+  pageNumber: 1,
+  categorySlug: null,
 };

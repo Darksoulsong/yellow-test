@@ -9,11 +9,12 @@ import { Blog } from '@screens';
 
 const CategoryPosts = params => {
   const router = useRouter();
-  const [categorySlug] = router.query.params;
+  const [categorySlug, pageNumber] = router.query.params;
   const categoryName = getCategoryNameByCategorySlug(categorySlug);
   const pageParams = {
     ...params,
     categorySlug,
+    pageNumber,
     documentTitle: `Artigos da categoria "${categoryName}"`,
   };
 
@@ -23,8 +24,7 @@ const CategoryPosts = params => {
 export default CategoryPosts;
 
 export async function getStaticProps(ctx) {
-  const { params } = ctx.params;
-  const [category, pageNumber] = params;
+  const [category, pageNumber] = ctx.params.params;
   const { posts, totalPosts, categories, featuredList } = handleBlogIndexPage(
     pageNumber,
     category
@@ -41,10 +41,10 @@ export async function getStaticProps(ctx) {
 }
 
 export async function getStaticPaths() {
-  const { paths } = handleBlogCategoriesPagePaths();
+  const paths = handleBlogCategoriesPagePaths(1);
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
