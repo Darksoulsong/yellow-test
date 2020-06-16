@@ -183,7 +183,7 @@ export const Blog = ({
           />
         )}
 
-        <Suscribe padding={`${spaces.sm} 0 ${spaces.md} 0`} />
+        <Suscribe padding={`${spaces.xlg} 0`} />
       </ContainerWithPadding>
     </DefaultLayout>
   );

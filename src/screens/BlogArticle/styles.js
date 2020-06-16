@@ -181,7 +181,15 @@ export const ContentContainer = styled.div`
     text-align: left;
     font-size: 2rem;
     font-weight: 700;
-    margin-bottom: ${({ theme }) => theme.spaces.xsm};
+    margin: ${({ theme }) => `${theme.spaces.sm} 0 ${theme.spaces.xsm}`};
+  }
+
+  ul {
+    padding-top: ${({ theme }) => `${theme.spaces.sm}`};
+
+    li {
+      padding: ${({ theme }) => `${theme.spaces.xsm} 0 0 ${theme.spaces.sm}`};
+    }
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {

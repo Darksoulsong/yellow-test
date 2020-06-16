@@ -40,5 +40,9 @@ export const SuscribeHolder = styled.div`
     padding: ${({ theme }) => theme.spaces.sm};
     font-size: 1.75rem;
     text-transform: lowercase;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.white};
+    }
   }
 `;

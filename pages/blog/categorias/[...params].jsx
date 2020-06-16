@@ -24,8 +24,7 @@ export default CategoryPosts;
 
 export async function getStaticProps(ctx) {
   const { params } = ctx.params;
-  const category = params[0];
-  const pageNumber = params[1];
+  const [category, pageNumber] = params;
   const { posts, totalPosts, categories, featuredList } = handleBlogIndexPage(
     pageNumber,
     category
