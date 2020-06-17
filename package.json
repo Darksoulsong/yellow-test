@@ -17,6 +17,7 @@
     "formik": "2.1.4",
     "formik-wizard": "^3.1.2",
     "gray-matter": "^4.0.2",
+    "netlify-cms": "^2.10.50",
     "next": "9.4.4",
     "nuka-carousel": "^4.6.7",
     "prop-types": "15.7.2",

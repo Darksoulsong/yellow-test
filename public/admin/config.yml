@@ -1,0 +1,26 @@
+backend:
+  name: yellow-website
+  branch: master
+media_folder: public/media # images that are uploaded via Netlify Cms interface will be stored in this folder
+public_folder: public
+collections:
+  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+    label: 'BlogPost' # Used in the UI
+    folder: 'posts' # The path to the folder where the markdown files are stored
+    create: true # Allow users to create new markdown files.
+    # slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Título', name: 'title', widget: 'string' }
+      - { label: 'Autor', name: 'author', widget: 'string' }
+      - { label: 'Artigo em destaque?', name: 'featured', widget: 'boolean' }
+      - { label: 'Categoria', name: 'category', widget: 'string' }
+      - { label: 'Data de Publicação', name: 'publishDate', widget: 'datetime' }
+      - { label: 'Imagem', name: 'image', widget: 'image' }
+      - { label: 'Slug', name: 'slug', widget: 'string' }
+      - { label: 'Slug da Categoria', name: 'categorySlug', widget: 'string' }
+      - {
+          label: 'Artigo aparece no slider?',
+          name: 'highlighted',
+          widget: 'boolean',
+        }

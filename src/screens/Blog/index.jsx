@@ -3,7 +3,7 @@ import { uid } from 'react-uid';
 import { useRouter } from 'next/router';
 import AOS from 'aos';
 import { PAGINATION_ITEMS_PER_PAGE } from '@config';
-import { DocumentTitle } from '@components';
+import { DocumentTitle, Button } from '@components';
 import { routeTo } from '@utils';
 
 import {
@@ -102,11 +102,13 @@ export const Blog = ({
       <DocumentTitle>{documentTitle}</DocumentTitle>
       <ContainerWithPadding>
         <BlogTopContainer>
-          <BlogLogo>
-            <Circle>
-              <SVG style={{ fill: 'black' }} name="logo" />
-            </Circle>
-          </BlogLogo>
+          <Button version="unstyled" onClick={() => routeTo('/blog')}>
+            <BlogLogo title="Voltar para o feed">
+              <Circle>
+                <SVG style={{ fill: 'black' }} name="logo" />
+              </Circle>
+            </BlogLogo>
+          </Button>
           <BlogColResponsive>
             <MediumTitle>
               YELLOW<strong>BLOG</strong>
@@ -202,6 +204,7 @@ Blog.defaultProps = {
   totalPosts: 0,
   categories: [],
   features: [],
+  highlights: [],
   documentTitle: 'Blog',
   pageNumber: 1,
   categorySlug: null,
