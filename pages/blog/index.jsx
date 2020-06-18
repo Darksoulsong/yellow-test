@@ -10,7 +10,7 @@ export default BlogIndex;
 
 export async function getStaticProps({ params }) {
   const pageNumber = params ? params.params[0] : 1;
-  const categorySlug = params ? params.params[1] : null;
+  let categorySlug = params && params.params[1] ? params.params[1] : null;
   const props = handleBlogIndexPage(pageNumber);
 
   return {

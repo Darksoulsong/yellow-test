@@ -1,13 +1,14 @@
 ---
-title: 'Acompanhamento das preferências de consumo'
-author: 'John Doe'
+categorySlug: carreira
+author: John Doe
+slug: lorem-ipsum
+title: A revolução dos costumes
+category: Carreira
+publishDate: 2020-06-17T16:14:49.477Z
+image: /uploads/placeholder.jpg
 featured: false
-category: 'Entrevista'
-publishDate: 2020-05-02T11:26:17.668Z
-image: '/images/placeholder.jpg'
-highlighted: false
+highlighted: true
 ---
-
 No mundo atual, o novo modelo estrutural aqui preconizado deve passar por modificações independentemente das regras de conduta **normativas**. Ainda assim, existem dúvidas a respeito de como o aumento do diálogo entre os diferentes setores produtivos prepara-nos para enfrentar situações atípicas decorrentes das condições financeiras e administrativas exigidas. Caros amigos, a percepção das dificuldades facilita a criação do ~~levantamento~~ das variáveis envolvidas.
 
 1. O cuidado em identificar pontos críticos 2. no entendimento das metas propostas exige 3. a precisão e a definição do investimento em reciclagem técnica.

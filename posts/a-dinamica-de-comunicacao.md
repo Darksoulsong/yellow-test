@@ -3,10 +3,8 @@ title: 'A dinâmica de comunicação'
 author: 'Daniel Monteiro'
 featured: true
 category: 'Carreira'
-publishDate: '2020-05-01T11:26:17.668Z'
+publishDate: 2020-05-01T11:26:17.668Z
 image: 'https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg'
-slug: 'a-dinamica-de-comunicacao'
-categorySlug: 'carreira'
 highlighted: true
 ---
 

@@ -3,10 +3,8 @@ title: 'O Fenômeno da Internet'
 author: 'John Doe'
 featured: false
 category: 'Tendências de Mercado'
-publishDate: '2020-03-06T11:26:17.668Z'
+publishDate: 2020-03-06T11:26:17.668Z
 image: '/images/placeholder.jpg'
-slug: 'o-fenomeno-da-internet'
-categorySlug: 'tendencias-de-mercado'
 highlighted: true
 ---
 

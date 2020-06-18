@@ -3,10 +3,8 @@ title: 'O surgimento do comércio virtual'
 author: 'Jane Doe'
 featured: false
 category: 'Entrevista'
-publishDate: '2020-05-07T11:26:17.668Z'
+publishDate: 2020-05-07T11:26:17.668Z
 image: '/images/placeholder.jpg'
-slug: 'o-surgimento-do-comercio-virtual'
-categorySlug: 'entrevista'
 highlighted: true
 ---
 

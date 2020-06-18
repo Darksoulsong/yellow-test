@@ -1,26 +1,59 @@
 backend:
-  name: yellow-website
-  branch: master
-media_folder: public/media # images that are uploaded via Netlify Cms interface will be stored in this folder
-public_folder: public
+  name: git-gateway
+  branch: feat/netlify-cms
+local_backend: true
+publish_mode: editorial_workflow
+
+media_folder: /uploads
+
 collections:
-  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
-    label: 'BlogPost' # Used in the UI
-    folder: 'posts' # The path to the folder where the markdown files are stored
-    create: true # Allow users to create new markdown files.
-    # slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+  - name: 'blog'
+    label: 'Artigos'
+    folder: 'posts'
+    create: true
+    delete: true
     slug: '{{slug}}'
+
     fields:
-      - { label: 'Título', name: 'title', widget: 'string' }
-      - { label: 'Autor', name: 'author', widget: 'string' }
-      - { label: 'Artigo em destaque?', name: 'featured', widget: 'boolean' }
-      - { label: 'Categoria', name: 'category', widget: 'string' }
-      - { label: 'Data de Publicação', name: 'publishDate', widget: 'datetime' }
-      - { label: 'Imagem', name: 'image', widget: 'image' }
-      - { label: 'Slug', name: 'slug', widget: 'string' }
-      - { label: 'Slug da Categoria', name: 'categorySlug', widget: 'string' }
+      - { label: 'Título', name: 'title', widget: 'string', required: true }
+      - { label: 'Autor', name: 'author', widget: 'string', required: true }
+      - {
+          label: 'Categoria',
+          name: 'category',
+          collection: 'categories',
+          widget: 'relation',
+          required: true,
+          searchFields: 'title',
+          valueField: 'title',
+          displayFields: ['title'],
+        }
+      - {
+          label: 'Data de Publicação',
+          name: 'publishDate',
+          widget: 'datetime',
+          required: true,
+        }
+      - { label: 'Imagem', name: 'image', widget: 'image', required: true }
+      - {
+          label: 'Artigo em destaque?',
+          name: 'featured',
+          widget: 'boolean',
+          required: true,
+        }
       - {
           label: 'Artigo aparece no slider?',
           name: 'highlighted',
           widget: 'boolean',
         }
+      - { label: 'Corpo', name: 'body', widget: 'markdown' }
+
+  - name: 'categories'
+    label: 'Categorias'
+    identifier_field: slug
+    folder: 'categories'
+    slug: '{{slug}}'
+    # slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    create: true
+    delete: true
+    fields:
+      - { label: 'Título', name: 'title', widget: 'string', required: true }

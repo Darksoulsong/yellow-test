@@ -3,10 +3,8 @@ title: 'Estratégia em um novo paradigma globalizado'
 author: 'John Doe'
 featured: false
 category: 'Carreira'
-publishDate: '2020-05-04T11:26:17.668Z'
+publishDate: 2020-05-04T11:26:17.668Z
 image: '/images/placeholder.jpg'
-slug: 'estrategia-em-um-novo-paradigma-globalizado'
-categorySlug: 'carreira'
 highlighted: false
 ---
 

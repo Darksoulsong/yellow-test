@@ -64,14 +64,14 @@ export const Blog = ({
   totalPosts,
   categories,
   features,
-  highlights,
+  posts,
   documentTitle,
   pageNumber,
   categorySlug,
 }) => {
   const router = useRouter();
   const { isMedium } = useScreenWidth();
-  const cards = !isMedium ? highlights.slice(0, 8) : highlights;
+  const cards = !isMedium ? posts.slice(0, 8) : posts;
   const featuresPost = features && features[0];
   const paginationTotalPages = Math.ceil(
     totalPosts / PAGINATION_ITEMS_PER_PAGE

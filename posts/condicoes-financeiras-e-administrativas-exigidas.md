@@ -3,10 +3,8 @@ title: 'Condições financeiras e administrativas exigidas'
 author: 'John Doe'
 featured: false
 category: 'Tendências de Mercado'
-publishDate: '2020-05-03T11:26:17.668Z'
+publishDate: 2020-05-03T11:26:17.668Z
 image: '/images/placeholder.jpg'
-slug: 'condicoes-financeiras-e-administrativas-exigidas'
-categorySlug: 'tendencias-de-mercado'
 highlighted: true
 ---
 

@@ -29,7 +29,7 @@ export async function getStaticProps(ctx) {
 }
 
 export async function getStaticPaths() {
-  const blogSlugs = getSlugs(require.context('../../../posts', true, /\.md$/));
+  const blogSlugs = getSlugs();
   const paths = blogSlugs.map(slug => `/blog/artigos/${slug}`);
 
   return {
