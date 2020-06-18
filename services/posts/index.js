@@ -34,7 +34,10 @@ export const getCategoryNameByCategorySlug = slug => {
   let name = '';
   const categories = getCategories();
 
-  for (let index = 0; index < categories.length; index++) {
+  let index;
+  const categoriesLength = categories.length;
+
+  for (index = 0; index !== categoriesLength; index++) {
     const item = categories[index];
 
     if (slug === item.categorySlug) {
