@@ -3,7 +3,6 @@ import { uid } from 'react-uid';
 import { useRouter } from 'next/router';
 import AOS from 'aos';
 import { PAGINATION_ITEMS_PER_PAGE } from '@config';
-import { DocumentTitle, Button } from '@components';
 import { routeTo } from '@utils';
 
 import {
@@ -15,6 +14,8 @@ import {
   Pagination,
   Suscribe,
   DefaultLayout,
+  DocumentTitle,
+  Button,
 } from '@components';
 
 import { spaces } from '@components/Organisms/Theme/sizes';
@@ -32,6 +33,7 @@ import {
   ContainerWithPadding,
   CustomText,
   ColImgSVGContainer,
+  EmptyPosts,
 } from './styles';
 
 const sortCategories = (list, categorySlug) => {
@@ -53,8 +55,11 @@ const sortCategories = (list, categorySlug) => {
     const activeCategory = list.find(
       item => item.categorySlug === categorySlug
     );
-    sortedList = list.filter(item => item.categorySlug !== categorySlug);
-    sortedList.unshift(activeCategory);
+
+    if (activeCategory) {
+      sortedList = list.filter(item => item.categorySlug !== categorySlug);
+      sortedList.unshift(activeCategory);
+    }
   }
 
   return sortedList;
@@ -170,18 +175,24 @@ export const Blog = ({
         )}
 
         <CardsContainer>
-          {cards.map((item, index) => (
-            <Card
-              width="50%"
-              mdWidth="33.33%"
-              padding={`${spaces.xsm}`}
-              paddingDesktop={`${spaces.xsm} 1%`}
-              key={uid(item, index)}
-              text={item.title}
-              img={item.image}
-              slug={item.slug}
-            />
-          ))}
+          {!!cards.length &&
+            cards.map((item, index) => (
+              <Card
+                width="50%"
+                mdWidth="33.33%"
+                padding={`${spaces.xsm}`}
+                paddingDesktop={`${spaces.xsm} 1%`}
+                key={uid(item, index)}
+                text={item.title}
+                img={item.image}
+                slug={item.slug}
+              />
+            ))}
+          {cards.length === 0 && (
+            <EmptyPosts>
+              <CustomText>Nada a listar</CustomText>
+            </EmptyPosts>
+          )}
         </CardsContainer>
 
         {paginationTotalPages > 1 && (

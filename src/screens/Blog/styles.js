@@ -148,3 +148,12 @@ export const Underline = styled.span`
   box-shadow: ${({ theme }) =>
     `inset 0 0px 0 white, inset 0 -5px 0 ${theme.colors.yellow}`};
 `;
+
+export const EmptyPosts = styled.div`
+  margin: ${({ theme }) => theme.spaces.md} 0;
+  width: 100%;
+
+  p {
+    text-align: center;
+  }
+`;
