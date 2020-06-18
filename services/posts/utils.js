@@ -6,6 +6,11 @@ export const getDocument = value => matter(value);
 
 export const dateFormat = date => new Date(date).toDateString();
 
+/**
+ * Reads a directory, based on resource type
+ * NOTE: Webpack's require.context params are statically evaluated and cannot be passed as variables
+ * @param {'posts' | 'category'} type
+ */
 export const readDirectory = type => {
   const context =
     type === 'posts'
@@ -27,9 +32,9 @@ export const contextIterator = (type, callback) => {
     const key = keys[index];
     const document = getDocument(values[index].default);
     const result = callback(document, index, data, key);
-    const shouldBreak = result === true;
+    const shouldBreakLoop = result === true;
 
-    if (shouldBreak === true) {
+    if (shouldBreakLoop === true) {
       break;
     }
 
