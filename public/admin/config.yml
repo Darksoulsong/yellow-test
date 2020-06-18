@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: feat/netlify-cms
+  branch: master
 local_backend: true
 publish_mode: editorial_workflow
 
@@ -26,6 +26,8 @@ collections:
           searchFields: 'title',
           valueField: 'title',
           displayFields: ['title'],
+          hint: 'Atribua aqui uma categoria para o artigo. Novas categorias podem ser cadastradas em "Categorias", a partir do menu principal. Todo novo artigo é definido como "Sem Categoria" por padrão',
+          default: 'Sem Categoria',
         }
       - {
           label: 'Data de Publicação',
@@ -39,11 +41,13 @@ collections:
           name: 'featured',
           widget: 'boolean',
           required: true,
+          hint: 'O artigo marcado como "destaque" será destacado no topo da página inicial do blog',
         }
       - {
           label: 'Artigo aparece no slider?',
           name: 'highlighted',
           widget: 'boolean',
+          hint: 'Sinalize aqui se o artigo deve aparecer no slider de artigos destacados na visualização de artigo',
         }
       - { label: 'Corpo', name: 'body', widget: 'markdown' }
 
