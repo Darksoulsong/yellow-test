@@ -12,11 +12,14 @@ import {
 } from './styles';
 
 // Temporary code
-const routeToContent = () => routeTo('/blog-artigo');
+const routeToContent = slug => {
+  routeTo(`/blog/artigos/${slug}`);
+};
 
 export const Card = ({
   text,
   img,
+  slug,
   width,
   mdWidth,
   likes = 0,
@@ -29,7 +32,7 @@ export const Card = ({
     paddingDesktop={paddingDesktop}
     width={width}
     mdWidth={mdWidth}
-    onClick={routeToContent}
+    onClick={() => routeToContent(slug)}
   >
     <CardSquare>
       <CardInteractions>

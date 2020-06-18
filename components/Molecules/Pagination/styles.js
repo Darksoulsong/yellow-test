@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const PaginationList = styled.ul`
   list-style: none;
   display: flex;
-  margin: ${({ theme }) => `${theme.spaces.lgh} 0`};
+  margin: ${({ theme }) => `${theme.spaces.lgh} 0 0`};
   padding: 0;
   justify-content: center;
   align-items: center;

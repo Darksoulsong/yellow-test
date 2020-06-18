@@ -26,7 +26,7 @@ export default function FileUploadField({
     return `${maxFileSize / 1000}KB`;
   }, [maxFileSize]);
 
-  const handleChange = React.useCallback(e => {
+  const handleChange = e => {
     let theFile = null;
 
     if (e.target.files.length) {
@@ -44,7 +44,7 @@ export default function FileUploadField({
     if (typeof onChange === 'function') {
       onChange(e, theFile);
     }
-  }, []);
+  };
 
   return (
     <FileUploadFieldRoot>

@@ -3,6 +3,7 @@ export * from './mask';
 export * from './object';
 export * from './form';
 export * from './function';
+export * from './array';
 
 export const getDesktopFirstMediaQuery = mediaQueryString => {
   const toNumber = +mediaQueryString.replace('px', '') - 1;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { uid } from 'react-uid';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { DocumentTitle } from '@components';
 
 import {
   SVG,
@@ -14,7 +14,6 @@ import {
 } from '@components';
 import { useScreenWidth } from '@hooks';
 
-import { articles, mockedHTML } from './mocked';
 import { spaces } from '@components/Organisms/Theme/sizes';
 import { intBreakpoints } from '@components/Organisms/Theme/breakpoints';
 
@@ -34,7 +33,7 @@ import {
   LinkText,
 } from './styles';
 
-export const BlogArticle = () => {
+export const BlogArticle = ({ post, highlights, documentTitle }) => {
   const [cardsShownAtSlider, setCardsShownAtSlider] = useState(2);
   const { screenWidth } = useScreenWidth();
 
@@ -54,6 +53,7 @@ export const BlogArticle = () => {
 
   return (
     <DefaultLayout>
+      <DocumentTitle>{documentTitle}</DocumentTitle>
       <ContainerWithPadding>
         <BlogTopContainer>
           <BlogLogo>
@@ -62,11 +62,9 @@ export const BlogArticle = () => {
             </Circle>
           </BlogLogo>
           <BlogCol>
-            <CustomTitle>
-              A DINÂMICA DE <strong>COMUNICAÇÃO</strong>
-            </CustomTitle>
+            <CustomTitle>{post.title}</CustomTitle>
             <CustomText margin={`${spaces.xsm} 0 0 0`}>
-              Daniel Monteiro
+              {post.author}
             </CustomText>
           </BlogCol>
         </BlogTopContainer>
@@ -78,10 +76,10 @@ export const BlogArticle = () => {
             </Link>
           </BlogBack>
           <SVG name="three-line-thicker-icon" />
-          <Image src="https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg" />
+          <Image src={post.image} />
         </BlogColImage>
 
-        <ContentContainer dangerouslySetInnerHTML={{ __html: mockedHTML }} />
+        <ContentContainer>{post.body}</ContentContainer>
 
         <LikesAndComments />
 
@@ -90,14 +88,15 @@ export const BlogArticle = () => {
             itemsShowing={cardsShownAtSlider}
             specialLgMargin="0 -1%"
           >
-            {articles.map((item, index) => (
+            {highlights.map((item, index) => (
               <Card
                 padding="0 1%"
                 width="50%"
                 mdWidth="33.33%"
                 key={uid(item, index)}
-                text={item.text}
+                text={item.title}
                 img={item.image}
+                slug={item.slug}
               />
             ))}
           </SliderMultiple>

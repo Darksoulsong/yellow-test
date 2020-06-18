@@ -3,7 +3,6 @@ import { useCollapsible } from './index';
 import {
   CollapsibleDefaultToggleIcon,
   CollapsibleHeader,
-  CollapsibleHeaderIconHolder,
   CollapsibleHeaderLabel,
 } from './styles';
 
@@ -22,9 +21,9 @@ export default function Toggle({ children, itemIndex, renderIcon }) {
       </CollapsibleDefaultToggleIcon>
     );
 
-  const handleClick = React.useCallback(() => {
+  const handleClick = () => {
     setActiveItem(isActive ? null : itemIndex);
-  }, [itemIndex, activeItem]);
+  };
 
   return (
     <CollapsibleHeader onClick={handleClick}>

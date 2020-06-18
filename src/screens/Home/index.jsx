@@ -54,7 +54,6 @@ import {
   ShowOnTabletOnly,
   ShowOnDesktop,
 } from './styles';
-import 'aos/dist/aos.css';
 
 const HomeScreen = () => {
   const { openFormModal } = useFormModal();

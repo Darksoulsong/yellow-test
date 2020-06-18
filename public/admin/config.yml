@@ -1,0 +1,82 @@
+backend:
+  name: git-gateway
+  branch: master
+
+local_backend: true
+publish_mode: editorial_workflow
+
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+  sanitize_replacement: '_'
+
+media_folder: /uploads
+
+collections:
+  - name: 'blog'
+    label: 'Artigos'
+    folder: 'posts'
+    create: true
+    delete: true
+
+    slug: '{{slug}}'
+
+    # slug:
+    #   encoding: 'ascii'
+    #   clean_accents: true
+    #   sanitize_replacement: '_'
+
+    fields:
+      - {
+          label: 'Título',
+          name: 'title',
+          widget: 'string',
+          required: true,
+          hint: 'O título do artivo determinará o seu slug (link) dentro do blog',
+        }
+      - { label: 'Autor', name: 'author', widget: 'string', required: true }
+      - {
+          label: 'Categoria',
+          name: 'category',
+          collection: 'categories',
+          widget: 'relation',
+          required: true,
+          searchFields: 'title',
+          valueField: 'title',
+          displayFields: ['title'],
+          hint: 'Atribua uma categoria para o artigo. Novas categorias podem ser cadastradas em "Categorias", a partir do menu principal. Todo novo artigo é definido como "Sem Categoria" por padrão',
+          default: 'Sem Categoria',
+        }
+      - {
+          label: 'Data de Publicação',
+          name: 'publishDate',
+          widget: 'datetime',
+          required: true,
+          hint: 'A data de publicação determinará a ordenação dos artigos dentro das listagens de forma descendente (o artigo mais novo aparecerá primeiro)',
+        }
+      - { label: 'Imagem', name: 'image', widget: 'image', required: true }
+      - {
+          label: 'Artigo em destaque?',
+          name: 'featured',
+          widget: 'boolean',
+          default: false,
+          hint: 'O artigo marcado como "destaque" será destacado no topo da página inicial do blog',
+        }
+      - {
+          label: 'Artigo aparece no slider?',
+          name: 'highlighted',
+          widget: 'boolean',
+          default: false,
+          hint: 'Sinalize aqui se o artigo deve aparecer no slider de artigos destacados na visualização de artigo',
+        }
+      - { label: 'Corpo', name: 'body', widget: 'markdown', required: true }
+
+  - name: 'categories'
+    label: 'Categorias'
+    identifier_field: slug
+    folder: 'categories'
+    slug: '{{slug}}'
+    create: true
+    delete: true
+    fields:
+      - { label: 'Título', name: 'title', widget: 'string', required: true }
