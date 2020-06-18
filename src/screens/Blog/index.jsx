@@ -85,6 +85,7 @@ export const Blog = ({
 
   const onPaginationClick = nextPage => {
     let route = '/blog';
+
     if (categorySlug) {
       route += `/categorias/${categorySlug}/${nextPage}`;
     } else {
